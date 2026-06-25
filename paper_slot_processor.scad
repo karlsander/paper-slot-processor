@@ -39,6 +39,7 @@ wiper_slope_height = 16;
 inlets_enabled = true;
 inlets_on_left_side = true;
 inlet_opening_diameter = 25;
+inlet_cap_land_height = 10;
 inlet_pool_diameter = slot_gap;
 inlet_pool_below_fill = 2;
 inlet_overlap_into_slot = 2;
@@ -46,6 +47,7 @@ inlet_wall = 4;
 inlet_top_y_offset = 8;
 inlet_facets = 64;
 inlet_throat_height = 6;
+inlet_splash_wall_thickness = 2;
 
 // Wall and print parameters.
 wall_thickness = 4;
@@ -73,6 +75,7 @@ outer_height = inner_height + floor_thickness;
 wiper_apex_z = outer_height - clip_pocket_depth;
 wiper_edge_z = wiper_apex_z - wiper_slope_height;
 inlet_pool_z = wiper_edge_z - inlet_pool_below_fill;
+inlet_cap_land_z = outer_height - inlet_cap_land_height;
 bottom_z = (test_print && !test_print_base) ? 0 : -base_height;
 
 function slot_y0(slot_index) =
@@ -97,6 +100,24 @@ function inlet_top_y(slot_index) =
     slot_yc(slot_index) +
     (test_print ? 0 : (slot_index == 0 ? -inlet_top_y_offset
                                        : inlet_top_y_offset));
+
+function inlet_inner_edge_x() =
+    inlets_on_left_side
+        ? inlet_x() + inlet_opening_diameter / 2
+        : inlet_x() - inlet_opening_diameter / 2;
+
+function clip_channel_x0() =
+    inlets_enabled && inlets_on_left_side
+        ? inlet_inner_edge_x() + inlet_splash_wall_thickness
+        : wall_thickness - eps;
+
+function clip_channel_x1() =
+    inlets_enabled && !inlets_on_left_side
+        ? inlet_inner_edge_x() - inlet_splash_wall_thickness
+        : wall_thickness + inner_width + eps;
+
+function clip_channel_width() =
+    max(eps, clip_channel_x1() - clip_channel_x0());
 
 module x_extruded_yz(x_start, length, points_yz, convexity = 10) {
     translate([x_start, 0, 0])
@@ -130,23 +151,23 @@ module paper_clip_channel_void(slot_index) {
     yc = slot_yc(slot_index);
 
     translate([
-        wall_thickness - eps,
+        clip_channel_x0(),
         yc - paper_slit_width / 2,
         wiper_apex_z - eps
     ])
         cube([
-            inner_width + 2 * eps,
+            clip_channel_width(),
             paper_slit_width,
             outer_height - wiper_apex_z + 2 * eps
         ]);
 
     translate([
-        wall_thickness - eps,
+        clip_channel_x0(),
         yc - clip_pocket_top_width / 2,
         wiper_apex_z - eps
     ])
         cube([
-            inner_width + 2 * eps,
+            clip_channel_width(),
             clip_pocket_top_width,
             clip_pocket_depth + 2 * eps
         ]);
@@ -176,14 +197,25 @@ module inlet_void(slot_index) {
             translate([
                 inlet_x(),
                 inlet_top_y(slot_index),
-                outer_height - join_overlap
+                inlet_cap_land_z - join_overlap
             ])
                 cylinder(
-                    h = join_overlap + eps,
+                    h = join_overlap,
                     d = inlet_opening_diameter,
                     $fn = inlet_facets
                 );
         }
+
+        translate([
+            inlet_x(),
+            inlet_top_y(slot_index),
+            inlet_cap_land_z - join_overlap
+        ])
+            cylinder(
+                h = inlet_cap_land_height + join_overlap + eps,
+                d = inlet_opening_diameter,
+                $fn = inlet_facets
+            );
 
         translate([
             throat_x0,
@@ -226,7 +258,7 @@ module inlet_body(slot_index) {
             translate([
                 inlet_x(),
                 inlet_top_y(slot_index),
-                outer_height - join_overlap
+                inlet_cap_land_z - join_overlap
             ])
                 cylinder(
                     h = join_overlap,
@@ -234,6 +266,17 @@ module inlet_body(slot_index) {
                     $fn = inlet_facets
                 );
         }
+
+        translate([
+            inlet_x(),
+            inlet_top_y(slot_index),
+            inlet_cap_land_z - join_overlap
+        ])
+            cylinder(
+                h = inlet_cap_land_height + join_overlap,
+                d = inlet_opening_diameter + 2 * inlet_wall,
+                $fn = inlet_facets
+            );
     }
 }
 
