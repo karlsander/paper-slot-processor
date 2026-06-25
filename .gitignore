@@ -1,0 +1,18 @@
+# macOS
+.DS_Store
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Build & validation output (OpenSCAD renders/meshes, slices, summaries)
+build/
+
+# Bambu Studio CLI sidecar written to the working directory
+result.json
+
+# Editors
+.vscode/
+.idea/
