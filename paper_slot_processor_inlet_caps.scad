@@ -8,9 +8,9 @@
 $fn = 64;
 
 // Match these to the inlet settings in paper_slot_processor.scad.
-inlet_opening_diameter = 25;
+inlet_opening_diameter = 30;   // funnel mouth bore (cap plug seats in this)
 inlet_cap_land_height = 10;
-inlet_wall = 4;
+inlet_wall_top = 2;            // thin wall at the mouth; flange rests on this rim
 
 // Fit and cap geometry.
 cap_clearance = 0.35;
@@ -24,7 +24,7 @@ cap_pull_diameter_bottom = 18;
 cap_pull_diameter_top = 14;
 
 plug_diameter = inlet_opening_diameter - 2 * cap_clearance;
-flange_diameter = inlet_opening_diameter + 2 * inlet_wall + 2 * cap_flange_overhang;
+flange_diameter = inlet_opening_diameter + 2 * inlet_wall_top + 2 * cap_flange_overhang;
 shoulder_height = (flange_diameter - plug_diameter) / 2 * cap_shoulder_slope;
 
 module inlet_cap() {

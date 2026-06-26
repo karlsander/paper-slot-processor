@@ -19,19 +19,19 @@ $fn = 64;
 wall_thickness = 4;
 inner_width = 136;            // paper_width + 2 * side_clearance.
 slot_gap = 12;
-clip_pocket_top_width = 12;   // Width (Y) of the open slot at the top face.
-clip_pocket_depth = 24;       // Pocket depth before the slot necks to the slit.
+clip_pocket_top_width = 12;   // Mouth width (Y) of the open slot at the top face.
+clip_pocket_depth = 10;       // Top funnel region depth (mouth necks to the slit below).
 
 inlets_enabled = true;        // Side inlets shorten the usable slot in X.
-inlet_opening_diameter = 25;
+inlet_opening_diameter = 30;
 inlet_overlap_into_slot = 2;
 inlet_splash_wall_thickness = 2;
 // ----------------------------------------------------------------------------
 
 // Fit and cap geometry.
 cap_clearance = 0.35;         // Per-side gap between the locating rib and slot.
-rib_depth = 10;               // How far the rib noses in (< clip_pocket_depth).
-rib_lead_in = 1.2;            // Chamfer at the rib tip for easy starting.
+rib_depth = 5;                // How far the rib noses into the funnel (< funnel depth).
+rib_tip_width = 2;            // Narrow Y at the rib tip, matching the funnel taper.
 lid_thickness = 3;
 lid_overhang_y = 1.5;         // Lip onto the top face each side (Y).
 lid_overhang_x = 2;           // Lip onto the end walls (X).
@@ -47,33 +47,23 @@ inlet_intrusion = inlets_enabled
 slot_length = inner_width - inlet_intrusion;
 slot_width = clip_pocket_top_width;
 
-rib_x = slot_length - 2 * cap_clearance;
+rib_end_inset = clip_pocket_top_width / 2;   // clear the slot's rounded (pill) ends
+rib_x = slot_length - 2 * rib_end_inset - 2 * cap_clearance;
 rib_y = slot_width - 2 * cap_clearance;
 lid_x = slot_length + 2 * lid_overhang_x;
 lid_y = slot_width + 2 * lid_overhang_y;
 
 module rib_solid() {
-    // Straight body...
-    translate([-rib_x / 2, -rib_y / 2, 0])
-        cube([rib_x, rib_y, rib_depth - rib_lead_in + eps]);
+    // Wedge tapering in Y (full slot mouth width at the lid, narrowing to a blunt
+    // tip) so it nestles into the slot's top funnel instead of jamming on it.
+    // Prints supportless as modelled: the tip points up and narrows.
+    hull() {
+        translate([-rib_x / 2, -rib_y / 2, 0])
+            cube([rib_x, rib_y, eps]);
 
-    // ...tapering to a smaller tip so it starts easily and prints supportless.
-    translate([0, 0, rib_depth - rib_lead_in])
-        hull() {
-            translate([-rib_x / 2, -rib_y / 2, 0])
-                cube([rib_x, rib_y, eps]);
-
-            translate([
-                -(rib_x - 2 * rib_lead_in) / 2,
-                -(rib_y - 2 * rib_lead_in) / 2,
-                rib_lead_in - eps
-            ])
-                cube([
-                    rib_x - 2 * rib_lead_in,
-                    rib_y - 2 * rib_lead_in,
-                    eps
-                ]);
-        }
+        translate([-rib_x / 2, -rib_tip_width / 2, rib_depth - eps])
+            cube([rib_x, rib_tip_width, eps]);
+    }
 }
 
 module slit_cap() {
