@@ -15,7 +15,7 @@ module chamber_void(i) {
         entry_slice(i, land_z - eps, slit_radius);
         entry_slice(i, outer_height - top_round, entry_mouth_width / 2);
     }
-    // Chamfered rim, without a sharp full-thickness wiper edge.
+    // Shallow drip ramp into the wiping slit; no deep inset above the edge.
     hull() {
         entry_slice(i, outer_height - top_round - eps, entry_mouth_width / 2);
         entry_slice(i, outer_height + eps, mouth_radius);

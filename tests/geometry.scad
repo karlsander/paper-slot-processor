@@ -3,7 +3,6 @@ include <../lib/parameters.scad>
 include <../lib/geometry.scad>
 include <../lib/tank.scad>
 include <../lib/caps.scad>
-include <../lib/tong.scad>
 case_name = "paper";
 module all_caps() {
     for (i = [0 : chamber_count - 1]) {
@@ -14,30 +13,26 @@ module all_caps() {
 module paper_sweep() {
     for (i = [0 : chamber_count - 1])
         translate([(outer_width - paper_width) / 2 - entry_end_clearance,
-            slot_yc(i) - paper_thickness / 2 - paper_face_clearance, floor_z + bottom_clearance])
+            slot_yc(i) - paper_thickness / 2 - eps, paper_bottom_z])
             cube([paper_width + 2 * entry_end_clearance,
-                paper_thickness + 2 * paper_face_clearance, outer_height + paper_height]);
+                paper_thickness + 2 * eps, outer_height + paper_height]);
 }
 validate_parameters() {
     if (case_name == "tank") tank();
-    else if (case_name == "water" || case_name == "loaded_water") {
-        echo(volume_check = [nominal_bath_ml, working_volume_ml, mix_first_ml, mix_second_ml]);
+    else if (case_name == "water" || case_name == "loaded_water" || case_name == "fill_water") {
+        echo(volume_check = [nominal_bath_ml, working_volume_ml, mix_first_ml, mix_second_ml, nominal_empty_ml]);
         // Outside space plus exactly one separate enclosed volume per chamber.
         // A leak or a cross-connection changes this component count.
         difference() {
             translate([-1, -tank_front - 1, 0.1])
                 cube([outer_width + 2, outer_depth + tank_front + tank_back + 2,
-                    (case_name == "loaded_water" ? shoulder_z : fill_z) - 0.1]);
+                    (case_name == "loaded_water" ? max_fill_z : fill_z) - 0.1]);
             tank();
-            // Capacity below the tapered entry with paper and the nominal tong
-            // immersed. This independently checks room for rounding upward.
-            if (case_name == "loaded_water") for (i = [0 : chamber_count - 1]) {
+            // Check working fill and remaining headroom with the paper inserted.
+            if (case_name != "water") for (i = [0 : chamber_count - 1]) {
                 translate([(outer_width - paper_width) / 2,
-                    slot_yc(i) - paper_thickness / 2 - eps, fill_z - paper_height])
-                    // Slightly thicken the probe to overlap tangent grip pads.
-                    // This also makes the remaining-capacity check conservative.
-                    cube([paper_width, paper_thickness + 2 * eps, paper_height]);
-                immersed_tong(i);
+                    slot_yc(i) - paper_thickness / 2, paper_bottom_z])
+                    cube([paper_width, paper_thickness, paper_height]);
             }
         }
     } else if (case_name == "rounding") {
@@ -58,7 +53,6 @@ validate_parameters() {
         cube(1);
     } else if (case_name == "slit_caps") slit_cap_plate();
     else if (case_name == "inlet_caps") inlet_cap_plate();
-    else if (case_name == "tong") tong_plate();
     else {
         // A 1 mm3 sentinel makes an empty intersection exportable.
         translate([-100, -100, -100]) cube(1);
@@ -70,10 +64,13 @@ validate_parameters() {
             if (inlets_enabled) for (i = [0 : chamber_count - 1])
                 for (j = [0 : chamber_count - 1])
                     intersection() { installed_slit_cap(i); installed_inlet_cap(j); }
-        } else if (case_name == "collar") intersection() { tong(); parked_collar(); }
-        else if (case_name == "handling") intersection() {
+        } else if (case_name == "handling") intersection() {
             tank();
-            union() for (i = [0 : chamber_count - 1]) immersed_tong(i);
+            // Two 18 x 10 mm fingertip envelopes, entirely above the rim.
+            union() for (i = [0 : chamber_count - 1]) for (side = [-1, 1])
+                translate([outer_width / 2 - 9,
+                    slot_yc(i) + (side < 0 ? -paper_thickness / 2 - 10 : paper_thickness / 2),
+                    outer_height + 0.5]) cube([18, 10, paper_grip_height - 1]);
         }
         else if (case_name == "separation") {
             if (chamber_count == 2) intersection() {

@@ -39,7 +39,7 @@ module installed_slit_cap(i) {
         rotate([180, 0, i == 0 ? 0 : 180]) slit_cap();
 }
 module installed_inlet_cap(i) {
-    inlet_frame(i) translate([0, -inlet_offset, outer_height + cap_lid_thickness])
+    inlet_frame(i) translate([0, -inlet_offset, inlet_top_z + cap_lid_thickness])
         rotate([180, 0, 0]) inlet_cap();
 }
 module slit_cap_plate() {

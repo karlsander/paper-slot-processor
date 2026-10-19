@@ -1,10 +1,25 @@
-// Nominal liquid volume up to fill_z, before paper/tong displacement, in mm3.
+// Liquid capacity in mm3, including the tapered chamber roof and the inlet.
 // The rounded bath is analytic. Integrate the inlet's horizontal sections,
 // subtracting its overlap with the passage and the main bath exactly once.
 function rounded_bath_volume(w, d, r, h) =
     (w * d - (4 - PI) * r * r) * (h - r) +
     (w - 2 * r) * (d - 2 * r) * r +
     (w + d - 4 * r) * PI * r * r / 2 + 2 * PI * r * r * r / 3;
+
+function interpolate(a, b, t) = a + (b - a) * t;
+function roof_fraction(z) = min(1, max(0, (z - shoulder_z) / entry_slope_height));
+function roof_area(z) =
+    let(t = roof_fraction(z), w = interpolate(inner_width - 2 * floor_round, entry_straight, t),
+        d = interpolate(slot_gap - 2 * floor_round, 0, t), r = interpolate(floor_round, slit_radius, t))
+    w * d + 2 * r * (w + d) + PI * r * r;
+function bath_volume(level) =
+    rounded_bath_volume(inner_width, slot_gap, floor_round, min(level, shoulder_z) - floor_z) +
+    (level <= shoulder_z ? 0 : (level - shoulder_z) / 6 *
+        (roof_area(shoulder_z) + 4 * roof_area((shoulder_z + level) / 2) + roof_area(level)));
+function bath_front_y(z) = wall_thickness + roof_fraction(z) * (slot_gap - paper_slit_width) / 2;
+function paper_displacement(level) = paper_width * paper_thickness *
+    min(paper_height, max(0, level - paper_bottom_z));
+function liquid_capacity(level) = bath_volume(level) + (inlets_enabled ? inlet_fill_volume(level) : 0);
 
 function circle_primitive(r, y) =
     y * sqrt(max(0, r * r - y * y)) + r * r * asin(y / r) * PI / 180;
@@ -18,7 +33,7 @@ function circle_strip_area(r, half_width, y) =
 function inlet_liquid_area(z) =
     let(span = inlet_offset + wall_thickness + 2,
         y0 = max(-inlet_offset, (pool_z - z) * span / inlet_drain_drop - inlet_offset),
-        y1 = min(wall_thickness,
+        y1 = min(wall_thickness + 2, bath_front_y(z),
             (pool_z + inlet_channel_height - z) * span / inlet_drain_drop - inlet_offset),
         channel = inlet_pool_diameter * max(0, y1 - y0),
         r = z < pool_z ? 0 : inlet_pool_diameter / 2 +
