@@ -355,9 +355,9 @@ def bambu_info(mesh_path: Path, out_dir: Path, name: str) -> dict:
 
 
 def bambu_slice(
-    mesh_path: Path, out_dir: Path, name: str, presets: dict[str, Path]
+    mesh_path: Path, out_dir: Path, name: str, presets: dict[str, Path], *, run_command=run
 ) -> dict[str, Path]:
-    run(
+    run_command(
         [
             BAMBU,
             *bambu_settings_args(presets),
@@ -403,9 +403,10 @@ def bambu_project(
     generated_dir: Path,
     name: str,
     presets: dict[str, Path],
+    *, run_command=run,
 ) -> Path:
     project_path = out_dir / f"{name}.3mf"
-    run(
+    run_command(
         [
             BAMBU,
             *bambu_settings_args(presets),

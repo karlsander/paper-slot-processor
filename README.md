@@ -20,6 +20,8 @@ Print each file once for a complete five-piece set. The slot covers have shallow
 
 ## Change the size
 
+For interactive changes, use the local viewer below. To change the checked-in defaults, edit the shared OpenSCAD file.
+
 Edit **`lib/parameters.scad`**. All three exports read the same settings. Dimensions are in millimetres.
 
 | Setting | Purpose |
@@ -67,6 +69,32 @@ Set `view = "fit"` in the tank file, or use the command below. This exports the 
 Other tank views are `tank`, `assembly`, `section`, and `handling`. The handling view shows the sheet with its top grip above the rim.
 
 ## Build and validate
+
+### Local interactive viewer
+
+Install Node.js 22 or newer, Python 3.10 or newer, and the OpenSCAD development build described below. Bambu Studio and its A1 mini / Generic PETG presets provide the print estimates.
+
+```sh
+./scripts/start_viewer.sh
+# Or keep the browser closed / choose a different port:
+./scripts/start_viewer.sh --no-browser --port 8766
+```
+
+The launcher installs the local Python and npm dependencies on first use, bundles the viewer, and opens **http://127.0.0.1:8765**. It listens only on this computer. Press Ctrl+C in the launching terminal to stop it. After setup, the viewer loads its assets locally; no CDN or account is needed.
+
+- Drag to rotate, scroll to zoom, or right-drag to pan. Top/front views, a cutaway and a 180 mm bed grid help inspect the geometry.
+- Adjust paper dimensions, wiping clearance, grip height, chamber and inlet dimensions, or advanced wall/base/cap settings. The default and maximum-size paper presets restore the other source defaults as well.
+- Choose the tank, inlet caps, slot covers or fit section. **Estimates apply to the selected plate**, including both caps when applicable.
+- The model updates first, followed by Bambu's print time, filament weight and filament volume for the configured profile. Solid model volume is shown separately: it does not account for infill. Working bath volume and mixing quantities recalculate with the geometry.
+- Download the current STL, Bambu project, and a JSON record of the dimensions and resolved print profile. The Bambu project contains the model and profile for reslicing; it is not a ready-to-send G-code package.
+
+Edits are saved in this browser and do not alter the OpenSCAD sources. Each build takes an isolated source snapshot under `build/viewer/`. Invalid geometry shows the OpenSCAD error; older estimates are cleared immediately on an edit. New builds cancel older ones, and finished results are cached by source content, parameters, selected plate and print profile. Up to 12 jobs are kept per server session; prior-session files can be removed from `build/viewer/` while the server is stopped. The Settings download records a configuration; settings import is not implemented.
+
+The viewer uses the same environment variables and checked-in PETG profile as the command-line builder. Restart it after changing tool or profile paths. If Bambu Studio or its presets are unavailable, previews and STL downloads still work, with a message explaining why print estimates are unavailable. OpenSCAD is required for both modes. Multiple browser tabs share one build queue; the newest edit takes precedence.
+
+Frontend checks: `cd viewer && npm ci && npm test && npm run build`. Server checks are included in the Python unit-test command below. The interactive canvas uses [Three.js](https://threejs.org/) with its license included in the local bundle.
+
+### Command-line exports
 
 Install an [OpenSCAD development build with the Manifold backend](https://openscad.org/downloads.html), Bambu Studio, and Python 3.10 or newer. The checked-in build script replaces the old packaged `.skill` archive.
 
