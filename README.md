@@ -1,5 +1,16 @@
 # Paper slot processor
 
+V2 is being rebuilt on `codex/processor-v2`. Its CAD entry point is
+`v2/processor.scad`, with removable vessels, interchangeable guides, a split
+cradle and a flat heater mounting plate. The default 102 mm roll produces a
+181.3 × 102 mm image from a 208 mm cut; `image_aspect=2` produces a 204 × 102 mm
+image from a 230 mm cut. Each cut includes a sacrificial handling strip.
+
+Run `python scripts/check_v2.py` for the new geometry and assembly checks, and
+`python scripts/build_v2.py vessel_a vessel_b` to export and slice the tilted
+vessels. The heater guard, heating assessment, full print bundle and viewer
+integration are still in progress. The instructions below describe v1.
+
 An open-top, unheated darkroom tank for dipping photographic paper into two separate baths. Each chamber has an outward-facing 40 mm fill/pour opening, a smoothly flared bowl and rounded descending bore, a fill-level mark, and a large engraved **A** or **B** below its inlet. There are no light traps or plumbed drains.
 
 The default is **120 × 120 mm paper**. The tank, including its funnels, is **144 × 132 × 145.6 mm**. Its wiping slit is **0.6 mm wide** for 0.3 mm paper, with a short **0.4 mm land** and only a **1.5 mm taper above it**. Drips caught by that taper return to the same chamber. Rounded slot ends leave room for the full sheet and insertion clearance.

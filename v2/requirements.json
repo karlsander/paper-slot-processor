@@ -1,0 +1,49 @@
+{
+  "status": "in_progress",
+  "brief": "Rebuild the paper processor around removable vessels and interchangeable guides, for a user-confirmed 102 mm Fuji roll, 16:9 and wider images plus a sacrificial finger-grip strip, all printable on the A1 mini. Implement the six accepted design recommendations, research Amazon.de terrarium mats and provide a suitable holder, update the local parametric viewer and print bundle, verify and deliver through a GitHub PR.",
+  "requirements": [
+    "Two removable single-piece bath vessels in a shared modular cradle; independent emptying and cleaning",
+    "Removable, positively located paper guide with interchangeable slit clearances, shallow drip return and no tongs",
+    "Image dimensions drive the vessel and roll cut length; preserve a finger grip above the rim and a sacrificial trim band",
+    "Defined vertical and lateral agitation travel, immersed image at the top of the stroke, and dynamic headroom",
+    "Simple open-top filling when the guide is removed, rounded connected side well with a small visible fill cue",
+    "A/B visual and tactile identification on vessels, guides and cradle",
+    "Chemistry recipes independent of geometry; whole-ml components sum exactly to working volume",
+    "Research mat wattage, actual dimensions, installation restrictions, Amazon.de availability, mounting and temperature measurement",
+    "All printable parts and selected panorama presets fit the A1 mini in their documented print orientation",
+    "Local web viewer exposes v2 parameters, assembly and print plates, fill/paper previews, real slicer estimates and downloads",
+    "Meaningful geometry, clearance, volume, insertion/removal, agitation and print-orientation checks; wet validation remains explicitly outstanding",
+    "Current print bundle, concise assembly/use/heating instructions, CI and a non-draft GitHub PR"
+  ],
+  "decisions": {
+    "roll_width_mm": 102,
+    "roll_width_evidence": "User confirmed 10.2 cm, definitely not 12.7 cm, on 2026-10-20",
+    "default_aspect": [
+      16,
+      9
+    ],
+    "wide_target": [
+      2,
+      1
+    ],
+    "orientation_proposal": "Print each tall narrow vessel leaning about 44 degrees, preserving one-piece liquid containment. Verify by mesh bounds and slicing before claiming success.",
+    "v1_baseline": "af78247 on origin/main after merging checked PR 1",
+    "working_branch": "codex/processor-v2"
+  },
+  "milestones": {
+    "core_cad": "Implemented removable vessels, guides, retaining clips, covers, split cradle, two cradle links, metal heater plate clamps and a fit section. A/B wells face outward; back faces remain flat against a shared heat spreader.",
+    "geometry": "63 checks passed on current CAD, including centred print placement, both aspect presets, swept paper, optional 6 mm probe, vessel removal, guide/clip/plate clearance, liquid meshes and invalid configurations.",
+    "slicing": "All 11 initial print plates sliced without warnings. Default and 2:1 vessels were then rerendered and sliced again after explicit bed-centering changes; all four passed without warnings. Auto-arrange is disabled for vessels to preserve the centred tilted layout.",
+    "heater_research": "Amazon.de HTP-20 20 W, 350 x 200 mm, ASIN B0044MPIZM and HTP-10 10 W alternatives verified. Flat only; manufacturer prohibits bending and recommends thermostat. See research.json.",
+    "viewer": "Still v1 on port 8765; integration not started."
+  },
+  "next_steps": [
+    "Finish heater system: vented protective guard, cable retention, thermostat/probe holder, and positive removable contact pressure between vessel and metal plate. Avoid an insulating air gap; consider thin external thermal interface pads and individually releasable hook-and-loop straps.",
+    "The shared spreader is 366 x 232 x 1.5 mm for the 350 x 200 mat, with a 24 mm bottom clamp margin and 8 mm other margins. Two lower clamps engage metal only. Mat is not printed.",
+    "For strap/guard fittings, central space between vessels is only about 12 mm (less at guide flanges). Outer bowls occupy upper outside ends. Verify new attachments do not obstruct removal, paper grips, or bowls.",
+    "Compute heat-loss and warm-up scenarios from final geometry, including convection/radiation/evaporation and wall/contact resistance. 20 W is a candidate, not a measured 35 C guarantee. Verify suitable thermostat on Amazon.de and manufacturer docs.",
+    "Switch existing local viewer/server to v2 with assembly/exploded/print plate modes, image-and-cut metadata, optional paper and liquid preview, separate recipes and real slicer estimates. Preserve clear stale-preview behavior and update tests.",
+    "Complete print bundle with heater fittings, optional 0.6/0.8 guides, fit coupon, hardware BOM and concise README assembly/use/heating instructions. Remove in-progress README when actually finished.",
+    "Validate assembly visually, current full configurations and every print plate, inspect generated support locations and bed margins, run CI, update PR description around final implementation."
+  ]
+}
