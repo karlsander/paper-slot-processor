@@ -1,0 +1,15 @@
+{
+    "type": "process",
+    "name": "Processor 0.20mm @BBL A1M",
+    "inherits": "0.20mm Standard @BBL A1M",
+    "from": "user",
+    "instantiation": "true",
+    "wall_loops": "4",
+    "top_shell_layers": "6",
+    "bottom_shell_layers": "6",
+    "sparse_infill_density": "15%",
+    "enable_support": "0",
+    "brim_type": "no_brim",
+    "curr_bed_type": "Textured PEI Plate",
+    "compatible_printers": ["Bambu Lab A1 mini 0.4 nozzle"]
+}

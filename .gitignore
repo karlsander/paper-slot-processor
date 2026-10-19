@@ -16,3 +16,7 @@ result.json
 # Editors
 .vscode/
 .idea/
+
+# Local viewer frontend
+viewer/node_modules/
+viewer/dist/

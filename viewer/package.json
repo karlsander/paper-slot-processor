@@ -1,0 +1,11 @@
+{
+  "name": "paper-processor-viewer",
+  "private": true,
+  "type": "module",
+  "scripts": {
+  "build": "esbuild app.js --bundle --minify --format=esm --outfile=dist/app.js --legal-comments=linked && cat THIRD_PARTY_NOTICES.txt >> dist/app.js.LEGAL.txt",
+    "test": "node --test state.test.js"
+  },
+  "dependencies": { "three": "0.186.1" },
+  "devDependencies": { "esbuild": "0.28.2" }
+}
