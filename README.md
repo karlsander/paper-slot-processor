@@ -18,6 +18,8 @@ The A-side base is engraved with **187 ml** on the left and **37:150** on the ri
 
 Print each file once for a complete five-piece set. The slot covers have shallow locating ribs matched to the drip taper. Rebuild them with the tank when changing the paper or slit settings.
 
+The repository also contains a separate [Durst C35 negative-carrier fit prototype](docs/durst-c35/README.md): two adjustable parts with the original pin-and-ear hinge arrangement. Its measured and estimated dimensions, separate print plates, and inherited Bambu profile are documented there.
+
 ## Change the size
 
 For interactive changes, use the local viewer below. To change the checked-in defaults, edit the shared OpenSCAD file.
