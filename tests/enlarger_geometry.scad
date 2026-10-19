@@ -37,12 +37,18 @@ check_parameters() {
         sentinel();
         intersection() {
             union() { base(); masks(format); }
-            intersection() {
-                covers();
-                box_at(-200, -200, mask_top + eps, 400, 400, 30);
+            for (i = [0:3]) intersection() {
+                cover(i, format);
+                // Exclude intentional contacts with the rail and left-mask stop.
+                box_at(cover_start(i, format) + eps, -200, cover_bottom + eps,
+                    band_width + cover_lap, 400, 30);
             }
         }
-        for (i = [0:2], j = [i+1:3]) intersection() { cover(i); cover(j); }
+        for (i = [0:2], j = [i+1:3]) intersection() {
+            cover(i, format);
+            // Separate the intentional butt contact by 0.01 mm; retain the lap.
+            translate([eps, 0, 0]) cover(j, format);
+        }
     } else if (case_name == "light") {
         sentinel();
         // Rays tilted 30 degrees transversely must reach BOTH long paper edges.
@@ -61,7 +67,7 @@ check_parameters() {
         linear_extrude(1) difference() {
             aperture();
             projection() above_paper() {
-                base(); masks(format); covers(cover_count);
+                base(); masks(format); covers(cover_count, format);
             }
         }
     } else if (case_name == "magnets") {

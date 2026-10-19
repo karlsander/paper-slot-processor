@@ -26,6 +26,7 @@ def render_previews():
         ("holder-4x3", ['format="4:3"'], "0,0,0,50,0,25,450"),
         ("test-covers", ["cover_count=4", "exploded=16"], "0,0,0,55,0,25,450"),
         ("five-bands", ["cover_count=4"], "0,0,0,0,0,0,450"),
+        ("five-bands-4x3", ["cover_count=4", 'format="4:3"'], "0,0,0,0,0,0,450"),
     ):
         command = [build.OPENSCAD, "--backend", "Manifold", "--hardwarnings",
                    "-o", str(images / f"{name}.png"), "--imgsize", "1600,1100",

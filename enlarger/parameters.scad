@@ -19,13 +19,12 @@ magnet_depth_clearance = 0.2;
 locator_diameter = 3.2;
 locator_height = 2;
 locator_clearance = 0.5; // Diametral.
-cover_thickness = 3;
-cover_pin_diameter = 2.8;
-cover_pin_height = 2.2;
-cover_pin_clearance = 0.6; // Diametral.
+band_width = 30; // Four fixed bands along the roll; the fifth takes the remainder.
+minimum_last_band = 8;
+cover_thickness = 2.8;
 cover_lap = 0.8;
 cover_lap_height = 1;
-cover_clearance = 0.2;
+cover_clearance = 0.2; // Clearance inside the overlapping seam.
 joint_clearance = 0.2;
 joint_depth = 8;
 build_size = [180, 180, 180];
@@ -45,13 +44,14 @@ mask_top = paper_z + mask_thickness;
 magnet_x = base_length / 2 - 14;
 locator_x = base_length / 2 - 4;
 attachment_y = channel_width / 2 + 5.1;
-cover_pin_x = base_length / 2 - 10;
-cover_end = base_length / 2 - 3;
-band_width = paper_width / 5;
-cover_lap_gap = 0.2;
+cover_end = base_width / 2 + 8; // Y: both ends overhang the rails for handling.
+cover_bottom = deck_thickness + outer_rail_height;
+cover_lap_gap = cover_clearance;
 
 function image_length(format) = format == "16:9" ? image_169 : image_43;
-function band_center(i) = -paper_width / 2 + (i + 0.5) * band_width;
+function cover_start(i, format="16:9") = -image_length(format) / 2 + i * band_width;
+function band_center(i, format="16:9") = cover_start(i, format) + band_width / 2;
+function final_band(format) = image_length(format) - 4 * band_width;
 
 module check_parameters() {
     assert(paper_width >= 80 && paper_width <= 105, "Supported paper width: 80 to 105 mm.");
@@ -70,14 +70,18 @@ module check_parameters() {
     assert(mask_width / 2 - attachment_y - (magnet_diameter + magnet_diameter_clearance) / 2 >= 1.2);
     assert(locator_height + 0.3 < mask_thickness && locator_clearance >= 0.3);
     assert(cover_thickness >= 2.8 && cover_thickness <= 4);
-    assert(cover_pin_height < cover_thickness && cover_pin_clearance >= 0.4);
+    assert(cover_bottom - paper_z >= 0.6, "Covers must stay clear of the emulsion.");
+    assert(cover_bottom + cover_thickness < mask_top, "Mask wings must stand above the covers as end stops.");
+    assert(band_width >= 24 && final_band("4:3") >= minimum_last_band,
+        "Four covers must leave a usable fifth band in the shorter 4:3 opening.");
+    assert(minimum_last_band >= 8);
     assert(cover_lap >= 0.6 && cover_lap <= 1);
     assert(cover_lap_height >= 0.8 && cover_lap_height + cover_lap_gap < cover_thickness);
     assert(cover_clearance >= 0.15 && cover_clearance <= 0.3);
     assert(joint_clearance >= 0.15 && joint_clearance <= 0.35);
     assert(base_length / 2 + joint_depth <= build_size[0] - 2 * bed_margin);
     assert(base_width <= build_size[1] - 2 * bed_margin);
-    assert((2 * cover_end + band_width + 2 * cover_lap) / sqrt(2)
-        <= min(build_size[0], build_size[1]) - 2 * bed_margin, "Diagonal cover exceeds bed.");
+    assert(band_width + cover_lap <= build_size[0] - 2 * bed_margin);
+    assert(2 * cover_end <= build_size[1] - 2 * bed_margin, "Transverse cover exceeds bed.");
     children();
 }

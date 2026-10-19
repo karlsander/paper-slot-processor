@@ -71,11 +71,12 @@ def main():
             for count in range(5):
                 name = f"{scenario}-{label}-exposure-{count}"
                 mesh = export(source, name, [*settings, 'case_name="exposure"', f"cover_count={count}"])
-                exposed_width = width - count * width / 5 - (0.8 if 0 < count < 4 else 0)
-                expected = length * exposed_width
+                exposed_length = length - count * 30 - (0.8 if 0 < count < 4 else 0)
+                expected = exposed_length * width
                 assert len(components(mesh)) == 1, f"Stray light slit: {name}"
                 assert abs(mesh.volume - expected) < 0.05, f"Exposed area {name}: {mesh.volume} != {expected}"
-                assert abs(mesh.extents[0] - length) < 0.001, f"Image length: {name}"
+                assert abs(mesh.extents[0] - exposed_length) < 0.001, f"Remaining image length: {name}"
+                assert abs(mesh.extents[1] - width) < 0.001, f"Band must span the full paper width: {name}"
                 report["checks"].append(name)
             print(f"PASS {scenario} {format}: paper, joint, magnets, masks, covers, edge rays and all five exposure stages", flush=True)
 
@@ -84,9 +85,9 @@ def main():
         "wide-roll": ["paper_width=120"],
         "thin-magnet-floor": ["deck_thickness=3.2"],
         "wrong-magnets": ["magnet_diameter=8"],
-        "cover-too-long": ["end_allowance=40"],
+        "no-fifth-band": ["band_width=34"],
         "no-joint-clearance": ["joint_clearance=0"],
-        "no-cover-fit": ["cover_pin_clearance=0.1"],
+        "covers-touch-paper": ["outer_rail_height=0.2"],
     }.items():
         export(source, f"invalid-{name}", overrides, invalid=True)
         report["checks"].append(f"rejects-{name}")
