@@ -25,7 +25,6 @@ guide_fit = 0.35;
 guide_skirt = 2;
 drip_depth = 1.5;
 wiping_land = 0.4;
-probe_diameter = 6;
 /* [Fill cue] */
 sight_depth = 1.5;
 well_bore = 8;
@@ -33,8 +32,12 @@ well_mouth = 16;
 well_wall = 2.4;
 well_flare = 9;
 /* [Chemistry] */
-recipe_a = [1,4]; // Concentrate : water. User recipe; not a universal RA-4 recipe.
-recipe_b = [1,4]; // Independent of A, even when the volumes match.
+recipe_a_concentrate = 1;
+recipe_a_water = 4;
+recipe_b_concentrate = 1;
+recipe_b_water = 4;
+recipe_a = [recipe_a_concentrate,recipe_a_water]; // Concentrate : water. User recipe; not a universal RA-4 recipe.
+recipe_b = [recipe_b_concentrate,recipe_b_water]; // Independent of A, even when the volumes match.
 rounding_limit = 2;
 /* [Cradle and heater] */
 cradle_depth = 120;
@@ -44,6 +47,9 @@ heater_width = 350; // Flat shared heater; final selection documented separately
 heater_height = 200;
 heater_thickness = 3;
 heat_spreader_thickness = 1.5;
+thermal_pad = 0.5; // Compliant external interface, separate from the printed liquid wall.
+guard_gap = 10;
+guard_thickness = 2.4;
 /* [Printing] */
 build_size = [180,180,180];
 bed_margin = 3;
@@ -98,7 +104,14 @@ vessel_y = (cradle_depth-body_depth)/2;
 clip_width = 12;
 spreader_width = heater_width+16;
 spreader_height = heater_height+32;
-heater_y = vessel_y+body_depth;
+heater_y = vessel_y+body_depth+thermal_pad;
+guard_y = heater_y+heat_spreader_thickness+heater_thickness+guard_gap+guard_thickness;
+guard_tile_width = spreader_width/3;
+guard_tile_height = spreader_height/2;
+spreader_bottom = cradle_floor+3;
+spreader_top = spreader_bottom+spreader_height;
+strap_z = cradle_floor+body_height*0.65;
+anchor_length = spreader_top-strap_z;
 function vessel_x(id) = id==0 ? cradle_width-6-body_width : 6;
 
 include <volume.scad>
@@ -125,8 +138,7 @@ module valid() {
     assert(roll_width>40 && image_aspect>=1 && image_aspect<=3);
     assert(paper_thickness>0 && guide_gap>=paper_thickness+0.2);
     assert(side_clearance>=lateral_stroke+3 && bath_gap>=well_bore+2);
-    assert(probe_diameter>=3 && side_clearance-lateral_stroke>=probe_diameter+0.75,
-        "Leave clearance between the optional probe and the swept paper edge.");
+
     assert(vertical_stroke>=0 && lateral_stroke>=0 && immersion_margin>=1);
     assert(wall>=2.4 && floor>=3 && inside_radius>0 && inside_radius<bath_gap/2);
     assert(bottom_clearance>=4 && freeboard>=7 && finger_grip>=6);
@@ -141,6 +153,10 @@ module valid() {
     assert(loaded_level>=image_top+vertical_stroke+1 && body_height-loaded_level>=6);
     assert(actual_sight_depth>=0.5 && actual_sight_depth<=2.5);
     assert(print_tilt>=40 && print_tilt<=45);
+    assert(thermal_pad>=0 && thermal_pad<=2 && guard_gap>=8 && guard_gap<=20);
+    assert(heater_thickness>=1 && heater_thickness<=8 && heat_spreader_thickness>=1 && heat_spreader_thickness<=3);
+    assert(anchor_length>=35 && anchor_length<=usable_xy[0]-3,"Heater height does not suit these strap anchors.");
+    assert(guard_tile_width<=usable_xy[0] && guard_tile_height<=usable_xy[1]);
     assert(cradle_width<=usable_xy[0] && cradle_depth<=usable_xy[1],"Cradle half exceeds the printer bed.");
     assert(vessel_print_bounds[0]<=usable_xy[0] && vessel_print_bounds[1]<=usable_xy[1] &&
         vessel_print_bounds[2]<=usable_z,"Image size and clearance exceed the A1 mini in the documented tilted orientation.");

@@ -9,17 +9,23 @@
     {
       "name": "Lucky Reptile Thermo Mat PRO HTP-20",
       "watts": 20,
-      "size_mm": [350, 200],
+      "size_mm": [
+        350,
+        200
+      ],
       "amazon": "https://www.amazon.de/dp/B0044MPIZM",
       "observed_price_eur": 30.27,
       "observed_availability": "Usually dispatched in 2 to 5 weeks",
       "verification": "Amazon.de product option selected: 20 Watt; product table HTP-20, 20 Watt = ca. 35 x 20 cm, ASIN B0044MPIZM. The page title remained the 10 W parent listing, so use selected option and product table.",
-      "proposed_use": "One flat mat behind a shared metal heat spreader supporting both removable vessels. Selection is provisional pending thermal estimate and holder completion; no claim of measured 35 C performance."
+      "proposed_use": "Selected: one flat shared 20 W mat behind the metal spreader. Prewarm mixing water to roughly 35-38 C. Measure actual bath temperatures after settling and use the user's established experimental timing. No fixed temperature guarantee."
     },
     {
       "name": "Lucky Reptile Thermo Mat PRO HTP-10",
       "watts": 10,
-      "size_mm": [250, 150],
+      "size_mm": [
+        250,
+        150
+      ],
       "amazon": "https://www.amazon.de/dp/B0044MVCWA",
       "observed_price_eur": 29.99,
       "observed_availability": "In stock; seller Reptilienkosmos",
@@ -49,9 +55,22 @@
     }
   ],
   "remaining": [
-    "Compute transparent heat-loss and warm-up scenarios using final bath/plate dimensions, with explicit assumptions",
-    "Choose a suitable plug-in thermostat and verify Amazon.de listing and manufacturer specifications",
-    "Complete the heater guard, cable retention and probe-holder parts; check all clearances",
-    "Thermal and wet-paper performance require physical prototype testing; digital checks cannot establish them"
-  ]
+    "Measure actual mat thickness before printing the fittings; nominal 3 mm is adjustable.",
+    "Physical water-tightness, wet-paper movement, contact pressure, filling and temperature tests remain outstanding."
+  ],
+  "thermostat": "Omitted at user request, 2026-10-20. No permanent probe or probe fitting. Manufacturer recommends a thermostat; this prototype uses the user's manually measured equilibrium workflow.",
+  "chemistry": {
+    "name": "ADOX RA-4 2.5 litre kit",
+    "source": "https://www.fotoimpex.de/shop/fotochemie/adox-ra-4-kit-entwickler-und-bleichfixierbad-monokonzentrate-zum-ansatz-von-2500-ml.html",
+    "manufacturer": "https://www.adox.de/colour-paper-developing-kit-ra-4/",
+    "capacity_m2_per_litre": 2,
+    "total_kit_capacity_m2": 5,
+    "dilution_concentrate_water": [
+      1,
+      4
+    ],
+    "nominal_process": "35 C, 45 seconds developer and bleachfix; manufacturer specifies developer 35 +/- 0.3 C. User explicitly chooses their previously tested temperature/time experiment instead.",
+    "planning": "325 ml per bath / 102 x 208 mm whole cut = 30 whole prints rounded down. Do not add A and B capacities; every print passes both baths. Test strips count.",
+    "storage": "Manufacturer: opened concentrate within two months; working solution up to one month in completely filled tightly closed bottles. Open processor storage is not covered by this statement."
+  }
 }

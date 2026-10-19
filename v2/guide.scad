@@ -19,9 +19,7 @@ module guide(id=0,gap=guide_gap,closed=false) {
             hull() { slot_slice(gap+4,-guide_skirt-eps); slot_slice(gap,low); }
             hull() { slot_slice(gap,low-eps); slot_slice(gap,low+wiping_land+eps); }
             hull() { slot_slice(gap,guide_thickness-drip_depth); slot_slice(gap+4,guide_thickness+eps); }
-            // Optional immersion probe stays beside the full swept paper envelope.
-            translate([wall+probe_diameter/2+0.25,body_depth/2,-guide_skirt-eps])
-                cylinder(d=probe_diameter+0.4,h=guide_skirt+guide_thickness+2*eps);
+
         }
         translate([body_width-12,body_depth/2,guide_thickness-0.6])
             linear_extrude(0.7) text(str(id==0?"A":"B",closed?"":str(" ",gap)),size=3,

@@ -2,6 +2,7 @@
 """Export v2 print plates with preserved orientations and actual Bambu estimates."""
 from __future__ import annotations
 import argparse
+import hashlib
 import json
 from pathlib import Path
 import subprocess
@@ -21,9 +22,20 @@ PARTS = {
     "cradle_b": ("Cradle B", "cradle", {"chamber": 1}, 1),
     "links": ("Two cradle links", "links", {}, 2),
     "heater_clamps": ("Two heater clamps", "heater_clamps", {}, 2),
+    "guard_tile": ("Heater guard tile (print six)", "guard_tile", {}, 1),
+    "guard_links": ("Two guard links", "guard_links", {}, 2),
+    "guard_mounts": ("Four guard mounts", "guard_mounts", {}, 4),
+    "strap_anchors": ("Three strap anchors", "strap_anchors", {}, 3),
+    "mat_keepers": ("Three mat edge keepers", "mat_keepers", {}, 3),
+    "cable_saddle": ("Cable saddle", "cable_saddle", {}, 1),
     "fit": ("Guide and clip fit section", "fit", {}, 1),
 }
-STANDARD_PARTS = tuple(k for k in PARTS if k != "fit")
+for _gap in [0.6,0.8]:
+    for _id,_letter in enumerate('ab'):
+        PARTS[f'trial_{_letter}_{int(_gap*10)}'] = (f'Optional {_gap} mm guide {_letter.upper()}', 'guide',
+            {'chamber':_id,'print_layout':True,'guide_gap':_gap},1)
+QUANTITIES = {"guard_tile": 6}
+STANDARD_PARTS = tuple(k for k in PARTS if k != "fit" and not k.startswith("trial_"))
 
 
 def preset_overrides(name):
@@ -54,7 +66,7 @@ def export(name, folder, parameters, slice_model=True):
         raise RuntimeError(f"{name}: degenerate geometry")
     if any(x > limit + 0.001 for x, limit in zip(mesh["extents_mm"], [174,174,178])):
         raise RuntimeError(f"{name}: exceeds reserved printer bounds")
-    report = {"name": name, "label": label, "parameters": parameters, "mesh": mesh, "stl": str(stl)}
+    report = {"name": name, "label": label, "parameters": parameters, "quantity": QUANTITIES.get(name, 1), "optional": name not in STANDARD_PARTS, "mesh": mesh, "stl": str(stl)}
     if slice_model:
         presets = build.resolved_bambu_presets(folder)
         process = json.loads(presets["process"].read_text()) | preset_overrides(name)
@@ -77,20 +89,29 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("parts", nargs="*", choices=list(PARTS))
     parser.add_argument("--aspect", type=float, default=16/9)
+    parser.add_argument("--trials", action="store_true", help="Also export fit section and optional 0.6/0.8 mm guides")
     parser.add_argument("--mesh-only", action="store_true")
     parser.add_argument("--output", type=Path, default=ROOT / "build/v2-print")
     args = parser.parse_args()
     folder = args.output.resolve()
     folder.mkdir(parents=True, exist_ok=True)
-    reports = [export(name, folder / name, {"image_aspect": args.aspect}, not args.mesh_only)
-               for name in (args.parts or STANDARD_PARTS)]
+    names = list(args.parts or STANDARD_PARTS)
+    if args.trials: names += [k for k in PARTS if k not in STANDARD_PARTS and k not in names]
+    reports = [export(name, folder / name, {"image_aspect": args.aspect}, not args.mesh_only) for name in names]
     (folder / "summary.json").write_text(json.dumps(reports, indent=2) + "\n")
+    digest=hashlib.sha256()
+    for path in sorted((ROOT / "v2").glob("*.scad")): digest.update(path.name.encode()+path.read_bytes())
+    (folder / "configuration.json").write_text(json.dumps({"image_aspect":args.aspect,"cad_sha256":digest.hexdigest()},indent=2))
     with zipfile.ZipFile(folder / "processor-v2-print-files.zip", "w", zipfile.ZIP_DEFLATED) as archive:
         for report in reports:
             for key in ("stl", "project"):
                 if key in report:
-                    path = Path(report[key]); archive.write(path, path.name)
+                    path = Path(report[key]); archive.write(path, path.relative_to(folder))
         archive.write(folder / "summary.json", "summary.json")
+        archive.write(folder / "configuration.json", "configuration.json")
+        archive.write(ROOT / "README.md", "README.md")
+        archive.write(ROOT / "docs/heating.md", "docs/heating.md")
+        archive.write(ROOT / "docs/v1.md", "docs/v1.md")
     print(f"Built {len(reports)} v2 plates in {folder}")
 
 

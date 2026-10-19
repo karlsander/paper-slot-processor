@@ -7,9 +7,9 @@ const $ = id => document.getElementById(id);
 const revision = new Revision();
 const fmt = (v, digits = 1) => Number(v).toLocaleString(undefined, { maximumFractionDigits: digits });
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-let config, parameters, model = 'tank', timer, currentMesh, liquidMesh, lastMeshJob, changed = true;
-let cutaway = false, bedVisible = true, fillVisible = false;
-const storageKey = 'processor-parameters-v2'; // Fill calibration changed to the empty tank.
+let config, parameters, model = 'assembly', timer, currentMesh, liquidMesh, loadedMesh, paperMesh, lastMeshJob, changed = true;
+let cutaway = false, bedVisible = true, fillVisible = false, paperVisible = false;
+const storageKey = 'processor-modular-v2-parameters'; // Separate from the legacy monolithic processor.
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 3000);
@@ -23,7 +23,7 @@ $('canvas').appendChild(renderer.domElement);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableDamping = true;
 controls.minDistance = 15;
-controls.maxDistance = 900;
+controls.maxDistance = 1800;
 controls.addEventListener('change', () => { changed = true; });
 scene.add(new THREE.HemisphereLight(0xffffff, 0x566563, 2.8));
 const light = new THREE.DirectionalLight(0xffffff, 3.5);
@@ -81,15 +81,26 @@ $('front-view').onclick = () => setView('front');
 $('cutaway').onclick = () => {
   cutaway = !cutaway;
   $('cutaway').setAttribute('aria-pressed', String(cutaway));
-  if (currentMesh) currentMesh.material.clippingPlanes = cutaway ? [clip] : [];
-  if (liquidMesh) liquidMesh.material.clippingPlanes = cutaway ? [clip] : [];
+  if (currentMesh) currentMesh.traverse(node => { if (node.isMesh) node.material.clippingPlanes = cutaway ? [clip] : []; });
+  for (const node of [liquidMesh, loadedMesh, paperMesh]) if (node) node.material.clippingPlanes = cutaway ? [clip] : [];
   changed = true;
 };
 $('fill-level').onclick = () => {
   fillVisible = !fillVisible;
   $('fill-level').setAttribute('aria-pressed', String(fillVisible));
-  if (liquidMesh) liquidMesh.visible = fillVisible;
+  updateOverlays();
   changed = true;
+};
+function updateOverlays() {
+  if (liquidMesh) liquidMesh.visible = fillVisible && !paperVisible;
+  if (loadedMesh) loadedMesh.visible = fillVisible && paperVisible;
+  if (paperMesh) paperMesh.visible = paperVisible;
+  changed = true;
+}
+$('paper-view').onclick = () => {
+  paperVisible = !paperVisible;
+  $('paper-view').setAttribute('aria-pressed', String(paperVisible));
+  updateOverlays();
 };
 $('bed').onclick = () => {
   bedVisible = !bedVisible;
@@ -111,7 +122,7 @@ function status(text, kind = '') {
 }
 function clearResults() {
   for (const id of ['print-time', 'print-weight', 'print-volume']) $(id).textContent = '—';
-  for (const id of ['solid-volume', 'bath-volume', 'slit-info', 'indicator-info']) $(id).textContent = '';
+  for (const id of ['solid-volume', 'bath-volume', 'slit-info', 'indicator-info', 'paper-info', 'agitation-info', 'capacity-info', 'plate-note']) $(id).textContent = '';
   for (const id of ['download-stl', 'download-3mf', 'download-settings']) link(id, null, '', false);
   $('error').hidden = true;
   $('viewport').classList.add('stale');
@@ -131,41 +142,46 @@ async function display(job, version) {
   if (!revision.current(version)) return;
   const labels = { queued: 'Queued', rendering: 'Building preview', slicing: 'Calculating print estimates', ready: 'Up to date', preview_only: 'Preview ready', superseded: 'Build superseded' };
   status(labels[job.state] || 'Build failed', job.state === 'ready' ? 'ready' : '');
+  if (job.stage_detail && job.state === 'slicing') status(job.stage_detail);
   if (job.mesh && lastMeshJob !== job.id) {
-    const response = await fetch(`/artifacts/${job.id}/model.stl`);
-    if (!response.ok) throw new Error('Could not load the model. Update the preview again.');
-    const buffer = await response.arrayBuffer();
-    if (!revision.current(version)) return;
-    const geometry = new STLLoader().parse(buffer);
-    geometry.rotateX(-Math.PI / 2);
-    geometry.computeBoundingBox();
-    const center = geometry.boundingBox.getCenter(new THREE.Vector3());
-    const offset = new THREE.Vector3(-center.x, -geometry.boundingBox.min.y, -center.z);
-    geometry.translate(offset.x, offset.y, offset.z);
-    let liquidGeometry;
-    if (job.liquid) {
-      const waterResponse = await fetch(`/artifacts/${job.id}/liquid.stl`);
-      if (!waterResponse.ok) throw new Error('Could not load the fill-level preview.');
-      const waterBuffer = await waterResponse.arrayBuffer();
-      if (!revision.current(version)) { geometry.dispose(); return; }
-      liquidGeometry = new STLLoader().parse(waterBuffer);
-      liquidGeometry.rotateX(-Math.PI / 2);
-      liquidGeometry.translate(offset.x, offset.y, offset.z);
+    const loader = new STLLoader();
+    const files = [{file:'model.stl',color:'#367e78'}, ...(job.layers || [])];
+    if (job.liquid) files.push({file:'liquid.stl',color:'#5aaee0',overlay:'liquid'}, {file:'loaded.stl',color:'#5aaee0',overlay:'loaded'});
+    if (job.paper) files.push({file:'paper.stl',color:'#eee8cf',overlay:'paper'});
+    const geometries = await Promise.all(files.map(async item => {
+      const response = await fetch(`/artifacts/${job.id}/${item.file}`);
+      if (!response.ok) throw new Error('Could not load the preview. Update again.');
+      const geometry = loader.parse(await response.arrayBuffer());
+      geometry.rotateX(-Math.PI / 2);
+      return {...item, geometry};
+    }));
+    if (!revision.current(version)) { geometries.forEach(g => g.geometry.dispose()); return; }
+    const group = new THREE.Group();
+    const overlays = {};
+    for (const item of geometries) {
+      const water = item.overlay === 'liquid' || item.overlay === 'loaded';
+      const node = new THREE.Mesh(item.geometry, new THREE.MeshStandardMaterial({
+        color:item.color, metalness:item.file === 'hardware.stl' ? 0.5 : 0.08, roughness:water ? 0.2 : 0.58,
+        transparent:water, opacity:water ? 0.65 : 1, depthWrite:!water,
+        clippingPlanes:cutaway ? [clip] : [], clipShadows:true, side:THREE.DoubleSide
+      }));
+      node.castShadow = !water; node.receiveShadow = !water;
+      if (item.overlay) overlays[item.overlay] = node; else group.add(node);
     }
+    const bounds = new THREE.Box3().setFromObject(group);
+    const center = bounds.getCenter(new THREE.Vector3());
+    const offset = new THREE.Vector3(-center.x,-bounds.min.y,-center.z);
+    group.position.copy(offset);
+    for (const node of Object.values(overlays)) node.position.copy(offset);
     const first = !currentMesh;
     const plateChanged = currentMesh?.userData.plate !== model;
-    if (currentMesh) { scene.remove(currentMesh); currentMesh.geometry.dispose(); currentMesh.material.dispose(); }
-    if (liquidMesh) { scene.remove(liquidMesh); liquidMesh.geometry.dispose(); liquidMesh.material.dispose(); liquidMesh = null; }
-    currentMesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x367e78, metalness: 0.08, roughness: 0.58, clippingPlanes: cutaway ? [clip] : [], clipShadows: true, side: THREE.DoubleSide }));
-    currentMesh.castShadow = true;
-    currentMesh.receiveShadow = true;
-    scene.add(currentMesh);
-    if (liquidGeometry) {
-      liquidMesh = new THREE.Mesh(liquidGeometry, new THREE.MeshStandardMaterial({ color: 0x5aaee0, roughness: 0.2, transparent: true, opacity: 0.8, depthWrite: false, clippingPlanes: cutaway ? [clip] : [], side: THREE.DoubleSide }));
-      liquidMesh.visible = fillVisible;
-      scene.add(liquidMesh);
+    for (const old of [currentMesh,liquidMesh,loadedMesh,paperMesh]) if (old) {
+      scene.remove(old); old.traverse(node => { if (node.isMesh) { node.geometry.dispose(); node.material.dispose(); } });
     }
-    $('fill-level').disabled = !liquidGeometry;
+    currentMesh = group; liquidMesh = overlays.liquid; loadedMesh = overlays.loaded; paperMesh = overlays.paper;
+    scene.add(group); Object.values(overlays).forEach(node => scene.add(node));
+    $('fill-level').disabled = !liquidMesh; $('paper-view').disabled = !paperMesh;
+    updateOverlays();
     lastMeshJob = job.id;
     if (first || plateChanged) setView();
     currentMesh.userData.plate = model;
@@ -174,20 +190,28 @@ async function display(job, version) {
   if (!revision.current(version)) return;
   if (job.mesh) {
     $('viewport').classList.remove('stale');
+    bedGroup.visible = bedVisible && !job.view_only;
+    $('bed').disabled = job.view_only;
     $('loading').hidden = true;
-    $('dimensions').textContent = `${job.mesh.extents_mm.map(v => fmt(v)).join(' × ')} mm`;
-    $('solid-volume').textContent = `Solid model ${fmt(job.mesh.volume_mm3 / 1000)} cm³`;
-    $('bath-volume').textContent = `Working bath ${fmt(job.model_info.bath_ml)} ml · ${fmt(job.model_info.mix_first_ml)}:${fmt(job.model_info.mix_second_ml)}`;
-    $('slit-info').textContent = `Slit ${fmt(job.model_info.slit_mm, 2)} mm · dry border ${fmt(job.model_info.dry_border_mm)} mm`;
-    $('indicator-info').textContent = job.parameters.inlets_enabled ? `Fill cue ${fmt(job.model_info.indicator_depth_mm)} mm · ${fmt(job.model_info.indicator_ml, 2)} ml visible` : '';
-    link('download-stl', job, 'model.stl', true);
+    $('dimensions').textContent = `${(job.preview_bounds_mm || job.mesh.extents_mm).map(v => fmt(v)).join(' × ')} mm`;
+    const info = job.model_info;
+    $('solid-volume').textContent = `Printed solid ${fmt((job.solid_volume_mm3 || job.mesh.volume_mm3) / 1000)} cm³`;
+    $('bath-volume').textContent = `Each bath ${fmt(info.bath_ml)} ml · A ${info.recipe_a_ml.join(':')} · B ${info.recipe_b_ml.join(':')}`;
+    $('capacity-info').textContent = info.adox_recipe ? `ADOX RA-4 · about ${info.adox_prints_per_fill} prints per fill (whole cut counted)` : 'ADOX capacity estimate applies at 1+4 dilution in both baths';
+    $('slit-info').textContent = `Guide ${fmt(info.slit_mm,2)} mm · grip ${fmt(info.grip_mm)} mm`;
+    $('indicator-info').textContent = `Empty fill cue ${fmt(info.indicator_depth_mm)} mm · ${fmt(info.indicator_ml,2)} ml`;
+    $('paper-info').textContent = `Image ${info.image_mm.map(v=>fmt(v)).join(' × ')} mm · cut ${info.cut_mm.map(v=>fmt(v)).join(' × ')} mm · trim ${fmt(info.trim_mm)} mm`;
+    $('agitation-info').textContent = `Agitation ↑ ${fmt(info.agitation_mm[0])} mm / ↔ ±${fmt(info.agitation_mm[1])} mm · immersion reserve ${fmt(info.immersion_mm)} mm`;
+    $('plate-note').textContent = ['assembly','exploded'].includes(model) ? 'Complete set, including both covers and six guard tiles. Commercial heater, metal plate and straps are separate.' : model.startsWith('inspect_') ? 'Print estimates and project below are for the vessel alone, in its tilted print orientation.' : job.quantity > 1 ? `Print this plate ${job.quantity} times. Estimates below are for one copy.` : 'One copy of this plate. Vessel projects preserve the required tilt and support settings.';
+    link('download-stl', job, 'model.stl', !job.view_only);
     link('download-settings', job, 'settings.json', true);
   }
   if (job.stats && job.state === 'ready') {
     $('print-time').textContent = job.stats.total_estimated_time || job.stats.model_printing_time || 'Unavailable';
     $('print-weight').textContent = job.stats.estimated_filament_g == null ? 'Unavailable' : `${fmt(job.stats.estimated_filament_g)} g`;
     $('print-volume').textContent = job.stats.estimated_filament_cm3 == null ? 'Unavailable' : `${fmt(job.stats.estimated_filament_cm3)} cm³`;
-    link('download-3mf', job, 'plate.3mf', true);
+    $('download-3mf').textContent = job.bundle ? 'All print files ↓' : 'Bambu project ↗';
+    link('download-3mf', job, job.bundle ? 'print-files.zip' : 'plate.3mf', true);
   }
   if (job.error || job.warnings?.length) error(job.error || job.warnings.join('\n'));
   if (job.state === 'superseded') error('Another edit superseded this build. Change a value or reset to rebuild.');
@@ -218,9 +242,18 @@ function schedule(immediate = false) {
   timer = setTimeout(() => buildModel(version).catch(e => { if (revision.current(version)) error(e.message); }), immediate ? 0 : 650);
 }
 
+function fixedFields() {
+  const fixed = config.models.find(p => p.id === model)?.fixed_parameters || {};
+  for (const field of config.fields) {
+    const input = $(field.id);
+    input.disabled = field.id in fixed;
+    input.title = input.disabled ? 'Fixed for this optional guide. Choose Paper guide A or B to adjust it.' : '';
+    if (field.type !== 'boolean') input.value = fixed[field.id] ?? parameters[field.id];
+  }
+}
 function form() {
   $('parameters').replaceChildren();
-  for (const group of ['Paper', 'Tank', 'Advanced']) {
+  for (const group of [...new Set(config.fields.map(f=>f.group))]) {
     const details = document.createElement('details');
     details.open = group === 'Paper';
     const summary = document.createElement('summary'); summary.textContent = group;
@@ -231,13 +264,13 @@ function form() {
       const wrap = document.createElement('span'); wrap.className = 'input-wrap';
       const input = document.createElement('input'); input.id = field.id; input.name = field.id;
       if (field.type === 'boolean') { input.type = 'checkbox'; input.checked = parameters[field.id]; }
-      else { input.type = 'number'; input.min = field.min; input.max = field.max; input.step = field.step; input.value = parameters[field.id]; }
+      else { input.type = 'number'; input.min = field.min; input.max = field.max; input.step = field.id === 'image_aspect' ? 'any' : field.step; input.value = parameters[field.id]; }
       input.addEventListener('input', () => {
         $('preset').value = 'custom';
         if (!$('parameters').checkValidity() || input.value === '') {
           revision.next(); clearTimeout(timer); clearResults(); error(`Enter a valid ${field.label.toLowerCase()}.`); return;
         }
-        for (const f of config.fields) parameters[f.id] = f.type === 'boolean' ? $(f.id).checked : Number($(f.id).value);
+        for (const f of config.fields) if (!$(f.id).disabled) parameters[f.id] = f.type === 'boolean' ? $(f.id).checked : Number($(f.id).value);
         schedule();
       });
       wrap.append(input);
@@ -246,38 +279,39 @@ function form() {
     }
     $('parameters').append(details);
   }
+  fixedFields();
 }
 
 async function init() {
   const response = await fetch('/api/config');
   if (!response.ok) throw new Error('Could not connect to the local viewer.');
   config = await response.json();
-  $('preset').options[0].textContent = `${fmt(config.defaults.paper_width)} × ${fmt(config.defaults.paper_height)} mm`;
+  $('preset').options[0].textContent = '102 mm roll · 16:9 image';
   let saved;
   try { saved = JSON.parse(localStorage.getItem(storageKey)); } catch { /* Start with source defaults. */ }
   parameters = restoreParameters(saved, config);
   if (JSON.stringify(parameters) !== JSON.stringify(config.defaults)) $('preset').value = 'custom';
   form();
   for (const plate of config.models) {
-    const button = document.createElement('button');
-    button.textContent = plate.label; button.setAttribute('role', 'tab'); button.setAttribute('aria-selected', String(plate.id === model));
-    button.onclick = () => {
-      model = plate.id;
-      for (const node of $('plates').children) node.setAttribute('aria-selected', String(node === button));
-      $('part-caption').textContent = plate.label.toUpperCase();
-      $('result-title').textContent = `${plate.label} estimates`;
-      schedule(true);
-    };
-    $('plates').append(button);
+    const option = document.createElement('option'); option.value = plate.id; option.textContent = plate.label;
+    $('plates').append(option);
   }
+  $('plates').value = model;
+  $('plates').onchange = () => {
+    model = $('plates').value;
+    fixedFields();
+    const label = config.models.find(p=>p.id===model).label;
+    $('part-caption').textContent = label.toUpperCase();
+    $('result-title').textContent = ['assembly','exploded'].includes(model) ? 'Complete set estimates' : `${label} estimates`;
+    schedule(true);
+  };
   const p = config.profile;
   $('profile').textContent = `${p.filament} · ${p.layer_height || '?'} mm layers · ${p.walls || '?'} walls · ${p.infill || '?'} infill`;
-  $('result-title').textContent = 'Tank estimates';
+  $('result-title').textContent = 'Complete set estimates';
   $('reset').onclick = () => { parameters = { ...config.defaults }; $('preset').value = 'default'; form(); schedule(true); };
   $('preset').onchange = () => {
     parameters = { ...config.defaults };
-    if ($('preset').value === 'square') parameters.paper_width = parameters.paper_height = Math.floor(Math.min(config.limits.max_width_mm, config.limits.max_height_mm) * 10) / 10;
-    if ($('preset').value === 'rectangle') { parameters.paper_width = config.limits.max_width_mm; parameters.paper_height = config.limits.max_height_mm; }
+    if ($('preset').value === 'wide') parameters.image_aspect = 2;
     form(); schedule(true);
   };
   schedule(true);

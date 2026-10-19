@@ -63,11 +63,11 @@ def main():
         for chamber in [0, 1]:
             for part in ["vessel", "guide", "cover", "cradle"]:
                 reports.append(render(part, params | {"chamber": chamber}, printable=True, ident=f"{preset}-{part}-{chamber}"))
-        for part in ["clip", "link", "heater_clamp"]:
+        for part in ["clip", "link", "heater_clamp", "guard_tile", "guard_link", "guard_mount", "strap_anchor", "central_anchor", "mat_keeper", "cable_saddle"]:
             reports.append(render(part, params, printable=True, ident=f"{preset}-{part}"))
         for part in ["empty_water", "loaded_water", "low_water"]:
             reports.append(render(part, params, ident=f"{preset}-{part}"))
-        for part in ["paper_collision", "probe_collision", "guide_collision", "clip_collision", "cradle_removal", "heater_collision", "holder_collision"]:
+        for part in ["paper_collision", "guide_collision", "clip_collision", "cradle_removal", "heater_collision", "holder_collision", "fittings_mat_collision", "fittings_plate_collision", "fittings_removal", "fittings_cradle_collision"]:
             for chamber in ([0, 1] if part in {"paper_collision", "guide_collision", "clip_collision", "cradle_removal"} else [0]):
                 reports.append(render(part, params | {"chamber": chamber}, empty=True, ident=f"{preset}-{part}-{chamber}"))
     for gap in [0.6, 0.8, 1.6]:
@@ -75,7 +75,7 @@ def main():
         reports.append(render("paper_collision", {"guide_gap": gap}, empty=True, ident=f"paper-gap-{gap}"))
     for index, params in enumerate([{"image_aspect": 2.3}, {"guide_gap": 0.35},
             {"freeboard": 3}, {"well_mouth": 24}, {"heater_width": 400},
-            {"recipe_b": [1,0]}, {"probe_diameter": 10}]):
+            {"recipe_b": [1,0]}, {"guard_gap": 2}]):
         cmd = [build.OPENSCAD, "--hardwarnings", "-o", str(OUT / f"invalid-{index}.csg")]
         for key, value in params.items():
             cmd += ["-D", f"{key}={json.dumps(value)}"]
