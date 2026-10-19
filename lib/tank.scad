@@ -82,9 +82,34 @@ module tank_ribs() {
     count = max(1, ceil((outer_width - 2 * wall_thickness) / rib_spacing));
     if (rib_enabled) for (i = [0 : count]) {
         x = wall_thickness + i * (inner_width - rib_width) / count;
-        if (!inlets_enabled || abs(x + rib_width / 2 - outer_width / 2) > pool_outer_radius + rib_width)
+        clearance = max(inlets_enabled ? pool_outer_radius + rib_width : 0,
+            chamber_labels ? chamber_label_size / 2 + rib_width / 2 + 2 : 0);
+        if (clearance == 0 || abs(x + rib_width / 2 - outer_width / 2) > clearance)
             for (y = [-rib_depth, outer_depth - eps])
                 translate([x, y, base_z]) cube([rib_width, rib_depth + eps, shoulder_z - base_z]);
+    }
+}
+module label_text(value, size, width) {
+    // Conservative glyph-width estimate keeps configurable text within its panel.
+    text(value, size = min(size, width / max(1, 0.8 * len(value))),
+        font = "Liberation Sans:style=Bold", halign = "center", valign = "center");
+}
+module tank_label_cuts() {
+    if (chamber_labels) for (i = [0 : chamber_count - 1]) inlet_frame(i)
+        translate([0, label_depth, chamber_label_z]) rotate([90, 0, 0])
+            linear_extrude(height = label_depth + eps)
+                label_text(chamber_names[i], chamber_label_size, chamber_label_size);
+    if (base_volume_labels && base_enabled) {
+        // Follow the sloping apron surface, with the text upright from side A.
+        angle = atan((base_height - base_edge_height) / base_extension);
+        y = -base_extension * 0.55;
+        z = base_height + y * tan(angle);
+        for (i = [0 : 1])
+            translate([outer_width * (i == 0 ? 0.25 : 0.75), y, z])
+                rotate([angle, 0, 0]) translate([0, 0, -label_depth])
+                    linear_extrude(height = label_depth + eps)
+                        label_text(i == 0 ? volume_label : mix_label,
+                            base_label_size, outer_width / 2 - 12);
     }
 }
 module tank() {
@@ -94,11 +119,8 @@ module tank() {
             tank_base();
             tank_ribs();
             for (i = [0 : chamber_count - 1]) inlet_body(i);
-            if (chamber_labels) for (i = [0 : chamber_count - 1]) inlet_frame(i)
-                translate([-outer_width / 2 + wall_thickness + 7, eps, outer_height - 12])
-                    rotate([90, 0, 0]) linear_extrude(height = 0.6 + eps)
-                        text(str(i + 1), size = 7, font = "Liberation Sans:style=Bold");
         }
         for (i = [0 : chamber_count - 1]) { chamber_void(i); inlet_void(i); }
+        tank_label_cuts();
     }
 }

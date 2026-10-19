@@ -7,6 +7,7 @@ Outputs go under build/geometry-checks; an assertion or bad mesh fails the run.
 from __future__ import annotations
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -48,10 +49,12 @@ def export(name, case, overrides=(), invalid=False):
         return None
     assert result.returncode == 0 and "ERROR" not in result.stderr and "WARNING" not in result.stderr, result.stderr
     mesh = trimesh.load_mesh(path, force="mesh")
+    if case in {"water", "loaded_water"}:
+        mesh.metadata["volume_check"] = json.loads(re.search(r"volume_check = (\[[^\n]+\])", result.stderr)[1])
     assert mesh.is_watertight and mesh.is_winding_consistent and mesh.volume > 0, name
     # Capping the virtual liquid at its fill plane can create collinear triangles.
     # Require clean triangulation for printable solids; the water probe tests topology.
-    if case != "water":
+    if case not in {"water", "loaded_water"}:
         assert mesh.nondegenerate_faces().all(), f"degenerate faces: {name}/{case}"
     return mesh
 
@@ -69,18 +72,32 @@ def main():
     }
     report = []
     for name, (overrides, count) in scenarios.items():
-        for case in ("tank", "paper", "caps", "separation", "water", "slit_caps", "inlet_caps", "tong", "collar", "handling"):
+        for case in ("tank", "paper", "caps", "separation", "water", "loaded_water", "slit_caps", "inlet_caps", "tong", "collar", "handling"):
             mesh = export(name, case, overrides)
             parts = components(mesh)
             if case in {"paper", "caps", "separation", "collar", "handling"}:
                 assert len(parts) == 1 and abs(mesh.volume - 1) < 1e-5, f"Collision: {name}/{case}: {mesh.volume:.6f} mm3"
-            elif case == "water":
+            elif case in {"water", "loaded_water"}:
                 assert len(parts) == count + 1, f"Leak/disconnected fill passage: {name}: {len(parts)} bodies"
                 baths = [p for p in parts if p.bounds[0, 0] > 0]
                 assert len(baths) == count, f"Liquid cavity count: {name}"
                 for p in baths:
                     assert p.volume > 1000, f"Unexpected tiny liquid cavity: {name}"
-                report.append({"scenario": name, "bath_ml": [round(p.volume / 1000, 2) for p in baths]})
+                nominal, marked, first, second = mesh.metadata["volume_check"]
+                if case == "loaded_water":
+                    assert all(p.volume / 1000 > marked for p in baths), f"Insufficient loaded headroom: {name}"
+                    report[-1]["loaded_capacity_below_entry_ml"] = [round(p.volume / 1000, 2) for p in baths]
+                    print(f"PASS {name}/{case}", flush=True)
+                    continue
+                for p in baths:
+                    # Compare the label calculation with the independently meshed liquid.
+                    assert abs(nominal - p.volume / 1000) < 0.15, f"Fill calculation: {name}"
+                    assert abs(p.volume / 1000 - marked) <= 2, f"Fill label: {name}"
+                assert abs(first + second - marked) < 1e-6, f"Mix sum: {name}"
+                assert first == round(first) and second == round(second), f"Fractional mixing amounts: {name}"
+                assert abs(first - marked / 5) <= 0.5, f"Mix ratio rounding: {name}"
+                report.append({"scenario": name, "bath_ml": [round(p.volume / 1000, 2) for p in baths],
+                               "marked_ml": marked, "mix_ml": [first, second]})
             else:
                 expected = {"tank": 1, "slit_caps": count, "inlet_caps": count, "tong": 2}[case]
                 assert len(parts) == expected, f"Disconnected part: {name}/{case}: {len(parts)}"
@@ -94,8 +111,10 @@ def main():
     }.items():
         export(name, "tank", settings, invalid=True)
         print(f"PASS rejects {name}", flush=True)
+    export("rounding", "rounding")
+    print("PASS rounding boundaries and whole-ml quantities", flush=True)
     (OUT / "summary.json").write_text(json.dumps(report, indent=2) + "\n")
-    print(f"Passed {len(scenarios) * 10} geometry cases and 7 invalid configurations.")
+    print(f"Passed {len(scenarios) * 11} geometry cases, rounding checks and 7 invalid configurations.")
 
 if __name__ == "__main__":
     main()

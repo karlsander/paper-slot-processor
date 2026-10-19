@@ -8,6 +8,7 @@ view = "tank"; // [tank,assembly,section,fit,handling]
 validate_parameters() {
     echo(tank_mm = [outer_width, outer_depth + tank_front + tank_back, outer_height],
         paper_entry_mm = [entry_length, paper_slit_width], max_paper_mm = [max_paper_width, max_paper_height]);
+    echo(nominal_bath_ml = nominal_bath_ml, volume_label = volume_label, mix_label = mix_label);
     if (view == "tank") tank();
     else if (view == "assembly") {
         color("SteelBlue") tank();
