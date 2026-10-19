@@ -23,48 +23,15 @@ module chamber_void(i) {
 }
 module inlet_void(i) {
     if (inlets_enabled) inlet_frame(i) {
-        hull() {
-            translate([0, -inlet_offset, pool_z]) cylinder(h = eps, d = inlet_pool_diameter);
-            translate([0, -inlet_offset, inlet_land_z]) cylinder(h = eps, d = inlet_opening_diameter);
-        }
-        translate([0, -inlet_offset, inlet_land_z - eps])
-            cylinder(h = inlet_cap_land_height + 3 * eps, d = inlet_opening_diameter);
-        // Lower edge of this shallow mark indicates the nominal fill level.
+        inlet_loft();
+        // Mark the actual rounded batch level in the EMPTY tank.
         if (fill_mark_depth > 0)
-            translate([-3, -inlet_offset - fill_mark_radius - fill_mark_depth, fill_z])
+            translate([-3, -inlet_offset - fill_mark_radius - fill_mark_depth, working_fill_z])
                 cube([6, 2 * fill_mark_depth + 1, 0.6]);
-        // Broad passage slopes into this chamber; no blind sump in its floor.
-        hull() {
-            translate([-inlet_pool_diameter / 2, -inlet_offset, pool_z])
-                cube([inlet_pool_diameter, eps, inlet_channel_height]);
-            translate([-inlet_pool_diameter / 2, wall_thickness + 2, pool_z - inlet_drain_drop])
-                cube([inlet_pool_diameter, eps, inlet_channel_height]);
-        }
     }
 }
 module inlet_body(i) {
-    if (inlets_enabled) inlet_frame(i) {
-        // Short 45-degree buttress replaces the solid full-height tower.
-        hull() {
-            translate([-pool_outer_radius, -eps, pool_z - inlet_wall - inlet_support_height])
-                cube([2 * pool_outer_radius, wall_thickness + eps, eps]);
-            translate([0, -inlet_offset, pool_z - inlet_wall]) cylinder(h = eps, r = pool_outer_radius);
-            translate([-pool_outer_radius, 0, pool_z - inlet_wall - inlet_drain_drop])
-                cube([2 * pool_outer_radius, wall_thickness + eps, eps]);
-        }
-        hull() {
-            translate([0, -inlet_offset, pool_z - inlet_wall]) cylinder(h = eps, r = pool_outer_radius);
-            translate([0, -inlet_offset, inlet_land_z]) cylinder(h = eps, r = inlet_outer_radius);
-        }
-        translate([0, -inlet_offset, inlet_land_z - eps])
-            cylinder(h = inlet_cap_land_height + eps, r = inlet_outer_radius);
-        hull() {
-            translate([-pool_outer_radius, -inlet_offset, pool_z - inlet_wall])
-                cube([2 * pool_outer_radius, eps, inlet_channel_height + 2 * inlet_wall]);
-            translate([-pool_outer_radius, wall_thickness, pool_z - inlet_wall - inlet_drain_drop])
-                cube([2 * pool_outer_radius, 2 + eps, inlet_channel_height + 2 * inlet_wall]);
-        }
-    }
+    if (inlets_enabled) inlet_frame(i) inlet_loft(shell = true);
 }
 module tank_base() {
     if (base_enabled) {

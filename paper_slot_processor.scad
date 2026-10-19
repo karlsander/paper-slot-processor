@@ -8,6 +8,8 @@ validate_parameters() {
     echo(tank_mm = [outer_width, outer_depth + tank_front + tank_back, tank_height],
         paper_entry_mm = [entry_length, paper_slit_width], max_paper_mm = [max_paper_width, max_paper_height]);
     echo(nominal_bath_ml = nominal_bath_ml, volume_label = volume_label, mix_label = mix_label);
+    echo(inlet_indicator = [working_fill_z, indicator_depth, indicator_volume_ml],
+        loaded_fill_z = loaded_fill_z, dry_border_mm = paper_top_z - loaded_fill_z);
     if (view == "tank") tank();
     else if (view == "assembly") {
         color("SteelBlue") tank();
@@ -22,7 +24,7 @@ validate_parameters() {
                 cube([paper_width, paper_thickness, paper_height]);
     } else if (view == "fit") {
         // Full-width top section for checking paper entry and both cap fits cheaply.
-        cut_z = pool_z - inlet_wall - 3;
+        cut_z = inlet_exit_z - 3;
         translate([0, 0, -cut_z]) intersection() {
             tank();
             translate([-1, -tank_front - 1, cut_z])

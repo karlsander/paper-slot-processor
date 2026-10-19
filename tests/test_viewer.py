@@ -161,6 +161,11 @@ class PreviewIntegrationTests(unittest.TestCase):
                 self.assertTrue(job['mesh']['is_watertight'])
                 self.assertEqual(job['mesh']['body_count'], 1)
                 self.assertIsNone(job['stats'])
+                self.assertTrue(job['liquid'])
+                liquid = viewer.build.validate_mesh(Path(folder)/ident/'liquid.stl')
+                self.assertTrue(liquid['is_watertight'])
+                self.assertAlmostEqual(liquid['volume_mm3'] / 1000,
+                    job['model_info']['bath_ml'] * m.defaults['chamber_count'], delta=0.3)
                 self.assertEqual(job['model_info']['mix_first_ml'] + job['model_info']['mix_second_ml'], job['model_info']['bath_ml'])
                 manifest = json.loads((Path(folder)/ident/'settings.json').read_text())
                 self.assertEqual(manifest['parameters'], m.defaults)

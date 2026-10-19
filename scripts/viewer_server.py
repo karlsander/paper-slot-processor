@@ -42,6 +42,9 @@ FIELDS = [
     ("bottom_clearance", "Space below paper", "Tank", "number", 3, 20, 0.5, "mm"),
     ("inlets_enabled", "Fill inlets", "Tank", "boolean", 0, 1, 1, ""),
     ("inlet_opening_diameter", "Inlet diameter", "Tank", "number", 24, 60, 1, "mm"),
+    ("inlet_bore_diameter", "Inlet bore", "Tank", "number", 10, 20, 0.5, "mm"),
+    ("inlet_sight_depth", "Target visible pool", "Tank", "number", 0.5, 2.5, 0.1, "mm"),
+    ("inlet_funnel_height", "Funnel flare height", "Advanced", "number", 12, 40, 0.5, "mm"),
     ("wall_thickness", "Wall thickness", "Advanced", "number", 2, 8, 0.2, "mm"),
     ("floor_thickness", "Floor thickness", "Advanced", "number", 2, 10, 0.2, "mm"),
     ("entry_depth", "Drip taper depth", "Advanced", "number", 0.8, 3, 0.1, "mm"),
@@ -53,9 +56,9 @@ FIELDS = [
 ]
 SCHEMA = [dict(zip(("id", "label", "group", "type", "min", "max", "step", "unit"), f)) for f in FIELDS]
 META = ["working_volume_ml", "mix_first_ml", "mix_second_ml", "paper_slit_width",
-        "paper_top_z - fill_z", "max_paper_width", "max_paper_height"]
-META_KEYS = ["bath_ml", "mix_first_ml", "mix_second_ml", "slit_mm", "dry_border_mm", "max_width_mm", "max_height_mm"]
-ARTIFACTS = {"model.stl", "plate.3mf", "settings.json"}
+        "paper_top_z - loaded_fill_z", "max_paper_width", "max_paper_height", "indicator_depth", "indicator_volume_ml"]
+META_KEYS = ["bath_ml", "mix_first_ml", "mix_second_ml", "slit_mm", "dry_border_mm", "max_width_mm", "max_height_mm", "indicator_depth_mm", "indicator_ml"]
+ARTIFACTS = {"model.stl", "liquid.stl", "plate.3mf", "settings.json"}
 
 
 class Cancelled(Exception):
@@ -255,9 +258,20 @@ class Manager:
         mesh = build.validate_mesh(stl)
         if not mesh["is_watertight"] or not mesh["is_winding_consistent"] or mesh["degenerate_faces"] or mesh["duplicate_faces"]:
             raise RuntimeError("The generated mesh did not pass validation. Adjust the parameters.")
+        liquid = job["model"] in {"tank", "fit"}
+        if liquid:
+            water_source = sources / "viewer_liquid.scad"
+            cut = "inlet_exit_z - 3" if job["model"] == "fit" else "0"
+            water_source.write_text("include <lib/parameters.scad>\ninclude <lib/geometry.scad>\ninclude <lib/tank.scad>\n" +
+                f"cut_z = {cut};\n" +
+                "translate([0,0,-cut_z]) intersection() {\n" +
+                "union() for (i=[0:chamber_count-1]) { chamber_void(i); inlet_void(i); }\n" +
+                "translate([0,-tank_front,cut_z]) cube([outer_width,outer_depth+tank_front+tank_back,working_fill_z-cut_z]); }\n")
+            runner([build.OPENSCAD, "--backend", "Manifold", "--hardwarnings", "--export-format", "asciistl",
+                *[arg for value in defines for arg in ("-D", value)], "-o", str(folder / "liquid.stl"), str(water_source)])
         manifest = dict(model=job["model"], parameters=job["parameters"], model_info=meta, source_hash=job["key"], presets=self.presets)
         (folder / "settings.json").write_text(json.dumps(manifest, indent=2) + "\n")
-        self.update(job, mesh=mesh, model_info=meta, state="slicing")
+        self.update(job, mesh=mesh, liquid=liquid, model_info=meta, state="slicing")
         if self.slice_error:
             self.update(job, state="preview_only", error=self.slice_error)
             return

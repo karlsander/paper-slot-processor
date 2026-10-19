@@ -20,19 +20,20 @@ entry_depth = 1.5;
 entry_land_height = 0.4; // Short wiping edge, two 0.2 mm layers.
 entry_slope_height = 6;
 top_round = 0.3;
-fill_headroom = 4;
+fill_headroom = 6; // Empty-tank level; reserve displacement for the paper.
 /* [Fill and pour openings] */
 inlets_enabled = true;
 inlet_opening_diameter = 40;
-inlet_pool_diameter = 12;
+inlet_bore_diameter = 14; // Round horizontal section; >9.8 mm normal clearance at 45°.
 inlet_wall = 3;
 inlet_wall_top = 2;
 inlet_cap_land_height = 6;
-inlet_funnel_height = 18; // Independent of the shallow paper rim.
+inlet_funnel_height = 20; // Smooth flare, independent of the paper rim.
 inlet_splash_gap = 3;
-inlet_pool_below_fill = 2;
-inlet_drain_drop = 2; // Passage slopes down toward the chamber.
-inlet_channel_height = 4;
+inlet_sight_depth = 1.5; // Shallow visible pool at the target EMPTY-tank fill.
+inlet_bend_height = 10; // Ease the upright bowl into the descending bore.
+inlet_path_steps = 24;
+inlet_funnel_steps = 16;
 fill_mark_depth = 0.6;
 /* [Engraved labels] */
 chamber_labels = true;
@@ -88,23 +89,22 @@ outer_height = paper_top_z - paper_grip_height;
 land_z = outer_height - entry_depth;
 throat_z = land_z - entry_land_height;
 shoulder_z = throat_z - entry_slope_height;
-fill_z = throat_z - fill_headroom; // Nominal level with the paper inserted.
+fill_z = throat_z - fill_headroom; // Target pour level before inserting paper.
 max_fill_z = throat_z - 1; // Keep the wiping edge clear of standing liquid.
 entry_centres = [wall_thickness + mouth_radius, wall_thickness + inner_width - mouth_radius];
 entry_straight = entry_centres[1] - entry_centres[0];
 entry_length = entry_straight + paper_slit_width;
 inlet_offset = inlet_opening_diameter / 2 + inlet_splash_gap;
-pool_z = fill_z - inlet_pool_below_fill;
+pool_z = fill_z - inlet_sight_depth;
+inlet_travel = inlet_offset + wall_thickness + inlet_bore_diameter / 2 + eps;
+inlet_exit_z = pool_z - inlet_travel - inlet_bend_height / 2;
 inlet_land_z = pool_z + inlet_funnel_height;
 inlet_top_z = inlet_land_z + inlet_cap_land_height;
 tank_height = max(outer_height, inlets_enabled ? inlet_top_z : 0);
 inlet_outer_radius = inlet_opening_diameter / 2 + inlet_wall_top;
-pool_outer_radius = inlet_pool_diameter / 2 + inlet_wall;
-inlet_support_height = inlet_offset + pool_outer_radius + 2;
-chamber_label_top = inlets_enabled ? pool_z - inlet_wall - inlet_support_height : shoulder_z;
+pool_outer_radius = inlet_bore_diameter / 2 + inlet_wall;
+chamber_label_top = inlets_enabled ? inlet_exit_z - 3 : shoulder_z;
 chamber_label_z = (base_z + chamber_label_top) / 2;
-fill_mark_radius = inlet_pool_diameter / 2 +
-    (inlet_opening_diameter - inlet_pool_diameter) / 2 * (fill_z - pool_z) / (inlet_land_z - pool_z);
 slit_cap_radius = mouth_radius + slit_cap_overlap;
 slit_lid_width = 2 * slit_cap_radius;
 slit_lid_length = entry_straight + slit_lid_width;
@@ -121,15 +121,25 @@ tank_back = max(base_enabled ? base_extension : 0,
 max_paper_width = min(usable_xy[0] - (outer_width - paper_width),
     usable_xy[0] - (slit_lid_length + cap_tab_length - paper_width));
 max_paper_height = usable_height - (tank_height - paper_height);
+include <inlet.scad>
 include <volume.scad>
 nominal_empty_ml = liquid_capacity(fill_z) / 1000;
-nominal_bath_ml = (liquid_capacity(fill_z) - paper_displacement(fill_z)) / 1000;
+nominal_bath_ml = nominal_empty_ml; // Fill first, then insert the paper.
 loaded_capacity_ml = (liquid_capacity(max_fill_z) - paper_displacement(max_fill_z)) / 1000;
-max_mix_volume_ml = loaded_capacity_ml - 0.15; // Reserve calculation/mesh tolerance.
+// Keep the visible pool between 0.5 and 2.5 mm deep after whole-ml rounding.
+// Also reserve at least 1 mm below the wiping edge with paper inserted.
+min_mix_volume_ml = inlets_enabled ? liquid_capacity(pool_z + 0.5) / 1000 + 0.15 : 0;
+max_mix_volume_ml = min(loaded_capacity_ml - 0.15,
+    inlets_enabled ? liquid_capacity(pool_z + 2.5) / 1000 - 0.15 : 1e99);
 // Prefer a complete ratio batch (multiples of 5 ml for 1:4). When that would
 // change the nominal fill by more than 2 ml, round the total and first amount;
 // derive the second amount by subtraction so the printed sum is always exact.
-working_volume_ml = rounded_working_ml(nominal_bath_ml, mix_parts, volume_rounding_limit_ml, max_mix_volume_ml);
+working_volume_ml = rounded_working_ml(nominal_bath_ml, mix_parts, volume_rounding_limit_ml, max_mix_volume_ml, min_mix_volume_ml);
+working_fill_z = level_for_volume(working_volume_ml * 1000);
+loaded_fill_z = level_for_volume(working_volume_ml * 1000, loaded = true);
+fill_mark_radius = inlet_section(working_fill_z)[1];
+indicator_depth = working_fill_z - pool_z;
+indicator_volume_ml = inlets_enabled ? inlet_bowl_volume(working_fill_z) / 1000 : 0;
 mix_ml = whole_mix_ml(working_volume_ml, mix_parts);
 mix_first_ml = mix_ml[0];
 mix_second_ml = mix_ml[1];
@@ -160,18 +170,22 @@ module validate_parameters() {
     assert(chamber_count == 1 || slit_lid_width + 0.4 <= slot_gap + wall_thickness,
         "Adjacent slit caps need a gap; reduce the lip or increase wall_thickness.");
     assert(inlet_cap_land_height >= 3 && inlet_plug_length > 0);
-    assert(!inlets_enabled || (inlet_opening_diameter >= inlet_pool_diameter &&
-        inlet_wall >= 2 && inlet_wall_top >= 2 && inlet_channel_height > 0));
-    assert(!inlets_enabled || inlet_land_z > pool_z + (inlet_opening_diameter - inlet_pool_diameter) / 2,
-        "Increase headroom or reduce the inlet diameter for a supportless funnel.");
-    assert(!inlets_enabled || pool_z - inlet_wall - inlet_support_height > base_z);
+    assert(!inlets_enabled || (inlet_opening_diameter >= inlet_bore_diameter &&
+        inlet_bore_diameter >= 10 && inlet_wall >= 3 && inlet_wall_top >= 2));
+    assert(!inlets_enabled || inlet_funnel_height >= 1.5 * (inlet_opening_diameter - inlet_bore_diameter) / 2,
+        "Increase funnel height or reduce inlet diameter for a supportless flare.");
+    assert(!inlets_enabled || (inlet_bend_height > 0 && inlet_travel > inlet_bend_height / 2));
+    assert(!inlets_enabled || (inlet_path_steps >= 12 && inlet_funnel_steps >= 8 &&
+        inlet_path_steps == floor(inlet_path_steps) && inlet_funnel_steps == floor(inlet_funnel_steps)));
+    assert($fn >= 32 && $fn == floor($fn), "Use at least 32 whole facets for the rounded geometry.");
     assert(!inlets_enabled || inlet_splash_gap > inlet_cap_overhang, "Inlet cap crowds the tank.");
     assert(!inlets_enabled || 2 * inlet_outer_radius <= outer_width);
-    assert(!inlets_enabled || (inlet_pool_diameter > 0 && pool_outer_radius <= inlet_outer_radius));
-    assert(!inlets_enabled || pool_z + inlet_channel_height < throat_z,
-        "Fill passage must stay below the wiping edge.");
-    assert(!inlets_enabled || pool_z - inlet_drain_drop > floor_z + floor_round);
-    assert(inlet_drain_drop > 0 && inlet_pool_below_fill > 0);
+    assert(!inlets_enabled || pool_outer_radius <= inlet_outer_radius);
+    assert(!inlets_enabled || inlet_exit_z > floor_z + floor_round,
+        "The descending inlet needs more tank height.");
+    assert(!inlets_enabled || (inlet_sight_depth >= 0.5 && inlet_sight_depth <= 2.5));
+    assert(!inlets_enabled || (indicator_depth >= 0.5 && indicator_depth <= 2.5),
+        "Rounded volume must leave a shallow visible pool in the inlet.");
     assert(fill_mark_depth >= 0 && fill_mark_depth <= inlet_wall_top / 2);
     assert(label_depth > 0 && label_depth <= wall_thickness / 2);
     assert(!chamber_labels || (len(chamber_names) >= chamber_count && chamber_label_size > 0 &&
@@ -181,8 +195,9 @@ module validate_parameters() {
         mix_parts[0] == floor(mix_parts[0]) && mix_parts[1] == floor(mix_parts[1]),
         "Mixing parts must be positive whole numbers.");
     assert(volume_rounding_limit_ml >= 0.5 && volume_rounding_limit_ml <= 2);
-    assert(working_volume_ml > 0 && abs(working_volume_ml - nominal_bath_ml) <= volume_rounding_limit_ml,
-        "Increase fill_headroom to accommodate the paper and rounded fill volume.");
+    assert(working_volume_ml >= min_mix_volume_ml && working_volume_ml <= max_mix_volume_ml &&
+        working_volume_ml > 0 && abs(working_volume_ml - nominal_bath_ml) <= volume_rounding_limit_ml,
+        "Increase fill_headroom to reserve space for the paper and the visible fill indicator.");
     assert(!base_volume_labels || !base_enabled || (base_label_size > 0 &&
         base_extension > 2 * base_label_size + 4 &&
         label_depth <= base_edge_height / 2), "Base engraving needs enough width and solid thickness.");

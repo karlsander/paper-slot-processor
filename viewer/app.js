@@ -7,8 +7,9 @@ const $ = id => document.getElementById(id);
 const revision = new Revision();
 const fmt = (v, digits = 1) => Number(v).toLocaleString(undefined, { maximumFractionDigits: digits });
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
-let config, parameters, model = 'tank', timer, currentMesh, lastMeshJob, changed = true;
-let cutaway = false, bedVisible = true;
+let config, parameters, model = 'tank', timer, currentMesh, liquidMesh, lastMeshJob, changed = true;
+let cutaway = false, bedVisible = true, fillVisible = false;
+const storageKey = 'processor-parameters-v2'; // Fill calibration changed to the empty tank.
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(38, 1, 0.1, 3000);
@@ -81,6 +82,13 @@ $('cutaway').onclick = () => {
   cutaway = !cutaway;
   $('cutaway').setAttribute('aria-pressed', String(cutaway));
   if (currentMesh) currentMesh.material.clippingPlanes = cutaway ? [clip] : [];
+  if (liquidMesh) liquidMesh.material.clippingPlanes = cutaway ? [clip] : [];
+  changed = true;
+};
+$('fill-level').onclick = () => {
+  fillVisible = !fillVisible;
+  $('fill-level').setAttribute('aria-pressed', String(fillVisible));
+  if (liquidMesh) liquidMesh.visible = fillVisible;
   changed = true;
 };
 $('bed').onclick = () => {
@@ -103,7 +111,7 @@ function status(text, kind = '') {
 }
 function clearResults() {
   for (const id of ['print-time', 'print-weight', 'print-volume']) $(id).textContent = '—';
-  for (const id of ['solid-volume', 'bath-volume', 'slit-info']) $(id).textContent = '';
+  for (const id of ['solid-volume', 'bath-volume', 'slit-info', 'indicator-info']) $(id).textContent = '';
   for (const id of ['download-stl', 'download-3mf', 'download-settings']) link(id, null, '', false);
   $('error').hidden = true;
   $('viewport').classList.add('stale');
@@ -132,14 +140,32 @@ async function display(job, version) {
     geometry.rotateX(-Math.PI / 2);
     geometry.computeBoundingBox();
     const center = geometry.boundingBox.getCenter(new THREE.Vector3());
-    geometry.translate(-center.x, -geometry.boundingBox.min.y, -center.z);
+    const offset = new THREE.Vector3(-center.x, -geometry.boundingBox.min.y, -center.z);
+    geometry.translate(offset.x, offset.y, offset.z);
+    let liquidGeometry;
+    if (job.liquid) {
+      const waterResponse = await fetch(`/artifacts/${job.id}/liquid.stl`);
+      if (!waterResponse.ok) throw new Error('Could not load the fill-level preview.');
+      const waterBuffer = await waterResponse.arrayBuffer();
+      if (!revision.current(version)) { geometry.dispose(); return; }
+      liquidGeometry = new STLLoader().parse(waterBuffer);
+      liquidGeometry.rotateX(-Math.PI / 2);
+      liquidGeometry.translate(offset.x, offset.y, offset.z);
+    }
     const first = !currentMesh;
     const plateChanged = currentMesh?.userData.plate !== model;
     if (currentMesh) { scene.remove(currentMesh); currentMesh.geometry.dispose(); currentMesh.material.dispose(); }
+    if (liquidMesh) { scene.remove(liquidMesh); liquidMesh.geometry.dispose(); liquidMesh.material.dispose(); liquidMesh = null; }
     currentMesh = new THREE.Mesh(geometry, new THREE.MeshStandardMaterial({ color: 0x367e78, metalness: 0.08, roughness: 0.58, clippingPlanes: cutaway ? [clip] : [], clipShadows: true, side: THREE.DoubleSide }));
     currentMesh.castShadow = true;
     currentMesh.receiveShadow = true;
     scene.add(currentMesh);
+    if (liquidGeometry) {
+      liquidMesh = new THREE.Mesh(liquidGeometry, new THREE.MeshStandardMaterial({ color: 0x5aaee0, roughness: 0.2, transparent: true, opacity: 0.8, depthWrite: false, clippingPlanes: cutaway ? [clip] : [], side: THREE.DoubleSide }));
+      liquidMesh.visible = fillVisible;
+      scene.add(liquidMesh);
+    }
+    $('fill-level').disabled = !liquidGeometry;
     lastMeshJob = job.id;
     if (first || plateChanged) setView();
     currentMesh.userData.plate = model;
@@ -153,6 +179,7 @@ async function display(job, version) {
     $('solid-volume').textContent = `Solid model ${fmt(job.mesh.volume_mm3 / 1000)} cm³`;
     $('bath-volume').textContent = `Working bath ${fmt(job.model_info.bath_ml)} ml · ${fmt(job.model_info.mix_first_ml)}:${fmt(job.model_info.mix_second_ml)}`;
     $('slit-info').textContent = `Slit ${fmt(job.model_info.slit_mm, 2)} mm · dry border ${fmt(job.model_info.dry_border_mm)} mm`;
+    $('indicator-info').textContent = job.parameters.inlets_enabled ? `Fill cue ${fmt(job.model_info.indicator_depth_mm)} mm · ${fmt(job.model_info.indicator_ml, 2)} ml visible` : '';
     link('download-stl', job, 'model.stl', true);
     link('download-settings', job, 'settings.json', true);
   }
@@ -187,7 +214,7 @@ function schedule(immediate = false) {
   const version = revision.next();
   clearResults();
   status('Changes pending');
-  try { localStorage.setItem('processor-parameters-v1', JSON.stringify(parameters)); } catch { /* Storage is optional. */ }
+  try { localStorage.setItem(storageKey, JSON.stringify(parameters)); } catch { /* Storage is optional. */ }
   timer = setTimeout(() => buildModel(version).catch(e => { if (revision.current(version)) error(e.message); }), immediate ? 0 : 650);
 }
 
@@ -227,7 +254,7 @@ async function init() {
   config = await response.json();
   $('preset').options[0].textContent = `${fmt(config.defaults.paper_width)} × ${fmt(config.defaults.paper_height)} mm`;
   let saved;
-  try { saved = JSON.parse(localStorage.getItem('processor-parameters-v1')); } catch { /* Start with source defaults. */ }
+  try { saved = JSON.parse(localStorage.getItem(storageKey)); } catch { /* Start with source defaults. */ }
   parameters = restoreParameters(saved, config);
   if (JSON.stringify(parameters) !== JSON.stringify(config.defaults)) $('preset').value = 'custom';
   form();
