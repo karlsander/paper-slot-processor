@@ -1,5 +1,7 @@
 # Paper slot processor
 
+For the **102 mm Fuji roll-paper enlarger holder**, with borderless 16:9 / 4:3 end masks and four covers for five exposure bands, see [enlarger/README.md](enlarger/README.md). Its parts fit the A1 mini and use this repository's print profile.
+
 An open-top, unheated darkroom tank for dipping photographic paper into two separate baths. Each chamber has an outward-facing 40 mm fill/pour opening, a smoothly flared bowl and rounded descending bore, a fill-level mark, and a large engraved **A** or **B** below its inlet. There are no light traps or plumbed drains.
 
 The default is **120 × 120 mm paper**. The tank, including its funnels, is **144 × 132 × 145.6 mm**. Its wiping slit is **0.6 mm wide** for 0.3 mm paper, with a short **0.4 mm land** and only a **1.5 mm taper above it**. Drips caught by that taper return to the same chamber. Rounded slot ends leave room for the full sheet and insertion clearance.
