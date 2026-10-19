@@ -1,0 +1,14 @@
+{
+    "type": "process",
+    "name": "Durst 0.20mm @BBL A1M",
+    "inherits": "Processor 0.20mm @BBL A1M",
+    "from": "user",
+    "instantiation": "true",
+    "enable_support": "1",
+    "support_type": "normal(auto)",
+    "support_on_build_plate_only": "0",
+    "support_threshold_angle": "30",
+    "support_top_z_distance": "0.2",
+    "support_interface_top_layers": "3",
+    "support_interface_spacing": "0.3"
+}
