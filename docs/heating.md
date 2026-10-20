@@ -1,0 +1,17 @@
+# Passive heating
+
+Use one **Lucky Reptile Thermo Mat PRO HTP-20, 20 W, approximately 350 × 200 mm**, flat behind the shared aluminium plate. [Amazon.de listing](https://www.amazon.de/dp/B0044MPIZM). On 20 October 2026 the selected 20 W option showed €30.27 with dispatch in 2–5 weeks. Availability and price can change. Check the selected model: Amazon's parent title can still say 10 W.
+
+This is a modest shared heater for two approximately 325 ml baths. Prewarm the mixing water to roughly 35–38°C so it mainly replaces heat lost during use. Power alone does not set equilibrium temperature: room temperature, air movement, contact, mat construction and bath level matter. Measure and gently mix **both baths** before settling on your development time; repeat readings during a long session. The two sides can differ. A fever thermometer must be able to display the actual range encountered. Keep a thermometer used for chemistry dedicated to that job.
+
+There is no thermostat or permanent probe in this build, as requested. The user has already tested a temperature/time compensation workflow. ADOX's documented reference remains 35°C (developer ±0.3°C) and 45 seconds per bath; no invented compensation curve is included. [ADOX reference](https://www.adox.de/colour-paper-developing-kit-ra-4/)
+
+The [mat manufacturer's manual](https://lucky-reptile.de/media/pdf/26/2e/63/Thermo_Mat_PRO_HTP-10.pdf) specifies an uncovered surface temperature around 36–42°C at room temperature. That is **not a specified liquid temperature or a hard temperature limit**. It recommends a thermostat; the internal overheat cutout is emergency protection, not regulation. The manually measured prototype does not claim thermostat-level control.
+
+The mat stays flat, captured loosely at its edges against the metal. Keep its rear guard and air gap ventilated; do not wrap it in insulating material. The mount engages the spreader, not the heating element. Keep the mat connection and mains equipment dry, route a drip loop below the connection to the socket, and unplug before removing the frame or cleaning nearby. Inspect the mat and cable before use. Never immerse, fold, pierce or clamp through the mat.
+
+The mounting envelope includes 24 mm of bare metal below the mat for the lower clamps and 8 mm on the other sides. Printed edge keepers provide clearance for the measured mat thickness. The six-part guard protects the rear without enclosing it. Two straps press the removable vessel backs through thin thermal pads to the plate; a loose air gap would markedly reduce heat transfer. No aluminium touches the chemistry.
+
+For context only, heating 650 ml of water from 20 to 35°C requires about 40.8 kJ, or 34 minutes at 20 W with zero losses. Prewarming avoids that delay. `scripts/thermal_v2.py` records an uncalibrated heat-loss sensitivity calculation, with explicit convection, radiation and contact assumptions. It suggests that 20 W can settle below 35°C, particularly in cooler rooms. The calculation does not predict the temperature of a physical print; use the measured baths. Insulated scenarios in that script are comparisons, not required parts or a recommendation to cover the mat.
+
+The 10 W HTP-10 alternative is approximately 250 × 150 mm ([Amazon.de](https://www.amazon.de/dp/B0044MVCWA)); it does not match this holder. Larger mats are not automatically interchangeable. No heater has been purchased or physically tested for this prototype.
