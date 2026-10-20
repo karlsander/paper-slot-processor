@@ -181,6 +181,28 @@ class PreviewIntegrationTests(unittest.TestCase):
             finally:
                 m.close()
 
+    def test_rotated_small_mat_preserves_slot_spacing_and_valid_preview(self):
+        output = viewer.ROOT / 'build'
+        output.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=output) as folder, patch.object(viewer.build, 'BAMBU', '/missing/bambu'):
+            m = viewer.Manager(Path(folder))
+            try:
+                ident = m.submit({'parameters': {'heater_width': 150, 'heater_height': 140}})['id']
+                deadline = time.monotonic() + 60
+                while m.get(ident)['state'] in {'queued', 'rendering', 'slicing'} and time.monotonic() < deadline:
+                    time.sleep(0.1)
+                job = m.get(ident)
+                self.assertEqual(job['state'], 'preview_only', job.get('error'))
+                self.assertEqual(job['model_info']['slot_pitch_mm'], 70)
+                self.assertEqual(job['model_info']['mat_mm'][:2], [150,140])
+                self.assertEqual(job['model_info']['plate_mm'][:2], [166,172])
+                self.assertGreaterEqual(job['preview_bounds_mm'][0], 166)
+                self.assertEqual(job['model_info']['bath_ml'], 325)
+                self.assertEqual(viewer.QUANTITIES['guard_tile'], 4)
+                self.assertEqual(viewer.QUANTITIES['heater_clamps'], 2)
+            finally:
+                m.close()
+
     def test_source_defaults_build_watertight_preview_without_slicer(self):
         # Keep output inside the repository so CI's OpenSCAD container can see it.
         output = viewer.ROOT / 'build'
@@ -195,7 +217,7 @@ class PreviewIntegrationTests(unittest.TestCase):
                 job = m.get(ident)
                 self.assertEqual(job['state'], 'preview_only', job.get('error'))
                 self.assertTrue(job['mesh']['is_watertight'])
-                self.assertEqual(job['mesh']['body_count'], 1)
+                self.assertEqual(job['mesh']['body_count'], 2)
                 self.assertIsNone(job['stats'])
                 self.assertTrue(job['liquid'])
                 self.assertTrue(job['paper'])

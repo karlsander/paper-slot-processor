@@ -1,6 +1,6 @@
 # Modular paper processor · v2
 
-Two removable vessels for a **102 mm Fuji roll**, with interchangeable paper guides, an A/B cradle, and one shared flat 20 W heating mat. Each wet vessel is a single printed piece. All printed parts fit a Bambu A1 mini in the supplied orientations. Use in darkness suitable for the paper; this is an open processor, not a daylight tank.
+Two removable vessels for a **102 mm Fuji roll**, with interchangeable paper guides, two joining bases, and one flat heating mat per chamber. Each wet vessel is a single printed piece. All printed parts fit a Bambu A1 mini in the supplied orientations. Use in darkness suitable for the paper; this is an open processor, not a daylight tank.
 
 | Preset | Finished image | Cut from roll | Handling strip | Fill per vessel |
 | --- | --- | --- | --- | --- |
@@ -17,7 +17,7 @@ The image runs down the vessel. The remaining strip extends above it for a finge
 ./scripts/start_viewer.sh --no-browser
 ```
 
-Open **http://127.0.0.1:8765/**. Select Assembly, Exploded, Inspect vessel A/B, or a print plate. Drag to rotate; use Cutaway, Fill level and Paper to inspect the inside. Paper toggles the liquid preview to the displaced, loaded level. Assembly estimates include both covers and **six guard tiles**. Selected plate estimates are for one copy; the tile view states its required quantity.
+Open **http://127.0.0.1:8765/**. Select Assembly, Exploded, Inspect vessel A/B, or a print plate. Drag to rotate; use Cutaway, Fill level and Paper to inspect the inside. Paper toggles the liquid preview to the displaced, loaded level. Assembly estimates include both covers and **four guard tiles**. Selected plate estimates are for one copy; the tile view states its required quantity.
 
 Parameters update the geometry, derived fill and recipe, cut length, capacity estimate, print material and time. Assembly builds slice every standard plate and provide a ZIP. Individual print views provide oriented STL and Bambu projects. Inspection views provide the tilted vessel project. Invalid settings leave the old preview visibly stale and disable downloads.
 
@@ -42,44 +42,50 @@ The ZIP includes STL, Bambu projects, a quantity manifest and these instructions
 | clips | 1 | Four retaining clips, on their sides |
 | cradle_a, cradle_b | 1 each | Flat bases |
 | links | 1 | Two cradle joining plates |
-| heater_clamps | 1 | Two lower metal-plate clamps |
-| guard_tile | **6** | Six identical vented panels; one per plate |
+| heater_clamps | **2** | Two lower metal-plate clamps per module |
+| guard_tile | **4** | Two vented panels per module; one per plate |
 | guard_links | 1 | Two four-hole panel joining plates |
-| guard_mounts | 1 | Four metal-edge mounts, on their sides |
-| strap_anchors | 1 | Three anchors; the centre one includes the upper mat keeper |
-| mat_keepers | 1 | Bottom keeper and two side keepers |
-| cable_saddle | 1 | One cable restraint |
+| guard_mounts | **2** | Four metal-edge mounts per module, on their sides |
+| strap_anchors | **2** | Two side strap anchors per module |
+| mat_keepers | **2** | Four edge keepers per module |
+| cable_saddle | **2** | One cable restraint per module |
 | fit, trial_* | Optional | Fit section and alternative guides; excluded from full-set totals |
 
-The complete default set is approximately **808 g / 32 h 9 min**; the 2:1 set is **858 g / 34 h 7 min**, including six guard tiles and both covers, excluding optional fit/trial pieces. These are local Bambu Studio 2.7.1 estimates and can vary with slicer settings.
+Use the live viewer or the exported quantity manifest for complete-set material and time estimates. They include both covers, all four guard tiles and both sets of heater fittings. Commercial mats, metal and straps are excluded.
 
 Supplied profiles use Generic PETG, 0.20 mm layers, four walls and 15% infill. Vessel projects enable build-plate-only tree supports at a 30° threshold and a 3 mm outer brim. **Keep their tilt and placement; do not auto-orient or auto-arrange them.** The printed rail is two layers high and is trimmed off. Other parts print without supports.
 
 The default vessel occupies about 147.2 × 158.1 × 160.4 mm; the 2:1 vessel about 147.2 × 173.9 × 176.7 mm. Geometry checks reserve 3 mm at each bed edge and 2 mm in height. A manifold mesh does not establish a leak-free FDM print. Inspect seams and layers, remove supports and the rail, then water-test each vessel independently before using chemistry. Do not sand a guide while it is mounted over a bath.
 
+## Independent heater modules
+
+The paper slots are parallel, **70 mm apart**. The two bases occupy **170.8 × 138 mm**, with cable restraints and heater fittings extending beyond the sides. Each base holds one removable vessel and a separate heater cassette. There is no shared metal plate between baths. Repeating the front/rear M4 link pattern permits more modules; current viewer and print bundles contain A and B. Join at least two modules for use, or screw a single module to a stable support through its spare base holes.
+
+Each module uses a nominal **140 × 150 mm, 5 W mat**, a **156 × 182 × 1.5 mm metal plate**, and two identical **156 × 91 mm vented guard panels**. All printed parts fit the A1 mini. Mat dimensions and thickness remain adjustable for fitting the actual small unit; this version is built around 5 W per chamber. Test the measured equilibrium temperature before considering a different heater or redesign.
+
+The mount is an adjustable prototype envelope, **not a verified fitting or compatibility approval for a specific mat**. The INVITAL listing specifies glass terrariums in its support answer; see [heating notes](docs/heating.md). The nominal mat thickness is 3 mm; measure the mat and its connection before printing fittings. Cable bulbs and connectors are not modeled. Leave these clear of keepers and the guard; the edges remain open for cable routing.
+
 ## Hardware
 
-For the default 350 × 200 mm mat envelope:
+For two modules:
 
-- One **Lucky Reptile Thermo Mat PRO HTP-20**, 20 W. See [heating notes](docs/heating.md) for the verified Amazon.de listing and operating workflow.
-- One flat aluminium spreader **366 × 232 × 1.5 mm**, with deburred edges. It has no liquid contact and needs no drilled holes.
-- Two compliant thermal interface pads, **124 × 192.3 × 0.5 mm** for 16:9. The viewer reports the dimensions for other settings. These sit between the vessel backs and metal, never inside a bath.
-- Two **15 mm × approximately 500 mm** reusable hook-and-loop straps, trimmed after fitting. Each vessel releases separately.
-- Four M4 × 10 mm screws, four M4 nuts and approximately 1 mm washers for the cradle links. Add four or more **3 mm rubber feet** so underside hardware clears the table.
-- Four M3 × 25 mm screws and nuts for the lower heater clamps; two M3 × 16 mm screws and nuts for their horizontal clamping screws.
-- Eight M3 × 10 mm screws/nuts for the guard links. Four M3 × 16 mm screws/nuts with **1 mm washers** for the guard mounts. Check that their tips stop short of the metal plate; use a shorter screw or another washer if needed.
-- One M4 × 16 mm screw/nut and approximately 1 mm washer for the cable saddle; two small cable ties. Leave a gentle cable loop, without pulling on the mat connection.
-
-Mat thickness is not specified in the product listing: **measure the actual mat before printing fittings**. The default 3 mm envelope, spreader thickness, pad thickness and guard clearance are adjustable. The mat is represented by its rectangular bounding envelope; its actual outline is rounded. Keeper positions capture the middle of its four edges. Physical fits still need checking.
+- Two suitable flat heating mats of the selected size; each has its own power connection or manual power adjustment.
+- Two deburred aluminium plates of the size above. No aluminium touches chemistry; the plates require no drilled holes.
+- Two compliant thermal interface pads **124 × 179 × 0.5 mm** with the default plate. The viewer reports dimensions for other settings. These sit between vessel backs and metal.
+- Two **15 mm reusable hook-and-loop straps**, approximately 500 mm, trimmed after fitting.
+- Four M4 × 10 mm screws, nuts and approximately 1 mm washers for the two base links. Add at least four **3 mm rubber feet** to clear underside hardware.
+- Eight M3 × 25 mm screws and nuts for the four lower heater clamps; four M3 × 16 mm screws and nuts for their horizontal clamping screws.
+- Eight M3 × 10 mm screws/nuts and eight 1 mm washers for the two guard links. Eight M3 × 16 mm screws/nuts with **1 mm washers** for the side guard mounts. Check their tips stop short of the metal; use a shorter screw or another washer if necessary.
+- Two M4 × 16 mm screws/nuts and approximately 1 mm washers for cable saddles; four small cable ties.
 
 ## Assemble
 
-1. Bolt the cradle halves together using the front and rear links. The A base carries the calculated fill and both recipes. One raised bar identifies A; two identify B.
-2. Bolt on the two lower heater clamps. Seat the metal plate in their slots, then gently tighten the horizontal screws against the **metal only**.
-3. Place the mat flat against the rear of the metal, centred horizontally and with its bottom **24 mm above the metal's bottom edge**. Fit the bottom and side keepers. Slide on the three strap anchors from above; the centre anchor also captures the mat's top edge. Do not bend, pierce or pinch the mat.
-4. Join six guard tiles into three columns and two rows with the two four-hole links at the internal intersections. Fit the four edge mounts and screw the guard on. Its rear air gap remains open. Fit the cable saddle in the spare rear-left base hole and restrain the cable gently.
-5. Put the thermal pads against the flat vessel backs and lower the vessels into their cradle guides. Route one strap through the centre and each outer anchor, around that vessel's front. Tighten just enough to maintain contact. Release that strap to lift out its vessel; the mat stays in the frame.
-6. Seat the A/B guides on the rims and slide two retaining clips onto each front rim. Remove clips and lift the guide for filling or cleaning. The guide skirt ends above the liquid; there is no submerged seal.
+1. Place A in front of B, with their slots parallel. Join the bases using a link at each side. The A base carries the fill volume and both recipes. One raised bar identifies A; two identify B.
+2. Bolt two lower clamps to each base. Seat a separate plate in each pair of slots, then gently tighten the horizontal screws against **metal only**.
+3. Place each mat flat on its plate's rear, centred horizontally, with its bottom **24 mm above the plate bottom**. Fit four loose edge keepers. The top keeper sits opposite the vessel's filling well; the bottom keeper sits just outside the vessel's left edge. Do not bend, pierce or squeeze the mat.
+4. Join two guard tiles vertically using one four-hole link at its centre, with a 1 mm washer between link and panel at each hole. Fit the four side-edge mounts, 36 mm from the top and bottom of the metal, and screw on the guard. Its rear air gap stays open and at least 10 mm deep. Fit each cable saddle at the left side of its base and leave slack at the mat connection.
+5. Fit one strap anchor at each plate side, halfway up the vessel. Place the interface pad against the vessel's flat back and lower the vessel into its base. Route the strap through both anchors and around the vessel front; tighten just enough to maintain contact. Release it to lift the vessel out independently, leaving heater and wiring in the base.
+6. Seat the A/B guides and slide two retaining clips onto each front rim. Remove clips and lift the guide for filling or cleaning. Its skirt ends above the liquid; there is no submerged seal.
 
 ## Use and chemistry
 

@@ -2,7 +2,7 @@
   "status": "implemented_and_locally_validated",
   "brief": "Rebuild the paper processor around removable vessels and interchangeable guides, for a user-confirmed 102 mm Fuji roll, 16:9 and wider images plus a sacrificial finger-grip strip, all printable on the A1 mini. Implement the six accepted design recommendations, research Amazon.de terrarium mats and provide a suitable holder, update the local parametric viewer and print bundle, verify and deliver through a GitHub PR.",
   "requirements": [
-    "Two removable single-piece bath vessels in a shared modular cradle; independent emptying and cleaning",
+    "Two removable single-piece vessels in independent joining bases, with close parallel paper slots and independent emptying and cleaning",
     "Removable, positively located paper guide with interchangeable slit clearances, shallow drip return and no tongs",
     "Image dimensions drive the vessel and roll cut length; preserve a finger grip above the rim and a sacrificial trim band",
     "Defined vertical and lateral agitation travel, immersed image at the top of the stroke, and dynamic headroom",
@@ -28,20 +28,21 @@
     ],
     "orientation_proposal": "Print each tall narrow vessel leaning about 44 degrees, preserving one-piece liquid containment. Verify by mesh bounds and slicing before claiming success.",
     "v1_baseline": "af78247 on origin/main after merging checked PR 1",
-    "working_branch": "codex/processor-v2",
-    "heating": "One shared flat 20 W mat; no thermostat or permanent probe. Prewarm mixing water to 35-38 C, measure actual bath temperature, use the established experimental timing.",
+    "working_branch": "codex/compact-heater-modules",
+    "heating": "One 140 x 150 mm, 5 W mat per chamber; independent plates and power adjustment, no thermostat or permanent probe. Prewarm to 35-38 C and measure equilibrium. Evaluate with water before redesigning for more power.",
     "capacity": "About 30 complete 102 x 208 mm cuts per fresh pair of 325 ml ADOX RA-4 fills, by published area capacity."
   },
   "milestones": {
-    "core_cad": "Removable single-piece vessels, interchangeable guides, retaining clips, covers, split cradle, links, heater clamps, six-part guard, mat edge keepers, strap anchors, cable saddle and fit section.",
-    "geometry": "83 checks pass: both aspect presets, manifold solids, centred print placement, liquid volume, swept paper, guide/clip/plate clearance, sampled vessel removal, heater fittings and invalid configurations.",
-    "slicing": "22 plates per preset (17 standard, five optional) sliced without warnings for 16:9 and 2:1. Six copies of the guard tile are included in complete-set estimates.",
-    "heater_research": "HTP-20 20 W, 350 x 200 mm, Amazon.de ASIN B0044MPIZM. Flat mounting with a shared aluminium spreader, thermal pads and individually releasable straps. Thickness must be measured before printing fittings.",
+    "core_cad": "Removable vessels and guides, parallel slots 70 mm apart, repeatable bases and links, independent small-mat plates, two guard panels per chamber, clamps, edge keepers, side strap anchors and cable saddles.",
+    "geometry": "Expanded checks cover both image aspects, small-mat orientations, fitting clearance, independent vessel removal and adjacent modules.",
+    "slicing": "Standard set has 17 plate types, including four copies of the guard tile and two copies of each per-chamber heater fitting plate. Optional guides and fit piece remain available.",
+    "heater_research": "INVITAL 5 W 140 x 150 mm is the user-supplied dimensional reference. Listing has a manual power dial and glass-only installation guidance; suitability for the printed vessel remains unresolved.",
     "viewer": "v2 at 127.0.0.1:8765, with assembly/exploded/inspection/print plates, source-derived parameters, working liquid and paper, real Bambu estimates, downloads and about 30-print ADOX capacity estimate.",
-    "validation": "15 Python tests and two frontend tests pass. Four vessel toolpaths were sampled at <=0.25 mm spacing; no support centre lines enter the wet cavity beyond the stated boundary tolerance.",
-    "delivery": "PR 4 contains implementation and instructions. Local bundles are in build/v2-final and build/v2-wide-final; CI is required before merge."
+    "validation": "Geometry and viewer checks are run for each update; previous vessel support-path validation remains applicable because the wet vessels and their print orientation are unchanged.",
+    "delivery": "Compact 5 W modules supersede the shared-heater layout in PR 4. Current instructions and print bundles use independent small mats."
   },
   "physical_validation_remaining": [
+    "Verify the chosen heater is suitable for this mounting and printed vessel; a metal spreader alone does not establish compatibility.",
     "Measure actual heater mat thickness and check edge keeper/cable placement.",
     "Print the fit section, guide and clip; test wet scrap paper, free agitation and emulsion contact.",
     "Water-test vessels, fill cue, drainage, support removal and repeated independent vessel release.",

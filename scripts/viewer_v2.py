@@ -26,10 +26,12 @@ FIELDS = [
     ('recipe_a_water','A water parts','Chemistry','integer',1,40,1,''),
     ('recipe_b_concentrate','B concentrate parts','Chemistry','integer',1,20,1,''),
     ('recipe_b_water','B water parts','Chemistry','integer',1,40,1,''),
+    ('heater_width','Mat width','Heater','number',140,150,1,'mm'),
+    ('heater_height','Mat height','Heater','number',140,150,1,'mm'),
     ('heater_thickness','Measured mat thickness','Heater','number',1,5,0.1,'mm'),
     ('heat_spreader_thickness','Metal plate thickness','Heater','number',1,3,0.1,'mm'),
     ('thermal_pad','Interface pad thickness','Heater','number',0,2,0.1,'mm'),
-    ('guard_gap','Guard air gap','Heater','number',8,20,1,'mm'),
+    ('guard_gap','Guard air gap','Heater','number',10,20,1,'mm'),
 ]
 SCHEMA = [dict(zip(('id','label','group','type','min','max','step','unit'), f)) for f in FIELDS]
 META = {
@@ -42,6 +44,7 @@ META = {
     'indicator_ml':'visible_pool_ml','vessel_mm':'[body_width,body_depth,body_height]',
     'plate_mm':'[spreader_width,spreader_height,heat_spreader_thickness]',
     'mat_mm':'[heater_width,heater_height,heater_thickness]',
-    'pad_mm':'[body_width-4,body_height-12,thermal_pad]',
+    'wall_mm':'wall', 'slot_pitch_mm':'vessel_pitch',
+    'pad_mm':'[body_width-4,pad_height,thermal_pad]',
 }
 ARTIFACTS = {'model.stl','liquid.stl','paper.stl','loaded.stl','details.stl','hardware.stl','plate.3mf','settings.json','print-files.zip'}

@@ -202,7 +202,7 @@ async function display(job, version) {
     $('indicator-info').textContent = `Empty fill cue ${fmt(info.indicator_depth_mm)} mm · ${fmt(info.indicator_ml,2)} ml`;
     $('paper-info').textContent = `Image ${info.image_mm.map(v=>fmt(v)).join(' × ')} mm · cut ${info.cut_mm.map(v=>fmt(v)).join(' × ')} mm · trim ${fmt(info.trim_mm)} mm`;
     $('agitation-info').textContent = `Agitation ↑ ${fmt(info.agitation_mm[0])} mm / ↔ ±${fmt(info.agitation_mm[1])} mm · immersion reserve ${fmt(info.immersion_mm)} mm`;
-    $('plate-note').textContent = ['assembly','exploded'].includes(model) ? 'Complete set, including both covers and six guard tiles. Commercial heater, metal plate and straps are separate.' : model.startsWith('inspect_') ? 'Print estimates and project below are for the vessel alone, in its tilted print orientation.' : job.quantity > 1 ? `Print this plate ${job.quantity} times. Estimates below are for one copy.` : 'One copy of this plate. Vessel projects preserve the required tilt and support settings.';
+    $('plate-note').textContent = ['assembly','exploded'].includes(model) ? 'Complete set, including both covers and four guard tiles. Commercial heaters, metal plates and straps are excluded.' : model.startsWith('inspect_') ? 'Print estimates and project below are for the vessel alone, in its tilted print orientation.' : job.quantity > 1 ? `Print this plate ${job.quantity} times. Estimates below are for one copy.` : 'One copy of this plate. Vessel projects preserve the required tilt and support settings.';
     link('download-stl', job, 'model.stl', !job.view_only);
     link('download-settings', job, 'settings.json', true);
   }

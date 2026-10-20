@@ -7,58 +7,24 @@
   },
   "heater_candidates": [
     {
-      "name": "Lucky Reptile Thermo Mat PRO HTP-20",
-      "watts": 20,
+      "name": "INVITAL 5 W",
+      "watts": 5,
       "size_mm": [
-        350,
-        200
-      ],
-      "amazon": "https://www.amazon.de/dp/B0044MPIZM",
-      "observed_price_eur": 30.27,
-      "observed_availability": "Usually dispatched in 2 to 5 weeks",
-      "verification": "Amazon.de product option selected: 20 Watt; product table HTP-20, 20 Watt = ca. 35 x 20 cm, ASIN B0044MPIZM. The page title remained the 10 W parent listing, so use selected option and product table.",
-      "proposed_use": "Selected: one flat shared 20 W mat behind the metal spreader. Prewarm mixing water to roughly 35-38 C. Measure actual bath temperatures after settling and use the user's established experimental timing. No fixed temperature guarantee."
-    },
-    {
-      "name": "Lucky Reptile Thermo Mat PRO HTP-10",
-      "watts": 10,
-      "size_mm": [
-        250,
+        140,
         150
       ],
-      "amazon": "https://www.amazon.de/dp/B0044MVCWA",
-      "observed_price_eur": 29.99,
-      "observed_availability": "In stock; seller Reptilienkosmos",
-      "proposed_use": "Comparison candidate. Two separate units need larger external mounting faces than the vessel bodies; do not bend them around a vessel."
+      "url": "https://www.invital.de/invital-heizmatte-14-x-15-cm-5-w",
+      "verification": "Manufacturer-brand listing read in browser. Manual power dial; support limits use to glass terrariums. Printed-vessel compatibility not established.",
+      "proposed_use": "Dimensional reference for a replaceable per-chamber cassette; not an approved heater selection."
     }
   ],
-  "heater_manual": {
-    "url": "https://lucky-reptile.de/media/pdf/26/2e/63/Thermo_Mat_PRO_HTP-10.pdf",
-    "facts": [
-      "Specified uncovered surface temperature at room temperature is approximately 36 to 42 C, not a regulated bath temperature.",
-      "The manufacturer recommends a thermostat and prohibits bending the mat.",
-      "Protect the mat from damage, keep connections dry, do not immerse, and permit heat dissipation.",
-      "The overheat breaker is an emergency protection, not a temperature controller."
-    ]
-  },
-  "rejected_options": [
-    {
-      "name": "Exo Terra Heat Mat 8 W PT2016",
-      "source": "https://exo-terra.com/products/heating/substrate-heaters/heat-mat-8w/",
-      "reason": "Manufacturer specifies glass terrariums only, and the 200 x 200 mm size does not fit a vessel face directly."
-    },
-    {
-      "name": "HabiStat standard heat mats",
-      "source": "https://habistat.com/product-details/environmental-control/heat-mat/",
-      "reason": "4 W 127 x 102 mm has limited heating area/power; 7 W 150 x 280 mm is too tall for direct mounting. Mat Stat's 18-34 C range is below the desired nominal 35 C.",
-      "thermostat_source": "https://habistat.com/product-details/environmental-control/mat-stat/"
-    }
-  ],
+  "rejected_options": [],
   "remaining": [
-    "Measure actual mat thickness before printing the fittings; nominal 3 mm is adjustable.",
-    "Physical water-tightness, wet-paper movement, contact pressure, filling and temperature tests remain outstanding."
+    "Verify heater suitability for this mounting and printed vessel, including its supplied instructions.",
+    "Measure mat thickness and cable connection before printing fittings.",
+    "Physical water tightness, wet-paper movement, contact pressure, filling and temperature tests remain outstanding."
   ],
-  "thermostat": "Omitted at user request, 2026-10-20. No permanent probe or probe fitting. Manufacturer recommends a thermostat; this prototype uses the user's manually measured equilibrium workflow.",
+  "thermostat": "Omitted at user request. Separate manual power dials and measured equilibrium temperatures; no permanent probe.",
   "chemistry": {
     "name": "ADOX RA-4 2.5 litre kit",
     "source": "https://www.fotoimpex.de/shop/fotochemie/adox-ra-4-kit-entwickler-und-bleichfixierbad-monokonzentrate-zum-ansatz-von-2500-ml.html",
