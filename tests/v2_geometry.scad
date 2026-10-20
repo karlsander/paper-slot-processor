@@ -26,26 +26,24 @@ valid() {
     else if(check=="guard_link") guard_link();
     else if(check=="guard_mount") guard_mount_print();
     else if(check=="strap_anchor") strap_anchor_print();
-    else if(check=="central_anchor") strap_anchor_print(retain_mat=true);
     else if(check=="mat_keeper") mat_keeper_print(24);
     else if(check=="cable_saddle") cable_saddle();
-    else if(check=="fittings_mat_collision") intersection() { installed_heater_fittings(); heater_mat(); }
+    else if(check=="fittings_mat_collision") intersection() { installed_heater_fittings(chamber); heater_mat(); }
     else if(check=="fittings_plate_collision") intersection() {
-        installed_heater_fittings();
+        installed_heater_fittings(chamber);
         // Test the plate interior: the keepers intentionally contact several outer faces.
-        translate([(2*cradle_width-spreader_width)/2+0.01,heater_y+0.01,spreader_bottom+0.01])
+        translate([spreader_left+0.01,heater_y+0.01,spreader_bottom+0.01])
             cube([spreader_width-0.02,heat_spreader_thickness-0.02,spreader_height-0.02]);
     }
     else if(check=="fittings_cradle_collision") intersection() {
-        installed_heater_fittings();
-        for(id=[0:1]) translate([id*cradle_width,0,0]) cradle(id);
+        installed_heater_fittings(chamber);
+        cradle(chamber);
     }
     else if(check=="fittings_removal") intersection() {
-        installed_heater_fittings();
-        union() for(id=[0:1]) for(lift=[0:5:75])
-            translate([id*cradle_width+vessel_x(id),vessel_y,cradle_floor+lift]) {
-                vessel(id); translate([0,0,body_height]) guide(id);
-            }
+        installed_heater_fittings(chamber);
+        union() for(lift=[0:5:75]) vessel_position(chamber,lift) {
+            vessel(chamber); translate([0,0,body_height]) guide(chamber);
+        }
     }
     else if(check=="empty_water") water(id=chamber);
     else if(check=="loaded_water") water(loaded_level,true,id=chamber);
@@ -67,13 +65,22 @@ valid() {
     }
     else if(check=="heater_collision") intersection() {
         heater_spreader();
-        for(id=[0:1]) translate([id*cradle_width+vessel_x(id),vessel_y,cradle_floor]) {
-            vessel(id); translate([0,0,body_height]) guide(id);
+        vessel_position(chamber) {
+            vessel(chamber); translate([0,0,body_height]) guide(chamber);
         }
     }
     else if(check=="holder_collision") intersection() {
         heater_spreader();
-        for(id=[0:1]) translate([id*cradle_width+(id==0?8:cradle_width-24),heater_y-12,cradle_floor]) heater_clamp();
+        installed_heater_clamps();
+    }
+    else if(check=="fittings_clamp_collision") intersection() {
+        installed_heater_fittings(chamber); installed_heater_clamps();
+    }
+    else if(check=="module_collision") intersection() {
+        union() { cradle(0); installed_heater_clamps(); installed_heater_fittings(0);
+            heater_spreader(); heater_mat(); vessel_position(0) vessel(0); }
+        module_position(1) union() { cradle(1); installed_heater_clamps(); installed_heater_fittings(1);
+            heater_spreader(); heater_mat(); vessel_position(1) vessel(1); }
     }
     else assert(false,"Unknown probe");
 }

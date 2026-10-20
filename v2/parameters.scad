@@ -40,15 +40,15 @@ recipe_a = [recipe_a_concentrate,recipe_a_water]; // Concentrate : water. User r
 recipe_b = [recipe_b_concentrate,recipe_b_water]; // Independent of A, even when the volumes match.
 rounding_limit = 2;
 /* [Cradle and heater] */
-cradle_depth = 120;
+module_gap = 2; // Separate modules joined with removable printed links.
 cradle_floor = 4;
 cradle_clearance = 0.6;
-heater_width = 350; // Flat shared heater; final selection documented separately.
-heater_height = 200;
+heater_width = 140; // One nominal 5 W mat per chamber.
+heater_height = 150;
 heater_thickness = 3;
 heat_spreader_thickness = 1.5;
 thermal_pad = 0.5; // Compliant external interface, separate from the printed liquid wall.
-guard_gap = 10;
+guard_gap = 10; // Keep at least 10 mm clear behind the mat.
 guard_thickness = 2.4;
 /* [Printing] */
 build_size = [180,180,180];
@@ -98,21 +98,27 @@ well_stations = concat(
     [for(i=[0:16]) let(z=lerp(well_exit_z,pool_z,i/16),s=well_at(z)) [z,s[0],s[1]]],
     [for(i=[1:16]) let(z=lerp(pool_z,well_top,i/16),s=well_at(z)) [z,s[0],s[1]]]);
 vessel_xmax = well_cx+well_mouth/2+well_wall;
-cradle_width = max(vessel_xmax+24,heater_width/2-3);
-vessel_pitch = cradle_width;
-vessel_y = (cradle_depth-body_depth)/2;
+// Heater width never changes the vessel positions or the printable base.
+cradle_width = body_width+2*(vessel_xmax-body_width)+8;
+vessel_y = 24;
 clip_width = 12;
+clamp_width = 14;
 spreader_width = heater_width+16;
 spreader_height = heater_height+32;
+spreader_left = (cradle_width-spreader_width)/2;
 heater_y = vessel_y+body_depth+thermal_pad;
 guard_y = heater_y+heat_spreader_thickness+heater_thickness+guard_gap+guard_thickness;
-guard_tile_width = spreader_width/3;
+cradle_depth = max(68,guard_y+6.6);
+vessel_pitch = cradle_depth+module_gap;
+guard_tile_width = spreader_width;
 guard_tile_height = spreader_height/2;
 spreader_bottom = cradle_floor+3;
 spreader_top = spreader_bottom+spreader_height;
-strap_z = cradle_floor+body_height*0.65;
-anchor_length = spreader_top-strap_z;
-function vessel_x(id) = id==0 ? cradle_width-6-body_width : 6;
+strap_z = cradle_floor+body_height*0.5;
+pad_height = min(body_height-12,spreader_top-cradle_floor-6);
+function vessel_x(id=0) = (cradle_width-body_width)/2;
+module module_position(id=0,explode=0) { translate([0,id*(vessel_pitch+explode),0]) children(); }
+module vessel_position(id=0,lift=0) { translate([vessel_x(id),vessel_y,cradle_floor+lift]) children(); }
 
 include <volume.scad>
 nominal_ml = (capacity(target_loaded_level)-paper_displacement(target_loaded_level))/1000;
@@ -153,11 +159,13 @@ module valid() {
     assert(loaded_level>=image_top+vertical_stroke+1 && body_height-loaded_level>=6);
     assert(actual_sight_depth>=0.5 && actual_sight_depth<=2.5);
     assert(print_tilt>=40 && print_tilt<=45);
-    assert(thermal_pad>=0 && thermal_pad<=2 && guard_gap>=8 && guard_gap<=20);
+    assert(thermal_pad>=0 && thermal_pad<=2 && guard_gap>=10 && guard_gap<=20);
     assert(heater_thickness>=1 && heater_thickness<=8 && heat_spreader_thickness>=1 && heat_spreader_thickness<=3);
-    assert(anchor_length>=35 && anchor_length<=usable_xy[0]-3,"Heater height does not suit these strap anchors.");
+    assert(heater_width>=body_width+12 && heater_width<=150 && heater_height>=140 && heater_height<=150);
+    assert(heater_y+heat_spreader_thickness+heater_thickness+guard_gap+guard_thickness<cradle_depth);
+    assert(pad_height>0 && spreader_top<body_height+cradle_floor-10);
     assert(guard_tile_width<=usable_xy[0] && guard_tile_height<=usable_xy[1]);
-    assert(cradle_width<=usable_xy[0] && cradle_depth<=usable_xy[1],"Cradle half exceeds the printer bed.");
+    assert(cradle_width<=usable_xy[0] && cradle_depth<=usable_xy[1],"Module base exceeds the printer bed.");
     assert(vessel_print_bounds[0]<=usable_xy[0] && vessel_print_bounds[1]<=usable_xy[1] &&
         vessel_print_bounds[2]<=usable_z,"Image size and clearance exceed the A1 mini in the documented tilted orientation.");
     children();

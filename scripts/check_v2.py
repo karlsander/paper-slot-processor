@@ -63,13 +63,20 @@ def main():
         for chamber in [0, 1]:
             for part in ["vessel", "guide", "cover", "cradle"]:
                 reports.append(render(part, params | {"chamber": chamber}, printable=True, ident=f"{preset}-{part}-{chamber}"))
-        for part in ["clip", "link", "heater_clamp", "guard_tile", "guard_link", "guard_mount", "strap_anchor", "central_anchor", "mat_keeper", "cable_saddle"]:
+        for part in ["clip", "link", "heater_clamp", "guard_tile", "guard_link", "guard_mount", "strap_anchor", "mat_keeper", "cable_saddle"]:
             reports.append(render(part, params, printable=True, ident=f"{preset}-{part}"))
         for part in ["empty_water", "loaded_water", "low_water"]:
             reports.append(render(part, params, ident=f"{preset}-{part}"))
-        for part in ["paper_collision", "guide_collision", "clip_collision", "cradle_removal", "heater_collision", "holder_collision", "fittings_mat_collision", "fittings_plate_collision", "fittings_removal", "fittings_cradle_collision"]:
-            for chamber in ([0, 1] if part in {"paper_collision", "guide_collision", "clip_collision", "cradle_removal"} else [0]):
+        for part in ["paper_collision", "guide_collision", "clip_collision", "cradle_removal", "heater_collision", "holder_collision", "fittings_mat_collision", "fittings_plate_collision", "fittings_removal", "fittings_cradle_collision", "fittings_clamp_collision", "module_collision"]:
+            for chamber in ([0, 1] if part in {"paper_collision", "guide_collision", "clip_collision", "cradle_removal", "fittings_removal"} else [0]):
                 reports.append(render(part, params | {"chamber": chamber}, empty=True, ident=f"{preset}-{part}-{chamber}"))
+    # Check the small mat rotated to 150 x 140 mm and both wells.
+    for part in ["cradle", "guard_tile", "strap_anchor"]:
+        reports.append(render(part, {"heater_width":150,"heater_height":140}, printable=True, ident=f"rotated-mat-{part}"))
+    for part in ["heater_collision", "holder_collision", "fittings_mat_collision", "fittings_plate_collision",
+                 "fittings_removal", "fittings_cradle_collision", "fittings_clamp_collision", "module_collision"]:
+        for chamber in [0,1]:
+            reports.append(render(part, {"heater_width":150,"heater_height":140,"chamber":chamber}, empty=True, ident=f"rotated-mat-{part}-{chamber}"))
     for gap in [0.6, 0.8, 1.6]:
         reports.append(render("guide", {"guide_gap": gap}, printable=True, ident=f"guide-{gap}"))
         reports.append(render("paper_collision", {"guide_gap": gap}, empty=True, ident=f"paper-gap-{gap}"))

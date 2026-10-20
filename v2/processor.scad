@@ -26,10 +26,10 @@ valid() {
     else if(part=="guard_tile") guard_tile();
     else if(part=="guard_links") for(x=[0,21]) translate([x,0,0]) guard_link();
     else if(part=="guard_mounts") for(x=[0,24]) for(y=[0,28]) translate([x,y,0]) guard_mount_print();
-    else if(part=="strap_anchors") for(i=[0:2]) translate([0,i*20,0]) strap_anchor_print(retain_mat=i==1);
+    else if(part=="strap_anchors") for(i=[0:1]) translate([0,i*28,0]) strap_anchor_print();
     else if(part=="mat_keepers") {
         mat_keeper_print(24);
-        for(y=[15,30]) translate([0,y,0]) mat_keeper_print(8);
+        for(y=[15,30,45]) translate([0,y,0]) mat_keeper_print(8);
     }
     else if(part=="cable_saddle") cable_saddle();
     else if(part=="fit") translate([vessel_xmax-body_width,rim_overhang,-body_height+12]) intersection() {
@@ -39,11 +39,11 @@ valid() {
     else if(part=="assembly") assembly(layer=view_layer);
     else if(part=="exploded") assembly(explode=24,layer=view_layer);
     else if(part=="assembly_liquid") for(id=[0:1])
-        translate([id*cradle_width+vessel_x(id),vessel_y,cradle_floor]) water(id=id);
+        module_position(id) vessel_position(id) water(id=id);
     else if(part=="assembly_loaded_liquid") for(id=[0:1])
-        translate([id*cradle_width+vessel_x(id),vessel_y,cradle_floor]) water(loaded_level,true,id=id);
+        module_position(id) vessel_position(id) water(loaded_level,true,id=id);
     else if(part=="assembly_paper") for(id=[0:1])
-        translate([id*cradle_width+vessel_x(id),vessel_y,cradle_floor]) paper();
+        module_position(id) vessel_position(id) paper();
     else if(part=="liquid") water(id=chamber);
     else if(part=="loaded_liquid") water(loaded_level,true,id=chamber);
     else if(part=="paper") paper();

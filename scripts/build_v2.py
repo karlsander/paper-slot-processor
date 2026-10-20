@@ -22,11 +22,11 @@ PARTS = {
     "cradle_b": ("Cradle B", "cradle", {"chamber": 1}, 1),
     "links": ("Two cradle links", "links", {}, 2),
     "heater_clamps": ("Two heater clamps", "heater_clamps", {}, 2),
-    "guard_tile": ("Heater guard tile (print six)", "guard_tile", {}, 1),
+    "guard_tile": ("Heater guard tile (print four)", "guard_tile", {}, 1),
     "guard_links": ("Two guard links", "guard_links", {}, 2),
     "guard_mounts": ("Four guard mounts", "guard_mounts", {}, 4),
-    "strap_anchors": ("Three strap anchors", "strap_anchors", {}, 3),
-    "mat_keepers": ("Three mat edge keepers", "mat_keepers", {}, 3),
+    "strap_anchors": ("Two strap anchors", "strap_anchors", {}, 2),
+    "mat_keepers": ("Four mat edge keepers", "mat_keepers", {}, 4),
     "cable_saddle": ("Cable saddle", "cable_saddle", {}, 1),
     "fit": ("Guide and clip fit section", "fit", {}, 1),
 }
@@ -34,7 +34,8 @@ for _gap in [0.6,0.8]:
     for _id,_letter in enumerate('ab'):
         PARTS[f'trial_{_letter}_{int(_gap*10)}'] = (f'Optional {_gap} mm guide {_letter.upper()}', 'guide',
             {'chamber':_id,'print_layout':True,'guide_gap':_gap},1)
-QUANTITIES = {"guard_tile": 6}
+QUANTITIES = {"guard_tile": 4, "heater_clamps": 2, "guard_mounts": 2,
+              "strap_anchors": 2, "mat_keepers": 2, "cable_saddle": 2}
 STANDARD_PARTS = tuple(k for k in PARTS if k != "fit" and not k.startswith("trial_"))
 
 
@@ -97,11 +98,12 @@ def main():
     folder.mkdir(parents=True, exist_ok=True)
     names = list(args.parts or STANDARD_PARTS)
     if args.trials: names += [k for k in PARTS if k not in STANDARD_PARTS and k not in names]
-    reports = [export(name, folder / name, {"image_aspect": args.aspect}, not args.mesh_only) for name in names]
+    parameters = {"image_aspect": args.aspect}
+    reports = [export(name, folder / name, parameters, not args.mesh_only) for name in names]
     (folder / "summary.json").write_text(json.dumps(reports, indent=2) + "\n")
     digest=hashlib.sha256()
     for path in sorted((ROOT / "v2").glob("*.scad")): digest.update(path.name.encode()+path.read_bytes())
-    (folder / "configuration.json").write_text(json.dumps({"image_aspect":args.aspect,"cad_sha256":digest.hexdigest()},indent=2))
+    (folder / "configuration.json").write_text(json.dumps(parameters | {"cad_sha256":digest.hexdigest()},indent=2))
     with zipfile.ZipFile(folder / "processor-v2-print-files.zip", "w", zipfile.ZIP_DEFLATED) as archive:
         for report in reports:
             for key in ("stl", "project"):
