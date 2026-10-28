@@ -130,11 +130,20 @@ def verify(project, nozzle, sliced=False, source=None):
                     ]
                 )
                 vertices += matrix[9:]
+                item = scene.find(f"c:build/c:item[@objectid='{object_id}']", ns)
+                placement = np.array(list(map(float, item.attrib["transform"].split())))
+                np.testing.assert_allclose(
+                    placement[:9].reshape(3, 3), np.eye(3), atol=1e-9
+                )
                 original = trimesh.load_mesh(
                     source / "plates" / f"{expected}.stl"
                 ).vertices
-                # Bambu welds/reorders vertices. Compare both sets after its
-                # local recentering, before the multi-plate display translation.
+                # Bambu welds/reorders vertices and can move the source-center
+                # translation between component and build transforms on reload.
+                # Compare both sets around their bounding-box centers, retaining
+                # orientation and scale; the slicer separately checks bed fit.
+                vertices -= (vertices.min(axis=0) + vertices.max(axis=0)) / 2
+                original = original - (original.min(axis=0) + original.max(axis=0)) / 2
                 assert cKDTree(original).query(vertices)[0].max() < 1e-4
                 assert cKDTree(vertices).query(original)[0].max() < 1e-4
             assert obj["name"].startswith(expected)
