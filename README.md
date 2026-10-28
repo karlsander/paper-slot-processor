@@ -5,6 +5,7 @@
 The [fluid/thermal study and PETG print audit](docs/processor-physics.md) cover actual OpenFOAM simulations and A1 mini slicing with both 0.2 and 0.4 mm nozzles.
 The complete unheated set now has a [native build123d workflow](docs/native-processor.md),
 with STEP parts, oriented STL plates, FreeCAD checks and video generation.
+[Five-plate Bambu Studio projects](docs/bambu-projects.md) include the tested A1 mini PETG settings.
 It has exactly **five printed parts**: one base, two chambers and two magnetic
 slotted tops. Fill directly through the open top to the internal ridge; no side
 wells, clips or separate closing lids are included. Its tapered 180 × 180 mm base uses

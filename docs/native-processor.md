@@ -37,6 +37,17 @@ The finished-part STEP files use local design coordinates. Print **one of each**
 `plates/base`, `plates/vessel_a`, `plates/vessel_b`, `plates/guide_a`, and
 `plates/guide_b`. Only the vessel print plates contain sacrificial rails.
 
+## Bambu Studio projects
+
+```sh
+.venv-cad/bin/python scripts/build_native_bambu.py build/magnetic-16x9 build/bambu-16x9-04 --nozzle .4
+```
+
+This creates one five-plate project, reopens it without external settings, slices
+all plates and verifies saved settings, source mesh vertices and generated
+supports. Use `--nozzle .2` for the smaller nozzle. See [project details and
+estimates](bambu-projects.md).
+
 ## Verify in FreeCAD
 
 ```sh
