@@ -7,8 +7,8 @@ The complete unheated set now has a [native build123d workflow](docs/native-proc
 with STEP parts, oriented STL plates, FreeCAD checks and video generation.
 It has exactly **five printed parts**: one base, two chambers and two magnetic
 slotted tops. Fill directly through the open top to the internal ridge; no side
-wells, clips or separate closing lids are included. Its 170.8 × 138 mm base fits
-the A1 mini in one print. Current fills are 323 ml (16:9) and 360 ml (2:1).
+wells, clips or separate closing lids are included. Its tapered 180 × 180 mm base uses
+the A1 mini footprint, with 25 mm between the chamber bodies. Current fills are 323 ml (16:9) and 360 ml (2:1).
 
 ## Earlier heated v2 configuration
 

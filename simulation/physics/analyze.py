@@ -96,7 +96,6 @@ def extrema(case, region):
 def thermal(case):
     s = json.loads((case / "scenario.json").read_text())
     check_complete(case, s["end_seconds"])
-    water = mean(case)
     end = min(mean(case, r)[-1, 0] for r in s["materials"])
     stored = loss = initial_excess = 0
     for r, (rho, cp, _) in s["materials"].items():
@@ -121,12 +120,25 @@ def thermal(case):
     residual = stored + loss - supplied
     times = [t for t in (60, 300, 600, 1800, 3600) if t <= s["end_seconds"]]
     water_range = extrema(case, "water")
+    # Use saved fields at exact reporting times, not the nearest function sample.
+    import pyvista as pv
+
+    marker = case / "case.foam"
+    marker.touch()
+    reader = pv.OpenFOAMReader(marker)
+    field_means = {}
+    cell_ranges = {}
+    for t in times:
+        reader.set_active_time_value(t)
+        mesh = reader.read()["water"]["internalMesh"]
+        volumes = mesh.compute_cell_sizes(length=False, area=False)["Volume"]
+        temperatures = mesh.cell_data["T"] - 273.15
+        field_means[str(t)] = float(np.average(temperatures, weights=volumes))
+        cell_ranges[str(t)] = [float(temperatures.min()), float(temperatures.max())]
     return {
         "case": case.name,
-        "mean_c": {
-            str(t): float(np.interp(t, water[:, 0], water[:, 1]) - 273.15)
-            for t in times
-        },
+        "mean_c": field_means,
+        "cell_range_c": cell_ranges,
         "water_range_including_boundaries_c": {
             str(t): [
                 float(np.interp(t, water_range[:, 0], water_range[:, i]))

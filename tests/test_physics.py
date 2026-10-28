@@ -7,10 +7,39 @@ from pathlib import Path
 import numpy as np
 
 from simulation.physics.analyze import check_complete, liquid_flux, table
-from simulation.physics.cases import grid
+from simulation.physics.cases import grid, thermal_geometry
 
 
 class PhysicsTests(unittest.TestCase):
+    def test_sizing_geometry_matches_specified_heater(self):
+        _, material = thermal_geometry(100, 1.4)
+        self.assertEqual(material(0.064, 0.0227, 0.1), "heater")
+        self.assertIsNone(material(0.010, 0.0227, 0.1))
+        self.assertIsNone(material(0.064, 0.0235, 0.1))
+
+    def test_steady_solver_matches_analytic_series_resistance(self):
+        from scipy.sparse import csr_matrix
+
+        from simulation.physics.equilibrium import Model
+
+        # One heated solid node: area 0.1 m2, conduction resistance 0.02
+        # m2 K/W, convection h=10, no radiation. R_total = 1.2 K/W.
+        model = Model.__new__(Model)
+        model.count = model.cells = 1
+        model.matrix = csr_matrix((1, 1))
+        model.source = np.ones(1)
+        model.regions = {"heater": [0]}
+        model.ext_nodes = np.array([0])
+        model.area = np.array([0.1])
+        model.resistance = np.array([0.02])
+        model.epsilon = np.zeros(1)
+        model.water = np.array([False])
+        row = model.solve(10, air_h=10, room=20)
+        self.assertAlmostEqual(row["region_max_C"]["heater"], 32, places=9)
+        self.assertAlmostEqual(row["energy_residual_W"], 0, places=9)
+        row = model.solve(0, air_h=10, room=20)
+        self.assertAlmostEqual(row["region_max_C"]["heater"], 20, places=9)
+
     def test_phase_flux_recovery_with_air_and_reverse_flow(self):
         water = np.array([2e-6, -3e-6, 0.0])
         air = np.array([5e-6, 4e-6, -1e-6])

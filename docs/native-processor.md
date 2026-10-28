@@ -23,7 +23,8 @@ uv pip install --python .venv-cad/bin/python -r cad/requirements.txt
 
 `--config settings.json` accepts overrides from `cad.parameters.DEFAULTS`. Unknown
 keys, unsafe pocket dimensions and settings beyond the print envelope fail.
-Both presets use the 170.8 × 138 mm base and retain the 208/230 mm paper cuts.
+Both presets use the tapered 180 × 180 mm base, 45 mm chamber pitch and retain
+the 208/230 mm paper cuts.
 Their new fill volumes are 323/360 ml, including displacement of the inside ridge.
 
 Each output contains five individual part STEP files, `assembly.step`, exactly
@@ -52,7 +53,8 @@ Checks cover:
 
 - Five single, valid STEP solids with preserved volume after import into FreeCAD.
 - Five watertight print meshes, valid STEP plates, bed contact and bounds inside
-  the reserved 174 × 174 × 178 mm envelope.
+  the reserved 174 × 174 × 178 mm envelope for vessels/tops; the base uses the
+  full 180 × 180 mm bed with no brim.
 - All ten pairs in the five-part assembly, upright module removal and top lifting.
 - Nominal 0.6 mm socket clearance and 0.35 mm clearance inside each locating rim.
 - Four paired magnet locations: pocket bore/depth, closed floors, placement outside
@@ -90,7 +92,7 @@ movement updates the liquid level for displaced volume. This is **geometric
 visualization, not fluid dynamics**; it does not predict pouring, splashing,
 mixing or heat transfer. Motion is prescribed, not a magnetic-force simulation.
 
-![Five-part native processor rendered in FreeCAD](images/native-processor.png)
+![Current five-part processor](../simulation/physics/evidence/2026-10-28/tapered-assembly.png)
 
 ![Rim, magnet pockets and fill ridge detail](images/native-magnetic-detail.png)
 
@@ -103,4 +105,5 @@ existing OpenSCAD CI remains a separate regression check for the older design.
 Physical fit, magnet holding force, adhesive behavior, watertightness, paper
 friction and chemical compatibility require a printed trial. These digital checks
 also share the Open Cascade kernel between build123d and FreeCAD. The revised
-ledges/pockets have not yet received a slicer/toolpath or support-removal test.
+ledges/pockets pass the sampled slicer/toolpath checks for both nozzles; physical
+support removal remains untested. See the [physics and print report](processor-physics.md).

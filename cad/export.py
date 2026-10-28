@@ -74,13 +74,17 @@ def export(output, p):
         assert abs(box.min.Z) < 1e-4, (name, box.min.Z)
         assert all(
             v <= lim + 1e-4
-            for v, lim in zip(box.size, p["usable_xy"] + [p["usable_z"]])
+            for v, lim in zip(
+                box.size,
+                (p["base_usable_xy"] if name == "base" else p["usable_xy"])
+                + [p["usable_z"]],
+            )
         ), (name, box.size)
         assert (
             box.min.X >= -1e-4
             and box.min.Y >= -1e-4
-            and box.max.X <= 180
-            and box.max.Y <= 180
+            and box.max.X <= 180.0001
+            and box.max.Y <= 180.0001
         ), (name, box)
         bd.export_step(shape, output / "plates" / f"{name}.step")
         bd.export_stl(

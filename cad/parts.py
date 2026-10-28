@@ -36,34 +36,38 @@ def rounded_box(width, depth, height, radius):
 
 def base(p, labels=True):
     floor = p["cradle_floor"]
-    shape = rounded_box(p["base_width"], p["base_depth"], floor, 3)
-    for chamber in (0, 1):
-        clearance, wall = p["cradle_clearance"], p["socket_wall"]
-        width, depth, height = p["body_width"], p["body_depth"], p["socket_height"]
-        outer = rounded_box(
-            width + 2 * (clearance + wall),
-            depth + 2 * (clearance + wall),
-            height + 0.02,
-            1.2 + clearance + wall,
-        )
-        inner = Pos(wall, wall, -0.02) * rounded_box(
-            width + 2 * clearance, depth + 2 * clearance, height + 0.06, 1.2 + clearance
-        )
-        socket = outer - inner
-        shape += (
+    top = floor + p["socket_height"]
+    shape = rounded_box(p["base_width"], p["base_depth"], floor, 6)
+    shape += loft(
+        [
+            Pos(0, 0, floor - 0.02)
+            * rounded_profile(p["base_width"], p["base_depth"], 6),
             Pos(
-                p["vessel_x"] - clearance - wall,
-                chamber * p["vessel_pitch"] + p["vessel_y"] - clearance - wall,
-                floor - 0.02,
+                (p["base_width"] - p["base_top_width"]) / 2,
+                (p["base_depth"] - p["base_top_depth"]) / 2,
+                top,
             )
-            * socket
+            * rounded_profile(p["base_top_width"], p["base_top_depth"], 4.8),
+        ],
+        ruled=True,
+    )
+    for chamber in (0, 1):
+        clearance = p["cradle_clearance"]
+        width, depth, height = p["body_width"], p["body_depth"], p["socket_height"]
+        shape -= Pos(
+            p["vessel_x"] - clearance,
+            p["vessel_y"] + chamber * p["vessel_pitch"] - clearance,
+            floor,
+        ) * rounded_box(
+            width + 2 * clearance, depth + 2 * clearance, height + 0.1, 1.2 + clearance
         )
     for chamber in (0, 1):
-        shape += Pos(12, chamber * p["vessel_pitch"] + 9, floor) * tactile(chamber + 1)
+        label_y = p["base_depth"] / 2 + (-6 if chamber == 0 else 6)
+        shape += Pos(p["vessel_x"] + 8, label_y - 4, top) * tactile(chamber + 1)
         if labels:
-            shape -= Pos(
-                p["base_width"] / 2, chamber * p["vessel_pitch"] + 11, floor - 0.6
-            ) * lettering(f"{'AB'[chamber]}  {p['working_ml']} ml", 5)
+            shape -= Pos(p["base_width"] / 2, label_y, top - 0.6) * lettering(
+                f"{'AB'[chamber]}  {p['working_ml']} ml", 5
+            )
     return shape
 
 

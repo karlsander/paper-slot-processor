@@ -1,4 +1,4 @@
-"""Resolve the initial hot-water/cold-wall transient before the long cooling run."""
+"""Run with a small initial step and converged thermal coupling throughout."""
 
 import argparse
 import json
@@ -35,25 +35,16 @@ def run(
     thermal(folder, hot, power, end, spacing, air_h, solid_initial, dt, surface_h)
     ctrl = folder / "system/controlDict"
     full = ctrl.read_text()
-    startup = re.sub(r"endTime [^;]+;", f"endTime {min(30, end)};", full)
-    startup = re.sub(r"deltaT [^;]+;", "deltaT 0.005;", startup)
-    ctrl.write_text(startup)
+    ctrl.write_text(re.sub(r"deltaT [^;]+;", "deltaT 0.005;", full))
     fv = folder / "system/fvSolution"
     normal = fv.read_text()
-    fv.write_text(normal.replace("nOuterCorrectors 2", "nOuterCorrectors 8"))
-    solve(folder, "log.startup")
-    if end > 30:
-        ctrl.write_text(full.replace("startFrom startTime", "startFrom latestTime"))
-        fv.write_text(normal)
-        solve(folder, "log.solver")
-    else:
-        (folder / "log.solver").write_text((folder / "log.startup").read_text())
+    fv.write_text(normal.replace("nOuterCorrectors 2", "nOuterCorrectors 4"))
+    solve(folder, "log.solver")
     scenario = json.loads((folder / "scenario.json").read_text())
     scenario["startup"] = {
         "initial_dt_s": 0.005,
-        "outer_correctors": 8,
-        "duration_s": min(30, end),
-        "later_outer_correctors": 2,
+        "outer_correctors": 4,
+        "duration_s": end,
     }
     (folder / "scenario.json").write_text(json.dumps(scenario, indent=2))
 

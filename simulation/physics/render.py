@@ -225,9 +225,56 @@ def fill(case, output):
     encode(frames, output / (case.name + ".mp4"), 10 / 3)
 
 
+def stack(case, output):
+    """Show the temperature across the actual five-region model at ten minutes."""
+    output.mkdir(parents=True, exist_ok=True)
+    r = reader(case)
+    r.set_active_time_value(600)
+    regions = r.read()
+    ys = np.linspace(0.00001, 0.02499, 240)
+    zs = np.linspace(0.00001, 0.2043, 300)
+    y, z = np.meshgrid(ys, zs)
+    points = np.column_stack([np.full(y.size, 0.064), y.ravel(), z.ravel()])
+    values = np.full(y.size, np.nan)
+    for region in ("petg", "water", "pad", "aluminium", "heater"):
+        t = sample(regions[region]["internalMesh"], points, "T") - 273.15
+        valid = np.isfinite(t)
+        values[valid] = t[valid]
+    fig, ax = plt.subplots(figsize=(7.5, 7.5), layout="constrained")
+    im = ax.imshow(
+        values.reshape(y.shape),
+        origin="lower",
+        extent=[0, 25, 0, 204.3],
+        aspect="auto",
+        cmap="inferno",
+        vmin=20,
+        vmax=38,
+    )
+    ax.set(
+        xlabel="Depth from front wall (mm) · horizontal scale enlarged",
+        ylabel="Height above vessel bottom (mm)",
+        title="38°C fill, cold assembly, 5 W · after 10 minutes\nSection through the heater and liquid",
+    )
+    for a in (3, 17, 20, 20.5, 22):
+        ax.axvline(a, color="white", alpha=0.5, lw=0.6)
+    for position, label in [
+        (1.5, "PETG"),
+        (10, "Water"),
+        (18.5, "PETG"),
+        (20.25, "Pad"),
+        (21.25, "Al"),
+        (23.5, "Heater"),
+    ]:
+        ax.text(position, 208, label, ha="center", va="bottom", rotation=90, fontsize=9)
+    ax.set_ylim(0, 225)
+    fig.colorbar(im, ax=ax, label="Temperature (°C)")
+    fig.savefig(output / "heater-section.png", dpi=160)
+    plt.close(fig)
+
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("kind", choices=["fill", "thermal"])
+    parser.add_argument("kind", choices=["fill", "thermal", "stack"])
     parser.add_argument("source", type=Path)
     parser.add_argument("output", type=Path)
     a = parser.parse_args()

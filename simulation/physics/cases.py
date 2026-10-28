@@ -148,23 +148,28 @@ def field(folder, region, name, dims, value, bc, vector=False):
     )
 
 
-def thermal(
-    folder,
-    hot=38,
-    power=5,
-    end=3600,
-    spacing=6,
-    air_h=5,
-    solid_initial=20,
-    dt=0.5,
-    surface_h=3,
-    pad_k=1,
-):
+def thermal_geometry(heater_width=140, heater_thickness=3):
     p = parameters()
     height = p["body_height"] / 1000
     fill = p["empty_level"] / 1000
-    x = [-0.014, -0.006, 0, 0.002, 0.003, 0.125, 0.126, 0.128, 0.134, 0.142]
-    y = [0, 0.003, 0.017, 0.020, 0.0205, 0.022, 0.025]
+    heater_left = 0.064 - heater_width / 2000
+    heater_right = 0.064 + heater_width / 2000
+    heater_back = 0.022 + heater_thickness / 1000
+    x = sorted(
+        {
+            -0.014,
+            heater_left,
+            0,
+            0.002,
+            0.003,
+            0.125,
+            0.126,
+            0.128,
+            heater_right,
+            0.142,
+        }
+    )
+    y = [0, 0.003, 0.017, 0.020, 0.0205, 0.022, heater_back]
     z = sorted({0, 0.003, 0.004, 0.006, 0.024, 0.174, 0.185, fill, height})
 
     def material(x, y, z):
@@ -177,11 +182,34 @@ def thermal(
             return "pad"
         if -0.014 < x < 0.142 and 0.0205 < y < 0.022 and 0.003 < z < 0.185:
             return "aluminium"
-        if -0.006 < x < 0.134 and 0.022 < y < 0.025 and 0.024 < z < 0.174:
+        if (
+            heater_left < x < heater_right
+            and 0.022 < y < heater_back
+            and 0.024 < z < 0.174
+        ):
             return "heater"
 
+    return [x, y, z], material
+
+
+def thermal(
+    folder,
+    hot=38,
+    power=5,
+    end=3600,
+    spacing=6,
+    air_h=5,
+    solid_initial=20,
+    dt=0.5,
+    surface_h=3,
+    pad_k=1,
+    heater_width=140,
+    heater_thickness=3,
+):
+    p = parameters()
+    axes, material = thermal_geometry(heater_width, heater_thickness)
     folder.mkdir(parents=True, exist_ok=True)
-    volumes = grid(folder, [x, y, z], material, [spacing / 1000, 0.002, spacing / 1000])
+    volumes = grid(folder, axes, material, [spacing / 1000, 0.002, spacing / 1000])
     control(folder, "chtMultiRegionFoam", end, dt)
     write(
         folder / "system/fvSchemes",

@@ -66,24 +66,103 @@ The model predicts that a 5 W pad slows cooling but cannot hold a 35–38°C bat
 in a 20°C room with this exposed geometry. Starting with a cold vessel produces
 a rapid initial drop as the walls and heater assembly warm up. Preheating the
 whole assembly reduces that initial drop, but does not remove ongoing losses.
+As an independent energy sanity check, the modeled water has about 1350 J/K of
+heat capacity and the solids about 505 J/K. Even with perfect insulation and no
+heater input, 38°C water and 20°C solids would equilibrate near 33.1°C.
+"Heater off" in this study still includes the attached heater stack; it is not
+the bare, unheated five-part v1.8 configuration.
 Starting from 20°C is slow: 5 W has to warm both liquid and assembly while
 continually losing heat to the room. The liquid also develops vertical thermal
 gradients; an average temperature alone does not establish processing uniformity.
 
-For color-temperature operation, the next design should evaluate insulation,
-heater power and closed-loop sensing together. The present study does not pick
-a safe higher-power heater or certify PETG temperature limits. Measure the actual
-pad power and use water tests with top/middle/bottom probes to calibrate losses
-and gradients before relying on a temperature setpoint for chemistry.
+### Equilibrium and heater choice
+
+Hot fill changes the time to settle; it does not raise the final equilibrium at
+fixed power and ambient conditions. A separate **steady 3-D finite-volume solid
+conduction model with a well-mixed liquid node** sizes the replacement heater.
+It shares the thermal geometry and solid conductivities above, adds a liquid-side
+film coefficient of 300 W/(m² K), and iterates surface radiation to convergence.
+It does not solve water velocity or prove liquid uniformity. A steady CFD pilot
+failed to converge and is excluded; no results from it are presented as equilibrium.
+
+The replacement pad is 100 × 150 × 1.4 mm. At 20°C room temperature:
+
+| External convection h, W/(m² K) | Power for 30°C | Power for 35°C | Power for 38°C | 15 W equilibrium |
+| --- | ---: | ---: | ---: | ---: |
+| 3, still-air bracket | 5.70 W | 8.67 W | 10.50 W | 45.17°C |
+| 5, nominal indoor | 7.27 W | 11.04 W | 13.34 W | 40.13°C |
+| 8, higher-loss bracket | 9.67 W | 14.63 W | 17.66 W | 35.37°C |
+
+The original 140 × 150 × 3 mm **5 W** stack equilibrates at **26.47°C** in the
+nominal model. This lies between the hot- and cold-start transient values at one
+hour (28.63°C and 24.46°C). The narrower 10 W replacement reaches 33.63°C nominally.
+
+**RS PRO 731-350, 12 V DC, 15 W, 100 × 150 × 1.4 mm** is a concrete candidate for
+controlled 35°C operation in a 20°C indoor room, bonded to the aluminium spreader
+rather than immersed or glued directly to the vessel. The dimensions, power and
+self-adhesive backing are in the [manufacturer datasheet](https://docs.rs-online.com/ba83/A700000008849926.pdf);
+[RS Germany lists the part](https://de.rs-online.com/web/p/heizmatten/0731350).
+The 100 mm width fits the 128 mm bath and proposed spreader. Final mounting height,
+lead exit, contact pressure, thermal cutoff and base interference remain design work.
+
+Use temperature feedback per chamber: an always-on 15 W pad would run above the
+35°C target in the nominal case. The modeled hold power at 35°C is about 11 W,
+or 74% of nominal 15 W power. Two pads draw 2.5 A at 12 V at full power; a regulated
+12 V supply with useful margin (for example 4 A) can serve both controller channels.
+A heater-side overtemperature cutoff is also needed because liquid regulation
+does not cover an empty vessel or detached sensor. These are design requirements,
+not an installed or validated control system.
+
+15 W has almost no margin at the higher-loss 35°C point and cannot promise 38°C
+in a draft. For a robust higher-loss version, target approximately **20 W per
+bath** with feedback and a suitable custom-sized heater, or reduce verified losses;
+a drop-in 20 W product has not been established here. Do not treat a reptile
+mat's power dial as temperature control or enclose it against its ventilation rules.
+
+At nominal air loss, the 15 W model gives 38.30°C in an 18°C room and 38.68°C with
+the increased free-surface loss bracket. Halving the solid grid target from 6 to
+3 mm changes equilibrium by 0.09°C. Liquid film coefficients 100–500 change the
+bulk prediction by under 0.04°C but change heater hot spots. Steady energy residuals
+are below 1e-6 W; a one-node analytic resistance test and a zero-power equilibrium
+check validate bookkeeping. These numerical checks do not calibrate air loss,
+evaporation, printed PETG properties or real contact resistance.
+
+![Equilibrium heater sizing](../simulation/physics/evidence/2026-10-28/equilibrium.png)
+
+### Transient and fill results
+
+| Initial water / assembly, power | Mean liquid after 10 min | After 60 min |
+| --- | ---: | ---: |
+| 38 / 20°C, off | 31.53°C | 24.23°C |
+| 38 / 20°C, 5 W | 32.39°C | 28.63°C |
+| 20 / 20°C, 5 W | 20.85°C | 24.46°C |
+| 38 / 38°C, 5 W | 36.00°C | 29.93°C |
+
+At ten minutes, halving the time step changes the hot/5 W mean by 0.0017°C,
+using the 4 mm mesh changes it by 0.0189°C, and doubling coupling correctors changes
+it by 0.0018°C. Completed thermal energy residuals are below 0.40% of the stated
+energy scale. The uniform heater-off case drifts by less than 0.00002°C.
+
+The five-second pour predicts 34.67, 15.38 and 11.74 ml escaping at 4, 2.5 and 2 mm
+mesh targets. The two finest meshes still differ by 3.64 ml, so these are **not
+converged spill quantities**. Volume-accounting residuals are under 0.017 ml.
+The ten-second pour has only a coarse run and cannot establish that slower pouring
+is better or worse. The videos show computed fluid/thermal fields with these limits.
+
+[Compact numeric results](../simulation/physics/evidence/2026-10-28/results.json),
+[equilibrium cases](../simulation/physics/evidence/2026-10-28/equilibrium.json), and
+[temperature curves](../simulation/physics/evidence/2026-10-28/thermal-curves.png)
+are checked in. Full movies and run inputs are in the dated local delivery bundle.
 
 ## Numerical checks
 
 The thermal baseline uses a nominal 6 mm x/z target and ≤2 mm through depth,
 with conforming thinner solid layers. A 4 mm mesh and a halved time step are
 compared over the first ten minutes. The initial hot-water/cold-wall transient
-uses a 0.005 s starting step and eight outer coupling correctors for 30 seconds;
-later steps are capped at 0.5 s with two correctors. This avoids the spurious
-startup temperature overshoot found in the exploratory runs. Only the corrected
+uses a 0.005 s starting step, with four outer coupling correctors throughout and
+steps capped at 0.5 s. An eight-corrector run also checks coupling sensitivity.
+This avoids the spurious temperature overshoot found with two correctors in the
+exploratory runs. Only the corrected
 cases belong in the final results. The nominal liquid-temperature averages are
 less sensitive to mesh/time step than the fill model's splash quantity.
 
@@ -96,17 +175,24 @@ water volume in, volume out and volume retained; mixture mass flux is converted
 to water volume flux using both phase densities. Restart records are joined by
 physical time without double-counting duplicate samples.
 
+The cold-start heated case still has a localized numerical undershoot of about
+0.33°C near the pressure-reference cell during the first minutes. It must not be
+interpreted as real cooling below room temperature. Mean-temperature refinement
+and global energy checks do not validate every local extremum; the movies and
+spatial gradients remain exploratory and need comparison with physical probes.
+
 ## PETG features and nozzle checks
 
-The one geometry change is increasing the end ledges from 11 to 12 mm. The
+The end ledges increase from 11 to 12 mm. The
 minimum plastic beside the top's magnet pockets grows from 0.8 to **1.3 mm**.
-The 170.8 × 138 mm shared base and five-part count are unchanged. Updated top
-width is 160.45 mm; vessel flange width is 152 mm. Both presets retain A1 mini fit.
+The shared base is now 180 × 180 mm, tapering to its two sockets, with 45 mm
+chamber pitch. Its five-part count is unchanged. Updated top width is 160.45 mm;
+vessel flange width is 152 mm. Both presets retain A1 mini fit.
 
 | Feature | Nominal size | Interpretation |
 | --- | --- | --- |
 | Vessel wall / floor | 3 / 4 mm | Engraved vessel letters leave at least 2.4 mm wall |
-| Base floor / socket wall | 4 / 3 mm | Base lettering leaves at least 3.4 mm floor |
+| Base floor / socket wall at top | 4 / 3 mm | Lettering is on the substantial central bridge |
 | Locating rim | 1.2 mm thick × 1.5 mm high | Several bead widths with the 0.4 mm nozzle |
 | Fill ridge | 0.4 mm projection × 0.6 mm height | Wall-backed bump, not a free-standing 0.4 mm wall |
 | Magnet outer ligament | 1.3 mm minimum | Increased for handling strength |
@@ -124,7 +210,7 @@ profiles, with four walls and 1.2 mm top/bottom shell thickness:
 - Vessels: supplied 44.2° tilt, build-plate tree supports at 30°, 3 mm outer brim.
 - Tops inverted; base flat; neither needs supports or brim. No auto-orientation.
 
-All five 16:9 plates, both 2:1 vessels and the differently labeled 2:1 base slice
+All five final 16:9 plates, both 2:1 vessels and the differently labeled 2:1 base slice
 without warnings for both nozzles (16 plate/nozzle runs). The tops are identical
 between presets.
 Deposition probes cover the fill ridge's straights and rounded corners, rim
@@ -141,6 +227,34 @@ FreeCAD and build123d share Open Cascade, so this is not an independent geometry
 watertightness, rim durability, magnet/adhesive retention or chemical compatibility.
 Inspect supports and make the first water/fit trial before using chemistry.
 
+## Print time and material
+
+Bambu estimates include generated supports and brims. These are toolpath estimates,
+not measured machine time; failed prints and handling time are excluded. Each part
+is a separate plate. These numbers supersede the smaller rectangular-base estimates.
+
+### 16x9
+
+| Part | 0.4 mm time | PETG | 0.2 mm time | PETG |
+| --- | ---: | ---: | ---: | ---: |
+| Base | 7h 53m 36s | 253.78 g | 52h 23m 48s | 220.21 g |
+| Chamber A | 9h 12m 27s | 235.76 g | 52h 06m 28s | 207.17 g |
+| Chamber B | 9h 11m 47s | 236.18 g | 52h 11m 10s | 207.32 g |
+| Top A | 0h 26m 27s | 10.64 g | 2h 24m 14s | 9.58 g |
+| Top B | 0h 26m 26s | 10.64 g | 2h 24m 18s | 9.58 g |
+| **Total** | **27h 10m 43s** | **747.00 g** | **161h 29m 58s** | **653.86 g** |
+
+### 2x1
+
+| Part | 0.4 mm time | PETG | 0.2 mm time | PETG |
+| --- | ---: | ---: | ---: | ---: |
+| Base | 7h 53m 16s | 253.78 g | 52h 23m 04s | 220.21 g |
+| Chamber A | 10h 09m 20s | 259.25 g | 57h 40m 38s | 228.96 g |
+| Chamber B | 10h 11m 33s | 260.98 g | 57h 41m 11s | 229.01 g |
+| Top A | 0h 26m 27s | 10.64 g | 2h 24m 14s | 9.58 g |
+| Top B | 0h 26m 26s | 10.64 g | 2h 24m 18s | 9.58 g |
+| **Total** | **29h 07m 02s** | **795.29 g** | **172h 33m 25s** | **697.34 g** |
+
 ## Reproduce
 
 Install OpenFOAM v2606 (native OpenFOAM.app on this Mac, or a sourced OpenFOAM
@@ -148,6 +262,7 @@ installation on Linux), Bambu Studio and the existing FreeCAD runtime.
 
 ```sh
 uv pip install --python .venv-cad/bin/python -r simulation/physics/requirements.txt
+.venv-cad/bin/python simulation/physics/equilibrium.py build/heater-sizing
 .venv-cad/bin/python simulation/physics/run_thermal.py build/example-hot --hot 38 --power 5
 .venv-cad/bin/python simulation/physics/run_thermal.py build/example-cold --hot 20 --power 5
 .venv-cad/bin/python simulation/physics/fill.py build/example-fill --spacing 2.5 --pour-seconds 5
