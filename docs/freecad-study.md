@@ -151,3 +151,36 @@ The two native fit studies and four thermal runs were executed locally. The
 repository's Python tests also cover rejection of stale or failed FreeCAD reports.
 Hosted CI runs those orchestration tests and the existing OpenSCAD/viewer checks;
 it does not install or run build123d, FreeCAD, Gmsh or CalculiX.
+
+## Render a video
+
+`simulation/render_video.py` renders native FreeCAD viewport frames with captions:
+
+1. Upright removal and return (collision checked at every rendered position).
+2. Rocking to 2°, with the bath turning red on geometric interference.
+3. The empty bath filling to its calibrated level, viewed through transparent walls.
+
+The liquid is the same native cavity used to construct the vessel, clipped by a
+horizontal plane. Every positive fill frame checks that liquid does not intersect
+the vessel, and the final volume must be within 1 ml of the recipe. The timeline is
+illustrative, not a prescribed pour rate or a fluid-flow solve. No paper is loaded.
+
+After running the study with the current exporter (which also writes
+`liquid-cavity.step`), open FreeCAD and use its Python console:
+
+```python
+exec(open('/absolute/repository/simulation/render_video.py').read())
+start('/absolute/repository/build/freecad-study')
+```
+
+Wait for `video-report.json` with `passed: true`, then encode the frame sequence:
+
+```sh
+ffmpeg -framerate 15 -i build/freecad-study/video-frames/frame-%04d.png \
+  -frames:v 365 -c:v libx264 -crf 18 -pix_fmt yuv420p -movflags +faststart \
+  build/freecad-study/processor-fit-and-fill.mp4
+```
+
+The 1280 × 720 video lasts about 24 seconds. Keep its labels when sharing so the
+geometric filling sequence is not mistaken for a fluid-dynamics result. Rendering
+requires FreeCAD's GUI/OpenGL context; the numerical study remains headless.

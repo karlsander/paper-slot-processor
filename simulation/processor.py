@@ -83,6 +83,12 @@ def vessel(p, chamber=0):
         width + 2 * rim, depth + rim - 0.1, p["rim_height"], 1.5
     )
     shape += well(p, p["well_wall"], chamber=chamber)
+    return shape - liquid_void(p, chamber)
+
+
+def liquid_void(p, chamber=0):
+    """Wet cavity, including the connected filling well and bottom stops."""
+    width, depth, height = p["body_width"], p["body_depth"], p["body_height"]
     # Spherical corner/edge rounding corresponds to the SCAD hull of spheres.
     cavity = Box(p["inner_width"], p["bath_gap"], height + 12 - p["floor"], align=MIN)
     cavity = fillet(cavity.edges(), radius=p["inside_radius"])
@@ -98,7 +104,7 @@ def vessel(p, chamber=0):
             x, depth / 2, p["floor"] + p["bottom_clearance"] - 2 + 0.02
         ) * Sphere(2)
         cavity -= stop
-    return shape - cavity
+    return cavity
 
 
 def placed_vessel(p, shape, chamber=0):
