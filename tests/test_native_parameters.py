@@ -76,6 +76,7 @@ class NativeParameterTests(unittest.TestCase):
             {"magnet_diameter": 8},
             {"magnet_depth_allowance": 0},
             {"ridge_projection": 3},
+            {"end_ledge": 11},
         ):
             with self.subTest(overrides=overrides), self.assertRaises(ValueError):
                 parameters(**overrides)

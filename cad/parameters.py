@@ -22,7 +22,7 @@ DEFAULTS = {
     "inside_radius": 2,
     "rim_wall": 1.2,
     "rim_height": 1.5,
-    "end_ledge": 11,
+    "end_ledge": 12,
     "ledge_thickness": 5,
     "magnet_diameter": 6,
     "magnet_thickness": 3,
@@ -197,7 +197,7 @@ def parameters(**overrides):
     )
     require(
         p["end_ledge"] / 2 - p["pocket_diameter"] / 2 - p["rim_wall"] - p["guide_fit"]
-        >= 0.5,
+        >= 1.2,
         "Magnet too close to top edge",
     )
     require(
