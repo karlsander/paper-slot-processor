@@ -104,6 +104,12 @@ ADOX rates its kit at **2 m² per litre of working solution**. A 325 ml fill cor
 
 The chosen workflow is manual: measure both baths after settling and use your previously tested temperature/time procedure. No thermostat or permanent sensor is included. ADOX's published standard process is 35°C and 45 seconds per bath; temperature compensation here is an intentional experiment, not a supplied manufacturer curve. Wash separately according to the kit instructions. See [heating notes](docs/heating.md).
 
+## Native CAD and FreeCAD pilot
+
+The [build123d / FreeCAD study](docs/freecad-study.md) provides native STEP solids,
+scripted fit and removal checks, and a headless Gmsh/CalculiX thermal benchmark.
+It is a migration pilot; use the production OpenSCAD workflow above for printing.
+
 ## Validation and source
 
 ```sh
