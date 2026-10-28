@@ -3,9 +3,14 @@
 **For the first unheated prototype, use [v1.8: two reusable baths in one shared base](docs/v1.8.md).**
 The complete unheated set now has a [native build123d workflow](docs/native-processor.md),
 with STEP parts, oriented STL plates, FreeCAD checks and video generation.
-It uses the same vessel, guide and clip design, with nine working pieces and no heater
-assembly. Its 170.8 × 138 mm base fits the A1 mini in one print. The heated v2
-configuration remains documented below.
+It has exactly **five printed parts**: one base, two chambers and two magnetic
+slotted tops. Fill directly through the open top to the internal ridge; no side
+wells, clips or separate closing lids are included. Its 170.8 × 138 mm base fits
+the A1 mini in one print. Current fills are 323 ml (16:9) and 360 ml (2:1).
+
+## Earlier heated v2 configuration
+
+The remaining instructions and browser viewer describe the older heated v2 design.
 
 Two removable vessels for a **102 mm Fuji roll**, with interchangeable paper guides, two joining bases, and one flat heating mat per chamber. Each wet vessel is a single printed piece. All printed parts fit a Bambu A1 mini in the supplied orientations. Use in darkness suitable for the paper; this is an open processor, not a daylight tank.
 
@@ -110,8 +115,8 @@ The chosen workflow is manual: measure both baths after settling and use your pr
 
 The [build123d / FreeCAD study](docs/freecad-study.md) provides native STEP solids,
 scripted fit and removal checks, and a headless Gmsh/CalculiX thermal benchmark.
-The completed [native v1.8 migration](docs/native-processor.md) adds guides, clips,
-covers, markings and print plates; the original pilot remains a historical study.
+The completed [native v1.8 migration](docs/native-processor.md) now provides magnetic tops, internal fill ridges
+and five print plates; the original pilot remains a historical study.
 The [build123d/CadQuery comparison](docs/cad-library-comparison.md) tests the same
 retaining clip in three APIs, parameter variations and STEP import/edit/export.
 

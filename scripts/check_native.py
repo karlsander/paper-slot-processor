@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Build native parts and compare both image presets in FreeCAD and OpenSCAD."""
+"""Build and verify both image presets in FreeCAD."""
 
 import argparse
 import json
 import os
-import re
 import shutil
 import subprocess
 import sys
@@ -47,91 +46,6 @@ def check(output, aspect, freecad, skip_export=False):
     assert p == parameters(image_aspect=aspect), (
         "Export configuration differs from requested validation"
     )
-    openscad = (
-        os.environ.get("OPENSCAD_BIN")
-        or shutil.which("openscad")
-        or "/opt/homebrew/bin/openscad"
-    )
-    fields = [
-        k
-        for k, v in p.items()
-        if isinstance(v, (int, float, list))
-        and k
-        not in ("socket_wall", "socket_height", "base_width", "base_depth", "vessel_x")
-    ]
-    fields += ["socket_wall", "socket_height", "base_width", "base_depth", "vessel_x"]
-    # Check numerical design authority independently of the native geometry.
-    probe = output / "parameter-oracle.scad"
-    probe.write_text(
-        f"include <{ROOT / 'v2/parameters.scad'}>\ninclude <{ROOT / 'v1_8/base.scad'}>\nvalid() valid_base() echo(values=["
-        + ",".join("vessel_x()" if k == "vessel_x" else k for k in fields)
-        + "]);\n"
-    )
-    log = run(
-        [
-            openscad,
-            "--hardwarnings",
-            "-D",
-            f"image_aspect={aspect}",
-            "-o",
-            str(output / "parameter-oracle.csg"),
-            str(probe),
-        ],
-        output / "parameter-oracle.log",
-    )
-    if "ERROR:" in log or "WARNING:" in log:
-        raise RuntimeError(log)
-    values = json.loads(re.search(r"values = (\[.*\])", log)[1])
-
-    def delta(a, b):
-        return (
-            max(delta(*ab) for ab in zip(a, b, strict=True))
-            if isinstance(a, list)
-            else abs(a - b)
-        )
-
-    errors = {k: delta(p[k], v) for k, v in zip(fields, values, strict=True)}
-    assert max(errors.values()) < 0.001, errors
-    (output / "parameter-parity.json").write_text(
-        json.dumps({"passed": True, "absolute_errors": errors}, indent=2) + "\n"
-    )
-    oracle = {
-        "base": {"part": "base"},
-        "clip": {"part": "clip"},
-        "fit": {"part": "fit"},
-    }
-    for i, letter in enumerate("ab"):
-        oracle[f"vessel_{letter}"] = {"part": "vessel", "chamber": i}
-        oracle[f"guide_{letter}"] = {"part": "guide", "chamber": i}
-        oracle[f"cover_{letter}"] = {"part": "guide", "chamber": i, "closed": True}
-        for gap in (0.6, 0.8):
-            oracle[f"trial_{letter}_{int(gap * 10)}"] = {
-                "part": "guide",
-                "chamber": i,
-                "guide_gap": gap,
-            }
-    for name, defines in oracle.items():
-        command = [
-            openscad,
-            "--backend",
-            "Manifold",
-            "--hardwarnings",
-            "--export-format",
-            "asciistl",
-        ]
-        for key, value in {"image_aspect": aspect, **defines}.items():
-            command += ["-D", f"{key}={json.dumps(value)}"]
-        log = run(
-            command
-            + [
-                "-o",
-                str(output / "parity" / f"{name}.stl"),
-                str(ROOT / "cad/reference.scad"),
-            ],
-            output / "parity" / f"{name}.log",
-        )
-        if "ERROR:" in log or "WARNING:" in log:
-            raise RuntimeError(log)
     script = ROOT / "cad/verify_freecad.py"
     run(
         [freecad],

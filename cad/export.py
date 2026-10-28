@@ -12,18 +12,28 @@ from . import parts
 from .parameters import parameters
 
 
-def export(output, p, trials=True):
+def export(output, p):
     output.mkdir(parents=True, exist_ok=True)
+    obsolete = [
+        f
+        for f in output.glob("*.step")
+        if f.stem.startswith(("cover_", "trial_", "clip", "fit"))
+    ]
+    obsolete += [
+        f
+        for f in (output / "plates").glob("*")
+        if f.stem.startswith(("cover_", "trial_", "clip", "fit"))
+    ]
+    if obsolete:
+        raise ValueError(
+            "Older accessory exports found; use a fresh output directory for the five-part design"
+        )
     (output / "parameters.json").write_text(json.dumps(p, indent=2) + "\n")
-    shapes = {"base": parts.base(p), "clip": parts.clip(p)}
+    (output / "model-report.json").unlink(missing_ok=True)
+    shapes = {"base": parts.base(p)}
     for i, letter in enumerate("ab"):
         shapes[f"vessel_{letter}"] = parts.vessel(p, i)
         shapes[f"guide_{letter}"] = parts.guide(p, i)
-        shapes[f"cover_{letter}"] = parts.guide(p, i, closed=True)
-        if trials:
-            for gap in (0.6, 0.8):
-                shapes[f"trial_{letter}_{int(gap * 10)}"] = parts.guide(p, i, gap=gap)
-    shapes["fit"] = parts.fit_sample(p, shapes["vessel_a"])
     reports = []
     for name, shape in shapes.items():
         if not shape.is_valid or len(shape.solids()) != 1:
@@ -46,21 +56,17 @@ def export(output, p, trials=True):
     )
     for i, letter in enumerate("ab"):
         bd.export_step(parts.liquid_void(p, i), output / f"liquid-cavity-{letter}.step")
-    plates = {
-        "base": shapes["base"],
-        "fit": shapes["fit"],
-        "clips": parts.clip_plate(p, shapes["clip"]),
-    }
+    plates = {"base": parts.centered_plate(shapes["base"])}
     for name, shape in shapes.items():
         if name.startswith("vessel_"):
             plates[name] = parts.print_vessel(p, shape, "ab".index(name[-1]))
-        elif name.startswith(("guide_", "cover_", "trial_")):
+        elif name.startswith("guide_"):
             plates[name] = parts.print_guide(p, shape)
     (output / "plates").mkdir(exist_ok=True)
     plate_reports = []
     for name, shape in plates.items():
         box = shape.bounding_box()
-        expected = 4 if name == "clips" else 1
+        expected = 1
         assert shape.is_valid and len(shape.solids()) == expected, (
             name,
             len(shape.solids()),
@@ -104,47 +110,25 @@ def export(output, p, trials=True):
                 "bounds_max_mm": list(box.max),
                 "size_mm": list(box.size),
                 "copies": 1,
-                "optional": name.startswith(("cover_", "trial_")) or name == "fit",
+                "optional": False,
             }
         )
-    # Unlettered functional surfaces are compared independently of font tessellation.
-    reference = output / "parity"
-    reference.mkdir(exist_ok=True)
-    for name, shape in [
-        ("base", parts.base(p, labels=False)),
-        ("vessel_a", parts.vessel(p, 0, labels=False)),
-        ("vessel_b", parts.vessel(p, 1, labels=False)),
-        ("guide_a", parts.guide(p, 0, labels=False)),
-        ("guide_b", parts.guide(p, 1, labels=False)),
-        ("cover_a", parts.guide(p, 0, closed=True, labels=False)),
-        ("cover_b", parts.guide(p, 1, closed=True, labels=False)),
-        ("clip", shapes["clip"]),
-    ]:
-        bd.export_step(shape, reference / f"{name}.step")
-    for i, letter in enumerate("ab"):
-        for gap in (0.6, 0.8):
-            bd.export_step(
-                parts.guide(p, i, gap=gap, labels=False),
-                reference / f"trial_{letter}_{int(gap * 10)}.step",
-            )
-    bd.export_step(
-        parts.fit_sample(p, parts.vessel(p, 0, labels=False)), reference / "fit.step"
-    )
     root = Path(__file__).resolve().parent
     report = {
         "passed": True,
         "build123d": bd.__version__,
         "parts": reports,
         "plates": plate_reports,
-        "working_piece_count": 9,
-        "optional_cover_count": 2,
+        "working_piece_count": 5,
+        "magnet_count": 8,
+        "optional_cover_count": 0,
         "source_sha256": {
             f.name: hashlib.sha256(f.read_bytes()).hexdigest()
             for f in sorted(root.glob("*.py"))
         },
         "notes": [
             "Analytic arcs replace SCAD polygon approximations.",
-            "Lettering uses OCCT font metrics and is excluded from SCAD functional-surface comparison.",
+            "Native magnetic redesign intentionally differs from the archived OpenSCAD design.",
             "Print plate vessels include the original sacrificial bed rail.",
             "Capsule-limit slot corners retain 0.001 mm straight segments for stable loft topology.",
             "Zero-area STL triangles are removed before watertightness validation; no holes are filled.",

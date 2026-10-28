@@ -55,23 +55,12 @@ def start(directory):
             (0.28, 0.54, 0.77) if i == 0 else (0.32, 0.65, 0.59),
             o,
         )
-        for kind, prefix, color in [
-            ("guide", "Guide", (0.90, 0.68, 0.24)),
-            ("cover", "Cover", (0.74, 0.58, 0.30)),
-        ]:
-            add(
-                prefix + letter,
-                f"{kind}_{letter}.step",
-                color,
-                o + App.Vector(0, 0, p["body_height"]),
-            )
-        for j, x in enumerate((p["body_width"] / 4, 3 * p["body_width"] / 4)):
-            add(
-                f"Clip{letter}{j}",
-                "clip.step",
-                (0.94, 0.42, 0.16),
-                o + App.Vector(x - p["clip_width"] / 2, -4.2, p["body_height"] - 4),
-            )
+        add(
+            f"Guide{letter}",
+            f"guide_{letter}.step",
+            (0.90, 0.68, 0.24),
+            o + App.Vector(0, 0, p["guide_seat"]),
+        )
     cavity = Part.read(str(folder / "liquid-cavity-a.step"))
     liquid = doc.addObject("PartDesign::Feature", "Liquid")
     liquid.ViewObject.ShapeColor = (0.05, 0.40, 0.9)
@@ -95,20 +84,21 @@ def start(directory):
     sequence = []
     for scene, frames in [
         ("assembly", 60),
-        ("clips", 36),
         ("guides", 36),
+        ("detail", 48),
         ("bath", 48),
         ("fill", 72),
         ("paper", 60),
-        ("covers", 48),
+        ("assembly", 48),
     ]:
         sequence += [(scene, i / (frames - 1)) for i in range(frames)]
     state = {"index": 0, "previous": None, "measurements": []}
 
     def reset():
         for name, obj in objects.items():
+            obj.Shape = local[name]
             obj.Placement = App.Placement(origins[name], App.Rotation())
-            obj.ViewObject.Visibility = not name.startswith("Cover")
+            obj.ViewObject.Visibility = True
             obj.ViewObject.Transparency = 0
         liquid.ViewObject.Visibility = False
         liquid.ViewObject.Transparency = 0
@@ -174,26 +164,27 @@ def start(directory):
                         obj.Placement.Base += App.Vector(0, 0, 35 * (1 - u))
                     if name.startswith("Guide"):
                         obj.Placement.Base += App.Vector(0, 0, 70 * (1 - u))
-                    if name.startswith("Clip"):
-                        obj.Placement.Base += App.Vector(0, -20 * (1 - u), 35 * (1 - u))
                 title = "01  /  Complete native processor"
-                detail = "One shared base  +  two reusable baths  +  two guides  +  four retaining clips"
-            elif scene == "clips":
-                for name, obj in objects.items():
-                    if name.startswith("Clipa"):
-                        obj.Placement.Base += App.Vector(0, -12 * u, 0)
-                title = "02  /  Remove the two retaining clips"
-                detail = f"Outward travel: {12 * u:.1f} mm  |  Guide and vessel mating surfaces checked in FreeCAD"
+                detail = "Exactly five printed parts: shared base, two reusable baths, two magnetic slotted tops"
             elif scene == "guides":
-                for name, obj in objects.items():
-                    if name.startswith("Clipa"):
-                        obj.ViewObject.Visibility = False
                 objects["Guidea"].Placement.Base += App.Vector(0, 0, 35 * u)
-                title = "03  /  Lift the removable paper guide"
-                detail = f"Lift: {35 * u:.1f} mm  |  Tapered entry, short wiping land and locating skirt"
+                title = "02  /  Pull the tab to lift the magnetic top"
+                detail = f"Lift: {35 * u:.1f} mm  |  1.2 mm rim  |  0.35 mm clearance  |  Two magnet pairs per bath"
+            elif scene == "detail":
+                for name, obj in objects.items():
+                    obj.ViewObject.Visibility = name in ("Batha", "Guidea")
+                a.Shape = local["Batha"].common(
+                    Part.makeBox(
+                        500, 500, 30, App.Vector(-100, -100, p["body_height"] - 18)
+                    )
+                )
+                objects["Guidea"].Placement.Base += App.Vector(0, 0, 14)
+                title = "Detail  /  Locating rim, pull tab and dry magnet pockets"
+                detail = "Pockets: diameter 6.3 x depth 3.2 mm  |  Nominal magnets: diameter 6 x thickness 3 mm"
+                caveat = "Vessel cut away for visibility. Fill to the ridge's upper edge with the paper removed. Magnet force is untested."
             elif scene == "bath":
                 for name, obj in objects.items():
-                    if name.startswith(("Clipa", "Guidea")):
+                    if name.startswith(("Guidea",)):
                         obj.ViewObject.Visibility = False
                 a.Placement.Base += App.Vector(0, 0, 60 * u)
                 collision = (
@@ -201,7 +192,7 @@ def start(directory):
                     + a.Shape.common(objects["Bathb"].Shape).Volume
                 )
                 assert collision < 1e-4, collision
-                title = "04  /  Remove the bath upright"
+                title = "03  /  Remove the bath upright"
                 detail = f"Lift: {60 * u:.1f} mm  |  Measured overlap: {collision:.3f} mm³  |  Socket clearance: 0.6 mm per side"
                 measure = {"lift_mm": 60 * u, "overlap_mm3": collision}
             elif scene in ("fill", "paper"):
@@ -212,8 +203,8 @@ def start(directory):
                 side = 0
                 if scene == "fill":
                     level = p["floor"] + (p["empty_level"] - p["floor"]) * u
-                    title = "05  /  Fill the connected bath and side well"
-                    detail = f"Empty-bath target: {p['working_ml']} ml  |  Level: {level:.1f} mm above vessel bottom"
+                    title = "04  /  Fill directly through the open bath"
+                    detail = f"Fill to the upper edge of the internal ridge: {p['working_ml']} ml  |  Level: {level:.1f} mm above vessel bottom"
                     caveat = "Geometric cavity filling. No pouring, fluid flow, splashing or heat transfer is simulated."
                 else:
                     liquid.ViewObject.Transparency = 65
@@ -231,7 +222,7 @@ def start(directory):
                     paper.ViewObject.Visibility = True
                     assert paper.Shape.common(a.Shape).Volume < 1e-4
                     assert paper.Shape.common(objects["Guidea"].Shape).Volume < 1e-4
-                    title = "06  /  Paper travel through the guide"
+                    title = "05  /  Paper travel through the guide"
                     detail = f"Lift: {lift:.1f} / {p['vertical_stroke']} mm  |  Sideways: {side:+.1f} mm  |  Rigid paper clearance checked"
                     caveat = "Flat sheet model; no bending or emulsion friction. Liquid level follows displaced volume, not sloshing."
                 water = cavity.common(
@@ -253,16 +244,6 @@ def start(directory):
                 }
                 if scene == "paper" or t == 1:
                     assert abs(volume - p["working_ml"]) < 0.5
-            else:
-                for name, obj in objects.items():
-                    if name.startswith(("Guide", "Clip")):
-                        obj.ViewObject.Visibility = False
-                    if name.startswith("Cover"):
-                        obj.ViewObject.Visibility = True
-                        obj.Placement.Base += App.Vector(0, 0, 35 * (1 - u))
-                title = "07  /  Optional resting covers"
-                detail = "Two labeled covers reuse the guide seats  |  Fit sample and 0.6 / 0.8 mm trial guides also exported"
-                caveat = "Resting covers are not sealed storage lids. Store chemistry in suitable separate bottles."
             doc.recompute()
             Gui.updateGui()
             if state["previous"] != scene:
