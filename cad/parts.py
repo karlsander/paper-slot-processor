@@ -36,7 +36,7 @@ def rounded_box(width, depth, height, radius):
 
 def base(p, labels=True):
     floor = p["cradle_floor"]
-    top = floor + p["socket_height"]
+    taper_top = floor + p["base_taper_height"]
     shape = rounded_box(p["base_width"], p["base_depth"], floor, 6)
     shape += loft(
         [
@@ -45,12 +45,25 @@ def base(p, labels=True):
             Pos(
                 (p["base_width"] - p["base_top_width"]) / 2,
                 (p["base_depth"] - p["base_top_depth"]) / 2,
-                top,
+                taper_top,
             )
             * rounded_profile(p["base_top_width"], p["base_top_depth"], 4.8),
         ],
         ruled=True,
     )
+    # Separate straight sleeves project above the half-height tapered plinth.
+    for chamber in (0, 1):
+        outer = p["cradle_clearance"] + p["socket_wall"]
+        shape += Pos(
+            p["vessel_x"] - outer,
+            p["vessel_y"] + chamber * p["vessel_pitch"] - outer,
+            taper_top - 0.02,
+        ) * rounded_box(
+            p["body_width"] + 2 * outer,
+            p["body_depth"] + 2 * outer,
+            p["socket_height"] - p["base_taper_height"] + 0.02,
+            1.2 + outer,
+        )
     for chamber in (0, 1):
         clearance = p["cradle_clearance"]
         width, depth, height = p["body_width"], p["body_depth"], p["socket_height"]
@@ -63,9 +76,9 @@ def base(p, labels=True):
         )
     for chamber in (0, 1):
         label_y = p["base_depth"] / 2 + (-6 if chamber == 0 else 6)
-        shape += Pos(p["vessel_x"] + 8, label_y - 4, top) * tactile(chamber + 1)
+        shape += Pos(p["vessel_x"] + 8, label_y - 4, taper_top) * tactile(chamber + 1)
         if labels:
-            shape -= Pos(p["base_width"] / 2, label_y, top - 0.6) * lettering(
+            shape -= Pos(p["base_width"] / 2, label_y, taper_top - 0.6) * lettering(
                 f"{'AB'[chamber]}  {p['working_ml']} ml", 5
             )
     return shape

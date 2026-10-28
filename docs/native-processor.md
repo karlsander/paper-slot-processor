@@ -92,7 +92,7 @@ movement updates the liquid level for displaced volume. This is **geometric
 visualization, not fluid dynamics**; it does not predict pouring, splashing,
 mixing or heat transfer. Motion is prescribed, not a magnetic-force simulation.
 
-![Current five-part processor](../simulation/physics/evidence/2026-10-28/tapered-assembly.png)
+![Current five-part processor](images/v1.8-half-taper-assembly.png)
 
 ![Rim, magnet pockets and fill ridge detail](images/native-magnetic-detail.png)
 

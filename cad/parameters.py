@@ -256,6 +256,7 @@ def parameters(**overrides):
         socket_wall=3,
         socket_height=32,
     )
+    p["base_taper_height"] = p["socket_height"] / 2
     p["vessel_pitch"] = p["body_depth"] + p["chamber_gap"]
     p["base_width"] = p["base_depth"] = p["base_size"]
     p["vessel_x"] = (p["base_width"] - p["body_width"]) / 2
