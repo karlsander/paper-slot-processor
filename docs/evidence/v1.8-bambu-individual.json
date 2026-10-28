@@ -1,0 +1,240 @@
+{
+  "01-Base-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "base"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "source_vertices_preserved": true,
+    "toolpaths": [
+      {
+        "part": "base",
+        "stats": {
+          "model_printing_time": "7h 46m 39s",
+          "total_estimated_time": "7h 46m 58s",
+          "total_layer_number": 180.0,
+          "total_filament_length_mm": 72683.1,
+          "bambu_total_filament_volume_raw": 174823.35,
+          "estimated_filament_cm3": 174.82335,
+          "estimated_filament_g": 222.03,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 36.0
+        }
+      }
+    ],
+    "sha256": "c1cbabbb28d29f872d518f1e557bd02360de4106d9d5c530f0aec7486975f984",
+    "bytes": 1702203,
+    "source_preset": "16x9",
+    "source_model": "build/bambu-individual-model"
+  },
+  "02-Top-A-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "guide_a"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "source_vertices_preserved": true,
+    "toolpaths": [
+      {
+        "part": "guide_a",
+        "stats": {
+          "model_printing_time": "26m 9s",
+          "total_estimated_time": "26m 28s",
+          "total_layer_number": 22.0,
+          "total_filament_length_mm": 3481.92,
+          "bambu_total_filament_volume_raw": 8375.0,
+          "estimated_filament_cm3": 8.375,
+          "estimated_filament_g": 10.64,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.4
+        }
+      }
+    ],
+    "sha256": "2b788554cffc82f2847229fe755d39665c75c39253955b88af2cb1f0fa28388f",
+    "bytes": 265777,
+    "source_preset": "16x9",
+    "source_model": "/Users/kall/.codex/worktrees/processor-v1-8/print/build/half-taper/model/16x9"
+  },
+  "03-Top-B-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "guide_b"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "source_vertices_preserved": true,
+    "toolpaths": [
+      {
+        "part": "guide_b",
+        "stats": {
+          "model_printing_time": "26m 8s",
+          "total_estimated_time": "26m 27s",
+          "total_layer_number": 22.0,
+          "total_filament_length_mm": 3482.27,
+          "bambu_total_filament_volume_raw": 8375.84,
+          "estimated_filament_cm3": 8.37584,
+          "estimated_filament_g": 10.64,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.4
+        }
+      }
+    ],
+    "sha256": "d82f451c69cc10923bf8c4c806773f63d55bffcda75a0897581a7d3885d7cdc0",
+    "bytes": 361347,
+    "source_preset": "16x9",
+    "source_model": "/Users/kall/.codex/worktrees/processor-v1-8/print/build/half-taper/model/16x9"
+  },
+  "04-Short-Bath-A-208mm-paper-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "vessel_a"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "source_vertices_preserved": true,
+    "toolpaths": [
+      {
+        "part": "vessel_a",
+        "stats": {
+          "model_printing_time": "9h 12m 11s",
+          "total_estimated_time": "9h 12m 31s",
+          "total_layer_number": 801.0,
+          "total_filament_length_mm": 77178.76,
+          "bambu_total_filament_volume_raw": 185636.68,
+          "estimated_filament_cm3": 185.63667999999998,
+          "estimated_filament_g": 235.76,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 160.4
+        }
+      }
+    ],
+    "sha256": "5dc7a154cdae2616568c4ee114b139d90c222b48e896b1d12d6a2e1dc4baf8b3",
+    "bytes": 4816529,
+    "source_preset": "16x9",
+    "source_model": "/Users/kall/.codex/worktrees/processor-v1-8/print/build/half-taper/model/16x9"
+  },
+  "05-Short-Bath-B-208mm-paper-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "vessel_b"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "source_vertices_preserved": true,
+    "toolpaths": [
+      {
+        "part": "vessel_b",
+        "stats": {
+          "model_printing_time": "9h 11m 31s",
+          "total_estimated_time": "9h 11m 50s",
+          "total_layer_number": 801.0,
+          "total_filament_length_mm": 77316.01,
+          "bambu_total_filament_volume_raw": 185966.8,
+          "estimated_filament_cm3": 185.96679999999998,
+          "estimated_filament_g": 236.18,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 160.4
+        }
+      }
+    ],
+    "sha256": "8de5a40d01133b6df54c2537b417a1da28f6086effe12b2435c40d49b5a2ab6c",
+    "bytes": 5002795,
+    "source_preset": "16x9",
+    "source_model": "/Users/kall/.codex/worktrees/processor-v1-8/print/build/half-taper/model/16x9"
+  },
+  "06-Tall-Bath-A-230mm-paper-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "vessel_a"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "source_vertices_preserved": true,
+    "toolpaths": [
+      {
+        "part": "vessel_a",
+        "stats": {
+          "model_printing_time": "10h 2m 49s",
+          "total_estimated_time": "10h 3m 8s",
+          "total_layer_number": 882.0,
+          "total_filament_length_mm": 84869.06,
+          "bambu_total_filament_volume_raw": 204134.01,
+          "estimated_filament_cm3": 204.13401000000002,
+          "estimated_filament_g": 259.25,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 176.6
+        }
+      }
+    ],
+    "sha256": "e77cbb3621891feaa78c62550ca17a971489a4348b3465b2a3dde074672a5790",
+    "bytes": 5124276,
+    "source_preset": "2x1",
+    "source_model": "/Users/kall/.codex/worktrees/processor-v1-8/print/build/half-taper/model/2x1"
+  },
+  "07-Tall-Bath-B-230mm-paper-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "vessel_b"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "source_vertices_preserved": true,
+    "toolpaths": [
+      {
+        "part": "vessel_b",
+        "stats": {
+          "model_printing_time": "10h 8m 52s",
+          "total_estimated_time": "10h 9m 11s",
+          "total_layer_number": 882.0,
+          "total_filament_length_mm": 85319.59,
+          "bambu_total_filament_volume_raw": 205217.67,
+          "estimated_filament_cm3": 205.21767000000003,
+          "estimated_filament_g": 260.63,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 176.6
+        }
+      }
+    ],
+    "sha256": "fbb282a7f7d38ce8df575cc34928845262f05dd7fa8477e806f5e08636c483ff",
+    "bytes": 5309584,
+    "source_preset": "2x1",
+    "source_model": "/Users/kall/.codex/worktrees/processor-v1-8/print/build/half-taper/model/2x1"
+  }
+}
