@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 import build123d as bd
-from processor import base, placed_vessel, vessel
+from processor import base, liquid_void, placed_vessel, vessel
 
 output = Path(sys.argv[1])
 p = json.loads((output / "parameters.json").read_text())
@@ -51,3 +51,5 @@ bd.export_step(bd.Compound(children=parts), output / "assembly.step")
     + "\n"
 )
 print("Exported native build123d solids and assembly STEP")
+
+bd.export_step(liquid_void(p), output / "liquid-cavity.step")
