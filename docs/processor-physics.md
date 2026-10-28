@@ -185,8 +185,8 @@ spatial gradients remain exploratory and need comparison with physical probes.
 
 The end ledges increase from 11 to 12 mm. The
 minimum plastic beside the top's magnet pockets grows from 0.8 to **1.3 mm**.
-The shared base is now 180 × 180 mm, tapering to its two sockets, with 45 mm
-chamber pitch. Its five-part count is unchanged. Updated top width is 160.45 mm;
+The shared base is now 180 × 180 mm, with a 16 mm taper and 16 mm exposed
+straight sleeves above its 4 mm floor, and 45 mm chamber pitch. Its five-part count is unchanged. Updated top width is 160.45 mm;
 vessel flange width is 152 mm. Both presets retain A1 mini fit.
 
 | Feature | Nominal size | Interpretation |
@@ -231,29 +231,32 @@ Inspect supports and make the first water/fit trial before using chemistry.
 
 Bambu estimates include generated supports and brims. These are toolpath estimates,
 not measured machine time; failed prints and handling time are excluded. Each part
-is a separate plate. These numbers supersede the smaller rectangular-base estimates.
+is a separate plate. These numbers include the half-height taper revision and supersede both the
+rectangular and full-height-taper base estimates. Current base slices and fit
+checks are in [the half-height revision evidence](evidence/v1.8-half-taper.json);
+the earlier physics evidence folder remains a historical snapshot.
 
 ### 16x9
 
 | Part | 0.4 mm time | PETG | 0.2 mm time | PETG |
 | --- | ---: | ---: | ---: | ---: |
-| Base | 7h 53m 36s | 253.78 g | 52h 23m 48s | 220.21 g |
+| Base | 7h 48m 27s | 222.16 g | 46h 39m 07s | 188.31 g |
 | Chamber A | 9h 12m 27s | 235.76 g | 52h 06m 28s | 207.17 g |
 | Chamber B | 9h 11m 47s | 236.18 g | 52h 11m 10s | 207.32 g |
 | Top A | 0h 26m 27s | 10.64 g | 2h 24m 14s | 9.58 g |
 | Top B | 0h 26m 26s | 10.64 g | 2h 24m 18s | 9.58 g |
-| **Total** | **27h 10m 43s** | **747.00 g** | **161h 29m 58s** | **653.86 g** |
+| **Total** | **27h 05m 34s** | **715.38 g** | **155h 45m 17s** | **621.96 g** |
 
 ### 2x1
 
 | Part | 0.4 mm time | PETG | 0.2 mm time | PETG |
 | --- | ---: | ---: | ---: | ---: |
-| Base | 7h 53m 16s | 253.78 g | 52h 23m 04s | 220.21 g |
+| Base | 7h 47m 41s | 222.16 g | 46h 38m 18s | 188.31 g |
 | Chamber A | 10h 09m 20s | 259.25 g | 57h 40m 38s | 228.96 g |
 | Chamber B | 10h 11m 33s | 260.98 g | 57h 41m 11s | 229.01 g |
 | Top A | 0h 26m 27s | 10.64 g | 2h 24m 14s | 9.58 g |
 | Top B | 0h 26m 26s | 10.64 g | 2h 24m 18s | 9.58 g |
-| **Total** | **29h 07m 02s** | **795.29 g** | **172h 33m 25s** | **697.34 g** |
+| **Total** | **29h 01m 27s** | **763.67 g** | **166h 48m 39s** | **665.44 g** |
 
 ## Reproduce
 

@@ -1,0 +1,382 @@
+{
+  "Processor-v1.8-16x9-A1mini-PETG-0.2mm.3mf": {
+    "nozzle_mm": 0.2,
+    "layer_height_mm": 0.1,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "base",
+      "vessel_a",
+      "vessel_b",
+      "guide_a",
+      "guide_b"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "toolpaths": [
+      {
+        "part": "base",
+        "stats": {
+          "model_printing_time": "1d 22h 38m 48s",
+          "total_estimated_time": "1d 22h 39m 7s",
+          "total_layer_number": 360.0,
+          "total_filament_length_mm": 61646.4,
+          "bambu_total_filament_volume_raw": 148276.96,
+          "estimated_filament_cm3": 148.27696,
+          "estimated_filament_g": 188.31,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 36.0
+        }
+      },
+      {
+        "part": "vessel_a",
+        "stats": {
+          "model_printing_time": "2d 4h 6m 18s",
+          "total_estimated_time": "2d 4h 6m 37s",
+          "total_layer_number": 1603.0,
+          "total_filament_length_mm": 67819.58,
+          "bambu_total_filament_volume_raw": 163125.2,
+          "estimated_filament_cm3": 163.1252,
+          "estimated_filament_g": 207.17,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 160.4
+        }
+      },
+      {
+        "part": "vessel_b",
+        "stats": {
+          "model_printing_time": "2d 4h 10m 48s",
+          "total_estimated_time": "2d 4h 11m 8s",
+          "total_layer_number": 1603.0,
+          "total_filament_length_mm": 67868.24,
+          "bambu_total_filament_volume_raw": 163242.26,
+          "estimated_filament_cm3": 163.24226000000002,
+          "estimated_filament_g": 207.32,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 160.4
+        }
+      },
+      {
+        "part": "guide_a",
+        "stats": {
+          "model_printing_time": "2h 23m 55s",
+          "total_estimated_time": "2h 24m 14s",
+          "total_layer_number": 45.0,
+          "total_filament_length_mm": 3135.04,
+          "bambu_total_filament_volume_raw": 7540.66,
+          "estimated_filament_cm3": 7.54066,
+          "estimated_filament_g": 9.58,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.5
+        }
+      },
+      {
+        "part": "guide_b",
+        "stats": {
+          "model_printing_time": "2h 23m 59s",
+          "total_estimated_time": "2h 24m 18s",
+          "total_layer_number": 45.0,
+          "total_filament_length_mm": 3135.18,
+          "bambu_total_filament_volume_raw": 7540.99,
+          "estimated_filament_cm3": 7.54099,
+          "estimated_filament_g": 9.58,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.5
+        }
+      }
+    ],
+    "sha256": "517514bbba9f77675fa7ec3a490554580c70f7a86e3e3d378ca95c91fd9cd481",
+    "bytes": 34945176,
+    "source_model_revision": "8749b3bf09ace91d07627fff38bc07d451772bf1",
+    "total_time": "155h 45m 24s",
+    "total_filament_g": 621.96,
+    "source_vertices_preserved": true
+  },
+  "Processor-v1.8-16x9-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "base",
+      "vessel_a",
+      "vessel_b",
+      "guide_a",
+      "guide_b"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "toolpaths": [
+      {
+        "part": "base",
+        "stats": {
+          "model_printing_time": "7h 48m 8s",
+          "total_estimated_time": "7h 48m 27s",
+          "total_layer_number": 180.0,
+          "total_filament_length_mm": 72728.58,
+          "bambu_total_filament_volume_raw": 174932.74,
+          "estimated_filament_cm3": 174.93274,
+          "estimated_filament_g": 222.16,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 36.0
+        }
+      },
+      {
+        "part": "vessel_a",
+        "stats": {
+          "model_printing_time": "9h 12m 11s",
+          "total_estimated_time": "9h 12m 31s",
+          "total_layer_number": 801.0,
+          "total_filament_length_mm": 77178.76,
+          "bambu_total_filament_volume_raw": 185636.68,
+          "estimated_filament_cm3": 185.63667999999998,
+          "estimated_filament_g": 235.76,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 160.4
+        }
+      },
+      {
+        "part": "vessel_b",
+        "stats": {
+          "model_printing_time": "9h 11m 31s",
+          "total_estimated_time": "9h 11m 50s",
+          "total_layer_number": 801.0,
+          "total_filament_length_mm": 77316.01,
+          "bambu_total_filament_volume_raw": 185966.8,
+          "estimated_filament_cm3": 185.96679999999998,
+          "estimated_filament_g": 236.18,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 160.4
+        }
+      },
+      {
+        "part": "guide_a",
+        "stats": {
+          "model_printing_time": "26m 9s",
+          "total_estimated_time": "26m 28s",
+          "total_layer_number": 22.0,
+          "total_filament_length_mm": 3481.92,
+          "bambu_total_filament_volume_raw": 8375.0,
+          "estimated_filament_cm3": 8.375,
+          "estimated_filament_g": 10.64,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.4
+        }
+      },
+      {
+        "part": "guide_b",
+        "stats": {
+          "model_printing_time": "26m 8s",
+          "total_estimated_time": "26m 27s",
+          "total_layer_number": 22.0,
+          "total_filament_length_mm": 3482.27,
+          "bambu_total_filament_volume_raw": 8375.84,
+          "estimated_filament_cm3": 8.37584,
+          "estimated_filament_g": 10.64,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.4
+        }
+      }
+    ],
+    "sha256": "88c296a7fec8fa5109fb6997dd492eb2b087e0a4593420c198960f1390c90540",
+    "bytes": 13018668,
+    "source_model_revision": "8749b3bf09ace91d07627fff38bc07d451772bf1",
+    "total_time": "27h 05m 43s",
+    "total_filament_g": 715.38,
+    "source_vertices_preserved": true
+  },
+  "Processor-v1.8-2x1-A1mini-PETG-0.2mm.3mf": {
+    "nozzle_mm": 0.2,
+    "layer_height_mm": 0.1,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "base",
+      "vessel_a",
+      "vessel_b",
+      "guide_a",
+      "guide_b"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "toolpaths": [
+      {
+        "part": "base",
+        "stats": {
+          "model_printing_time": "1d 22h 37m 59s",
+          "total_estimated_time": "1d 22h 38m 18s",
+          "total_layer_number": 360.0,
+          "total_filament_length_mm": 61645.98,
+          "bambu_total_filament_volume_raw": 148275.95,
+          "estimated_filament_cm3": 148.27595000000002,
+          "estimated_filament_g": 188.31,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 36.0
+        }
+      },
+      {
+        "part": "vessel_a",
+        "stats": {
+          "model_printing_time": "2d 9h 36m 18s",
+          "total_estimated_time": "2d 9h 36m 37s",
+          "total_layer_number": 1766.0,
+          "total_filament_length_mm": 75016.56,
+          "bambu_total_filament_volume_raw": 180435.96,
+          "estimated_filament_cm3": 180.43596,
+          "estimated_filament_g": 229.15,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 176.7
+        }
+      },
+      {
+        "part": "vessel_b",
+        "stats": {
+          "model_printing_time": "2d 9h 42m 9s",
+          "total_estimated_time": "2d 9h 42m 28s",
+          "total_layer_number": 1766.0,
+          "total_filament_length_mm": 75067.58,
+          "bambu_total_filament_volume_raw": 180558.68,
+          "estimated_filament_cm3": 180.55867999999998,
+          "estimated_filament_g": 229.31,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 176.7
+        }
+      },
+      {
+        "part": "guide_a",
+        "stats": {
+          "model_printing_time": "2h 23m 55s",
+          "total_estimated_time": "2h 24m 14s",
+          "total_layer_number": 45.0,
+          "total_filament_length_mm": 3135.04,
+          "bambu_total_filament_volume_raw": 7540.66,
+          "estimated_filament_cm3": 7.54066,
+          "estimated_filament_g": 9.58,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.5
+        }
+      },
+      {
+        "part": "guide_b",
+        "stats": {
+          "model_printing_time": "2h 23m 59s",
+          "total_estimated_time": "2h 24m 18s",
+          "total_layer_number": 45.0,
+          "total_filament_length_mm": 3135.18,
+          "bambu_total_filament_volume_raw": 7540.99,
+          "estimated_filament_cm3": 7.54099,
+          "estimated_filament_g": 9.58,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.5
+        }
+      }
+    ],
+    "sha256": "e1a7e54406a207733732400bd169b24071957fe97987ef65ff776d1f353b0ebf",
+    "bytes": 36721145,
+    "source_model_revision": "8749b3bf09ace91d07627fff38bc07d451772bf1",
+    "total_time": "166h 45m 55s",
+    "total_filament_g": 665.93,
+    "source_vertices_preserved": true
+  },
+  "Processor-v1.8-2x1-A1mini-PETG-0.4mm.3mf": {
+    "nozzle_mm": 0.4,
+    "layer_height_mm": 0.2,
+    "printer": "Bambu Lab A1 mini",
+    "filament": [
+      "PETG"
+    ],
+    "plates": [
+      "base",
+      "vessel_a",
+      "vessel_b",
+      "guide_a",
+      "guide_b"
+    ],
+    "saved_settings_verified": true,
+    "embedded_gcode": true,
+    "toolpaths": [
+      {
+        "part": "base",
+        "stats": {
+          "model_printing_time": "7h 47m 22s",
+          "total_estimated_time": "7h 47m 41s",
+          "total_layer_number": 180.0,
+          "total_filament_length_mm": 72727.97,
+          "bambu_total_filament_volume_raw": 174931.26,
+          "estimated_filament_cm3": 174.93126,
+          "estimated_filament_g": 222.16,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 36.0
+        }
+      },
+      {
+        "part": "vessel_a",
+        "stats": {
+          "model_printing_time": "10h 2m 49s",
+          "total_estimated_time": "10h 3m 8s",
+          "total_layer_number": 882.0,
+          "total_filament_length_mm": 84869.06,
+          "bambu_total_filament_volume_raw": 204134.01,
+          "estimated_filament_cm3": 204.13401000000002,
+          "estimated_filament_g": 259.25,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 176.6
+        }
+      },
+      {
+        "part": "vessel_b",
+        "stats": {
+          "model_printing_time": "10h 8m 52s",
+          "total_estimated_time": "10h 9m 11s",
+          "total_layer_number": 882.0,
+          "total_filament_length_mm": 85319.59,
+          "bambu_total_filament_volume_raw": 205217.67,
+          "estimated_filament_cm3": 205.21767000000003,
+          "estimated_filament_g": 260.63,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 176.6
+        }
+      },
+      {
+        "part": "guide_a",
+        "stats": {
+          "model_printing_time": "26m 9s",
+          "total_estimated_time": "26m 28s",
+          "total_layer_number": 22.0,
+          "total_filament_length_mm": 3481.92,
+          "bambu_total_filament_volume_raw": 8375.0,
+          "estimated_filament_cm3": 8.375,
+          "estimated_filament_g": 10.64,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.4
+        }
+      },
+      {
+        "part": "guide_b",
+        "stats": {
+          "model_printing_time": "26m 8s",
+          "total_estimated_time": "26m 27s",
+          "total_layer_number": 22.0,
+          "total_filament_length_mm": 3482.27,
+          "bambu_total_filament_volume_raw": 8375.84,
+          "estimated_filament_cm3": 8.37584,
+          "estimated_filament_g": 10.64,
+          "filament_density_g_cm3": 1.27,
+          "max_z_height_mm": 4.4
+        }
+      }
+    ],
+    "sha256": "66df619a94280d6cb6b1348d00e74a71cfc7e6f2d4f6256bbbafe19ba50ba650",
+    "bytes": 13688812,
+    "source_model_revision": "8749b3bf09ace91d07627fff38bc07d451772bf1",
+    "total_time": "28h 52m 55s",
+    "total_filament_g": 763.32,
+    "source_vertices_preserved": true
+  }
+}
