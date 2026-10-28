@@ -109,6 +109,8 @@ The chosen workflow is manual: measure both baths after settling and use your pr
 The [build123d / FreeCAD study](docs/freecad-study.md) provides native STEP solids,
 scripted fit and removal checks, and a headless Gmsh/CalculiX thermal benchmark.
 It is a migration pilot; use the production OpenSCAD workflow above for printing.
+The [build123d/CadQuery comparison](docs/cad-library-comparison.md) tests the same
+retaining clip in three APIs, parameter variations and STEP import/edit/export.
 
 ## Validation and source
 

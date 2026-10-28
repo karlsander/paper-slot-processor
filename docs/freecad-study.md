@@ -15,7 +15,9 @@ OpenSCAD remains effective for compact constructive geometry and parameterized
 prints. For this project, build123d's native faces, edges, fillets and solid CAD
 exports are a stronger foundation for mechanical development and analysis.
 It uses Python and Open Cascade. CadQuery is another credible Python/Open Cascade
-choice; this pilot evaluates build123d, not a comparative benchmark of the two.
+choice. The subsequent [clip comparison](cad-library-comparison.md) tests both
+libraries and records their maturity and API differences. Both passed the geometry
+and STEP-editing checks; build123d remains our preferred authoring direction.
 See the [build123d documentation](https://build123d.readthedocs.io/en/stable/) and
 [CadQuery documentation](https://cadquery.readthedocs.io/en/latest/).
 
