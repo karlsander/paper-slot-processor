@@ -22,7 +22,7 @@ DEFAULTS = {
     "inside_radius": 2,
     "rim_wall": 1.2,
     "rim_height": 1.5,
-    "end_ledge": 11,
+    "end_ledge": 12,
     "ledge_thickness": 5,
     "magnet_diameter": 6,
     "magnet_thickness": 3,
@@ -42,7 +42,8 @@ DEFAULTS = {
     "recipe_b_concentrate": 1,
     "recipe_b_water": 4,
     "rounding_limit": 2,
-    "module_gap": 2,
+    "chamber_gap": 25,
+    "base_size": 180,
     "cradle_floor": 4,
     "cradle_clearance": 0.6,
     "bed_margin": 3,
@@ -197,13 +198,14 @@ def parameters(**overrides):
     )
     require(
         p["end_ledge"] / 2 - p["pocket_diameter"] / 2 - p["rim_wall"] - p["guide_fit"]
-        >= 0.5,
+        >= 1.2,
         "Magnet too close to top edge",
     )
     require(
         0.3 <= p["cradle_clearance"] <= 1
         and p["cradle_floor"] >= 3
-        and p["module_gap"] >= 0,
+        and p["chamber_gap"] >= 20
+        and 150 <= p["base_size"] <= 180,
         "Invalid base",
     )
     require(
@@ -249,18 +251,28 @@ def parameters(**overrides):
     )
     p["magnet_x"] = [-p["end_ledge"] / 2, p["body_width"] + p["end_ledge"] / 2]
     p["slit_length"] = p["roll_width"] + 2 * (p["lateral_stroke"] + 1)
-    p["cradle_width"] = p["body_width"] + 42.8
-    # Preserve the shared footprint and future heater interfaces of v1.8.
+    # Broad tapered plinth; keep the two wet chambers unchanged and removable.
     p.update(
-        cradle_depth=max(68, p["body_depth"] + 48),
-        vessel_y=24,
         socket_wall=3,
         socket_height=32,
     )
-    p["vessel_pitch"] = p["cradle_depth"] + p["module_gap"]
-    p["base_width"] = p["cradle_width"]
-    p["base_depth"] = 2 * p["cradle_depth"] + p["module_gap"]
-    p["vessel_x"] = (p["cradle_width"] - p["body_width"]) / 2
+    p["vessel_pitch"] = p["body_depth"] + p["chamber_gap"]
+    p["base_width"] = p["base_depth"] = p["base_size"]
+    p["vessel_x"] = (p["base_width"] - p["body_width"]) / 2
+    p["vessel_y"] = (p["base_depth"] - p["vessel_pitch"] - p["body_depth"]) / 2
+    p["base_top_width"] = p["body_width"] + 2 * (
+        p["cradle_clearance"] + p["socket_wall"]
+    )
+    p["base_top_depth"] = (
+        p["vessel_pitch"]
+        + p["body_depth"]
+        + 2 * (p["cradle_clearance"] + p["socket_wall"])
+    )
+    require(
+        p["base_top_width"] < p["base_width"] - 10
+        and p["base_top_depth"] < p["base_depth"] - 20,
+        "Insufficient taper around sockets",
+    )
     p["nominal_ml"] = (
         capacity(p, p["target_loaded_level"])
         - displacement(p, p["target_loaded_level"])
@@ -301,6 +313,7 @@ def parameters(**overrides):
     ]
     p["build_size"] = [180, 180, 180]
     p["usable_xy"] = [180 - 2 * p["bed_margin"]] * 2
+    p["base_usable_xy"] = [180, 180]  # Flat base has no brim or supports.
     p["usable_z"] = 180 - p["height_margin"]
     require(
         p["min_ml"] <= p["working_ml"] <= p["max_ml"]
@@ -313,8 +326,9 @@ def parameters(**overrides):
         "Insufficient immersion/freeboard",
     )
     require(
-        p["base_width"] <= p["usable_xy"][0] and p["base_depth"] <= p["usable_xy"][1],
-        "Shared base exceeds reserved A1 mini area",
+        p["base_width"] <= p["base_usable_xy"][0]
+        and p["base_depth"] <= p["base_usable_xy"][1],
+        "Shared base exceeds A1 mini area",
     )
     require(
         all(

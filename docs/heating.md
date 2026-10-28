@@ -1,4 +1,29 @@
-# Heating one chamber at a time
+# Heating each chamber independently
+
+The October 2026 physics study predicts that the original 5 W mat reaches only
+about **26.5°C equilibrium in a 20°C room**. Hot filling saves warm-up time but
+does not change equilibrium. For 35°C, the revised model needs roughly 11 W per
+bath nominally, or 14.6 W under the higher-air-loss assumption.
+
+A practical first candidate is **RS PRO 731-350: 12 V DC, 15 W,
+100 × 150 × 1.4 mm**, one per bath, on an external aluminium spreader.
+See the [official datasheet](https://docs.rs-online.com/ba83/A700000008849926.pdf)
+and [German product listing](https://de.rs-online.com/web/p/heizmatten/0731350).
+Use independent liquid-temperature feedback and heater overtemperature protection.
+At full power the predicted nominal equilibrium is 40.1°C, so power control is
+necessary for a 35°C setpoint. 15 W has little reserve in a draft; approximately
+20 W with control would be a better design target for robust higher-loss use,
+but a fitting 20 W product has not been selected.
+
+The five-part v1.8 is unheated. Its 180 mm tapered base and 25 mm chamber gap
+require a new heater mount; the original v2 hardware is not a drop-in assembly.
+The thermal study omits the base and neighboring bath. Mounting height, lead exit,
+contact quality and actual water temperatures must be checked on the heated prototype.
+Full assumptions, scenarios and numerical checks are in [the physics report](processor-physics.md).
+
+## Earlier 5 W concept (historical)
+
+The following describes the original v2 envelope, not the new recommendation.
 
 Use a separate flat **140 × 150 mm, 5 W mat** and metal spreader behind each approximately 325 ml bath. The plates remain separate so one bath does not deliberately share its heater with another. This version is built for the small 5 W modules; evaluate them with water before redesigning for a different heater.
 

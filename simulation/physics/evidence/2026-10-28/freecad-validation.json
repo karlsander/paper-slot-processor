@@ -1,0 +1,960 @@
+{
+  "16x9": {
+    "passed": true,
+    "freecad_version": [
+      "1",
+      "1",
+      "4",
+      "20260928 (Git shallow)",
+      "Unknown",
+      "2026/09/28 13:46:34",
+      "(HEAD detached at 4fd3bf320)",
+      "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+    ],
+    "roundtrip": [
+      {
+        "part": "base",
+        "volume_error_mm3": 1.2700911611318588e-07,
+        "valid": true
+      },
+      {
+        "part": "vessel_a",
+        "volume_error_mm3": 4.0745362639427185e-09,
+        "valid": true
+      },
+      {
+        "part": "guide_a",
+        "volume_error_mm3": 3.67435859516263e-10,
+        "valid": true
+      },
+      {
+        "part": "vessel_b",
+        "volume_error_mm3": 3.230525180697441e-09,
+        "valid": true
+      },
+      {
+        "part": "guide_b",
+        "volume_error_mm3": 3.80168785341084e-10,
+        "valid": true
+      }
+    ],
+    "magnet_seats": [
+      {
+        "chamber": "a",
+        "center_x_mm": -6.0,
+        "diameter_mm": 6.3,
+        "depth_mm": 3.2,
+        "recessed_magnet_gap_mm": 0.39999999999997726,
+        "dry_pockets": true
+      },
+      {
+        "chamber": "a",
+        "center_x_mm": 134.0,
+        "diameter_mm": 6.3,
+        "depth_mm": 3.2,
+        "recessed_magnet_gap_mm": 0.39999999999997726,
+        "dry_pockets": true
+      },
+      {
+        "chamber": "b",
+        "center_x_mm": -6.0,
+        "diameter_mm": 6.3,
+        "depth_mm": 3.2,
+        "recessed_magnet_gap_mm": 0.39999999999997726,
+        "dry_pockets": true
+      },
+      {
+        "chamber": "b",
+        "center_x_mm": 134.0,
+        "diameter_mm": 6.3,
+        "depth_mm": 3.2,
+        "recessed_magnet_gap_mm": 0.39999999999997726,
+        "dry_pockets": true
+      }
+    ],
+    "top_rim_clearance_mm": [
+      0.34999999999998216,
+      0.34999999999998216
+    ],
+    "fill_ridge": [
+      {
+        "chamber": "a",
+        "top_edge_mm": 193.71163005630174,
+        "projection_mm": 0.4,
+        "height_mm": 0.6,
+        "continuous_boundary": true
+      },
+      {
+        "chamber": "b",
+        "top_edge_mm": 193.71163005630174,
+        "projection_mm": 0.4,
+        "height_mm": 0.6,
+        "continuous_boundary": true
+      }
+    ],
+    "plates": [
+      {
+        "part": "base",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          180.0,
+          180.0,
+          37.0
+        ]
+      },
+      {
+        "part": "vessel_a",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          152.0,
+          157.50918865203857,
+          160.43203735351562
+        ]
+      },
+      {
+        "part": "guide_a",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          160.45000648498535,
+          17.899993896484375,
+          4.499999899999999
+        ]
+      },
+      {
+        "part": "vessel_b",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          152.0,
+          157.50918865203857,
+          160.43203735351562
+        ]
+      },
+      {
+        "part": "guide_b",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          160.45000648498535,
+          17.899993896484375,
+          4.499999899999999
+        ]
+      }
+    ],
+    "assembly_pairs": [
+      {
+        "parts": [
+          "base",
+          "vessel_a"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "base",
+          "guide_a"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "base",
+          "vessel_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "base",
+          "guide_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "vessel_a",
+          "guide_a"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "vessel_a",
+          "vessel_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "vessel_a",
+          "guide_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "guide_a",
+          "vessel_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "guide_a",
+          "guide_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "vessel_b",
+          "guide_b"
+        ],
+        "overlap_mm3": 0
+      }
+    ],
+    "bath_removal_samples": [
+      {
+        "chamber": "a",
+        "lift_mm": 0,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 0.5,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 4,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 16,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 31,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 32,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 36,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 60,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 204.33333333333331,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 0,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 0.5,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 4,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 16,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 31,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 32,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 36,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 60,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 204.33333333333331,
+        "clear": true
+      }
+    ],
+    "socket_clearance_mm": [
+      0.5999999999999833,
+      0.5999999999999833
+    ],
+    "wet_volume": [
+      {
+        "chamber": "a",
+        "loaded": false,
+        "level_mm": 193.71163005630174,
+        "volume_ml": 323.0000047071651,
+        "error_ml": 4.707165089712362e-06
+      },
+      {
+        "chamber": "a",
+        "loaded": true,
+        "level_mm": 197.10642257332802,
+        "volume_ml": 322.9999973361599,
+        "error_ml": -2.663840120931127e-06
+      },
+      {
+        "chamber": "b",
+        "loaded": false,
+        "level_mm": 193.71163005630174,
+        "volume_ml": 323.0000047071651,
+        "error_ml": 4.707165089712362e-06
+      },
+      {
+        "chamber": "b",
+        "loaded": true,
+        "level_mm": 197.10642257332802,
+        "volume_ml": 322.9999973361599,
+        "error_ml": -2.663840120931127e-06
+      }
+    ],
+    "paper_agitation": [
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      }
+    ],
+    "limitations": [
+      "Rigid geometry only; no friction, deformation, leakage or chemical compatibility tested.",
+      "Paper modeled as a flat rigid sheet.",
+      "Motion checks are sampled except the conservative paper agitation envelope.",
+      "Magnetic force, adhesive bond and printed pocket tolerances are untested.",
+      "FreeCAD and build123d share the Open Cascade geometry kernel."
+    ]
+  },
+  "2x1": {
+    "passed": true,
+    "freecad_version": [
+      "1",
+      "1",
+      "4",
+      "20260928 (Git shallow)",
+      "Unknown",
+      "2026/09/28 13:46:34",
+      "(HEAD detached at 4fd3bf320)",
+      "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+    ],
+    "roundtrip": [
+      {
+        "part": "base",
+        "volume_error_mm3": 1.277076080441475e-07,
+        "valid": true
+      },
+      {
+        "part": "vessel_a",
+        "volume_error_mm3": 1.862645149230957e-09,
+        "valid": true
+      },
+      {
+        "part": "guide_a",
+        "volume_error_mm3": 3.67435859516263e-10,
+        "valid": true
+      },
+      {
+        "part": "vessel_b",
+        "volume_error_mm3": 8.731149137020111e-11,
+        "valid": true
+      },
+      {
+        "part": "guide_b",
+        "volume_error_mm3": 3.80168785341084e-10,
+        "valid": true
+      }
+    ],
+    "magnet_seats": [
+      {
+        "chamber": "a",
+        "center_x_mm": -6.0,
+        "diameter_mm": 6.3,
+        "depth_mm": 3.2,
+        "recessed_magnet_gap_mm": 0.39999999999997726,
+        "dry_pockets": true
+      },
+      {
+        "chamber": "a",
+        "center_x_mm": 134.0,
+        "diameter_mm": 6.3,
+        "depth_mm": 3.2,
+        "recessed_magnet_gap_mm": 0.39999999999997726,
+        "dry_pockets": true
+      },
+      {
+        "chamber": "b",
+        "center_x_mm": -6.0,
+        "diameter_mm": 6.3,
+        "depth_mm": 3.2,
+        "recessed_magnet_gap_mm": 0.39999999999997726,
+        "dry_pockets": true
+      },
+      {
+        "chamber": "b",
+        "center_x_mm": 134.0,
+        "diameter_mm": 6.3,
+        "depth_mm": 3.2,
+        "recessed_magnet_gap_mm": 0.39999999999997726,
+        "dry_pockets": true
+      }
+    ],
+    "top_rim_clearance_mm": [
+      0.34999999999998216,
+      0.34999999999998216
+    ],
+    "fill_ridge": [
+      {
+        "chamber": "a",
+        "top_edge_mm": 215.41803261637688,
+        "projection_mm": 0.4,
+        "height_mm": 0.6,
+        "continuous_boundary": true
+      },
+      {
+        "chamber": "b",
+        "top_edge_mm": 215.41803261637688,
+        "projection_mm": 0.4,
+        "height_mm": 0.6,
+        "continuous_boundary": true
+      }
+    ],
+    "plates": [
+      {
+        "part": "base",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          180.0,
+          180.0,
+          37.0
+        ]
+      },
+      {
+        "part": "vessel_a",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          152.0,
+          173.31160807609558,
+          176.6820068359375
+        ]
+      },
+      {
+        "part": "guide_a",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          160.45000648498535,
+          17.899993896484375,
+          4.499999899999999
+        ]
+      },
+      {
+        "part": "vessel_b",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          152.0,
+          173.31160807609558,
+          176.6820068359375
+        ]
+      },
+      {
+        "part": "guide_b",
+        "watertight_mesh": true,
+        "solid_count": 1,
+        "bounds_mm": [
+          160.45000648498535,
+          17.899993896484375,
+          4.499999899999999
+        ]
+      }
+    ],
+    "assembly_pairs": [
+      {
+        "parts": [
+          "base",
+          "vessel_a"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "base",
+          "guide_a"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "base",
+          "vessel_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "base",
+          "guide_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "vessel_a",
+          "guide_a"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "vessel_a",
+          "vessel_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "vessel_a",
+          "guide_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "guide_a",
+          "vessel_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "guide_a",
+          "guide_b"
+        ],
+        "overlap_mm3": 0
+      },
+      {
+        "parts": [
+          "vessel_b",
+          "guide_b"
+        ],
+        "overlap_mm3": 0
+      }
+    ],
+    "bath_removal_samples": [
+      {
+        "chamber": "a",
+        "lift_mm": 0,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 0.5,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 4,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 16,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 31,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 32,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 36,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 60,
+        "clear": true
+      },
+      {
+        "chamber": "a",
+        "lift_mm": 227.0,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 0,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 0.5,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 4,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 16,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 31,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 32,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 36,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 60,
+        "clear": true
+      },
+      {
+        "chamber": "b",
+        "lift_mm": 227.0,
+        "clear": true
+      }
+    ],
+    "socket_clearance_mm": [
+      0.5999999999999864,
+      0.5999999999999874
+    ],
+    "wet_volume": [
+      {
+        "chamber": "a",
+        "loaded": false,
+        "level_mm": 215.41803261637688,
+        "volume_ml": 360.0000085380809,
+        "error_ml": 8.538080919606728e-06
+      },
+      {
+        "chamber": "a",
+        "loaded": true,
+        "level_mm": 219.20962181687355,
+        "volume_ml": 360.0000095528441,
+        "error_ml": 9.552844119298243e-06
+      },
+      {
+        "chamber": "b",
+        "loaded": false,
+        "level_mm": 215.41803261637688,
+        "volume_ml": 360.0000085380809,
+        "error_ml": 8.538080919606728e-06
+      },
+      {
+        "chamber": "b",
+        "loaded": true,
+        "level_mm": 219.20962181687355,
+        "volume_ml": 360.0000095528441,
+        "error_ml": 9.552844119298243e-06
+      }
+    ],
+    "paper_agitation": [
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "a",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 0,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 3.0,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": -3,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": 0,
+        "guide_clearance_mm": 0.4499999999999993
+      },
+      {
+        "chamber": "b",
+        "gap_mm": 1.2,
+        "lift_mm": 6,
+        "side_mm": 3,
+        "guide_clearance_mm": 0.4499999999999993
+      }
+    ],
+    "limitations": [
+      "Rigid geometry only; no friction, deformation, leakage or chemical compatibility tested.",
+      "Paper modeled as a flat rigid sheet.",
+      "Motion checks are sampled except the conservative paper agitation envelope.",
+      "Magnetic force, adhesive bond and printed pocket tolerances are untested.",
+      "FreeCAD and build123d share the Open Cascade geometry kernel."
+    ]
+  }
+}

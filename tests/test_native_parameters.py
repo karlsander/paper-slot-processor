@@ -12,7 +12,9 @@ class NativeParameterTests(unittest.TestCase):
                 p = parameters(image_aspect=aspect)
                 self.assertEqual(p["working_ml"], fill)
                 self.assertEqual(p["paper_cut_length"], cut)
-                self.assertEqual((p["base_width"], p["base_depth"]), (170.8, 138))
+                self.assertEqual((p["base_width"], p["base_depth"]), (180, 180))
+                self.assertEqual(p["vessel_pitch"], 45)
+                self.assertEqual(p["chamber_gap"], 25)
                 self.assertGreaterEqual(p["body_height"] - p["loaded_level"], 6)
                 self.assertGreaterEqual(
                     p["loaded_level"] - p["image_top"] - p["vertical_stroke"], 1
@@ -64,7 +66,8 @@ class NativeParameterTests(unittest.TestCase):
     def test_unsafe_or_unprintable_settings_are_rejected(self):
         for overrides in (
             {"guide_gap": 0.4},
-            {"module_gap": 50},
+            {"chamber_gap": 150},
+            {"base_size": 180.1},
             {"image_aspect": 3},
             {"wall": 2},
             {"guide_fit": 1},
@@ -76,6 +79,7 @@ class NativeParameterTests(unittest.TestCase):
             {"magnet_diameter": 8},
             {"magnet_depth_allowance": 0},
             {"ridge_projection": 3},
+            {"end_ledge": 11},
         ):
             with self.subTest(overrides=overrides), self.assertRaises(ValueError):
                 parameters(**overrides)

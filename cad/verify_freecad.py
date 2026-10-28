@@ -42,7 +42,9 @@ for entry in model["plates"]:
     assert all(
         v <= limit + 0.001
         for v, limit in zip(
-            (box.XLength, box.YLength, box.ZLength), p["usable_xy"] + [p["usable_z"]]
+            (box.XLength, box.YLength, box.ZLength),
+            (p["base_usable_xy"] if name == "base" else p["usable_xy"])
+            + [p["usable_z"]],
         )
     ), name
     plates.append(

@@ -1,0 +1,671 @@
+{
+  "thermal": [
+    {
+      "case": "hot-38C-5W",
+      "mean_c": {
+        "60": 35.4352003225116,
+        "300": 33.30755702611839,
+        "600": 32.38908937077677,
+        "1800": 30.39185812539422,
+        "3600": 28.63124963684404
+      },
+      "cell_range_c": {
+        "60": [
+          29.943023681640625,
+          37.338287353515625
+        ],
+        "300": [
+          29.338226318359375,
+          34.8043212890625
+        ],
+        "600": [
+          28.998321533203125,
+          33.343231201171875
+        ],
+        "1800": [
+          27.891693115234375,
+          31.068359375
+        ],
+        "3600": [
+          26.644378662109375,
+          29.2713623046875
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          27.750258969000026,
+          37.33847549500001
+        ],
+        "300": [
+          28.555325372000006,
+          34.80434688600004
+        ],
+        "600": [
+          28.218242566999997,
+          33.343238063000044
+        ],
+        "1800": [
+          27.17752419800002,
+          31.120439712000007
+        ],
+        "3600": [
+          26.040977890000022,
+          29.350235390000023
+        ]
+      },
+      "all_time_water_range_c": [
+        24.810144080000043,
+        38.00000172
+      ],
+      "balance_time_s": 3595.5,
+      "stored_sensible_J": -8093.713079890949,
+      "input_J": 17977.5,
+      "external_loss_J": 25983.958079360014,
+      "balance_residual_J": -87.25500053093492,
+      "balance_residual_percent_of_energy_scale": 0.358615598040855,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "hot-38C-0W",
+      "mean_c": {
+        "60": 35.42594446329254,
+        "300": 32.99562185035056,
+        "600": 31.528190061881634,
+        "1800": 27.68411883335999,
+        "3600": 24.227379455008915
+      },
+      "cell_range_c": {
+        "60": [
+          29.917388916015625,
+          37.33740234375
+        ],
+        "300": [
+          29.060882568359375,
+          34.660675048828125
+        ],
+        "600": [
+          28.28387451171875,
+          32.71136474609375
+        ],
+        "1800": [
+          25.803802490234375,
+          28.20245361328125
+        ],
+        "3600": [
+          23.27130126953125,
+          24.496612548828125
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          27.73459568900003,
+          37.337563865000035
+        ],
+        "300": [
+          28.347187778000006,
+          34.66068993600002
+        ],
+        "600": [
+          27.625860406000044,
+          32.711367705000036
+        ],
+        "1800": [
+          25.311953291000048,
+          28.202457004000003
+        ],
+        "3600": [
+          22.995331899999996,
+          24.503302030000043
+        ]
+      },
+      "all_time_water_range_c": [
+        22.995331899999996,
+        38.00000172
+      ],
+      "balance_time_s": 3595.5,
+      "stored_sensible_J": -16800.228236760217,
+      "input_J": 0.0,
+      "external_loss_J": 16703.883233420012,
+      "balance_residual_J": -96.34500334020413,
+      "balance_residual_percent_of_energy_scale": 0.39597525392078836,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "cold-20C-5W",
+      "mean_c": {
+        "60": 20.008709088656797,
+        "300": 20.296339063135733,
+        "600": 20.845646733459418,
+        "1800": 22.72733738919468,
+        "3600": 24.458196098204414
+      },
+      "cell_range_c": {
+        "60": [
+          19.928375244140625,
+          20.05450439453125
+        ],
+        "300": [
+          19.67486572265625,
+          20.77679443359375
+        ],
+        "600": [
+          19.881011962890625,
+          21.479278564453125
+        ],
+        "1800": [
+          21.5191650390625,
+          23.396697998046875
+        ],
+        "3600": [
+          23.15252685546875,
+          25.10736083984375
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          19.928318434000015,
+          20.094399965000044
+        ],
+        "300": [
+          19.674228969000023,
+          20.90565330800002
+        ],
+        "600": [
+          19.881225688000008,
+          21.625848476999998
+        ],
+        "1800": [
+          21.38890804600004,
+          23.528418730000034
+        ],
+        "3600": [
+          22.850244680000003,
+          25.21853883
+        ]
+      },
+      "all_time_water_range_c": [
+        19.672866720000002,
+        25.21853883
+      ],
+      "balance_time_s": 3595.5,
+      "stored_sensible_J": 8800.800248125543,
+      "input_J": 17977.5,
+      "external_loss_J": 9170.597473457003,
+      "balance_residual_J": -6.102278417456546,
+      "balance_residual_percent_of_energy_scale": 0.03394397673456569,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "cold-20C-0W",
+      "mean_c": {
+        "60": 20.0
+      },
+      "cell_range_c": {
+        "60": [
+          20.0,
+          20.0
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          19.999992160000033,
+          20.00000042000005
+        ]
+      },
+      "all_time_water_range_c": [
+        19.99998862000001,
+        20.000001980000036
+      ],
+      "balance_time_s": 55.5,
+      "stored_sensible_J": 0.00030773076982858004,
+      "input_J": 0.0,
+      "external_loss_J": 1.4532096795403693e-06,
+      "balance_residual_J": 0.00030918397950812043,
+      "balance_residual_percent_of_energy_scale": 0.030918397950812044,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "preheated-38C-5W",
+      "mean_c": {
+        "60": 37.89636098888714,
+        "300": 37.035569837906586,
+        "600": 36.00384661941008,
+        "1800": 32.80807419743098,
+        "3600": 29.933435319015178
+      },
+      "cell_range_c": {
+        "60": [
+          36.926727294921875,
+          38.01251220703125
+        ],
+        "300": [
+          34.682220458984375,
+          37.493804931640625
+        ],
+        "600": [
+          32.96197509765625,
+          36.574493408203125
+        ],
+        "1800": [
+          29.90771484375,
+          33.454376220703125
+        ],
+        "3600": [
+          27.669219970703125,
+          30.57684326171875
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          36.35028823900001,
+          38.01834640600003
+        ],
+        "300": [
+          33.50472954800003,
+          37.494942859000034
+        ],
+        "600": [
+          31.90645170700001,
+          36.582552245000045
+        ],
+        "1800": [
+          29.048696299000035,
+          33.49070519700005
+        ],
+        "3600": [
+          26.98008587000004,
+          30.640857480000022
+        ]
+      },
+      "all_time_water_range_c": [
+        26.98008587000004,
+        38.01879414000001
+      ],
+      "balance_time_s": 3595.5,
+      "stored_sensible_J": -14864.554345773537,
+      "input_J": 17977.5,
+      "external_loss_J": 32774.20864239134,
+      "balance_residual_J": -67.84570338219419,
+      "balance_residual_percent_of_energy_scale": 0.20299915282950182,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "hot-still-air",
+      "mean_c": {
+        "60": 35.439747306752274,
+        "300": 33.4260675900842,
+        "600": 32.70146762026104,
+        "1800": 31.362038414835986,
+        "3600": 30.11032792404427
+      },
+      "cell_range_c": {
+        "60": [
+          29.95513916015625,
+          37.340240478515625
+        ],
+        "300": [
+          29.555572509765625,
+          34.913055419921875
+        ],
+        "600": [
+          29.472412109375,
+          33.67230224609375
+        ],
+        "1800": [
+          28.937591552734375,
+          32.0615234375
+        ],
+        "3600": [
+          28.0821533203125,
+          30.778564453125
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          27.778425411000008,
+          37.34041839700005
+        ],
+        "300": [
+          28.858420490999997,
+          34.913077602
+        ],
+        "600": [
+          28.747806388000033,
+          33.700241845000036
+        ],
+        "1800": [
+          28.234263409000043,
+          32.135171367000005
+        ],
+        "3600": [
+          27.440278570000032,
+          30.869719430000032
+        ]
+      },
+      "all_time_water_range_c": [
+        24.810144080000043,
+        38.00000171000005
+      ],
+      "balance_time_s": 3595.5,
+      "stored_sensible_J": -5292.254226722869,
+      "input_J": 17977.5,
+      "external_loss_J": 23190.73687455111,
+      "balance_residual_J": -79.01735217175883,
+      "balance_residual_percent_of_energy_scale": 0.32475909497741334,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "hot-draft",
+      "mean_c": {
+        "60": 35.42862791860147,
+        "300": 33.142101290429196,
+        "600": 31.964908480241245,
+        "1800": 29.186726033380964,
+        "3600": 26.96915253076852
+      },
+      "cell_range_c": {
+        "60": [
+          29.92645263671875,
+          37.3355712890625
+        ],
+        "300": [
+          29.04876708984375,
+          34.655731201171875
+        ],
+        "600": [
+          28.402923583984375,
+          32.958648681640625
+        ],
+        "1800": [
+          26.6549072265625,
+          29.831695556640625
+        ],
+        "3600": [
+          25.09539794921875,
+          27.573577880859375
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          27.710714253,
+          37.335739852000025
+        ],
+        "300": [
+          28.15687731400003,
+          34.655749344000036
+        ],
+        "600": [
+          27.547723383000022,
+          32.95866370700004
+        ],
+        "1800": [
+          25.959707425000026,
+          29.867139622000025
+        ],
+        "3600": [
+          24.569386129999998,
+          27.63751682000003
+        ]
+      },
+      "all_time_water_range_c": [
+        24.569386129999998,
+        38.00000173000001
+      ],
+      "balance_time_s": 3595.5,
+      "stored_sensible_J": -11224.919736499354,
+      "input_J": 17977.5,
+      "external_loss_J": 29109.13171428153,
+      "balance_residual_J": -93.28802221782098,
+      "balance_residual_percent_of_energy_scale": 0.38341114748869487,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "hot-surface-loss",
+      "mean_c": {
+        "60": 35.408491055029124,
+        "300": 33.2005928151716,
+        "600": 32.2069090262898,
+        "1800": 30.017354582930057,
+        "3600": 28.146873440153538
+      },
+      "cell_range_c": {
+        "60": [
+          29.936492919921875,
+          37.212738037109375
+        ],
+        "300": [
+          29.30902099609375,
+          34.41949462890625
+        ],
+        "600": [
+          28.96673583984375,
+          32.97406005859375
+        ],
+        "1800": [
+          27.798309326171875,
+          30.6151123046875
+        ],
+        "3600": [
+          26.413116455078125,
+          28.733795166015625
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          27.745301836000017,
+          37.21302870000001
+        ],
+        "300": [
+          28.53383834900003,
+          34.41950144000004
+        ],
+        "600": [
+          28.194964682000016,
+          32.993356762
+        ],
+        "1800": [
+          27.09714209500002,
+          30.679862189000033
+        ],
+        "3600": [
+          25.829751869999996,
+          28.823672760000022
+        ]
+      },
+      "all_time_water_range_c": [
+        24.803474640000047,
+        38.00000421000004
+      ],
+      "balance_time_s": 3595.5,
+      "stored_sensible_J": -8940.783617082434,
+      "input_J": 17977.5,
+      "external_loss_J": 26829.06234027724,
+      "balance_residual_J": -89.22127680519407,
+      "balance_residual_percent_of_energy_scale": 0.3666969382244126,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "hot-smallstep",
+      "mean_c": {
+        "60": 35.43313601288825,
+        "300": 33.30831417555309,
+        "600": 32.39078269478694
+      },
+      "cell_range_c": {
+        "60": [
+          29.9228515625,
+          37.3472900390625
+        ],
+        "300": [
+          29.3265380859375,
+          34.81024169921875
+        ],
+        "600": [
+          28.98992919921875,
+          33.34808349609375
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          27.77495036600003,
+          37.34743241800002
+        ],
+        "300": [
+          28.548522706000018,
+          34.810263224000025
+        ],
+        "600": [
+          28.21274188000001,
+          33.35322911000003
+        ]
+      },
+      "all_time_water_range_c": [
+        24.810144080000043,
+        38.00000172
+      ],
+      "balance_time_s": 598.5,
+      "stored_sensible_J": -1516.5221358394022,
+      "input_J": 2992.5,
+      "external_loss_J": 4449.205324083204,
+      "balance_residual_J": -59.81681175619815,
+      "balance_residual_percent_of_energy_scale": 0.2458454139054304,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "hot-refined",
+      "mean_c": {
+        "60": 35.41487478199014,
+        "300": 33.29175491011055,
+        "600": 32.37021849366523
+      },
+      "cell_range_c": {
+        "60": [
+          29.55108642578125,
+          37.40240478515625
+        ],
+        "300": [
+          29.06805419921875,
+          34.88037109375
+        ],
+        "600": [
+          28.78533935546875,
+          33.380340576171875
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          28.156182060000013,
+          37.402453428000044
+        ],
+        "300": [
+          28.574105084000017,
+          34.88037329
+        ],
+        "600": [
+          28.27256593000004,
+          33.38562231000003
+        ]
+      },
+      "all_time_water_range_c": [
+        25.247486430000038,
+        38.00000220000004
+      ],
+      "balance_time_s": 598.5,
+      "stored_sensible_J": -1543.9748424168556,
+      "input_J": 2992.5,
+      "external_loss_J": 4476.561312319648,
+      "balance_residual_J": -59.91353009720751,
+      "balance_residual_percent_of_energy_scale": 0.2462429235666709,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    },
+    {
+      "case": "hot-startup-check",
+      "mean_c": {
+        "60": 35.43313627771184,
+        "300": 33.308368107556724,
+        "600": 32.39085361971973
+      },
+      "cell_range_c": {
+        "60": [
+          29.92718505859375,
+          37.347686767578125
+        ],
+        "300": [
+          29.324737548828125,
+          34.810455322265625
+        ],
+        "600": [
+          28.9876708984375,
+          33.347991943359375
+        ]
+      },
+      "water_range_including_boundaries_c": {
+        "60": [
+          27.777673788000016,
+          37.34782011600004
+        ],
+        "300": [
+          28.54765051200002,
+          34.810453654
+        ],
+        "600": [
+          28.21121592000003,
+          33.35313572000001
+        ]
+      },
+      "all_time_water_range_c": [
+        24.813937380000027,
+        38.000008930000035
+      ],
+      "balance_time_s": 598.5,
+      "stored_sensible_J": -1516.3897007737537,
+      "input_J": 2992.5,
+      "external_loss_J": 4449.247870831046,
+      "balance_residual_J": -59.64182994270732,
+      "balance_residual_percent_of_energy_scale": 0.2451262435735359,
+      "balance_definition": "Constant reference density Cp sensible storage; initial excess or supplied heat is the scale. Boussinesq approximation, initial boundary transient and sampled flux quadrature contribute residual."
+    }
+  ],
+  "fill": [
+    {
+      "case": "fill-fast-budget",
+      "spacing_mm": 4,
+      "pour_seconds": 5,
+      "last_volume_time_s": 6.992,
+      "injected_ml": 323.0180837864505,
+      "escaped_ml": 34.66665325601277,
+      "stored_ml": 288.33535467,
+      "balance_residual_ml": 0.016075860437752
+    },
+    {
+      "case": "fill-fine",
+      "spacing_mm": 2.5,
+      "pour_seconds": 5,
+      "last_volume_time_s": 6.998254742,
+      "injected_ml": 323.02146211338476,
+      "escaped_ml": 15.37933702175939,
+      "stored_ml": 307.63693242,
+      "balance_residual_ml": 0.005192671625366074
+    },
+    {
+      "case": "fill-finer",
+      "spacing_mm": 2.0,
+      "pour_seconds": 5,
+      "last_volume_time_s": 6.992765328,
+      "injected_ml": 323.0078765087308,
+      "escaped_ml": 11.73954762867598,
+      "stored_ml": 311.26093717000003,
+      "balance_residual_ml": 0.007391710054776013
+    },
+    {
+      "case": "fill-slow",
+      "spacing_mm": 4,
+      "pour_seconds": 10.0,
+      "last_volume_time_s": 11.99,
+      "injected_ml": 323.0100524589281,
+      "escaped_ml": 42.66347988069126,
+      "stored_ml": 280.33560301,
+      "balance_residual_ml": 0.01096956823681694
+    }
+  ]
+}
