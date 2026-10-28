@@ -1,7 +1,9 @@
 # Modular paper processor · v2
 
 **For the first unheated prototype, use [v1.8: two reusable baths in one shared base](docs/v1.8.md).**
-It uses the same vessels, guides and clips, with nine working pieces and no heater
+The complete unheated set now has a [native build123d workflow](docs/native-processor.md),
+with STEP parts, oriented STL plates, FreeCAD checks and video generation.
+It uses the same vessel, guide and clip design, with nine working pieces and no heater
 assembly. Its 170.8 × 138 mm base fits the A1 mini in one print. The heated v2
 configuration remains documented below.
 
@@ -108,7 +110,8 @@ The chosen workflow is manual: measure both baths after settling and use your pr
 
 The [build123d / FreeCAD study](docs/freecad-study.md) provides native STEP solids,
 scripted fit and removal checks, and a headless Gmsh/CalculiX thermal benchmark.
-It is a migration pilot; use the production OpenSCAD workflow above for printing.
+The completed [native v1.8 migration](docs/native-processor.md) adds guides, clips,
+covers, markings and print plates; the original pilot remains a historical study.
 The [build123d/CadQuery comparison](docs/cad-library-comparison.md) tests the same
 retaining clip in three APIs, parameter variations and STEP import/edit/export.
 
