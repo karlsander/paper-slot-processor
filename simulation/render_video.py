@@ -163,6 +163,9 @@ def start(study_dir):
                     assert water.isValid() and volume > 0
                     assert water.common(vessel_local).Volume < 1e-4
                     liquid.Shape = water
+                    # Assigning Shape also replaces the feature placement in FreeCAD.
+                    liquid.Placement.Base = origin
+                    assert liquid.Shape.common(a.Shape).Volume < 1e-4
                     liquid.ViewObject.Visibility = True
                 else:
                     liquid.ViewObject.Visibility = False
