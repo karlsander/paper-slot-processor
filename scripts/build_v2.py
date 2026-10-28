@@ -48,14 +48,22 @@ def preset_overrides(name):
 
 
 def export(name, folder, parameters, slice_model=True):
-    label, part, overrides, count = PARTS[name]
+    return export_plate(name, folder, parameters, slice_model,
+                        source=ROOT / "v2/processor.scad", definition=PARTS[name],
+                        quantity=QUANTITIES.get(name, 1), optional=name not in STANDARD_PARTS)
+
+
+def export_plate(name, folder, parameters, slice_model=True, *, source, definition,
+                 quantity=1, optional=False):
+    """Validate and slice a plate using the shared A1 mini print settings."""
+    label, part, overrides, count = definition
     folder.mkdir(parents=True, exist_ok=True)
     defines = parameters | overrides | {"part": part}
     stl = folder / f"{name}.stl"
     cmd = [build.OPENSCAD, "--backend", "Manifold", "--hardwarnings", "--export-format", "asciistl"]
     for k, v in defines.items():
         cmd += ["-D", f"{k}={json.dumps(v)}"]
-    result = subprocess.run(cmd + ["-o", str(stl), str(ROOT / "v2/processor.scad")],
+    result = subprocess.run(cmd + ["-o", str(stl), str(source)],
                             capture_output=True, text=True, timeout=180)
     (folder / "openscad.log").write_text(result.stdout + result.stderr)
     if result.returncode:
@@ -67,7 +75,7 @@ def export(name, folder, parameters, slice_model=True):
         raise RuntimeError(f"{name}: degenerate geometry")
     if any(x > limit + 0.001 for x, limit in zip(mesh["extents_mm"], [174,174,178])):
         raise RuntimeError(f"{name}: exceeds reserved printer bounds")
-    report = {"name": name, "label": label, "parameters": parameters, "quantity": QUANTITIES.get(name, 1), "optional": name not in STANDARD_PARTS, "mesh": mesh, "stl": str(stl)}
+    report = {"name": name, "label": label, "parameters": parameters, "quantity": quantity, "optional": optional, "mesh": mesh, "stl": str(stl)}
     if slice_model:
         presets = build.resolved_bambu_presets(folder)
         process = json.loads(presets["process"].read_text()) | preset_overrides(name)

@@ -1,5 +1,10 @@
 # Modular paper processor · v2
 
+**For the first unheated prototype, use [v1.8: two reusable baths in one shared base](docs/v1.8.md).**
+It uses the same vessels, guides and clips, with nine working pieces and no heater
+assembly. Its 170.8 × 138 mm base fits the A1 mini in one print. The heated v2
+configuration remains documented below.
+
 Two removable vessels for a **102 mm Fuji roll**, with interchangeable paper guides, two joining bases, and one flat heating mat per chamber. Each wet vessel is a single printed piece. All printed parts fit a Bambu A1 mini in the supplied orientations. Use in darkness suitable for the paper; this is an open processor, not a daylight tank.
 
 | Preset | Finished image | Cut from roll | Handling strip | Fill per vessel |
