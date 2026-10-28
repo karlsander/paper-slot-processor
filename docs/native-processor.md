@@ -1,142 +1,106 @@
 # Native build123d processor
 
-The complete **unheated v1.8** design is authored in Python under `cad/`: one shared
-base, two baths, two guides and four retaining clips. Optional resting covers,
-a top-rim fit sample and 0.6/0.8 mm trial guides are included. The bath geometry
-preserves the flat rear interface for later heater development.
+The current **unheated v1.8** has exactly five printed parts: one shared base, two
+chambers and two slotted magnetic tops. The Python models in `cad/` are the design
+authority. See [v1.8 assembly and printing](v1.8.md) for magnet installation, the
+fill ridge, print orientations and use.
 
-`cad/parameters.py` is the native configuration authority. It calculates image size,
-cut length, capacity, recipe amounts, fill levels, print tilt and shared-base layout
-without OpenSCAD. `cad/parts.py` creates the solids; `cad/export.py` exports the
-complete set. OpenSCAD is used only as the migration comparison oracle. The older
-v2 heater fittings and the existing v2 web viewer retain their original workflow.
+`cad/parameters.py` calculates paper dimensions, cavity volume, ridge displacement,
+recipe rounding, fill levels and print limits. `cad/parts.py` constructs the solids;
+`cad/export.py` exports them. The older OpenSCAD heater design and web viewer remain
+available, but do not represent this revision. Full OpenSCAD parity was established
+for the previous port in PR #10; it is not an acceptance criterion for this
+intentional change to the shape. Current FreeCAD checks test the new interfaces.
 
-## Generate parts
+## Generate
 
 ```sh
 uv venv --python python3.13 .venv-cad  # omit when already present
 uv pip install --python .venv-cad/bin/python -r cad/requirements.txt
-.venv-cad/bin/python -m cad.export --output build/native-16x9
-.venv-cad/bin/python -m cad.export --aspect 2 --output build/native-2x1
+.venv-cad/bin/python -m cad.export --output build/magnetic-16x9
+.venv-cad/bin/python -m cad.export --aspect 2 --output build/magnetic-2x1
 ```
 
-A `--config settings.json` file can override fields in `cad.parameters.DEFAULTS`.
-Unknown keys, invalid dimensions and configurations outside the reserved A1 mini
-bounds fail explicitly. The two supplied presets remain 325 ml / 208 mm cut and
-362 ml / 230 mm cut. Both use the 170.8 × 138 mm shared base.
+`--config settings.json` accepts overrides from `cad.parameters.DEFAULTS`. Unknown
+keys, unsafe pocket dimensions and settings beyond the print envelope fail.
+Both presets use the 170.8 × 138 mm base and retain the 208/230 mm paper cuts.
+Their new fill volumes are 323/360 ml, including displacement of the inside ridge.
 
-Each output contains:
+Each output contains five individual part STEP files, `assembly.step`, exactly
+five oriented plates in STEP/STL, two liquid-cavity STEP files for validation,
+`parameters.json` and `model-report.json`. Cavity geometry is not a printed part.
+No covers, clips, trial guides or fit samples are exported. Use a fresh folder
+when switching from an older design; obsolete accessory files are rejected.
 
-- Individual STEP solids in their local design coordinates.
-- `assembly.step`: the nine working pieces in assembled positions.
-- `plates/*.stl` and `plates/*.step`: oriented print plates, including the vessel
-  sacrificial rails. Print **one of each** base, vessel A/B, guide A/B and clips
-  plate. The clips plate contains all four clips.
-- Optional cover A/B, fit sample and trial guide plates. These are alternatives
-  or accessories, not extra parts required by the nine-piece assembly.
-- `parameters.json` and `model-report.json`: dimensions, quantities, native-solid
-  validity, print bounds and any removed zero-area tessellation triangles.
-- `parity/`: unlettered functional geometry used for comparison with OpenSCAD.
-
-The STEP files in the top directory describe finished parts; use the **plates**
-files for printing. Preserve the vessel orientation. Use the PETG, support and
-brim settings in [the v1.8 instructions](v1.8.md); this command does not run a slicer
-or claim print-time estimates. Start with the fit sample, guide and clips.
+The finished-part STEP files use local design coordinates. Print **one of each**
+`plates/base`, `plates/vessel_a`, `plates/vessel_b`, `plates/guide_a`, and
+`plates/guide_b`. Only the vessel print plates contain sacrificial rails.
 
 ## Verify in FreeCAD
 
 ```sh
-.venv-cad/bin/python scripts/check_native.py
-# Or check an already exported matching preset:
+.venv-cad/bin/python scripts/check_native.py --output build/magnetic-checked
+# Or validate existing exports of a matching preset:
 .venv-cad/bin/python scripts/check_native.py --aspect 2 \
-  --output build/native-2x1 --skip-export
+  --output build/magnetic-2x1 --skip-export
 ```
 
-The default checks both presets under `build/native-checked/`. It requires
-OpenSCAD with Manifold and FreeCADCmd. Set `OPENSCAD_BIN` and `FREECAD_CMD`, or
-use `--freecad`, when they are not discoverable. The macOS FreeCAD application
-location is the fallback.
+Set `FREECAD_CMD`, or use `--freecad`, for a nonstandard FreeCADCmd path. The macOS
+application path is the fallback. OpenSCAD is not required for these native checks.
 
-The checks cover:
+Checks cover:
 
-- Native parameters against the original OpenSCAD calculation, to its printed
-  numerical precision (0.001 mm/ml maximum absolute difference).
-- Every exported part imported as one valid FreeCAD solid, with volume preserved.
-- All 13 part variants compared with OpenSCAD: sampled boundary deviation below
-  0.05 mm and relative volume difference below 0.3%, allowing polygonal arcs.
-- All print plates: watertight STL, correct STEP solid count, bed contact and
-  reserved 174 × 174 × 178 mm dimensions within the 180 mm printer volume.
-- Every pair in the nine-piece assembly, cover substitution, clip sliding, guide
-  lifting and each complete bath module lifting beside the other module.
-- 0.6 mm socket clearance; empty and paper-loaded cavity volumes within 0.5 ml of
-  the recipe; paper travel through all three guide gaps at the agitation extremes.
-- A conservative continuous paper-travel envelope through the default guide and
-  bath. Other movement checks use the listed sampled positions.
+- Five single, valid STEP solids with preserved volume after import into FreeCAD.
+- Five watertight print meshes, valid STEP plates, bed contact and bounds inside
+  the reserved 174 × 174 × 178 mm envelope.
+- All ten pairs in the five-part assembly, upright module removal and top lifting.
+- Nominal 0.6 mm socket clearance and 0.35 mm clearance inside each locating rim.
+- Four paired magnet locations: pocket bore/depth, closed floors, placement outside
+  the wet cavity, and 0.4 mm gap between nominal bottomed magnets.
+- The continuous fill-ridge boundary, its inward projection and calibrated top edge.
+- Empty and paper-loaded liquid volumes within 0.01 ml of the declared fill.
+- Eighteen sampled paper positions plus a conservative continuous envelope for
+  6 mm vertical and ±3 mm lateral travel through the 1.2 mm slots.
 
-`validation.json` is written only after all checks pass. `processor.FCStd` contains
-the working assembly plus raised optional covers. A headless-created document may
-need its objects selected and toggled visible in FreeCAD. The runner removes a
-previous report before starting, because a FreeCAD console exception can still
-return process exit code zero.
+`validation.json` is written only after success; the runner removes any prior report
+first because FreeCAD console exceptions can return process exit code zero.
+`processor.FCStd` contains the five-part assembly. Rendering saves it again with
+colors, visibility and camera set. Headless-only documents may need their objects
+toggled visible in the GUI.
 
-The comparison intentionally excludes lettering: both models use Liberation Sans
-Bold, but OCCT and OpenSCAD font metrics differ. The font and its SIL Open Font
-License are bundled in `cad/fonts/` to avoid machine-dependent substitutions.
-Tactile identifiers and engraved fill marks are included in functional comparison.
-The guide loft retains a 0.001 mm straight segment at the fully rounded slot limit
-to keep its corner correspondence stable. This is below the comparison tolerance;
-it does not alter the nominal guide gap.
+The bundled Liberation Sans Bold font makes lettering reproducible. The guide
+loft retains 0.001 mm straight segments at capsule-limit corners for stable topology.
+The exporter removes zero-area STL triangles before checking watertightness; it
+never fills holes or alters the solid to force a pass.
 
-The exporter removes zero-area STL triangles before checking watertightness. It
-does not fill mesh holes or alter a solid to force a passing result.
-
-## Render video
-
-After validation passes, render with FreeCAD's GUI and encode with ffmpeg:
+## Video
 
 ```sh
-python3 scripts/render_native_video.py build/native-checked/16x9
+python3 scripts/render_native_video.py build/magnetic-checked/16x9
 ```
 
-`FREECAD_GUI` or `--freecad` selects the GUI executable. The renderer uses the actual
-exported STEP parts and captures FreeCAD's viewport, with captions and measurements.
-The sequence shows assembly, clip removal, guide removal, bath removal, filling,
-paper agitation and optional covers. A fresh passing frame report is required
-before encoding; ffprobe verifies the frame count and 1280 × 720 output.
+The FreeCAD GUI renders the actual STEP solids: five-part assembly, top lifting,
+a cutaway detail of rim/pockets/ridge, upright bath removal, filling and paper
+agitation. `FREECAD_GUI` or `--freecad` selects the executable. A fresh passing
+frame report is required before ffmpeg encoding; ffprobe verifies the frame count
+and 1280 × 720 output in `processor-build123d.mp4`.
 
-The result is `processor-build123d.mp4`, with `video-report.json`, encoding metadata
-and source frames alongside it. Filling intersects the wet cavity with a horizontal
-plane; paper displacement changes the equilibrium level during agitation. This is
-**geometric visualization, not fluid dynamics**, and does not predict pouring,
-splashing, mixing or cooling. The rendered movement is prescribed, not a mechanism
-or force simulation.
+Filling intersects the actual cavity with a horizontal liquid plane. Paper
+movement updates the liquid level for displaced volume. This is **geometric
+visualization, not fluid dynamics**; it does not predict pouring, splashing,
+mixing or heat transfer. Motion is prescribed, not a magnetic-force simulation.
 
-## Local results (2026-10-28)
+![Five-part native processor rendered in FreeCAD](images/native-processor.png)
 
-| Check | 16:9 | 2:1 |
-| --- | ---: | ---: |
-| Valid STEP part variants | 13/13 | 13/13 |
-| Valid print plates | 13/13 | 13/13 |
-| Clear working-assembly pairs | 36/36 | 36/36 |
-| Complete bath removal samples | 18/18 | 18/18 |
-| Paper / guide agitation cases | 54/54 | 54/54 |
-| Maximum sampled SCAD surface deviation | 0.0192 mm | 0.0169 mm |
-| Maximum relative SCAD volume difference | 0.0734% | 0.0734% |
-| Working liquid per bath | 325 ml | 362 ml |
-| Maximum measured fill error, empty or loaded | <0.00001 ml | <0.00001 ml |
-
-The tiny fill errors describe numerical agreement, not a practical measuring or
-printing tolerance. These checks used build123d 0.13.0 and FreeCAD 1.1.4 on macOS.
-
-![Native processor assembly rendered in FreeCAD](images/native-processor.png)
+![Rim, magnet pockets and fill ridge detail](images/native-magnetic-detail.png)
 
 ## Evidence boundaries
 
-The native CI job builds both presets and validates solids, meshes and print bounds.
-FreeCAD checks and video rendering run locally. The original geometry CI remains as
-a regression check for the retained OpenSCAD design.
+Native CI builds both presets and validates solids, meshes, print bounds and
+parameter contracts. FreeCAD validation and video rendering run locally. The
+existing OpenSCAD CI remains a separate regression check for the older design.
 
-Digital checks do not establish printed fit, elasticity, paper friction, liquid
-tightness, chemical compatibility or support removal. Test with water and scrap
-paper before chemistry. Neither build123d nor FreeCAD verification here models
-those effects; both also share the Open Cascade geometry kernel.
+Physical fit, magnet holding force, adhesive behavior, watertightness, paper
+friction and chemical compatibility require a printed trial. These digital checks
+also share the Open Cascade kernel between build123d and FreeCAD. The revised
+ledges/pockets have not yet received a slicer/toolpath or support-removal test.
