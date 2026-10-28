@@ -79,7 +79,7 @@ def base(p, labels=True):
         shape += Pos(p["vessel_x"] + 8, label_y - 4, taper_top) * tactile(chamber + 1)
         if labels:
             shape -= Pos(p["base_width"] / 2, label_y, taper_top - 0.6) * lettering(
-                f"{'AB'[chamber]}  {p['working_ml']} ml", 5
+                "AB"[chamber], 5
             )
     return shape
 

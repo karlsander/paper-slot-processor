@@ -1,4 +1,4 @@
-"""Export and re-slice a five-plate A1 mini project in Bambu Studio.
+"""Export and re-slice an A1 mini project in Bambu Studio.
 
 Uses Bambu's assemble-list importer, not hand-authored 3MF internals. Saving and
 reopening before slicing verifies that object overrides survive the round trip.
@@ -81,7 +81,8 @@ def run(output, label, *args):
         )
 
 
-def verify(project, nozzle, sliced=False, source=None):
+def verify(project, nozzle, sliced=False, source=None, parts=None):
+    parts = PARTS if parts is None else parts
     with zipfile.ZipFile(project) as archive:
         assert archive.testzip() is None
         config = json.loads(archive.read("Metadata/project_settings.config"))
@@ -102,8 +103,8 @@ def verify(project, nozzle, sliced=False, source=None):
         scene = ET.fromstring(archive.read("3D/3dmodel.model"))
         objects = {obj.attrib["id"]: metadata(obj) for obj in model.findall("object")}
         plates = model.findall("plate")
-        assert len(plates) == len(objects) == 5
-        for expected, plate in zip(PARTS, plates):
+        assert len(plates) == len(objects) == len(parts)
+        for expected, plate in zip(parts, plates):
             plate_data = metadata(plate)
             assert plate_data["plater_name"] == expected
             instances = plate.findall("model_instance")
@@ -162,18 +163,19 @@ def verify(project, nozzle, sliced=False, source=None):
             "layer_height_mm": float(config["layer_height"]),
             "printer": config["printer_model"],
             "filament": config["filament_type"],
-            "plates": PARTS,
+            "plates": parts,
             "saved_settings_verified": True,
             "embedded_gcode": sliced,
             "source_vertices_preserved": bool(source),
         }
 
 
-def export(source, output, nozzle, name):
+def export(source, output, nozzle, name, selected_part=None):
+    parts = [selected_part] if selected_part else PARTS
     output.mkdir(parents=True, exist_ok=True)
     presets = settings(output, nozzle)
     plates = []
-    for part in PARTS:
+    for part in parts:
         path = source / "plates" / f"{part}.stl"
         assert path.is_file(), path
         vessel = part.startswith("vessel")
@@ -216,7 +218,7 @@ def export(source, output, nozzle, name):
         "--outputdir",
         output,
     )
-    report = verify(project, nozzle, source=source)
+    report = verify(project, nozzle, source=source, parts=parts)
     # No preset overrides on reload: the saved project must carry its own setup.
     sliced_name = f"{name}.sliced.3mf"
     run(
@@ -237,11 +239,13 @@ def export(source, output, nozzle, name):
     result = json.loads((output / "result.json").read_text())
     assert result["return_code"] == 0
     sliced = result["sliced_plates"]
-    assert len(sliced) == 5
+    assert len(sliced) == len(parts)
     assert not any(p.get("warning_message") for p in sliced), sliced
-    report.update(verify(output / sliced_name, nozzle, sliced=True, source=source))
+    report.update(
+        verify(output / sliced_name, nozzle, sliced=True, source=source, parts=parts)
+    )
     report["toolpaths"] = []
-    for i, part in enumerate(PARTS, 1):
+    for i, part in enumerate(parts, 1):
         gcode = output / f"plate_{i}.gcode"
         if part.startswith("vessel"):
             assert "; FEATURE: Support" in gcode.read_text()
@@ -259,5 +263,10 @@ if __name__ == "__main__":
     parser.add_argument("output", type=Path)
     parser.add_argument("--nozzle", type=float, choices=[0.2, 0.4], default=0.4)
     parser.add_argument("--name", default="processor-v1.8")
+    parser.add_argument(
+        "--part", choices=PARTS, help="Export only this part on one plate"
+    )
     args = parser.parse_args()
-    export(args.source.resolve(), args.output.resolve(), args.nozzle, args.name)
+    export(
+        args.source.resolve(), args.output.resolve(), args.nozzle, args.name, args.part
+    )
