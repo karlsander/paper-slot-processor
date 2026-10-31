@@ -6,6 +6,36 @@ This is a complete geometric prototype for evaluation, not a measured replacemen
 
 ## Watch the process
 
+The new [parts image](mechanics/all-parts.png) shows all **18 printed pieces** in
+the compact four-position 35 mm set, including its shared receiver. Repeated
+clips and keys are shown individually. The image uses relaxed print geometry
+and independent scales for readability.
+
+![All 18 printed pieces of the compact 35 mm cartridge and receiver](mechanics/all-parts.png)
+
+The [1080p mechanism close-up movie](mechanics/mechanisms-close-up.mp4) has nine
+chapters, also available separately:
+
+| Mechanism | Close-up |
+| --- | --- |
+| Film margins and lift-off lid | [Place the strip and close the lid](mechanics/01-film-clamp.mp4) |
+| Six closure clips | [Flex the tongue, slide home, release the catch](mechanics/02-closure-clip.mp4) |
+| Four cap keys | [Quarter-turn crossbars retain the cap](mechanics/03-cap-lock.mp4) |
+| Two locating dock pins | [Seat the collar, lower and turn the pins](mechanics/04-docking-lock.mp4) |
+| Frame registration | [Release, advance, register, and return](mechanics/05-index-latch.mp4) |
+| Guides and vertical support | [Guide leaf, hard pads, roof tongue and support section](mechanics/06-guides.mp4) |
+| Open film exits | [First-frame position and outer retaining ears](mechanics/07-end-retention.mp4) |
+| Format masking | [Film moves behind the stationary masks](mechanics/08-fixed-mask.mp4) |
+| Longer-strip reloading | [Lift and reposition the film at the workbench](mechanics/09-strip-reposition.mp4) |
+
+These close-ups use the compact set's checked STEP assets and subsets of its
+existing motion phases; the registration chapter also reverses the same path.
+Transparency, hidden covers and the guide section are display treatments only.
+The guides are shown in their prescribed seated shapes, not as a solved spring
+response. The end-retention view stops at the first indexed position, before
+the deliberate overtravel interference tested by FreeCAD. The remaining process
+movies below use the larger default cartridges:
+
 - [Load the film, close the lid and assemble its captive collar](videos/135-load.mp4).
 - [Install the receiver, then insert and locate a cartridge](videos/135-dock.mp4).
 - [Advance through six 35 mm frames, then return to frame 1](videos/135-advance.mp4).
@@ -114,6 +144,17 @@ python scripts/check_negative_carrier_b.py --config cad/negative_carrier_b/a1-mi
 # Optional: --formats half --config measured-strips.json
 python -m pip install -r cad/requirements-concept-render.txt
 python scripts/render_negative_carrier_b.py  # requires ffmpeg and an OpenGL renderer
+python scripts/render_negative_carrier_mechanics.py  # compact parts atlas + 9 close-ups
+# Quick camera/layout inspection without encoding video:
+python scripts/render_negative_carrier_mechanics.py --preview --output build/mechanics-preview
 ```
+
+The close-up renderer refuses stale CAD source hashes or an unmatched FreeCAD
+report, and verifies that the atlas includes every printable occurrence exactly
+once. `mechanics/render-validation.json` records the input, renderer and output
+hashes, original phase indices, phase ranges, endpoint states and video frame
+counts. Each individual video and the chaptered combined movie is decoded in
+full after encoding. `mechanics/video-qa.json` records additional motion checks
+on decoded image regions; physical fit and forces remain separate prototype work.
 
 For macOS the checker defaults to `/Applications/FreeCAD.app/Contents/Resources/bin/freecadcmd`. The hosted workflow uses the same official FreeCAD 1.1.4 release as the concept checks. Native sources live in `cad/negative_carrier_b/`; the original clone in PR #2 remains separate.

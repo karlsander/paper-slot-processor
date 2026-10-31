@@ -1,0 +1,1103 @@
+{
+  "manifest_sha256": "00cf48a4f45fa4538fb08c46fda0f088ed17f8ceb00c1785c2bc577a95862dee",
+  "freecad_report_sha256": "08a6d49807f67a8a1bd31b0f360f2aff1b5672e4899e407c03e8b92670e9e6b0",
+  "source_hashes": {
+    "scripts/render_negative_carrier_mechanics.py": "d126d7053e9f7dbc3232d7f04e8c74b146a30be042dcee81314e891141e4c927",
+    "scripts/render_negative_carrier_b.py": "da08e299a1fa8ec2e29877459a73918ca7041c64ef57c507984a3bbc3d41314a"
+  },
+  "format": "135",
+  "indexed_frames": 4,
+  "preview": false,
+  "evidence": "Existing checked paths; prescribed flexures, no force or physical-fit claim",
+  "atlas": {
+    "file": "all-parts.png",
+    "sha256": "74083bde6654abb358c193c6ee626be0731ceb0304b76267e11919d9ec918926",
+    "parts": [
+      {
+        "part": "base",
+        "file": "135/base.step",
+        "sha256": "1621cbd296d9681ca927fde1bff52399042e3bdb188500c690b446cd0a755cd6"
+      },
+      {
+        "part": "lid",
+        "file": "135/lid.step",
+        "sha256": "b5f35628d6e6639b7daa17ff76b41ccde51ec6bf9e950203b6f9c8801a96d127"
+      },
+      {
+        "part": "receiver",
+        "file": "common/receiver.step",
+        "sha256": "ce83121bf3060e8cc97835880a3e12412fb875bc6d343a626a486e57f4a3fbd1"
+      },
+      {
+        "part": "collar-base",
+        "file": "print-native/135/collar-base.step",
+        "sha256": "d53c928f1afcd54d1c3fa98b3a59027031c5ff95c0b570d5345347f00758a1ba"
+      },
+      {
+        "part": "collar-cap",
+        "file": "print-native/135/collar-cap.step",
+        "sha256": "856d590be1e932a124ebebdb078545cd60c8094decb80f652808a22ab152e4cf"
+      },
+      {
+        "part": "closure--76--1",
+        "file": "print-native/135/closure--76--1.step",
+        "sha256": "af2c25e29ff79b198b88c61ce34c13630f867f2278ecfc048f95c42dad883e66"
+      },
+      {
+        "part": "closure--76-1",
+        "file": "print-native/135/closure--76-1.step",
+        "sha256": "80a0379e410bf3e82c3a42f724648c750d93c461361b31a47b0a8a4d471d512f"
+      },
+      {
+        "part": "closure-0--1",
+        "file": "print-native/135/closure-0--1.step",
+        "sha256": "36e6fd22e3ee217351578960c16b3f763bb9abfdc4938cf883a9f33bcf6f9b9b"
+      },
+      {
+        "part": "closure-0-1",
+        "file": "print-native/135/closure-0-1.step",
+        "sha256": "a382a51be88c544891762c907d826087655801ef626d9f0618f220a6f7b68782"
+      },
+      {
+        "part": "closure-76--1",
+        "file": "print-native/135/closure-76--1.step",
+        "sha256": "bdf77f0b49fae42a1be459c9ad0a88ad1fd4ca9682cf51d38aa8dc7c8cf6ee22"
+      },
+      {
+        "part": "closure-76-1",
+        "file": "print-native/135/closure-76-1.step",
+        "sha256": "9b91f59350ba7f7311890a4a38527003f363064de14e73fb719596936d34326b"
+      },
+      {
+        "part": "cap-lock--18--31",
+        "file": "common/cap-lock--18--31.step",
+        "sha256": "6b96dd2cdc8406334a1d9f5bf45b90a70ec3773d43d9618b1d747fdf7bfd9ead"
+      },
+      {
+        "part": "cap-lock--18-31",
+        "file": "common/cap-lock--18-31.step",
+        "sha256": "717c726e5c6d6b0a1ab033fc7d1add434cc3e61d2c443e2640efd4ca1fb11dda"
+      },
+      {
+        "part": "cap-lock-18--31",
+        "file": "common/cap-lock-18--31.step",
+        "sha256": "6a51fbd9766e84bb910821e2b015590ff24c3320c7a76f70ebcdaf6c9051481f"
+      },
+      {
+        "part": "cap-lock-18-31",
+        "file": "common/cap-lock-18-31.step",
+        "sha256": "056c309642c79fec905adace50fca7257eb2e5088a7bd16206832b5729abecd6"
+      },
+      {
+        "part": "dock-lock--18",
+        "file": "common/dock-lock--18.step",
+        "sha256": "1f22b341f2f903c09de5b8b569e3a8b3966437eaa3e4410d40136ac7eb6cf8c3"
+      },
+      {
+        "part": "dock-lock-18",
+        "file": "common/dock-lock-18.step",
+        "sha256": "d415cd4e9c801a829f8a3060f55a02d64565e3d856912389dba8c1c5cfdf02ae"
+      },
+      {
+        "part": "index-latch",
+        "file": "print-native/common/index-latch.step",
+        "sha256": "3bb955a7bb974676ee277441d862ab3b5bc88f78773ccfd1d86fa4f3d199ede4"
+      }
+    ]
+  },
+  "videos": [
+    {
+      "file": "01-film-clamp.mp4",
+      "title": "Place the film and lower the lid",
+      "sha256": "a71fb851df32a046534c3c0ede22da185060e7a49cb0a793017fa8f6af14b98b",
+      "frames": 168,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "7.000000",
+        "nb_read_frames": "168"
+      },
+      "steps": [
+        {
+          "phase": 0,
+          "seconds": 2.5,
+          "start": 0.75,
+          "end": 1
+        },
+        {
+          "phase": 1,
+          "seconds": 3,
+          "start": 0.83,
+          "end": 1
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 0,
+          "t": 1.0,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0.0,
+            "film_z": 0.0,
+            "film_x": 0.0,
+            "lid_z": 46.0,
+            "clips_out": 7.0,
+            "clips_release": 0.0,
+            "lower_z": -36.0,
+            "cap_z": 75.0,
+            "cap_angle": 0.0,
+            "dock_pin_z": 9.0,
+            "dock_angle": 0.0,
+            "index_release": 0.0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0.0,
+            "receiver_z": 0.0,
+            "stage_z": 0.0
+          },
+          "frame": 59
+        },
+        {
+          "phase": 1,
+          "t": 1.0,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0.0,
+            "film_z": 0.0,
+            "film_x": 0.0,
+            "lid_z": 0.0,
+            "clips_out": 7.0,
+            "clips_release": 0.0,
+            "lower_z": -36.0,
+            "cap_z": 75.0,
+            "cap_angle": 0.0,
+            "dock_pin_z": 9.0,
+            "dock_angle": 0.0,
+            "index_release": 0.0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0.0,
+            "receiver_z": 0.0,
+            "stage_z": 0.0
+          },
+          "frame": 149
+        }
+      ],
+      "start_seconds": 0.0
+    },
+    {
+      "file": "02-closure-clip.mp4",
+      "title": "Flex, slide, then release the clip catch",
+      "sha256": "2cab7a79bdff88023fe69a0d4b547858aafe62c7a5696b2df5451a041ff7727b",
+      "frames": 222,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "9.250000",
+        "nb_read_frames": "222"
+      },
+      "steps": [
+        {
+          "phase": 2,
+          "seconds": 2,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 3,
+          "seconds": 3,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 4,
+          "seconds": 2,
+          "start": 0,
+          "end": 1
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 2,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 7,
+            "clips_release": 0.3,
+            "lower_z": -36,
+            "cap_z": 75,
+            "cap_angle": 0,
+            "dock_pin_z": 9,
+            "dock_angle": 0,
+            "index_release": 0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 47
+        },
+        {
+          "phase": 3,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0.3,
+            "lower_z": -36,
+            "cap_z": 75,
+            "cap_angle": 0,
+            "dock_pin_z": 9,
+            "dock_angle": 0,
+            "index_release": 0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 137
+        },
+        {
+          "phase": 4,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0.0,
+            "lower_z": -36,
+            "cap_z": 75,
+            "cap_angle": 0,
+            "dock_pin_z": 9,
+            "dock_angle": 0,
+            "index_release": 0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 203
+        }
+      ],
+      "start_seconds": 7.0
+    },
+    {
+      "file": "03-cap-lock.mp4",
+      "title": "Quarter-turn keys retain the mask cap",
+      "sha256": "12d20a96426cc86bbbed30a28800ec2a85ad07f4525b835a5740237a95b48f59",
+      "frames": 168,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "7.000000",
+        "nb_read_frames": "168"
+      },
+      "steps": [
+        {
+          "phase": 6,
+          "seconds": 2.5,
+          "start": 0.91,
+          "end": 1
+        },
+        {
+          "phase": 7,
+          "seconds": 3,
+          "start": 0,
+          "end": 1
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 6,
+          "t": 1.0,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0.0,
+            "film_z": 0.0,
+            "film_x": 0.0,
+            "lid_z": 0.0,
+            "clips_out": 0.0,
+            "clips_release": 0.0,
+            "lower_z": 0.0,
+            "cap_z": 0.0,
+            "cap_angle": 0.0,
+            "dock_pin_z": 9.0,
+            "dock_angle": 0.0,
+            "index_release": 0.0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0.0,
+            "receiver_z": 0.0,
+            "stage_z": 0.0
+          },
+          "frame": 59
+        },
+        {
+          "phase": 7,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 9,
+            "dock_angle": 0,
+            "index_release": 0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 149
+        }
+      ],
+      "start_seconds": 16.25
+    },
+    {
+      "file": "04-docking-lock.mp4",
+      "title": "Dock the collar; lower and turn the two pins",
+      "sha256": "36e74d0437ef8ce0e922dabbe5d6c1c7f9cf7d85005270a77c6b9dbaa06680ca",
+      "frames": 258,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "10.750000",
+        "nb_read_frames": "258"
+      },
+      "steps": [
+        {
+          "phase": 12,
+          "seconds": 3,
+          "start": 0.85,
+          "end": 1
+        },
+        {
+          "phase": 13,
+          "seconds": 2.5,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 14,
+          "seconds": 3,
+          "start": 0,
+          "end": 1
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 12,
+          "t": 1.0,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0.0,
+            "film_z": 0.0,
+            "film_x": 0.0,
+            "lid_z": 0.0,
+            "clips_out": 0.0,
+            "clips_release": 0.0,
+            "lower_z": 0.0,
+            "cap_z": 0.0,
+            "cap_angle": 90.0,
+            "dock_pin_z": 9.0,
+            "dock_angle": 0.0,
+            "index_release": 0.0,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0.0,
+            "receiver_z": 0.0,
+            "stage_z": 0.0
+          },
+          "frame": 71
+        },
+        {
+          "phase": 13,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 0,
+            "index_release": 0,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 149
+        },
+        {
+          "phase": 14,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 0,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 239
+        }
+      ],
+      "start_seconds": 23.25
+    },
+    {
+      "file": "05-index-latch.mp4",
+      "title": "Release, advance one frame, then register again",
+      "sha256": "eb051ca7c2083aea7d39072363bc9c6eb94900d4fc940166f133f63f30101464",
+      "frames": 396,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "16.500000",
+        "nb_read_frames": "396"
+      },
+      "steps": [
+        {
+          "phase": 17,
+          "seconds": 1.5,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 18,
+          "seconds": 3,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 19,
+          "seconds": 1.5,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 19,
+          "seconds": 1.5,
+          "start": 1,
+          "end": 0,
+          "label": "Retract the tooth to return"
+        },
+        {
+          "phase": 18,
+          "seconds": 3,
+          "start": 1,
+          "end": 0,
+          "label": "Slide back to frame 1"
+        },
+        {
+          "phase": 17,
+          "seconds": 1.5,
+          "start": 1,
+          "end": 0,
+          "label": "Frame 1: release to register"
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 17,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 4,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 35
+        },
+        {
+          "phase": 18,
+          "t": 1,
+          "state": {
+            "holder_x": 19.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 4,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 125
+        },
+        {
+          "phase": 19,
+          "t": 1,
+          "state": {
+            "holder_x": 19.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 0,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 179
+        },
+        {
+          "phase": 19,
+          "t": 0,
+          "state": {
+            "holder_x": 19.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 4,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 233
+        },
+        {
+          "phase": 18,
+          "t": 0,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 4,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 323
+        },
+        {
+          "phase": 17,
+          "t": 0,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 0,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 377
+        }
+      ],
+      "start_seconds": 34.0
+    },
+    {
+      "file": "06-guides.mp4",
+      "title": "Guides control sideways motion and height",
+      "sha256": "fb9b9ee3193ab3895476bd01dfc7c01068d14a7598825d3aa2e2bb78c0e5a3d0",
+      "frames": 180,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "7.500000",
+        "nb_read_frames": "180"
+      },
+      "steps": [
+        {
+          "phase": 18,
+          "seconds": 3,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 18,
+          "seconds": 3,
+          "start": 1,
+          "end": 0
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 18,
+          "t": 1,
+          "state": {
+            "holder_x": 19.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 4,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 71
+        },
+        {
+          "phase": 18,
+          "t": 0,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 4,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 161
+        }
+      ],
+      "start_seconds": 50.5
+    },
+    {
+      "file": "07-end-retention.mp4",
+      "title": "Open film exits; outer ears retain the collar",
+      "sha256": "f2ce1945fea7dfd0c896a07235058f2e8fb34117fd2e05ce67a60c8a58d22411",
+      "frames": 168,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "7.000000",
+        "nb_read_frames": "168"
+      },
+      "steps": [
+        {
+          "phase": 27,
+          "seconds": 4,
+          "start": 0.8,
+          "end": 1
+        },
+        {
+          "phase": 28,
+          "seconds": 1.5,
+          "start": 0,
+          "end": 1
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 27,
+          "t": 1.0,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0.0,
+            "film_z": 0.0,
+            "film_x": 0.0,
+            "lid_z": 0.0,
+            "clips_out": 0.0,
+            "clips_release": 0.0,
+            "lower_z": 0.0,
+            "cap_z": 0.0,
+            "cap_angle": 90.0,
+            "dock_pin_z": 0.0,
+            "dock_angle": 90.0,
+            "index_release": 4.0,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0.0,
+            "receiver_z": 0.0,
+            "stage_z": 0.0
+          },
+          "frame": 95
+        },
+        {
+          "phase": 28,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 0,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 149
+        }
+      ],
+      "start_seconds": 58.0
+    },
+    {
+      "file": "08-fixed-mask.mp4",
+      "title": "The masks stay at the optical axis",
+      "sha256": "0864a0822616aaa85266299e1ecabf71dff9e9a50a5cf07772d07afb1358662a",
+      "frames": 198,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "8.250000",
+        "nb_read_frames": "198"
+      },
+      "steps": [
+        {
+          "phase": 17,
+          "seconds": 1.5,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 18,
+          "seconds": 3,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 19,
+          "seconds": 1.5,
+          "start": 0,
+          "end": 1
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 17,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 4,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 35
+        },
+        {
+          "phase": 18,
+          "t": 1,
+          "state": {
+            "holder_x": 19.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 4,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 125
+        },
+        {
+          "phase": 19,
+          "t": 1,
+          "state": {
+            "holder_x": 19.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": 0,
+            "lid_z": 0,
+            "clips_out": 0,
+            "clips_release": 0,
+            "lower_z": 0,
+            "cap_z": 0,
+            "cap_angle": 90,
+            "dock_pin_z": 0,
+            "dock_angle": 90,
+            "index_release": 0,
+            "machine": true,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 179
+        }
+      ],
+      "start_seconds": 65.0
+    },
+    {
+      "file": "09-strip-reposition.mp4",
+      "title": "For the next group, reopen the clamp at the workbench",
+      "sha256": "50b57debc77871543bd72a158c0f044b29d1d306f674afbe43054794220b44aa",
+      "frames": 234,
+      "probe": {
+        "codec_name": "h264",
+        "width": 1920,
+        "height": 1080,
+        "r_frame_rate": "24/1",
+        "duration": "9.750000",
+        "nb_read_frames": "234"
+      },
+      "steps": [
+        {
+          "phase": 38,
+          "seconds": 2,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 39,
+          "seconds": 3.5,
+          "start": 0,
+          "end": 1
+        },
+        {
+          "phase": 40,
+          "seconds": 2,
+          "start": 0,
+          "end": 1
+        }
+      ],
+      "endpoints": [
+        {
+          "phase": 38,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 2,
+            "film_x": 0,
+            "lid_z": 46,
+            "clips_out": 7,
+            "clips_release": 0.3,
+            "lower_z": -36,
+            "cap_z": 75,
+            "cap_angle": 0,
+            "dock_pin_z": 9,
+            "dock_angle": 0,
+            "index_release": 0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 47
+        },
+        {
+          "phase": 39,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 2,
+            "film_x": -38,
+            "lid_z": 46,
+            "clips_out": 7,
+            "clips_release": 0.3,
+            "lower_z": -36,
+            "cap_z": 75,
+            "cap_angle": 0,
+            "dock_pin_z": 9,
+            "dock_angle": 0,
+            "index_release": 0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 149
+        },
+        {
+          "phase": 40,
+          "t": 1,
+          "state": {
+            "holder_x": 57.0,
+            "assembly_y": 0,
+            "film_z": 0,
+            "film_x": -38,
+            "lid_z": 46,
+            "clips_out": 7,
+            "clips_release": 0.3,
+            "lower_z": -36,
+            "cap_z": 75,
+            "cap_angle": 0,
+            "dock_pin_z": 9,
+            "dock_angle": 0,
+            "index_release": 0,
+            "machine": false,
+            "cartridge": true,
+            "receiver_y": 0,
+            "receiver_z": 0,
+            "stage_z": 0
+          },
+          "frame": 215
+        }
+      ],
+      "start_seconds": 73.25
+    }
+  ],
+  "combined": {
+    "file": "mechanisms-close-up.mp4",
+    "sha256": "7b5d8dd400a4ebfddf1e767950a58f86f72227edfa4090998997a32ba9aac0bc",
+    "frames": 1992,
+    "probe": {
+      "codec_name": "h264",
+      "width": 1920,
+      "height": 1080,
+      "r_frame_rate": "24/1",
+      "duration": "83.000000",
+      "nb_read_frames": "1992"
+    }
+  }
+}
