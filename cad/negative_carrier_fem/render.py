@@ -17,7 +17,7 @@ OUT = ROOT / "build/negative-carrier-fem"
 DOC = ROOT / "docs/negative-carrier-b/forces"
 
 
-def field_image(case, filename, magnification, view):
+def field_image(case, filename, magnification, view, scalar_max=None):
     folder = OUT / case
     archive = np.load(folder / "mesh.npz")
     xyz, conn = archive["xyz"], archive["conn"]
@@ -46,6 +46,7 @@ def field_image(case, filename, magnification, view):
         deformed,
         scalars="Mises MPa",
         cmap="turbo",
+        clim=(0, scalar_max) if scalar_max else None,
         ambient=0.35,
         smooth_shading=False,
         scalar_bar_args={
@@ -57,6 +58,24 @@ def field_image(case, filename, magnification, view):
             "position_y": 0.04,
         },
     )
+    node_offset = len(xyz)
+    if "mates" in case:
+        for name in ["top", "bottom"]:
+            mate = np.load(folder / name / "mesh.npz")
+            mp, mc = mate["xyz"], mate["conn"]
+            mu = np.array(
+                [
+                    displacement[i]
+                    for i in range(node_offset + 1, node_offset + len(mp) + 1)
+                ]
+            )
+            mg = pv.UnstructuredGrid(
+                np.column_stack([np.full(len(mc), 10), mc - 1]).ravel(),
+                np.full(len(mc), pv.CellType.QUADRATIC_TETRA),
+                mp + mu[:, :3] * magnification,
+            )
+            plotter.add_mesh(mg, color="#78939c", opacity=0.23)
+            node_offset += len(mp)
     if view == "xy":
         plotter.view_xy()
     elif view == "xz":
@@ -74,6 +93,35 @@ def field_image(case, filename, magnification, view):
 
 def main():
     DOC.mkdir(parents=True, exist_ok=True)
+    fig, axes = plt.subplots(1, 2, figsize=(14, 5), facecolor="#f5f3ee")
+    for ax, case, label in zip(
+        axes,
+        ["contact-0.4-0.3-side1", "contact-0.55-0.3-side1-mates20-mortar"],
+        ["Rigid mating frame", "Elastic local frame"],
+    ):
+        image_path = DOC / f"{case}-compare.png"
+        field_image(case, image_path, 3, "iso", scalar_max=120)
+        r = json.loads((OUT / case / "result.json").read_text())["history"][0]
+        ax.imshow(plt.imread(image_path))
+        ax.axis("off")
+        ax.set_title(
+            f"{label}: {r['normal_force_per_jaw_n']:.2f} N per jaw at seating",
+            loc="left",
+            fontsize=13,
+        )
+    fig.suptitle(
+        "Frame flexibility changes clip preload — same 0.1 mm imposed interference",
+        fontsize=17,
+    )
+    fig.text(
+        0.025,
+        0.025,
+        "Shared stress scale; deformation ×3. Local frame slices have held inner cut faces. These are fixture-dependent elastic results, not a complete-holder grip rating.",
+        fontsize=9,
+    )
+    fig.tight_layout(rect=(0, 0.07, 1, 0.93))
+    fig.savefig(DOC / "jaw-compliance.png", dpi=160)
+    plt.close(fig)
     panels = [
         (
             "index-0.4",
@@ -96,14 +144,14 @@ def main():
             "Clip release tongue",
             3,
             "iso",
-            "0.3 mm press: about 0.037 N",
+            "Low stress; catch still ~0.022 mm proud",
         ),
         (
-            "contact-0.4-0.3-side1",
-            "Front clip jaws",
+            "contact-0.55-0.3-side1-mates20-mortar",
+            "Front clip with local frame",
             3,
             "iso",
-            "0.1 mm interference: local overstress",
+            "0.1 mm interference; frame compliance included",
         ),
     ]
     fig, axes = plt.subplots(3, 2, figsize=(16, 13), facecolor="#f5f3ee")

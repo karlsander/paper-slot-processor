@@ -94,6 +94,8 @@ def write_summary(results):
         coarse, fine = f"contact-0.55-0.3-side{side}", f"contact-0.4-0.3-side{side}"
         for step in [0, 2]:
             for key in ["normal_force_per_jaw_n", "pull_force_n"]:
+                if step == 0 and key == "pull_force_n":
+                    continue
                 a, b = [by_id[k]["history"][step][key] for k in (coarse, fine)]
                 convergence.append(
                     {
@@ -111,6 +113,8 @@ def write_summary(results):
         )
         for step in [0, 2]:
             for key in ["normal_force_per_jaw_n", "pull_force_n"]:
+                if step == 0 and key == "pull_force_n":
+                    continue
                 a, b = [by_id[k]["history"][step][key] for k in (coarse, fine)]
                 convergence.append(
                     {

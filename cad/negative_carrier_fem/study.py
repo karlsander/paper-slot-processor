@@ -90,6 +90,11 @@ def run(
     )
     if elastic_mates:
         assert len(mortar_fields) == expected, "Missing solved mortar contact fields"
+    catch_fields = (
+        [r["DISP"] for r in frd_fields(folder / "job.frd") if "DISP" in r]
+        if name == "clip-catch"
+        else []
+    )
     for i, r in enumerate(results):
         stress = r["stress"]
         metrics = stress_metrics(stress)
@@ -144,6 +149,21 @@ def run(
                 else None,
                 friction_ratio_max=float(ratio.max()) if len(ratio) else 0,
                 slide_mm=[0, 0.05, 0.15][i],
+            )
+        if catch_fields:
+            top = np.flatnonzero(
+                (xyz[:, 0] >= 1.6 - 1e-6)
+                & (xyz[:, 0] <= 3.2 + 1e-6)
+                & (xyz[:, 1] >= 22.5 - 1e-6)
+                & (xyz[:, 1] <= 23.1 + 1e-6)
+                & (np.abs(xyz[:, 2] + 0.25) < 1e-6)
+            )
+            assert len(top)
+            z = xyz[top, 2] + np.array([catch_fields[i][int(n + 1)][2] for n in top])
+            row["catch_top_max_z_mm"] = float(z.max())
+            row["catch_clearance_to_nominal_base_mm"] = float(-0.45 - z.max())
+            row["catch_clearance_scope"] = (
+                "isolated release fixture; excludes simultaneous jaw/frame deformation"
             )
         strain = r.get("strain")
         if strain is not None:
