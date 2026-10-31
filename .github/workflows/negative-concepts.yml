@@ -1,4 +1,4 @@
-name: Negative carrier concept checks
+name: Negative carrier CAD and workflow checks
 on:
   pull_request:
   push:
@@ -8,7 +8,7 @@ permissions:
 jobs:
   concepts:
     runs-on: ubuntu-24.04
-    timeout-minutes: 15
+    timeout-minutes: 30
     env:
       QT_QPA_PLATFORM: offscreen
     steps:
@@ -19,7 +19,7 @@ jobs:
           cache: pip
           cache-dependency-path: cad/requirements.txt
       - run: python -m pip install -r cad/requirements.txt
-      - run: python -m unittest discover -s tests -p test_negative_carrier_concepts.py
+      - run: python -m unittest discover -s tests -p 'test_negative_carrier*.py'
       - name: Prepare official FreeCAD 1.1.4 console
         run: |
           mkdir -p "$RUNNER_TEMP/concept-freecad"
@@ -36,8 +36,11 @@ jobs:
           chmod +x freecadcmd
           echo "FREECAD_CMD=$RUNNER_TEMP/concept-freecad/freecadcmd" >> "$GITHUB_ENV"
       - run: python scripts/check_negative_concepts.py
+      - run: python scripts/check_negative_carrier_b.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
-          name: negative-carrier-concepts
-          path: build/negative-carrier-concepts
+          name: negative-carrier-cad-and-motion
+          path: |
+            build/negative-carrier-concepts
+            build/negative-carrier-b

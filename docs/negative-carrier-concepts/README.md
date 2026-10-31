@@ -2,7 +2,7 @@
 
 **Preferred direction: B, a clamped strip holder with a captive, format-specific mask collar.** The collar seats in a receiver that stays in the Durst C35. The holder moves through the collar; a replaceable printed latch locates each frame. Changing formats exchanges the holder and its matching mask together.
 
-This is an architecture comparison, not a printable release. The build123d solids establish envelopes and optical openings. FreeCAD checks sampled rigid travel and normal-ray masking. Detailed hinges, film clamps, dock latches, flexures, modular joints, shutter and drive teeth remain to design and test. The STEP files should not be sent directly to a printer.
+**The selected design is now developed as [B1, with full-length parts and operating videos](../negative-carrier-b/README.md).** This page preserves the earlier architecture comparison and its evidence. These concept solids establish envelopes and optical openings; they omit the detailed clamps, locks and springs implemented in B1. The concept STEP files should not be sent directly to a printer.
 
 ![Three native CAD concepts](concepts.png)
 
@@ -71,8 +71,8 @@ At a 110 station, the illustrative 20 mm pitch and a 36 × 24 mm opening reveal 
 
 ## Packaging and unresolved fit
 
-- Six 35 mm frames give a 244 mm holder and 190 mm travel in this layout. The full working sweep occupies about 434 mm laterally. Twelve half frames give the same holder length; longer holders can extend by modules. Eighteen at the illustrative 19 mm pitch would need 358 mm plus longer working clearance.
-- A 244 × 56 mm planar holder cannot fit an A1 mini's 180 × 180 mm bed even diagonally. Use two roughly 134 mm modules including joint overlap, assembled **before** loading film. Locate joints outside image areas and reinforce them with printed keys on both side rails; do not hinge the loaded strip at a seam. Joint stiffness and smooth film contact need a separate test. The model has unsplit envelope rails. [Bambu specifications](https://bambulab-us.myshopify.com/products/a1-mini).
+- Six 35 mm frames give a 244 mm holder and 190 mm travel in this layout. The full working sweep occupies about 434 mm laterally. The later B1 design adds end-stop clearance and uses a 263 mm holder for twelve half frames; use its dimensions for the detailed prototype.
+- The user has selected a larger printer. B1 uses a single-piece base and lid, with no modular joints. The earlier A1 mini constraint no longer applies to this carrier project.
 - The compact collar allocates **4.7 mm** to two 0.8 mm masks, two 1.2 mm holder layers, a 0.2 mm film space and two 0.25 mm running gaps. This is a candidate budget, **not** a measured C35 allowance. It is thicker than the earlier 2.6 mm ordinary shell stack. Recessing the masks near the optical opening or thinning local structures may be necessary. Changing the receiver cannot create space inside the head.
 - The 94.6 × 100 mm receiver outline carries forward a prior reference envelope only. Actual dock retention, spring-stage seating, side passages, film height, lamp heat and lens-side cone clearance remain unknown. The current CAD receiver is a layout ring, not a C35 mounting solution.
 - The clearances shown around film are placeholders, not a clamping solution. The model contains no force-bearing contact fingers.
@@ -85,7 +85,7 @@ The six generated assemblies are A/B/C in 35 mm plus B in half frame, APS and 11
 
 No continuous swept-volume, optical ray-cone, docking/removal, hinge, clamp, spring, stress, thermal, slicing or physical repeatability test is claimed. See `evidence/freecad-validation.json` for the exact sampled results and `evidence/manifest.json` for input dimensions and hashes. A successful concept check does not mean the part fits the C35 or holds film.
 
-The smallest useful physical next step is a **two-station registration coupon** with the proposed printed latch, hard reference pads and replaceable spring. Measure repeated approach from both directions, removal/reseating, light bumps and warm operation before printing a day's worth of holders. Then test a short 35 mm holder and a 110 mask with sacrificial film. Compare registration at the projected image and check margin marking, flatness, edge illumination and light leaks. Only after that, extend to the six-frame modular holder.
+The smallest useful physical next step is a registration test with the printed latch and reference pads. Measure repeated approach from both directions, removal/reseating, light bumps and warm operation before printing a day's worth of holders. The [B1 prototype](../negative-carrier-b/README.md) supplies the full-length holder and its actual closure and guide geometry for that test. Compare registration at the projected image and check margin marking, flatness, edge illumination and light leaks.
 
 Measurements needed at that stage: actual C35 contact planes and side openings; available vertical space at the gate; receiver stop locations; film strip lengths, widths and image-center spacing; acceptable paper-plane registration error at the intended enlargement. None is required to choose between these architectures now.
 

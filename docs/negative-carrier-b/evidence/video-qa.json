@@ -1,0 +1,85 @@
+{
+  "encoded_video_motion_checks": [
+    {
+      "video": "135-load.mp4",
+      "times_seconds": [
+        3,
+        4.2
+      ],
+      "geometry_region_changed_fraction": 0.165343258891646,
+      "passed": true
+    },
+    {
+      "video": "135-dock.mp4",
+      "times_seconds": [
+        4,
+        6
+      ],
+      "geometry_region_changed_fraction": 0.05779156327543424,
+      "passed": true
+    },
+    {
+      "video": "135-advance.mp4",
+      "times_seconds": [
+        3,
+        4.1
+      ],
+      "geometry_region_changed_fraction": 0.060074441687344916,
+      "passed": true
+    },
+    {
+      "video": "110-advance.mp4",
+      "times_seconds": [
+        3,
+        4.1
+      ],
+      "geometry_region_changed_fraction": 0.07539495450785773,
+      "passed": true
+    }
+  ],
+  "visually_inspected": [
+    "135-load-step-04.jpg",
+    "135-dock-step-08.jpg",
+    "135-advance-step-04.jpg",
+    "110-advance-step-04.jpg"
+  ],
+  "visual_result": "Readable labels, upright frame numbers, visible clip and index motion, no observed clipping of required parts.",
+  "chrome_playback": [
+    {
+      "file": "135-load.mp4",
+      "played": true,
+      "seeked": true,
+      "width": 1440,
+      "height": 900,
+      "duration": 18.5,
+      "error": null
+    },
+    {
+      "file": "135-dock.mp4",
+      "played": true,
+      "seeked": true,
+      "width": 1440,
+      "height": 900,
+      "duration": 18.291667,
+      "error": null
+    },
+    {
+      "file": "135-advance.mp4",
+      "played": true,
+      "seeked": true,
+      "width": 1440,
+      "height": 900,
+      "duration": 28,
+      "error": null
+    },
+    {
+      "file": "110-advance.mp4",
+      "played": true,
+      "seeked": true,
+      "width": 1440,
+      "height": 900,
+      "duration": 28,
+      "error": null
+    }
+  ]
+}
