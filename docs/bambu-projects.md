@@ -1,5 +1,56 @@
 # Bambu Studio projects — processor v1.8
 
+## Individual files for printing
+
+The current handoff is `build/processor-individual-bambu-2026-10-28.zip`:
+**seven single-part, single-plate projects**, all for A1 mini / 0.4 mm nozzle /
+PETG / Textured PEI / 0.20 mm layers. Open each `.3mf` as a project and retain
+its settings and orientation.
+
+| File prefix | Part | Print for |
+| --- | --- | --- |
+| 01 | Shared base | Either bath length |
+| 02 | Top A | Either bath length |
+| 03 | Top B | Either bath length |
+| 04 | Short bath A | 102 × 208 mm paper |
+| 05 | Short bath B | 102 × 208 mm paper |
+| 06 | Tall bath A | 102 × 230 mm paper |
+| 07 | Tall bath B | 102 × 230 mm paper |
+
+For one complete processor, print **01–03 plus either 04–05 or 06–07**. Printing
+all seven gives one base, two tops and two interchangeable bath pairs. The shared
+base now has A/B labels without a size-specific volume. The fill ridge inside
+each bath remains calibrated to its own volume: 323 ml short, 360 ml tall.
+
+Both tops are identical across the two length presets. Both slots are 110 mm
+long, giving nominally 4 mm at each end of centered 102 mm paper; the cavity is
+122 mm wide, giving 10 mm per side below the top. The slot has rounded ends.
+
+Chamber body heights are 204.33 mm (short) and 227 mm (tall). At the supplied
+44.2° print tilt, the taller chamber mesh occupies 152 × 173.31 × 176.68 mm.
+The top prints separately. Preserve the tilt, supports and 3 mm brim.
+
+Each saved single-part file is reopened without preset overrides and sliced;
+the exporter checks exactly one plate/object, source mesh preservation, printer
+and material settings, generated supports, warnings and embedded G-code.
+Per-file estimates and hashes are in
+[individual project evidence](evidence/v1.8-bambu-individual.json).
+
+Reproduce one file by adding `--part` to the command below, for example:
+
+```sh
+.venv-cad/bin/python scripts/build_native_bambu.py build/native-16x9 build/bambu-base --nozzle .4 --part base --name 01-Base-A1mini-PETG-0.4mm
+```
+
+Allowed parts: `base`, `guide_a`, `guide_b`, `vessel_a`, `vessel_b`. Use the
+appropriate native preset folder for short/tall vessels. Regenerate the shared
+base from current CAD to get the A/B-only labels.
+
+## Earlier five-plate projects
+
+These earlier exports are retained for reference; the individual files above
+are the simpler printing handoff.
+
 Each .3mf is one complete five-plate project: base, chamber A, chamber B, top A,
 top B. Print each plate once. The files include the latest half-height tapered
 base with 16 mm exposed sleeves, a 180 × 180 mm footprint and 25 mm chamber gap.
