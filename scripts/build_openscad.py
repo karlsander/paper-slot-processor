@@ -273,14 +273,16 @@ def finite_float(value) -> float | None:
     return value if math.isfinite(value) else None
 
 
-def bambu_settings_args(presets: dict[str, Path]) -> list[str]:
+def bambu_settings_args(presets: dict[str, Path], *, arrange: bool = True) -> list[str]:
     return [
         "--load-settings",
         f"{presets['machine']};{presets['process']}",
         "--load-filaments",
         str(presets["filament"]),
         "--arrange",
-        "1",
+        "1" if arrange else "0",
+        "--orient",
+        "0",
         "--ensure-on-bed",
     ]
 
@@ -355,12 +357,12 @@ def bambu_info(mesh_path: Path, out_dir: Path, name: str) -> dict:
 
 
 def bambu_slice(
-    mesh_path: Path, out_dir: Path, name: str, presets: dict[str, Path], *, run_command=run
+    mesh_path: Path, out_dir: Path, name: str, presets: dict[str, Path], *, run_command=run, arrange: bool = True
 ) -> dict[str, Path]:
     run_command(
         [
             BAMBU,
-            *bambu_settings_args(presets),
+            *bambu_settings_args(presets, arrange=arrange),
             "--slice",
             "0",
             "--outputdir",
@@ -404,12 +406,13 @@ def bambu_project(
     name: str,
     presets: dict[str, Path],
     *, run_command=run,
+    arrange: bool = True,
 ) -> Path:
     project_path = out_dir / f"{name}.3mf"
     run_command(
         [
             BAMBU,
-            *bambu_settings_args(presets),
+            *bambu_settings_args(presets, arrange=arrange),
             "--export-3mf",
             str(project_path.resolve()),
             str(mesh_path),
