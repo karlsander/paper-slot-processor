@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "source_vertices_preserved": true,
+  "saved_profile_verified": true,
+  "warnings": [],
+  "stats": {
+    "model_printing_time": "1h 23m 7s",
+    "total_estimated_time": "1h 23m 27s",
+    "total_layer_number": 114.0,
+    "total_filament_length_mm": 12636.82,
+    "bambu_total_filament_volume_raw": 30395.11,
+    "estimated_filament_cm3": 30.39511,
+    "estimated_filament_g": 38.6,
+    "filament_density_g_cm3": 1.27,
+    "max_z_height_mm": 14.6
+  },
+  "model_report_sha256": "6d9064324b671ef39e5e9a6159159b5a56315f18006c72245e95b5f1ff7c9ece",
+  "project_sha256": "44c002cf6c6dd9b80f6ec9d19beea935e80c7826a6cb81a7e32b6b328efec582"
+}

@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-31",
+  "private_reference_folder": "build/durst-c35-reference/2026-10-31",
+  "observation": "Thin flat plastic panel with upturned side edges; 1.2 mm prototype sheet authorized provisionally, not measured from photographs.",
+  "photos": [
+    {
+      "file": "1-Photo-1.jpg",
+      "bytes": 1187515,
+      "sha256": "25eee9f5cf8b0dad4525c92aaca0d3d6a95302479c16ce511f2a3454a40b60f0"
+    },
+    {
+      "file": "2-Photo-2.jpg",
+      "bytes": 277831,
+      "sha256": "233807dc41a71d4697107a28e8bf5e3fa1342061ae4c95a03fd9d89b59f93771"
+    },
+    {
+      "file": "3-Photo-3.jpg",
+      "bytes": 256334,
+      "sha256": "dfa4e119805eb87184100aa6223d7614bbd389a369b35f366b106b41cb9a5e75"
+    },
+    {
+      "file": "4-Photo-4.jpg",
+      "bytes": 277048,
+      "sha256": "914faa565fd132774851463de4f423cbd104c66fb74c4c85da5bf0551377d8ad"
+    }
+  ]
+}

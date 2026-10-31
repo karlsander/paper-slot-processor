@@ -1,151 +1,194 @@
-# Durst C35 negative carrier — V0.1 fit prototype
+# Durst C35 carrier — V0.2 thin-sheet correction
 
-Two individually printed, integral parts reproduce the photographed carrier's basic
-construction. **A is lower**: front lip, inward hinge pins and upward film-guide pins.
-**B is upper**: front label, flexible hole-bearing hinge ears and blind film-pin
-recesses. The hinge end enters the enlarger first. There is no separate axle or mask
-insert. The central panels are moulded features in the original.
+The failed V0.1 print did not slide into the enlarger. The renewed photo review
+establishes **a thin plastic panel with upturned side edges**, with raised details
+confined to the perimeter, window and pin seats. V0.2 uses a **1.2 mm sheet** and
+separate 1.2 mm side walls. Karl approved 1.2 mm provisionally; it is not a measured
+original thickness or a verified slot clearance.
 
-This first print deliberately uses estimates where calipers were unavailable. The
-purpose is to check the actual slot, hinge, film hold and window position, then revise
-the dimensions. Digital validation does not establish physical fit, printed ear
-flexibility, light exclusion, film safety or temperature suitability in the enlarger.
+![Actual exported shells, exterior facing up](preview-shells.png)
 
-![Open assembly](preview-open.png)
+The old CAD already had an exterior cavity, but modeled most of the panel at
+2.5 mm, with B reduced to 1.9 mm over a recessed region. Its selected orientation
+also generated removable support inside that cavity. We have not inspected the
+failed print to distinguish excess model material from retained support. This
+revision corrects the sheet construction and explicitly tests the hollow regions.
 
-## Sources and coordinates
+![Section through the assembled window](section.png)
 
-- [A print file](../../parts/durst_c35/durst_c35_a.scad)
-- [B print file](../../parts/durst_c35/durst_c35_b.scad)
-- [Shared editable dimensions](../../parts/durst_c35/parameters.scad)
-- [Geometry](../../parts/durst_c35/carrier.scad)
-- [Opening preview](../../parts/durst_c35/assembly.scad), with `opening_angle` in degrees
+The ordinary closed sheet stack is **2.6 mm** (1.2 + 0.20 film space + 1.2).
+The window rims remain **2.5 mm per half locally**, giving 5.2 mm there. The
+upturned edges retain the earlier approximate 13.5 mm height per half; the full
+outer envelope is still 27.2 mm. These are different sections of the part, not
+interchangeable slot-height measurements. The cavity must remain empty after
+support removal.
 
-All dimensions are millimetres. X runs along the **36 mm** window dimension and the
-hinge axis. Y runs from the hinge towards the front, along the **24 mm** dimension.
-B's rear inner-plate edge is Y=0. Its nominal window is X=-18..18, Y=42..66.
-A's inner plate starts at Y=10, so the same window is 32 mm from its rear edge.
-A's film-contact surface is Z=0; B's is Z=`film_gap` when closed. Both windows share
-this coordinate system rather than being centred independently in differently sized plates.
+## Source and dimensions
 
-The 13 original photos have been copied, unmodified, into the ignored local folder
-`build/durst-c35-reference/`, including a copy in the original checkout. The originals
-are not published with this public repository. [The photo index](photo-index.json)
-records their names and SHA-256 checksums. Photo 12, B's tilted exterior view, is a
-shape reference only: its ruler scale is unreliable because the ears lift the plate.
+The editable source is now [build123d Python](../../cad/durst_c35/parts.py), with
+[one parameter definition](../../cad/durst_c35/parameters.py). The six SCAD carrier
+files have been retired; the V0.1 history remains at commit `9f5d013`. Do not print
+the old `durst-c35-v0.1.zip` or scale an old STL to adjust fit.
 
-## Measurements and first-print assumptions
+A is the lower half, with inward hinge pins, film-guide pins and the front lip.
+B is the upper half, with hole-bearing hinge ears and blind pin recesses. X runs
+along the 36 mm aperture and hinge axis; Y runs from hinge to front. A's film face
+is Z=0 and B's is Z=0.20 when closed. The nominal window spans X=-18..18 and
+Y=42..66. A's sheet starts at Y=10; B's starts at Y=0. Side edges extend outward
+from the film faces, away from the film.
 
-"User" below records the supplied measurement or observation, not a caliper-certified
-tolerance. All approximate readings should be remeasured. The nominal aperture and
-pin layout are intentionally explicit.
-
-| Feature | V0.1 value | Basis |
+| Feature | V0.2 nominal (mm) | Evidence |
 | --- | --- | --- |
-| A clear aperture | 36 × 24 | User, exact nominal opening |
-| Aperture across the carrier | Centred in X | User |
-| B clear opening | Nominal 36 × 24 with 0.8 extra at edge midsections | Larger opening and four corner insets observed; enlargement estimated |
-| B corner inset length | 1.8 along each nominal edge | Estimated |
-| Window rear edge to A plate rear edge | 32 | User ruler measurement |
-| Window rear edge to B plate rear edge | 42 | User, measured from nominal window, not B's enlargement |
-| Window front edge to common front face | 34 | Estimated from overhead photos |
-| Width | 94.6 | User: greater than 94, slightly below 95 |
-| Height of each outer skirt | 13.5 | User approximate, excluding B's projecting hinge ears |
-| Maximum inner plate thickness, each | 2.5 | User estimate; critical for slot fit |
-| Total film space | 0.20 | First-print choice; entire space for film, not extra clearance |
-| Assembled outer height | 27.20 | 13.5 + 13.5 + film space |
-| Combined inner section | 5.20 maximum | 2.5 + 2.5 + film space; exterior bevels/recess reduce it locally |
-| A lip projection / thickness | 4 / 2 | Estimated |
-| Outer skirt wall | 2 | Estimated |
-| Film-pin spacing | 58 centre-to-centre | User confirmation; 11 beyond each end of the 36 mm window |
-| Film-pin diameter / height | 1.6 / 1.2 | Estimated |
-| Film-pin centre to long window edge | 6.3 | (35 − 24)/2 + 1.6/2; pin tangent lies on the nominal film edge |
-| B film-pin recess | 6 mouth, 2.6 bottom, 1.3 deep | Estimated blind countersink; 0.6 mm material remains behind it |
-| B hinge ear height / width / thickness | 10 / 7 / 1.8 | First two are user approximations; thickness estimated |
-| B hole centre from ear root / free tip | 7 / 3 | User clarification; root is the film-contact surface |
-| A hinge pin diameter | 2.4 | Estimated |
-| B hinge hole diameter | 2.9 | First-print clearance; 0.50 diametral difference |
-| Ear-to-support side gap | 0.35 per side | First-print clearance |
-| Hinge pin protrusion | 2.5 | 0.35 side gap + 1.8 ear + 0.35 engagement beyond ear |
-| Outer corner radii / aperture bevels / ribs | See parameters and geometry | Estimated from photos |
+| Flat sheet / side wall / A lip thickness | 1.2 / 1.2 / 1.2 | Provisional thin-shell choice; sheet approved 2026-10-31 |
+| Width | 94.6 | Earlier user reading: greater than 94, less than 95 |
+| A opening | 36 × 24 | Earlier user nominal dimensions |
+| B edge relief / corner inset length | 0.8 / 1.8 | Photographed form, estimated detail |
+| A / B window-to-rear distance | 32 / 42 | Earlier user ruler readings |
+| Window-to-front distance | 34 | Prior estimate |
+| Upturned edge height per half | 13.5 | Prior approximate user reading |
+| Local window rim total height / width | 2.5 / 2.0 | Prior maximum thickness retained only locally; width estimated |
+| Film space | 0.20 total | Prototype choice, set by four stops outside film path |
+| Film pin spacing | 58 | Earlier user confirmation |
+| Film pin diameter / height | 1.6 / 1.2 | Prior estimates |
+| B pin recess depth / remaining floor | 1.3 / 0.6 | Local 1.9 mm bosses prevent a through-hole in the thin sheet |
+| A front lip projection | 4 | Prior estimate |
+| Hinge ear height / width / thickness | 10 / 7 / 1.8 | First two approximate user readings; thickness estimated |
+| Hinge hole centre below film face | 7 | Prior user clarification |
+| Hinge pin / hole diameter | 2.4 / 2.9 | Prior prototype clearance |
+| Ear-to-side-wall gap | 0.35 per side | Prior prototype clearance |
 
-The B aperture keeps all of the nominal rectangle open. Material remains immediately
-outside its four nominal corners while the middle of each edge is relieved. The A
-aperture has a short exact-size land at the film face and widens towards its exterior.
-B's exterior window rim is formed by recessing the surrounding panel, so it does not
-add height beyond the 2.5 mm maximum inner plate thickness.
+The raised window profiles keep A's exact land, B's four corner insets and an
+outward light-path flare. The hinge architecture is retained. The large stiffening
+ribs, recessed front groove and cosmetic label from V0.1 are omitted so the new
+thin sheet is not inadvertently thickened or cut through. Bend roots are square
+in section; the front plan corners are rounded. These small molding details still
+need measurement if exact reproduction is required.
 
-Four small stops on A, outside the 35 mm film path, set the chosen film space. They
-are a deliberate prototype feature. Changing `film_gap` moves the hinge axis and the
-stops together; it does not change either plate's thickness. The printed gap and film
-grip must be checked with a real strip. Easy sliding in the original established light
-grip, not a measured gap.
+The original [photo index](photo-index.json) and the
+[new reference index](photo-index-2026-10-31.json) record private photo hashes.
+Photo files stay in ignored local build folders, outside the public repository.
+Perspective photos establish construction, not precise thickness or slot dimensions.
 
-## Build and print
-
-Use the repository's existing Python environment and build pipeline. From the repo root:
+## Reproduce the build123d → STEP → FreeCAD study
 
 ```sh
-python3 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python scripts/check_durst_geometry.py
-
-BAMBU_PROCESS="$PWD/profiles/Durst 0.20mm @BBL A1M.json" \
-  .venv/bin/python scripts/build_openscad.py \
-  parts/durst_c35/durst_c35_a.scad parts/durst_c35/durst_c35_b.scad
+uv venv --python python3.13 .venv-cad
+uv pip install --python .venv-cad/bin/python -r cad/requirements.txt
+.venv-cad/bin/python scripts/check_durst_geometry.py
+.venv-cad/bin/python -m unittest discover -s tests -p test_durst_c35.py
 ```
 
-The carrier profile inherits **Processor 0.20mm @BBL A1M**: A1 mini, 0.4 mm nozzle,
-Generic PETG, textured PEI, four walls, six top/bottom layers, 15% infill. Its only
-overrides are support settings. The photographed hollow exteriors and projecting
-hinge features require removable supports in the selected orientations; the original
-processor profile itself is unchanged.
+Install FreeCAD separately. The runner uses `FREECAD_CMD`, then `FreeCADCmd` or
+`freecadcmd` on PATH, then the standard macOS app path. You can also pass
+`--freecad /path/to/freecadcmd`. Tested locally with build123d 0.13.0 and FreeCAD
+1.1.4. The dedicated `durst-cad` CI job installs Ubuntu's FreeCAD console and runs
+the same export and verification commands.
 
-Print **one A and one B, on separate plates**, retaining the supplied orientations.
-Both film-contact faces point upwards. Supports occupy the hollow exterior sides and
-hinge overhangs, avoiding support interfaces on the film-contact faces. The B ears
-project above its plate in this orientation. Do not print `assembly.scad` as one object.
+To revise an estimate, pass `--config dimensions.json`, for example
+`{"sheet_thickness": 1.0}`, and use a separate `--output` directory. Rebuild both
+halves and repeat verification. Other dimension changes may need corresponding
+fixture/probe updates; the 90 × 35 × 0.14 mm film is an explicit fixed test fixture.
 
-Each result appears under `build/durst_c35_a/` or `build/durst_c35_b/`. The top-level
-`.3mf` is the Bambu project with the profile, suitable for opening and reslicing. The
-`generated/` folder contains the STL and sliced G-code. Match the selected filament
-preset to the loaded spool before printing. Slicing did not send anything to a printer.
+`build/durst-c35-native/` contains:
 
-| Plate | Printed bounds, including hinge/features | Slicer time, including preparation | PETG including supports |
-| --- | --- | --- | --- |
-| A | 94.6 × 110.95 × 14.7 mm | 1 h 46 min | 50.83 g |
-| B | 94.6 × 107 × 23.5 mm | 1 h 55 min | 51.18 g |
-| Total | Two plates | About 3 h 42 min | 102.01 g |
+| File | Use |
+| --- | --- |
+| `carrier.FCStd`, `carrier-open.FCStd` | Closed assembly and 110° inspection pose; each saved and reopened during verification |
+| `a.step`, `b.step` | Native solids in authoring coordinates; B is unposed at its own Z=0 film face |
+| `assembly.step`, `assembly-open.step` | Closed and 110° posed two-part assemblies |
+| `plates/a.stl`, `plates/b.stl` | Separate bed-centred print meshes, film faces up |
+| `plates/a.step`, `plates/b.step` | Matching native solids in print orientation |
+| `parameters.json`, `model-report.json` | Actual dimensions, mesh checks, section values, source/export hashes |
+| `validation.json`, `freecad-validation.log` | FreeCAD measurements, hinge samples and execution evidence |
 
-These estimates are from the V0.1 defaults and resolved profile. Rebuild to obtain new
-estimates after edits. B's print height includes its ears; it is not the closed height.
+STEP is native solid exchange, not a transfer of Python construction history.
+Python remains the editable source. FreeCAD and build123d share Open Cascade;
+this is interoperability and contract checking, not two independent CAD kernels.
+See the [build123d object documentation](https://build123d.readthedocs.io/en/stable/objects.html)
+and [FreeCAD shape API](https://freecad.github.io/SourceDoc/d8/ded/classPart_1_1TopoShape.html).
 
-## First fit and next measurements
+For interactive rigid hinge inspection, open FreeCAD's Python console and run:
 
-1. Remove the supports from the exterior cavities, aperture exits and hinge pins.
-   Check the film-contact faces and window edges for burrs before trying scrap film.
-2. Compare A with the original in the unpowered enlarger. Record where it first binds,
-   whether it reaches the normal seated position, and what surface stops inward travel.
-3. Engage one hinge pin, then gently flex an ear enough to engage the other. Record
-   hole fit, axial play and whether the ears recover. Avoid forcing a tight prototype.
-4. Close the two halves without film, then with a spare strip. Check flatness and
-   sliding resistance. The goal is a very thin gap and light, even hold at the margins.
-5. Check the complete assembly's slot fit and window position against the original.
-   Record which half or edge rubs. Physical fit has not been established by the render.
-6. With calipers, prioritise the slot-fitting plate thickness, overall width, hinge
-   pin/hole diameters, ear thickness, front/window distance, and lip projection. Then
-   measure film-pin height/diameter and recesses, and refine B's aperture relief.
+```python
+exec(open('/absolute/repository/cad/durst_c35/inspect_freecad.py').read())
+start('/absolute/repository/build/durst-c35-native')
+```
 
-Adjust `body_width` or plate thickness for measured slot fit; `hinge_hole_diameter`
-and `hinge_side_clearance` for hinge fit; `film_gap` for film space. Do not globally
-scale the STL to fix one fit issue: that would also change the known aperture and pin
-spacing. Use the editable OpenSCAD parameters and rebuild both parts.
+The slider poses B from 0° to 180°, reports actual intersection volume and turns
+B red on overlap. It does not create a constrained assembly or simulate plastic
+flexure. The saved `.FCStd` documents work without this optional helper.
 
-## Validation
+Optional static previews use Matplotlib (`uv pip install --python
+.venv-cad/bin/python matplotlib==3.11.2`), then:
 
-Both halves export as one connected, watertight mesh with consistent winding and no
-duplicate or degenerate triangles. Bambu slicing reports no warnings. The independent
-geometry checks exercise the exact A aperture, four B corner insets and edge relief,
-a 90 × 35 × 0.14 mm film probe, bed limits, and 13 closed/open hinge positions from
-0° through 180°. These sample rigid geometry; they do not simulate ear strain or
-printed surface tolerances. The first physical fit and thermal/light-leak checks remain open.
+```sh
+.venv-cad/bin/python -m cad.durst_c35.render build/durst-c35-native
+```
+
+## Verification and evidence boundaries
+
+Local checks passed on 2026-10-31:
+
+- Both halves are valid single solids; STEP volume errors are below 0.01 mm³.
+- Both print meshes are connected, watertight, consistently wound and free of
+  duplicate/degenerate triangles; they fit the A1 mini with Z=0 bed contact.
+- Sixteen full-height section probes measure the 1.2 mm sheet, plus explicit
+  empty-cavity, 1.2 mm wall and 2.5 mm local window-rim checks in FreeCAD.
+- Tests deliberately add 2.5 mm and 13.5 mm slabs to otherwise valid solids and
+  verify that the thickness checks fail. Watertightness alone would miss these.
+- The optical tunnel, A opening, B corner insets/relief, film fixture and 0.6 mm
+  blind recess floors pass the FreeCAD probes.
+- All **181 rigid hinge positions at 1° intervals** have overlap below 0.0001 mm³.
+  Sampling does not establish a continuous swept-volume clearance or ear strain.
+- Both `.FCStd` files save and reopen with two valid solids. The runner deletes
+  stale reports and requires a newly written success; exit code zero is insufficient.
+
+Physical slot fit, film grip, printed hinge flexibility, light leaks and temperature
+performance remain unverified. **No enlarger geometry or insertion simulation is
+included yet.** The optional GUI slider is separate from the verified headless study.
+
+## Print handoff
+
+```sh
+.venv-cad/bin/python scripts/build_durst_bambu.py \
+  build/durst-c35-native build/durst-c35-bambu
+```
+
+This creates two individual Bambu projects, reopens and slices each, verifies the
+embedded A1 mini / 0.4 mm / PETG profile and original mesh vertices, and requires
+warning-free slicing. Print one A and one B. Nothing is sent to a printer.
+
+| Project | Estimated time | PETG including support |
+| --- | --- | --- |
+| `Durst-C35-v0.2-A-A1mini-PETG-0.4mm.3mf` | 1 h 23 min | 38.60 g |
+| `Durst-C35-v0.2-B-A1mini-PETG-0.4mm.3mf` | 1 h 34 min | 41.08 g |
+
+The profile uses 0.20 mm layers, four walls, six top/bottom layers and normal
+automatic removable supports. **The print orientation is opposite to the exterior-up
+inspection image.** Film-contact faces print upward, so support interfaces are on
+the exterior. Support fills some of the apparently hollow space during printing.
+Remove it to expose the thin sheet and open cavity shown above. B's downward ears
+in the authoring pose explain its 23.5 mm print envelope; that is not sheet thickness.
+
+The mesh's actual part volume is 14.686 cm³ for A and 15.150 cm³ for B. Slicer
+material totals include the extra support. Examine the support/model colours in
+Bambu's Preview before printing, and check the cleared cavity against `section.png`.
+
+## Next: model the enlarger interface
+
+Keep this carrier coordinate system for the mating model. Before creating a slot
+fixture, collect these dimensions/photos from the actual enlarger:
+
+1. Slot cross-section at the entrance and deeper rails: gap height, usable width,
+   rail/ledge widths, corner radii and any relief for the raised edges/window rims.
+2. Insertion direction, travel to the hard stop, and the surface that sets depth.
+3. Window centre relative to that stop and to the side rails; identify which
+   surfaces of the original carrier actually slide or locate against the enlarger.
+4. Original carrier sheet thickness away from rims, maximum local rim thickness,
+   and the first contact marks on the failed print after support removal.
+
+Use orthogonal views with a ruler in the same plane and caliper measurements when
+available. The future study should keep the enlarger fixed, translate the closed
+carrier along the measured path, report collision/contact surfaces and minimum
+clearance, and sweep measured printer/slot tolerances. Do not substitute a guessed
+rectangular opening and describe a passing result as reliable slot fit.
