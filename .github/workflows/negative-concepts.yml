@@ -8,7 +8,7 @@ permissions:
 jobs:
   concepts:
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 45
     env:
       QT_QPA_PLATFORM: offscreen
     steps:
@@ -37,6 +37,7 @@ jobs:
           echo "FREECAD_CMD=$RUNNER_TEMP/concept-freecad/freecadcmd" >> "$GITHUB_ENV"
       - run: python scripts/check_negative_concepts.py
       - run: python scripts/check_negative_carrier_b.py
+      - run: python scripts/check_negative_carrier_b.py --config cad/negative_carrier_b/a1-mini.json --output build/negative-carrier-b-a1-mini --bed-size 180
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -44,3 +45,4 @@ jobs:
           path: |
             build/negative-carrier-concepts
             build/negative-carrier-b
+            build/negative-carrier-b-a1-mini

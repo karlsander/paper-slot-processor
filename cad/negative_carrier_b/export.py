@@ -96,6 +96,16 @@ def export(out, formats, overrides=None):
             "config": asdict(p),
             "format_data": p.fmt.data(),
             "holder_length_mm": p.length,
+            "film_path": {
+                "open_ends": "both",
+                "width_mm": p.fmt.film_width + 0.8,
+                "film_length_mm": p.film_length,
+                "image_centers_mm": p.film_centers,
+                "unclamped_reposition_mm": p.fmt.demo_pitch
+                if p.film_tail_frames
+                else 0,
+                "continuous_roll_transport": False,
+            },
             "parts": {},
             "variants": {},
             "phases": sequences(p),

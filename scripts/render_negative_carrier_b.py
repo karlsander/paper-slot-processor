@@ -97,7 +97,7 @@ class Scene:
                 specular_power=18,
             )
             self.active[name] = key
-        for i, x in enumerate(self.p.fmt.centers):
+        for i, x in enumerate(self.p.film_centers):
             face = pv.Plane(
                 center=(x, 0, self.p.film_thickness + 0.002),
                 direction=(0, 0, 1),
@@ -109,8 +109,11 @@ class Scene:
             self.markings.append(
                 self.plot.add_mesh(face, color="#75583f", ambient=0.5, diffuse=0.4)
             )
+            number_in_holder = i - self.p.film_tail_frames + 1
+            if not 1 <= number_in_holder <= self.p.fmt.frames:
+                continue  # tail images stay visible without misleading slot numbers
             number = pv.Text3D(
-                str(i + 1),
+                str(number_in_holder),
                 depth=0.002,
                 height=5,
                 center=(x, 0, self.p.film_thickness + 0.006),
@@ -121,22 +124,27 @@ class Scene:
             self.markings.append(
                 self.plot.add_mesh(number, color="#efd7a1", ambient=0.8, diffuse=0.1)
             )
-        if detail == "index":
+        if detail == "exit":
+            x = -self.p.fmt.centers[0] - self.p.length / 2
+            self.plot.camera_position = [(x - 36, 65, 52), (x + 3, 0, 0), (0, 0, 1)]
+            scale = 25
+        elif detail == "index":
             self.plot.camera_position = [(0, 91, 73), (0, 31, 0), (0, 0, 1)]
             scale = 20
         elif detail == "clip":
             x = -self.p.fmt.centers[0]
             self.plot.camera_position = [(x + 6, 53, -28), (x, 23, -0.4), (0, 0, 1)]
             scale = 8
-        elif mode == "load":
-            self.plot.camera_position = [(110, 350, 275), (85, 0, 19), (0, 0, 1)]
-            scale = 90
+        elif mode in ("load", "reposition"):
+            x = -self.p.fmt.centers[0]
+            self.plot.camera_position = [(x + 25, 350, 275), (x, 0, 19), (0, 0, 1)]
+            scale = max(100, (self.p.film_length + self.p.fmt.demo_pitch) / 3.6)
         elif mode == "dock":
             self.plot.camera_position = [(190, 420, 285), (65, 35, 0), (0, 0, 1)]
-            scale = 111
+            scale = max(111, self.p.film_length / 3.4)
         else:
             self.plot.camera_position = [(0, 350, 285), (0, 0, 0), (0, 0, 1)]
-            scale = 118 if self.p.format == "135" else 79
+            scale = max(79, (self.p.film_length + self.p.fmt.travel) / 3.6)
         self.plot.enable_parallel_projection()
         self.plot.camera.parallel_scale = scale
 
@@ -174,7 +182,11 @@ class Scene:
             actor.user_matrix = matrix(d, p, a)
         for actor in self.markings:
             actor.visibility = state.cartridge
-            actor.position = (state.holder_x, state.assembly_y, state.film_z)
+            actor.position = (
+                state.holder_x + state.film_x,
+                state.assembly_y,
+                state.film_z,
+            )
         self.plot.reset_camera_clipping_range()
         self.plot.render()
         return Image.fromarray(self.plot.screenshot(return_img=True))
@@ -202,9 +214,12 @@ def duration(phase):
 
 
 def render(out, dest, manifest, model, mode, fps=24, quick=False):
-    groups = {"load": ("load",), "dock": ("install", "dock"), "advance": ("advance",)}[
-        mode
-    ]
+    groups = {
+        "load": ("load",),
+        "dock": ("install", "dock"),
+        "advance": ("advance",),
+        "reposition": ("reposition",),
+    }[mode]
     phases = [p for p in model["phases"] if p["group"] in groups]
     scene = Scene(out, manifest, model, (1440, 700), mode)
     detail = (
@@ -214,13 +229,14 @@ def render(out, dest, manifest, model, mode, fps=24, quick=False):
             model,
             (420, 280),
             mode,
-            detail="clip" if mode == "load" else "index",
+            detail={"load": "clip", "advance": "index", "reposition": "exit"}[mode],
         )
         if mode != "dock"
         else None
     )
     titles = {
-        "load": "Load a six-frame strip",
+        "load": f"Clamp {model['format_data']['frames']} positions - film exits both ends",
+        "reposition": "Reposition a longer strip at the workbench",
         "dock": "Install the receiver, then dock the cartridge",
         "advance": (
             "Slide, click, and return to the same frame"
@@ -282,7 +298,7 @@ def render(out, dest, manifest, model, mode, fps=24, quick=False):
                 fill=MUTED,
             )
             show_detail = detail is not None and (
-                mode == "advance"
+                mode in ("advance", "reposition")
                 or phase["label"]
                 in (
                     "Flex the six clip catches",
@@ -296,11 +312,11 @@ def render(out, dest, manifest, model, mode, fps=24, quick=False):
                 frame.paste(image, (left, 110))
                 draw.rectangle((left, 110, left + 420, 144), fill=BACKGROUND)
                 draw.rectangle((left, 110, left + 420, 390), outline="#c5d0d6", width=1)
-                text = (
-                    "Index tooth - cap transparent"
-                    if mode == "advance"
-                    else "Clip catch - underside view"
-                )
+                text = {
+                    "advance": "Index tooth - cap transparent",
+                    "load": "Clip catch - underside view",
+                    "reposition": "Open film exit + retaining ears",
+                }[mode]
                 draw.text((left + 10, 120), text, font=font(18), fill=INK)
                 if mode == "advance":
                     status = (
@@ -396,7 +412,9 @@ def main():
         "--output", type=Path, default=ROOT / "docs/negative-carrier-b/videos"
     )
     parser.add_argument("--quick", action="store_true")
-    parser.add_argument("--only", choices=("load", "dock", "advance", "110"))
+    parser.add_argument(
+        "--only", choices=("load", "dock", "advance", "110", "reposition")
+    )
     args = parser.parse_args()
     out = args.input
     dest = args.output
@@ -409,6 +427,7 @@ def main():
     )
     result = {
         "manifest_sha256": digest,
+        "renderer_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
         "freecad_report_sha256": hashlib.sha256(
             (out / "freecad-validation.json").read_bytes()
         ).hexdigest(),
@@ -420,10 +439,15 @@ def main():
         ("135", "dock"),
         ("135", "advance"),
         ("110", "advance"),
+        ("135", "reposition"),
     ]:
         if args.only and (("110" if fmt == "110" else mode) != args.only):
             continue
         model = next(m for m in manifest["models"] if m["format"] == fmt)
+        if mode == "reposition" and not any(
+            p["group"] == mode for p in model["phases"]
+        ):
+            continue
         result["videos"].append(
             render(out, dest, manifest, model, mode, quick=args.quick)
         )

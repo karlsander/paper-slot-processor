@@ -11,6 +11,7 @@ class State:
     holder_x: float
     assembly_y: float = 0
     film_z: float = 0
+    film_x: float = 0
     lid_z: float = 0
     clips_out: float = 0
     clips_release: float = 0
@@ -90,6 +91,42 @@ def sequences(p):
     s = phase("remove", "Unlock the collar from the receiver", closed, dock_angle=0)
     s = phase("remove", "Lift the two dock pins", s, dock_pin_z=9)
     phase("remove", "Withdraw the complete cartridge", s, assembly_y=130)
+    if p.film_tail_frames:
+        # Separate workbench sequence: release the clamp before feeding film.
+        # One pitch demonstrates bringing a previously external image into the
+        # indexed group. This is deliberate reloading, not in-machine transport.
+        s = replace(closed, machine=False, dock_pin_z=9, dock_angle=0)
+        s = phase("reposition", "At the workbench: unlock the mask cap", s, cap_angle=0)
+        s = phase("reposition", "Lift the mask cap clear", s, cap_z=75)
+        s = phase(
+            "reposition", "Separate the lower collar from the holder", s, lower_z=-36
+        )
+        s = phase("reposition", "Release the six clip catches", s, clips_release=0.3)
+        s = phase("reposition", "Withdraw the six closure clips", s, clips_out=7)
+        s = phase("reposition", "Lift the lid to release the film", s, lid_z=46)
+        s = phase(
+            "reposition", "Lift the film clear of all clamping lands", s, film_z=2
+        )
+        s = phase(
+            "reposition",
+            "Move the strip one pitch; align the next image group",
+            s,
+            film_x=-p.fmt.demo_pitch,
+        )
+        s = phase("reposition", "Lower the film onto the margin supports", s, film_z=0)
+        s = phase("reposition", "Replace the lid", s, lid_z=0)
+        s = phase("reposition", "Slide the six closure clips home", s, clips_out=0)
+        s = phase(
+            "reposition", "Release the catches into their recesses", s, clips_release=0
+        )
+        s = phase("reposition", "Reseat the lower collar", s, lower_z=0)
+        s = phase("reposition", "Lower the mask cap", s, cap_z=0)
+        phase(
+            "reposition",
+            "Lock the collar; the new group is ready to dock",
+            s,
+            cap_angle=90,
+        )
     return specs
 
 
@@ -113,6 +150,7 @@ def samples(p, steps=5):
                 "lower_z",
                 "lid_z",
                 "film_z",
+                "film_x",
                 "receiver_y",
                 "receiver_z",
                 "stage_z",
@@ -151,7 +189,8 @@ def placement(name, p, state):
                 if name == f"closure-{x:g}-{side}"
             )
             y += side * state.clips_out
-        return (state.holder_x, y, z), (0, 0), 0
+        x = state.holder_x + (state.film_x if name == "film" else 0)
+        return (x, y, z), (0, 0), 0
     if name.startswith("cap-lock-"):
         x, cy = next(
             (x, cy)

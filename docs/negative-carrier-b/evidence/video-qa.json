@@ -3,19 +3,19 @@
     {
       "video": "135-load.mp4",
       "times_seconds": [
-        3,
-        4.2
+        0.4,
+        1.6
       ],
-      "geometry_region_changed_fraction": 0.165343258891646,
+      "geometry_region_changed_fraction": 0.1997863247863248,
       "passed": true
     },
     {
       "video": "135-dock.mp4",
       "times_seconds": [
-        4,
-        6
+        11,
+        13
       ],
-      "geometry_region_changed_fraction": 0.05779156327543424,
+      "geometry_region_changed_fraction": 0.18981125356125356,
       "passed": true
     },
     {
@@ -24,7 +24,7 @@
         3,
         4.1
       ],
-      "geometry_region_changed_fraction": 0.060074441687344916,
+      "geometry_region_changed_fraction": 0.0389227207977208,
       "passed": true
     },
     {
@@ -33,59 +33,41 @@
         3,
         4.1
       ],
-      "geometry_region_changed_fraction": 0.07539495450785773,
+      "geometry_region_changed_fraction": 0.06104522792022792,
+      "passed": true
+    },
+    {
+      "video": "135-reposition.mp4",
+      "times_seconds": [
+        17.5,
+        19.1
+      ],
+      "geometry_region_changed_fraction": 0.0359704415954416,
       "passed": true
     }
   ],
+  "verified_video_sha256": {
+    "135-load.mp4": "2fa07cce4f9efbd5caab4f89025367d34be716819910915a9a6935149b17d287",
+    "135-dock.mp4": "c17ae09f70a3a2daff94a987f17ca0f479b3945d629d7c09e1664165c848a447",
+    "135-advance.mp4": "3313a393e7c9b499b5c4803d3940abbfb322e06c4497e38ada4d71466f3771a4",
+    "110-advance.mp4": "38965eb51b0d1952612ba982694d51e8f2662979aed774558610fcddb2d272df",
+    "135-reposition.mp4": "ad258f950388d13b5adb9d0a0ffc59ac19e05e1a86209d272806c7cbfca9c4f1"
+  },
   "visually_inspected": [
     "135-load-step-04.jpg",
-    "135-dock-step-08.jpg",
+    "135-dock-step-05.jpg",
     "135-advance-step-04.jpg",
-    "110-advance-step-04.jpg"
+    "110-advance-step-04.jpg",
+    "135-reposition-step-08.jpg",
+    "135-reposition-poster.jpg"
   ],
-  "visual_result": "Readable labels, upright frame numbers, visible clip and index motion, no observed clipping of required parts.",
-  "chrome_playback": [
-    {
-      "file": "135-load.mp4",
-      "played": true,
-      "seeked": true,
-      "width": 1440,
-      "height": 900,
-      "duration": 18.5,
-      "error": null
-    },
-    {
-      "file": "135-dock.mp4",
-      "played": true,
-      "seeked": true,
-      "width": 1440,
-      "height": 900,
-      "duration": 18.291667,
-      "error": null
-    },
-    {
-      "file": "135-advance.mp4",
-      "played": true,
-      "seeked": true,
-      "width": 1440,
-      "height": 900,
-      "duration": 28,
-      "error": null
-    },
-    {
-      "file": "110-advance.mp4",
-      "played": true,
-      "seeked": true,
-      "width": 1440,
-      "height": 900,
-      "duration": 28,
-      "error": null
-    }
+  "visual_result": "Readable labels, tails visible at both ends, clip and index insets visible. Repositioning is shown with the holder and collar open.",
+  "full_stream_decode_passed": [
+    "135-load.mp4",
+    "135-dock.mp4",
+    "135-advance.mp4",
+    "110-advance.mp4",
+    "135-reposition.mp4"
   ],
-  "verified_video_sha256": {
-    "135-load.mp4": "1f6f70695c4cb243acee59e9cdb8bb42508e379e9389cf34c5aea98f1f617a15",
-    "135-dock.mp4": "e3e1f45aecbfd2321ec289729acd6273b0fa8ad0f6c7dcb2c2913a306f07d116",
-    "135-advance.mp4": "ab532de8cc3b3ecb6f10baf290c0a1e5324c10619828d00919ce09d2a8e85e68",
-    "110-advance.mp4": "53f9535bafdde7094ec04792885e7672753a91f82661c34078aa8a7a4d046d10"
-  }
+  "browser_playback_checked": false
 }

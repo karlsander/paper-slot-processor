@@ -200,6 +200,85 @@ for model in manifest["models"]:
     )
     fmt = model["format_data"]
     aw, ah = fmt["aperture"]
+    # Independently probe a continuous strip through both ends, including the
+    # margin supports and outer retaining ears. Contact at the film plane is
+    # allowed; positive volume is not. This would fail the old solid end bars.
+    length = model["holder_length_mm"]
+    t = model["config"]["film_thickness"]
+    x0 = closed_sample["state"]["holder_x"]
+    probe_length = length + 2 * fmt["demo_pitch"]
+    probe = Part.makeBox(
+        probe_length,
+        fmt["film_width"],
+        t,
+        App.Vector(x0 - probe_length / 2, -fmt["film_width"] / 2, 0),
+    )
+    end_checks = {
+        "full_width_strip_interference_mm3": sum(
+            overlap(probe, s) for n, s in closed.items() if n != "film"
+        ),
+        "image_area_contact_mm3": 0,
+        "reposition_sweep_interference_mm3": 0,
+        "image_probes": 0,
+    }
+    # All images, including those beyond the indexed group, must avoid the
+    # clamping faces. Probe a little below and above the film to detect contact.
+    for feed in (0, -model["film_path"]["unclamped_reposition_mm"]):
+        for center in model["film_path"]["image_centers_mm"]:
+            image = Part.makeBox(
+                fmt["image_width"],
+                fmt["image_height"],
+                t + 0.04,
+                App.Vector(
+                    x0 + center + feed - fmt["image_width"] / 2,
+                    -fmt["image_height"] / 2,
+                    -0.02,
+                ),
+            )
+            end_checks["image_probes"] += 1
+            end_checks["image_area_contact_mm3"] += sum(
+                overlap(image, closed[n]) for n in ("base", "lid")
+            )
+    feed_sample = next(
+        (
+            s
+            for s in model["samples"]
+            if s["group"] == "reposition"
+            and model["phases"][s["phase"]]["start"]["film_x"]
+            != model["phases"][s["phase"]]["end"]["film_x"]
+        ),
+        None,
+    )
+    if feed_sample:
+        feed_parts = {r["name"]: posed(r) for r in feed_sample["parts"]}
+        direction = App.Vector(-model["film_path"]["unclamped_reposition_mm"], 0, 0)
+        for face in feed_parts["film"].Faces:
+            if abs(face.normalAt(0, 0).dot(direction)) < 1e-7:
+                continue
+            prism = face.extrude(direction)
+            if prism.Volume < 0:
+                prism.reverse()
+            assert prism.isValid()
+            end_checks["reposition_sweep_interference_mm3"] = max(
+                end_checks["reposition_sweep_interference_mm3"],
+                max(overlap(prism, s) for n, s in feed_parts.items() if n != "film"),
+            )
+    result["open_film_path"] = end_checks
+    for side in (-1, 1):
+        shifted = assets[model["parts"]["base"]["asset"]].copy()
+        shifted.translate(App.Vector(side * (length / 2 - 18), 0, 0))
+        result["negative_controls"][f"retaining_ears_block_overtravel_{side}_mm3"] = (
+            overlap(shifted, closed["collar-base"])
+        )
+    old_bar = Part.makeBox(
+        2,
+        fmt["film_width"],
+        2.4,
+        App.Vector(x0 + length / 2 - 2, -fmt["film_width"] / 2, -1.1),
+    )
+    result["negative_controls"]["old_end_bar_blocks_continuous_film_mm3"] = overlap(
+        probe, old_bar
+    )
     if model["format"] == "110" and "135/collar-cap" in assets:
         beam = Part.makeBox(40, 28, 0.1, App.Vector(-20, -14, 2))
         wrong = beam.cut(assets["135/collar-cap"])
@@ -218,30 +297,41 @@ for model in manifest["models"]:
     for gate, z in [("collar-base", -2.1), ("collar-cap", 2.0)]:
         beam = Part.makeBox(40, 28, 0.1, App.Vector(-20, -14, z))
         transmitted = beam.cut(closed[gate])
-        for selected, origin in enumerate(fmt["centers"]):
-            areas = []
-            for center in fmt["centers"]:
-                ray = Part.makeBox(
-                    fmt["image_width"],
-                    fmt["image_height"],
-                    0.1,
-                    App.Vector(
-                        center - origin - fmt["image_width"] / 2,
-                        -fmt["image_height"] / 2,
-                        z,
-                    ),
+        feeds = [0]
+        if model["film_path"]["unclamped_reposition_mm"]:
+            feeds.append(-model["film_path"]["unclamped_reposition_mm"])
+        for feed in feeds:
+            # Include the tail images beyond the first/last indexed positions,
+            # including the new group after the demonstrated repositioning.
+            centers = [c + feed for c in model["film_path"]["image_centers_mm"]]
+            for selected, origin in enumerate(fmt["centers"]):
+                areas = []
+                target = next(
+                    i for i, c in enumerate(centers) if abs(c - origin) < 1e-7
                 )
-                areas.append(transmitted.common(ray).Volume / 0.1)
-            result["optical_samples"].append(
-                {
-                    "mask": gate,
-                    "frame": selected + 1,
-                    "selected_area_mm2": areas[selected],
-                    "neighbour_area_mm2": sum(
-                        a for j, a in enumerate(areas) if j != selected
-                    ),
-                }
-            )
+                for center in centers:
+                    ray = Part.makeBox(
+                        fmt["image_width"],
+                        fmt["image_height"],
+                        0.1,
+                        App.Vector(
+                            center - origin - fmt["image_width"] / 2,
+                            -fmt["image_height"] / 2,
+                            z,
+                        ),
+                    )
+                    areas.append(transmitted.common(ray).Volume / 0.1)
+                result["optical_samples"].append(
+                    {
+                        "mask": gate,
+                        "frame": selected + 1,
+                        "film_offset_mm": feed,
+                        "selected_area_mm2": areas[target],
+                        "neighbour_area_mm2": sum(
+                            a for j, a in enumerate(areas) if j != target
+                        ),
+                    }
+                )
     doc = App.newDocument("NegativeCarrierB")
     for name, shape in closed.items():
         obj = doc.addObject("PartDesign::Feature", name.replace("-", "_"))
@@ -261,6 +351,9 @@ for model in manifest["models"]:
     result["passed"] = (
         not result["failures"]
         and result["continuous_frame_travel"]["max_overlap_mm3"] < 1e-5
+        and all(
+            v < 1e-5 for k, v in result["open_film_path"].items() if k.endswith("mm3")
+        )
         and all(v > 1e-5 for v in result["negative_controls"].values())
         and all(
             abs(s["selected_area_mm2"] - aw * ah) < 1e-4

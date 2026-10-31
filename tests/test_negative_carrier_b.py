@@ -1,6 +1,9 @@
 """Requirements for full-length cartridges and safe operation ordering."""
 
+import json
 import unittest
+from math import sqrt
+from pathlib import Path
 
 try:
     from cad.negative_carrier_b.model import Config, closure_stations
@@ -58,6 +61,42 @@ class CartridgeRequirements(unittest.TestCase):
         self.assertAlmostEqual(p.fmt.centers[1] - p.fmt.centers[0], 19.1)
         self.assertGreater(p.length, 263)
 
+    def test_film_can_only_be_repositioned_with_clamp_and_collar_open(self):
+        for fmt in ("135", "half", "aps", "110"):
+            moves = []
+            for phase in sequences(Config(fmt)):
+                a, b = phase["start"], phase["end"]
+                if a["film_x"] != b["film_x"]:
+                    moves.append(phase)
+                    for s in (a, b):
+                        self.assertFalse(s["machine"])
+                        self.assertGreaterEqual(s["film_z"], 2)
+                        self.assertGreater(s["lid_z"], s["film_z"])
+                        self.assertGreater(s["clips_out"], 6)
+                        self.assertGreater(s["cap_z"], 40)
+                        self.assertLess(s["lower_z"], -20)
+            self.assertEqual(len(moves), 1)
+
+    def test_roll_length_does_not_change_printed_dimensions_or_indexing(self):
+        for fmt in ("135", "half", "aps", "110"):
+            short, long = (
+                Config(fmt, film_tail_frames=0),
+                Config(fmt, film_tail_frames=20),
+            )
+            self.assertEqual(short.length, long.length)
+            self.assertEqual(short.fmt.centers, long.fmt.centers)
+            self.assertGreater(long.film_length, long.length)
+            self.assertFalse(any(p["group"] == "reposition" for p in sequences(short)))
+
+    def test_a1_mini_holders_fit_flat_with_five_mm_brim(self):
+        path = (
+            Path(__file__).resolve().parents[1] / "cad/negative_carrier_b/a1-mini.json"
+        )
+        for fmt, overrides in json.loads(path.read_text()).items():
+            p = Config(fmt, **overrides)
+            footprint = min(p.length, (p.length + 62) / sqrt(2))
+            self.assertLess(footprint + 10, 180)
+
     def test_closure_recesses_preserve_every_index_pocket(self):
         choices = [Config(f) for f in ("135", "half", "aps", "110")]
         choices += [Config("135", frame_count=7), Config("half", frame_count=13)]
@@ -75,6 +114,9 @@ class CartridgeRequirements(unittest.TestCase):
             {"frame_count": 2.5},
             {"frame_pitch": 36},
             {"frame_pitch": float("nan")},
+            {"film_tail_frames": -1},
+            {"film_tail_frames": 1.5},
+            {"film_tail_frames": True},
         ):
             with self.subTest(kwargs=kwargs), self.assertRaises(ValueError):
                 Config(**kwargs)

@@ -17,6 +17,7 @@ class Config:
     frame_pitch: float | None = None
     frame_count: int | None = None
     image_width: float | None = None
+    film_tail_frames: int = 2  # demonstration film only; never changes printed parts
 
     def __post_init__(self):
         if self.format not in FORMATS or not 0 < self.film_thickness < 0.2:
@@ -30,9 +31,12 @@ class Config:
             or not 0.4 < self.fmt.image_width <= 36
             or self.fmt.demo_pitch < 15
             or self.fmt.demo_pitch - self.fmt.image_width < 1.0
+            or not isinstance(self.film_tail_frames, int)
+            or isinstance(self.film_tail_frames, bool)
+            or self.film_tail_frames < 0
         ):
             raise ValueError(
-                "Need two or more frames and at least 1 mm between nominal images"
+                "Need two or more frames, at least 1 mm between images, and nonnegative integer tail frames"
             )
 
     @property
@@ -55,7 +59,16 @@ class Config:
 
     @property
     def film_length(self):
-        return self.image_span + 4
+        return self.image_span + 4 + 2 * self.film_tail_frames * self.fmt.demo_pitch
+
+    @property
+    def film_centers(self):
+        return tuple(
+            self.fmt.centers[0] + i * self.fmt.demo_pitch
+            for i in range(
+                -self.film_tail_frames, self.fmt.frames + self.film_tail_frames
+            )
+        )
 
 
 def prism(points, z, height):
@@ -95,10 +108,55 @@ def holder_halves(p):
     for x in p.fmt.centers:
         base -= box(x, 27, -1.3, 4.4, 4.4, 3)
     lid -= box(0, 24, 0, p.length + 1, 0.8, 3)
-    # End stops keep a closed collar captive, with all image stations reachable.
+    # Retaining ears keep the closed collar captive outside the film path.
     for x in (-p.length / 2 + 1, p.length / 2 - 1):
         base += box(x, 0, -1.1, 2, 62, 2.4)
+        base -= box(x, 0, 0, 2.2, p.fmt.film_width + 0.8, 1.5)
         lid -= box(x, 0, 0, 2.4, 70, 3)
+    # Continue the image clearance through BOTH ends. A longer strip's image
+    # areas must not be squeezed between the former solid end lands. Only the
+    # film margins remain supported here; the interframe bars stay unchanged.
+    for side in (-1, 1):
+        inner = opening / 2
+        outer = p.length / 2 + 0.5
+        relief = box(
+            side * (inner + outer) / 2,
+            0,
+            -1.2,
+            outer - inner,
+            p.fmt.image_height + 0.8,
+            3,
+        )
+        base -= relief
+        lid -= relief
+        # Planar lead-outs on the margin ledges avoid a square edge at the exit.
+        # These are geometric chamfers; printed edge finish still needs checking.
+        edge = p.length / 2
+        points = [
+            (side * (edge - 1), 0),
+            (side * (edge + 0.1), -0.33),
+            (side * (edge + 0.1), 1.5),
+            (side * (edge - 1), 1.5),
+        ]
+        cut = bd.extrude(
+            bd.Plane.XZ * bd.Polygon(*points, align=None),
+            amount=p.fmt.film_width + 0.8,
+            dir=(0, 1, 0),
+        )
+        base -= bd.Pos(0, -(p.fmt.film_width + 0.8) / 2, 0) * cut
+        edge -= 2.2  # the lid is set back from the retaining ears
+        points = [
+            (side * (edge - 1), -0.1),
+            (side * (edge + 0.1), -0.1),
+            (side * (edge + 0.1), p.film_thickness + 0.33),
+            (side * (edge - 1), p.film_thickness),
+        ]
+        cut = bd.extrude(
+            bd.Plane.XZ * bd.Polygon(*points, align=None),
+            amount=p.fmt.film_width + 0.8,
+            dir=(0, 1, 0),
+        )
+        lid -= bd.Pos(0, -(p.fmt.film_width + 0.8) / 2, 0) * cut
     # Continuous underside channel provides two Y datums without obstructing
     # the closure clips or the film. It also prevents yaw during frame advance.
     base -= box(0, -19.5, -1.2, p.length + 1, 1.4, 0.55)

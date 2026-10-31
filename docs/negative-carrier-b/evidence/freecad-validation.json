@@ -1,5 +1,5 @@
 {
-  "manifest_sha256": "74a6de6aa25089168c5087f853878574e43a1a2d9e3d4244eb71549d88037ef4",
+  "manifest_sha256": "8ae48947a494b3097175904eee1a74bfcbd779b31548912f3a04a0b63094e545",
   "freecad_version": [
     "1",
     "1",
@@ -2008,6 +2008,732 @@
           "phase": 37,
           "t": 1.0,
           "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.06666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.13333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.26666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.3333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.4666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.5333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.6666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.7333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.8666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.9333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.1,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.3,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.7,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.9,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.1,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.3,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.7,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.9,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.06666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.13333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.26666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.3333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.4666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.5333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.6666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.7333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.8666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.9333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 1.0,
+          "max_overlap_mm3": 0
         }
       ],
       "failures": [],
@@ -2018,87 +2744,192 @@
         "dock_cams_block_forward_shift_mm3": 0.6503280521708786,
         "dock_cams_block_sideways_shift_mm3": 0.6503280521709912,
         "clip_catch_blocks_unreleased_pull_mm3": 0.09600000000000074,
-        "overthick_mask_hits_holder_mm3": 603.5542727272783,
-        "solid_slab_hits_enlarger_mm3": 1008.0
+        "overthick_mask_hits_holder_mm3": 534.1142727272783,
+        "solid_slab_hits_enlarger_mm3": 1008.0,
+        "retaining_ears_block_overtravel_-1_mm3": 5.64006321240841,
+        "retaining_ears_block_overtravel_1_mm3": 5.640063211979996,
+        "old_end_bar_blocks_continuous_film_mm3": 10.499999999999996
       },
       "optical_samples": [
         {
           "mask": "collar-base",
           "frame": 1,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 2,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 3,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 4,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 5,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 6,
+          "film_offset_mm": 0,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 1,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 2,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 3,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 4,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 5,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 6,
+          "film_offset_mm": -38,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 1,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 2,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 3,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 4,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 5,
+          "film_offset_mm": 0,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 6,
+          "film_offset_mm": 0,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 1,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 2,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 3,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 4,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 5,
+          "film_offset_mm": -38,
+          "selected_area_mm2": 840.1600000000008,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 6,
+          "film_offset_mm": -38,
           "selected_area_mm2": 840.1600000000008,
           "neighbour_area_mm2": 0.0
         }
       ],
       "continuous_frame_travel": {
         "distance_mm": 190.0,
-        "face_prisms": 150,
+        "face_prisms": 162,
         "max_overlap_mm3": 0.0
+      },
+      "open_film_path": {
+        "full_width_strip_interference_mm3": 0.0,
+        "image_area_contact_mm3": 0.0,
+        "reposition_sweep_interference_mm3": 0,
+        "image_probes": 20
       },
       "freecad_document_reopened": true,
       "passed": true
@@ -4541,6 +5372,708 @@
           "phase": 55,
           "t": 1.0,
           "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 56,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 56,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 56,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 56,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 56,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.06666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.13333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.26666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.3333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.4666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.5333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.6666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.7333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.8666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 0.9333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 57,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 58,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 59,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 59,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 59,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 59,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 59,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 60,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 60,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 60,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 60,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 60,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.1,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.3,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.7,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 0.9,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 61,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 62,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 62,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 62,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 62,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 62,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 63,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 63,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 63,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 63,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 63,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 64,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 64,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 64,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 64,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 64,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.1,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.3,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.7,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 0.9,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 65,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 66,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 66,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 66,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 66,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 66,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 67,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 67,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 67,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 67,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 67,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 68,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.06666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.13333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.26666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.3333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.4666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.5333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.6666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.7333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.8666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 0.9333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 69,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 70,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 70,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 70,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 70,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 70,
+          "t": 1.0,
+          "max_overlap_mm3": 0
         }
       ],
       "failures": [],
@@ -4551,159 +6084,360 @@
         "dock_cams_block_forward_shift_mm3": 0.6503280521708786,
         "dock_cams_block_sideways_shift_mm3": 0.6503280521709912,
         "clip_catch_blocks_unreleased_pull_mm3": 0.09600000000000074,
-        "overthick_mask_hits_holder_mm3": 702.7542727272782,
-        "solid_slab_hits_enlarger_mm3": 1008.0
+        "overthick_mask_hits_holder_mm3": 521.7142727272778,
+        "solid_slab_hits_enlarger_mm3": 1008.0,
+        "retaining_ears_block_overtravel_-1_mm3": 5.640063212410456,
+        "retaining_ears_block_overtravel_1_mm3": 5.640063211979996,
+        "old_end_bar_blocks_continuous_film_mm3": 10.499999999999996
       },
       "optical_samples": [
         {
           "mask": "collar-base",
           "frame": 1,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 2,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 3,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 4,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 5,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 6,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 7,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 8,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 9,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 10,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 11,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 12,
+          "film_offset_mm": 0,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 1,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 2,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 3,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 4,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 5,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 6,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 7,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 8,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 9,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 10,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 11,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 12,
+          "film_offset_mm": -19,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 1,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 2,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 3,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 4,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 5,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 6,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 7,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 8,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 9,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 10,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 11,
+          "film_offset_mm": 0,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 12,
+          "film_offset_mm": 0,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 1,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 2,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 3,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 4,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 5,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 6,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 7,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 8,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 9,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 10,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 11,
+          "film_offset_mm": -19,
+          "selected_area_mm2": 415.36000000000035,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 12,
+          "film_offset_mm": -19,
           "selected_area_mm2": 415.36000000000035,
           "neighbour_area_mm2": 0.0
         }
       ],
       "continuous_frame_travel": {
         "distance_mm": 209.0,
-        "face_prisms": 210,
+        "face_prisms": 222,
         "max_overlap_mm3": 0.0
+      },
+      "open_film_path": {
+        "full_width_strip_interference_mm3": 0.0,
+        "image_area_contact_mm3": 0.0,
+        "reposition_sweep_interference_mm3": 0,
+        "image_probes": 32
       },
       "freecad_document_reopened": true,
       "passed": true
@@ -6636,6 +8370,726 @@
           "phase": 37,
           "t": 1.0,
           "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.06666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.13333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.26666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.3333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.4666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.5333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.6666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.7333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.8666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.9333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.1,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.3,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.7,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.9,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.14285714285714285,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.2857142857142857,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.42857142857142855,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.5714285714285714,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.7142857142857143,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.8571428571428571,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.1,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.3,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.7,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.9,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.06666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.13333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.26666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.3333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.4666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.5333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.6666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.7333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.8666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.9333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 1.0,
+          "max_overlap_mm3": 0
         }
       ],
       "failures": [],
@@ -6646,87 +9100,192 @@
         "dock_cams_block_forward_shift_mm3": 0.6503280521708786,
         "dock_cams_block_sideways_shift_mm3": 0.6503280521709912,
         "clip_catch_blocks_unreleased_pull_mm3": 0.09600000000000074,
-        "overthick_mask_hits_holder_mm3": 776.0992727272783,
-        "solid_slab_hits_enlarger_mm3": 1008.0
+        "overthick_mask_hits_holder_mm3": 701.7242727272783,
+        "solid_slab_hits_enlarger_mm3": 1008.0,
+        "retaining_ears_block_overtravel_-1_mm3": 5.64006321240841,
+        "retaining_ears_block_overtravel_1_mm3": 5.640063211979996,
+        "old_end_bar_blocks_continuous_film_mm3": 7.1999999999999975
       },
       "optical_samples": [
         {
           "mask": "collar-base",
           "frame": 1,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.7400000000005,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 2,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.7400000000005,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 3,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.7400000000005,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 4,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.7400000000005,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 5,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.7400000000005,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 6,
+          "film_offset_mm": 0,
+          "selected_area_mm2": 485.7400000000005,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 1,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.7400000000005,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 2,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.7400000000005,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 3,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.7400000000005,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 4,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.7400000000005,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 5,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.7400000000005,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 6,
+          "film_offset_mm": -32,
           "selected_area_mm2": 485.7400000000005,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 1,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.74000000000046,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 2,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.74000000000046,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 3,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.74000000000046,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 4,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.74000000000046,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 5,
+          "film_offset_mm": 0,
           "selected_area_mm2": 485.74000000000046,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 6,
+          "film_offset_mm": 0,
+          "selected_area_mm2": 485.74000000000046,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 1,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.74000000000046,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 2,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.74000000000046,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 3,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.74000000000046,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 4,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.74000000000046,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 5,
+          "film_offset_mm": -32,
+          "selected_area_mm2": 485.74000000000046,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 6,
+          "film_offset_mm": -32,
           "selected_area_mm2": 485.74000000000046,
           "neighbour_area_mm2": 0.0
         }
       ],
       "continuous_frame_travel": {
         "distance_mm": 160.0,
-        "face_prisms": 150,
+        "face_prisms": 162,
         "max_overlap_mm3": 0.0
+      },
+      "open_film_path": {
+        "full_width_strip_interference_mm3": 0.0,
+        "image_area_contact_mm3": 0.0,
+        "reposition_sweep_interference_mm3": 0,
+        "image_probes": 20
       },
       "freecad_document_reopened": true,
       "passed": true
@@ -8497,6 +11056,708 @@
           "phase": 37,
           "t": 1.0,
           "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 38,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.06666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.13333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.26666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.3333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.4666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.5333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.6666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.7333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.8666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 0.9333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 39,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 40,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 41,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 42,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.1,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.3,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.7,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 0.9,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 43,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 44,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 45,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 46,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.1,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.3,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.7,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 0.9,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 47,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 48,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 49,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.125,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.375,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.625,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 0.875,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 50,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.06666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.13333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.2,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.26666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.3333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.4,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.4666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.5333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.6,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.6666666666666666,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.7333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.8,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.8666666666666667,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 0.9333333333333333,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 51,
+          "t": 1.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 0.75,
+          "max_overlap_mm3": 0
+        },
+        {
+          "group": "reposition",
+          "phase": 52,
+          "t": 1.0,
+          "max_overlap_mm3": 0
         }
       ],
       "failures": [],
@@ -8507,93 +11768,198 @@
         "dock_cams_block_forward_shift_mm3": 0.6503280521708786,
         "dock_cams_block_sideways_shift_mm3": 0.6503280521709912,
         "clip_catch_blocks_unreleased_pull_mm3": 0.09600000000000074,
-        "overthick_mask_hits_holder_mm3": 900.4042727272782,
+        "overthick_mask_hits_holder_mm3": 796.2142727272778,
         "solid_slab_hits_enlarger_mm3": 1008.0,
+        "retaining_ears_block_overtravel_-1_mm3": 5.64006321240841,
+        "retaining_ears_block_overtravel_1_mm3": 5.640063211979996,
+        "old_end_bar_blocks_continuous_film_mm3": 4.799999999999999,
         "wrong_35mm_mask_leaks_110_neighbours_mm2": 163.80000000000013
       },
       "optical_samples": [
         {
           "mask": "collar-base",
           "frame": 1,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.1600000000002,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 2,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.1600000000002,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 3,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.1600000000002,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 4,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.1600000000002,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 5,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.1600000000002,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-base",
           "frame": 6,
+          "film_offset_mm": 0,
+          "selected_area_mm2": 209.1600000000002,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 1,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.1600000000002,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 2,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.1600000000002,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 3,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.1600000000002,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 4,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.1600000000002,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 5,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.1600000000002,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-base",
+          "frame": 6,
+          "film_offset_mm": -20,
           "selected_area_mm2": 209.1600000000002,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 1,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.16000000000017,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 2,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.16000000000017,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 3,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.16000000000017,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 4,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.16000000000017,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 5,
+          "film_offset_mm": 0,
           "selected_area_mm2": 209.16000000000017,
           "neighbour_area_mm2": 0.0
         },
         {
           "mask": "collar-cap",
           "frame": 6,
+          "film_offset_mm": 0,
+          "selected_area_mm2": 209.16000000000017,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 1,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.16000000000017,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 2,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.16000000000017,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 3,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.16000000000017,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 4,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.16000000000017,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 5,
+          "film_offset_mm": -20,
+          "selected_area_mm2": 209.16000000000017,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "mask": "collar-cap",
+          "frame": 6,
+          "film_offset_mm": -20,
           "selected_area_mm2": 209.16000000000017,
           "neighbour_area_mm2": 0.0
         }
       ],
       "continuous_frame_travel": {
         "distance_mm": 100.0,
-        "face_prisms": 150,
+        "face_prisms": 162,
         "max_overlap_mm3": 0.0
+      },
+      "open_film_path": {
+        "full_width_strip_interference_mm3": 0.0,
+        "image_area_contact_mm3": 0.0,
+        "reposition_sweep_interference_mm3": 0,
+        "image_probes": 20
       },
       "freecad_document_reopened": true,
       "passed": true
     }
   ],
   "passed": true,
-  "unique_pair_queries": 46177
+  "unique_pair_queries": 47936
 }

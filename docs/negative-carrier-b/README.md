@@ -1,6 +1,6 @@
 # B1: captive-mask strip cartridges
 
-B1 develops the selected [concept B](../negative-carrier-concepts/README.md) into native build123d parts, a fixed receiver, printed locks and springs, and a FreeCAD-checked operating sequence. The base and lid are **each one piece**. There are no section joints; assume a roughly **300 × 300 mm printer bed** for the default set.
+B1 develops the selected [concept B](../negative-carrier-concepts/README.md) into native build123d parts, a fixed receiver, printed locks and springs, and a FreeCAD-checked operating sequence. The base and lid are **each one piece, with film passages at both ends**. There are no section joints; assume a roughly **300 × 300 mm printer bed** for the default set. A separate compact configuration fits an A1 mini bed.
 
 This is a complete geometric prototype for evaluation, not a measured replacement for the C35. The slot dimensions remain estimates, and APS/110 frame spacing remains illustrative. Actual film grip, spring return, registration error, print tolerances, light leaks and thermal behavior have not been measured. The videos prescribe motion and elastic shapes; they do not solve hand forces or material mechanics.
 
@@ -10,14 +10,23 @@ This is a complete geometric prototype for evaluation, not a measured replacemen
 - [Install the receiver, then insert and locate a cartridge](videos/135-dock.mp4).
 - [Advance through six 35 mm frames, then return to frame 1](videos/135-advance.mp4).
 - [Advance a 110 strip through its smaller stationary mask](videos/110-advance.mp4).
+- [Release and reposition a longer strip at the workbench](videos/135-reposition.mp4).
 
-The movies use the exported native solids and the same paths as the verifier. Brown numbered rectangles represent the image areas. The enlarger is shown as a translucent cutaway; the close-up makes the index cover transparent. These display treatments do not remove geometry from the collision tests.
+The movies use the exported native solids and the same paths as the verifier. Brown numbered rectangles represent the initially indexed image areas; unnumbered rectangles on the tails are additional images. Two extra images at each end illustrate a longer strip, not an entire coiled roll. The enlarger is shown as a translucent cutaway; the close-up makes the index cover transparent. These display treatments do not remove geometry from the collision tests.
 
 ## What holds what
 
 The lower frame and lift-off lid capture the film along its margins and across the nominal gaps between images. Six C clips hold the two frames together. Their relaxed printed jaw gap is 1.0 mm; the seated gap is 1.1 mm. That prescribed 0.1 mm jaw spreading supplies the intended clamping preload rather than relying on exact zero-force contact. Each clip also has a long underside tongue with a catch that enters a recess in the base. The tongue is flexed for assembly; it is not a short, rigid interference peg. Film is aligned visually with the frame lands during daylight loading. There are no sprocket-registration pins, and the model does not prove frictional film retention.
 
-The format collar surrounds the closed holder. Its lower mask, upper mask, guide pads and index latch remain stationary during printing. Four printed quarter-turn keys retain its cap. End stops on the holder prevent the closed collar sliding off either end; the first and last image remain accessible. To load a fresh strip, open the collar and separate it from the holder before removing the clips and lid. That extra daylight assembly is a deliberate B1 simplicity tradeoff.
+The format collar surrounds the closed holder. Its lower mask, upper mask, guide pads and index latch remain stationary during printing. Four printed quarter-turn keys retain its cap. Retaining ears outside the film path prevent the closed collar sliding off either end; the first and last image remain accessible. To load a fresh strip, open the collar and separate it from the holder before removing the clips and lid. That extra daylight assembly is a deliberate B1 simplicity tradeoff.
+
+### Longer strips and uncut developed rolls
+
+Both ends have a film-width passage with 0.4 mm lateral allowance on each side. The former solid end lands are also opened across the image width: the extra images on a longer strip are not clamped against a solid crossbar. The margin supports continue to the exits, with 1 mm long, 0.3 mm deep planar lead-outs. The original margin clamps, interframe lands, six closure clips, guide groove and index rail remain. The closed ends were collar-retention features, not film-length registration stops.
+
+A longer strip can therefore extend from both ends while a selected group of images is clamped. That permits an **uncut developed roll in principle**, with its unused lengths supported outside the holder. The design does not include spool holders, take-up reels or a continuous-feed mechanism. The checks model straight, flat film; they do not establish safe bend radii, curl handling, resistance to tail drag or scratch-free use. Keep the unused film supported independently so its weight does not pull on the clamped section.
+
+To reach another group, withdraw the cartridge and take it to the workbench. Open the collar, release the six clips and lift the lid. Lift the film off the clamping lands, reposition it and align its image gaps, then close and redock the cartridge. The verified sequence shifts **one pitch** to demonstrate bringing an external image into the indexed group. Larger shifts use the same open-clamp loading procedure but are not a modeled roll-feed cycle. Never pull film through the closed clamp. Within a clamped group, the existing indexing provides the intended repeatable position; after releasing the film, the previous photographic registration is **not** preserved automatically.
 
 The receiver remains in the enlarger. The cartridge slides into it from the front, with the two docking pins raised. Lower and turn those pins after seating. Their eccentric shoulders locate the collar against a rear stop and two left-side pads; their crossbars retain it vertically. The left and right dock pins are different, and the right pin starts 90 degrees around from the left. Cam seating is modeled at nominal contact. Real tightening torque, preload, resistance to accidental turning and wear remain prototype tests.
 
@@ -38,7 +47,18 @@ All dimensions are millimetres. The mask opening crops each nominal image by 0.2
 
 The maximum holder width, including its end stops, is 62 mm. Its moving vertical envelope is 2.4 mm, from Z = −1.1 to +1.3. The base and lid are each 1.1 mm nominal, with local lands around a default 0.15 mm film. Half-frame image size is camera-dependent: for example, Pentax 17 uses 17 × 24 rather than the generic 18 × 24 template. Check the strip's actual image width and spacing before printing its holder. The default interframe support is 0.6 mm wide for half frame and 1.6 mm for full-frame 35 mm.
 
-`Config` accepts `film_thickness`, `frame_pitch`, `frame_count` and `image_width` overrides. For example:
+The compact [`a1-mini.json`](../../cad/negative_carrier_b/a1-mini.json) configuration retains the same receiver, collar and clamping scheme:
+
+| Cartridge | Indexed positions | Holder length | Conservative square footprint at 45°, including 5 mm brim |
+| --- | ---: | ---: | ---: |
+| 35 mm full frame | 4 | 168 | 172.7 |
+| 35 mm half frame | 7 | 168 | 172.7 |
+| APS | 4 | 150 | 160.0 |
+| 110 | 7 | 174 | 176.9 |
+
+These fit within the nominal 180 × 180 mm bed geometrically. The [bed check](evidence/a1-mini-bed-fit.json) checks every printable mesh's measured XY extents, with 5 mm brim allowance, and records the required 0° or 45° rotation. Base and lid are separate prints; this is not a packed or sliced print project. A longer film tail does not add indexed positions. The A1 mini configuration is exported and checked independently with the same extended film and operating sequences.
+
+`Config` accepts `film_thickness`, `frame_pitch`, `frame_count` and `image_width` overrides. `film_tail_frames` controls only the demonstration film length (default 2 extra images at each end; 0 restores a short strip); it never changes the printable holder or index spacing. For example:
 
 ```json
 {
@@ -69,10 +89,11 @@ Run `scripts/check_negative_carrier_b.py` to regenerate all evidence. It checks:
 - All material pairs at sampled poses for film placement, lid and clip closure, collar closure, receiver installation, cartridge docking, every frame position, return to the first frame, and cartridge removal. Long translations are sampled at intervals no greater than 5 mm; short operations have at least five poses.
 - The **continuous full frame-advance stroke** with the latch released, using extrusions of the planar moving solids' faces against the fixed parts. This supplements the sampled checks; it does not turn rotations or flexure deformations into continuous mechanical simulations.
 - Both actual mask plates at every image position, including adjacent-frame rejection. A deliberately wrong 35 mm mask must leak into neighboring 110 frames.
+- A full-width film probe through both exits; image-area contact probes for every modeled image before and after repositioning; and a continuous sweep of the lifted film during the one-pitch workbench repositioning. Both retaining ears must stop deliberate overtravel. Reintroducing the old solid end bar must block the film probe.
 - Deliberately wrong motions: an unreleased index, a sideways holder shift, a locked cap lift, a locked docking shift and an unreleased clip pull. Each must produce a positive interference volume. An overthick cap and a solid slab in the enlarger must also fail.
 - Saving and reopening one FCStd assembly per format.
 
-The authoritative local results are in [`evidence/freecad-validation.json`](evidence/freecad-validation.json), with dimensions and source/asset hashes in [`evidence/build-summary.json`](evidence/build-summary.json). Full sampled transforms and all native outputs are regenerated under `build/negative-carrier-b/` and uploaded by the PR's CAD workflow. Video metadata and input hashes are recorded in `videos/render-validation.json`.
+The authoritative local results are in [`evidence/freecad-validation.json`](evidence/freecad-validation.json), with dimensions and source/asset hashes in [`evidence/build-summary.json`](evidence/build-summary.json). The compact set has separate [`a1-mini-freecad-validation.json`](evidence/a1-mini-freecad-validation.json) and [`a1-mini-build-summary.json`](evidence/a1-mini-build-summary.json) evidence. Full sampled transforms and all native outputs are regenerated under `build/negative-carrier-b/` and `build/negative-carrier-b-a1-mini/` and uploaded by the PR's CAD workflow. Video metadata and input hashes are recorded in `videos/render-validation.json`.
 
 A programmed return to the same coordinates is not a measurement of photographic repeatability. No slicing, force solution, fatigue test, thermal test or physical fit test is claimed. Layer orientation, small key strength, spring stiffness, clip access and permanent film marking need a sacrificial prototype. The tiny snap features may need a finer nozzle or dimensional adjustment; a watertight mesh alone does not prove reliable printing.
 
@@ -88,6 +109,8 @@ For the first physical test, print one cartridge and the receiver rather than a 
 python -m pip install -r cad/requirements.txt
 python -m unittest discover -s tests -p 'test_negative_carrier*.py'
 FREECAD_CMD=/path/to/freecadcmd python scripts/check_negative_carrier_b.py
+# Compact monolithic holders with film exits at both ends:
+python scripts/check_negative_carrier_b.py --config cad/negative_carrier_b/a1-mini.json --output build/negative-carrier-b-a1-mini --bed-size 180
 # Optional: --formats half --config measured-strips.json
 python -m pip install -r cad/requirements-concept-render.txt
 python scripts/render_negative_carrier_b.py  # requires ffmpeg and an OpenGL renderer
