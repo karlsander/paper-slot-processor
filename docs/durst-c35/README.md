@@ -126,6 +126,24 @@ Optional static previews use Matplotlib (`uv pip install --python
 .venv-cad/bin/python -m cad.durst_c35.render build/durst-c35-native
 ```
 
+Watch the [12-second assembly rotation](rotation.mp4) and
+[16-second hinge opening and closing](hinge.mp4). To reproduce both:
+
+```sh
+uv pip install --python .venv-cad/bin/python -r cad/requirements-video.txt
+# Install ffmpeg separately so ffmpeg and ffprobe are on PATH.
+.venv-cad/bin/python scripts/render_durst_videos.py build/durst-c35-native
+```
+
+The two 1280 × 720 MP4s are written to `build/durst-c35-native/videos/`.
+The hinge opens from 0° to 180°, pauses and closes, with a fixed camera. These
+videos render tessellated copies of the verified STEP solids in VTK; they are
+not FreeCAD GUI recordings. Every displayed hinge angle is one of the integer
+positions checked by FreeCAD. The renderer checks the input hashes, decoded video
+frame count and visible geometry changes, then writes `video-report.json` with
+source hashes and frame angles. Separate colours distinguish A and B. This is
+prescribed rigid motion, without elastic hinge actuation or enlarger contact.
+
 ## Verification and evidence boundaries
 
 Local checks passed on 2026-10-31:
