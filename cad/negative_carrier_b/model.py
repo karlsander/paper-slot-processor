@@ -131,10 +131,14 @@ def closure_stations(p):
     return (-p.length / 2 + 8, middle, p.length / 2 - 8)
 
 
-def closure_clip(x, side, release=0):
+def closure_clip(x, side, release=0, jaw_free=0):
     """C clip with a positive underside catch; prescribed lip deflection in mm."""
-    clip = box(x, side * 24.3, -1.1, 10, 4.6, 2.4)
-    clip -= box(x, side * 22.2, -0.45, 11, 4.4, 1.1)
+    # The printed free jaw is 0.1 mm narrower than the imposed seated gap.
+    # Spreading it during assembly supplies the intended film-clamping preload.
+    # Forces and creep are not solved by this geometric representation.
+    squeeze = 0.1 * jaw_free
+    clip = box(x, side * 24.3, -1.1, 10, 4.6, 2.4 - squeeze)
+    clip -= box(x, side * 22.2, -0.45, 11, 4.4, 1.1 - squeeze)
     # A lengthwise spring tongue (7.8 mm), isolated from the short C-channel lip.
     clip -= box(x + 0.5, side * 22.8, -1.2, 8, 1.9, 0.76)
     points = []

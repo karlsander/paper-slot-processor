@@ -81,5 +81,11 @@
       "duration": 28,
       "error": null
     }
-  ]
+  ],
+  "verified_video_sha256": {
+    "135-load.mp4": "1f6f70695c4cb243acee59e9cdb8bb42508e379e9389cf34c5aea98f1f617a15",
+    "135-dock.mp4": "e3e1f45aecbfd2321ec289729acd6273b0fa8ad0f6c7dcb2c2913a306f07d116",
+    "135-advance.mp4": "ab532de8cc3b3ecb6f10baf290c0a1e5324c10619828d00919ce09d2a8e85e68",
+    "110-advance.mp4": "53f9535bafdde7094ec04792885e7672753a91f82661c34078aa8a7a4d046d10"
+  }
 }

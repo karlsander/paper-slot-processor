@@ -120,6 +120,14 @@ def export(out, formats, overrides=None):
                 print_shape = index_latch(free_pad=1)
             if name == "collar-cap":
                 print_shape = collar(p, roof_free=1)["collar-cap"]
+            if name.startswith("closure-"):
+                x, side = next(
+                    (x, side)
+                    for x in closure_stations(p)
+                    for side in (-1, 1)
+                    if name == f"closure-{x:g}-{side}"
+                )
+                print_shape = closure_clip(x, side, jaw_free=1)
             model["parts"][name] = {
                 "asset": save(key, shape, name != "film", print_shape),
                 "role": role(name),

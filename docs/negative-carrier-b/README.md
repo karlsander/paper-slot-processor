@@ -15,7 +15,7 @@ The movies use the exported native solids and the same paths as the verifier. Br
 
 ## What holds what
 
-The lower frame and lift-off lid capture the film along its margins and across the nominal gaps between images. Six C clips hold the two frames together. Each clip has a long underside tongue with a catch that enters a recess in the base. The tongue is flexed for assembly; it is not a short, rigid interference peg. Film is aligned visually with the frame lands during daylight loading. There are no sprocket-registration pins, and the model does not prove frictional film retention.
+The lower frame and lift-off lid capture the film along its margins and across the nominal gaps between images. Six C clips hold the two frames together. Their relaxed printed jaw gap is 1.0 mm; the seated gap is 1.1 mm. That prescribed 0.1 mm jaw spreading supplies the intended clamping preload rather than relying on exact zero-force contact. Each clip also has a long underside tongue with a catch that enters a recess in the base. The tongue is flexed for assembly; it is not a short, rigid interference peg. Film is aligned visually with the frame lands during daylight loading. There are no sprocket-registration pins, and the model does not prove frictional film retention.
 
 The format collar surrounds the closed holder. Its lower mask, upper mask, guide pads and index latch remain stationary during printing. Four printed quarter-turn keys retain its cap. End stops on the holder prevent the closed collar sliding off either end; the first and last image remain accessible. To load a fresh strip, open the collar and separate it from the holder before removing the clips and lid. That extra daylight assembly is a deliberate B1 simplicity tradeoff.
 
@@ -23,7 +23,7 @@ The receiver remains in the enlarger. The cartridge slides into it from the fron
 
 Two hard pads run in a continuous channel under the holder. A printed guide leaf takes up the other wall of this channel, setting the transverse position and resisting yaw. Three lower supports define the vertical plane; two roof tongues press the lid onto them and keep the guide channel engaged. The index tooth enters a pocket for each image. Its hard face locates X, and a small opposing leaf biases the pocket against that face. Pull the paddle back, slide the holder, then release it at the next pocket. The latch's anchor eyes are captured between the collar's posts and cap; it is a separate replaceable print.
 
-The relaxed print geometry includes 0.2 mm nominal take-up on the guide leaf, roof tongues and small index leaf. The assembly STEP files show those leaves in their nominal seated shape; separate `print-native` STEP files and the STL exports contain the relaxed shapes. The four-millimetre release displacement of the main index flexure and the clip-tongue deflection are imposed geometry, **not FEA results**.
+The relaxed print geometry includes the clip-jaw preload and 0.2 mm nominal take-up on the guide leaf, roof tongues and small index leaf. The assembly STEP files show these parts in their nominal seated shape; separate `print-native` STEP files and the STL exports contain the relaxed shapes. The four-millimetre release displacement of the main index flexure, the clip-jaw spreading and the clip-tongue deflection are imposed geometry, **not FEA results**.
 
 ## Formats and provisional dimensions
 
