@@ -1,0 +1,163 @@
+<div id="negative-carrier-explorer">
+  <div class="viz-controls">
+    <label class="form-label">Concept
+      <select class="form-select" data-concept>
+        <option value="collar">B · Captive mask collar</option>
+        <option value="drawer">A · Separate mask drawer</option>
+        <option value="cassette">C · Enclosed cassette</option>
+      </select>
+    </label>
+    <label class="form-label">Film format
+      <select class="form-select" data-format>
+        <option value="135">35 mm · 6 frames</option>
+        <option value="half">Half frame · 12 frames</option>
+        <option value="aps">APS · 6 frames</option>
+        <option value="110" selected>110 · 6 frames</option>
+      </select>
+    </label>
+  </div>
+  <div class="viz-row">
+    <button type="button" class="btn" data-prev>Previous frame</button>
+    <span class="tabular-nums" data-counter aria-live="polite">Frame 3 of 6</span>
+    <button type="button" class="btn" data-next>Next frame</button>
+  </div>
+  <svg data-detail role="img" aria-label="Plan view of a moving film holder passing through a stationary mask"></svg>
+  <div class="viz-row">
+    <label class="form-check"><input class="form-check-input" type="checkbox" data-wide><span class="form-check-label">Compare with a 35 mm opening</span></label>
+    <span class="text-small" data-result aria-live="polite"></span>
+  </div>
+  <svg data-overview role="img" aria-label="Whole holder and receiver, showing frame travel and concept packaging"></svg>
+  <p class="text-small" data-detail-text></p>
+  <p class="text-small">Concept geometry · APS/110 spacing illustrative · springs, film grip and C35 fit unverified</p>
+</div>
+<style>
+  #negative-carrier-explorer [data-detail], #negative-carrier-explorer [data-overview] { display:block; width:100%; overflow:hidden; }
+  #negative-carrier-explorer svg text { fill:var(--foreground); font-size:var(--font-size-base); font-weight:400; }
+  #negative-carrier-explorer .nc-structure { stroke:var(--border); stroke-width:1.2; fill:none; }
+  #negative-carrier-explorer .nc-film { fill:var(--viz-series-2); fill-opacity:.22; stroke:var(--viz-series-2); stroke-width:1; }
+  #negative-carrier-explorer .nc-image { fill:var(--viz-series-2); fill-opacity:.36; }
+  #negative-carrier-explorer .nc-active { fill:var(--viz-series-1); fill-opacity:.5; }
+  #negative-carrier-explorer .nc-holder { fill:var(--viz-series-1); fill-opacity:.12; stroke:var(--viz-series-1); stroke-width:1; }
+  #negative-carrier-explorer .nc-mask { fill:var(--background); stroke:var(--foreground); stroke-width:1.4; }
+  #negative-carrier-explorer .nc-beam { fill:none; stroke:var(--viz-series-3); stroke-width:1.2; stroke-dasharray:4 4; }
+  #negative-carrier-explorer .nc-dot { fill:var(--foreground); }
+</style>
+<script>
+(() => {
+  const root = document.getElementById('negative-carrier-explorer');
+  const fmt = root.querySelector('[data-format]');
+  const concept = root.querySelector('[data-concept]');
+  const wide = root.querySelector('[data-wide]');
+  const detail = root.querySelector('[data-detail]');
+  const overview = root.querySelector('[data-overview]');
+  const formats = {
+    '135': {film:35, iw:36, ih:24, pitch:38, count:6},
+    half: {film:35, iw:18, ih:24, pitch:19, count:12},
+    aps: {film:24, iw:30.2, ih:16.7, pitch:32, count:6},
+    '110': {film:16, iw:17, ih:13, pitch:20, count:6}
+  };
+  let frame = 2, animation = 0, shown = frame;
+  const ns = 'http://www.w3.org/2000/svg';
+  function node(tag, attrs, parent, text) {
+    const el = document.createElementNS(ns, tag);
+    Object.entries(attrs).forEach(([k,v]) => el.setAttribute(k, v));
+    if (text !== undefined) el.textContent = text;
+    parent.appendChild(el); return el;
+  }
+  const rect = (svg,x,y,w,h,cls) => node('rect',{x,y,width:w,height:h,class:cls},svg);
+  const label = (svg,x,y,text,anchor='start') => node('text',{x,y,'text-anchor':anchor},svg,text);
+  function draw() {
+    const f = formats[fmt.value], width = Math.max(280, root.getBoundingClientRect().width);
+    const scale = Math.min(5.0, (width-24)/90), cx=width/2, cy=190;
+    detail.setAttribute('viewBox',`0 0 ${width} 390`);
+    detail.replaceChildren();
+    node('title',{},detail,'A stationary aperture masks adjacent frames while the entire clamped strip moves');
+    label(detail,12,28,'At the light gate · plan view');
+    const aw=wide.checked?36:f.iw-0.4, ah=wide.checked?24:f.ih-0.4;
+    const len=f.count*f.pitch+16, x0=cx-(shown*f.pitch+f.pitch/2+8)*scale;
+    const strip=rect(detail,x0,cy-26*scale,len*scale,52*scale,'nc-holder');
+    strip.setAttribute('data-moving-strip','true');
+    rect(detail,x0+8*scale,cy-f.film*scale/2,(len-16)*scale,f.film*scale,'nc-film');
+    for(let i=0;i<f.count;i++) {
+      const x=cx+(i-shown)*f.pitch*scale;
+      rect(detail,x-f.iw*scale/2,cy-f.ih*scale/2,f.iw*scale,f.ih*scale,i===frame?'nc-active':'nc-image');
+    }
+    // Opaque annulus: physical mask stays fixed while the strip behind it moves.
+    const left=cx-35*scale, right=cx+35*scale, top=cy-28*scale, bottom=cy+28*scale;
+    node('path',{d:`M ${left} ${top} H ${right} V ${bottom} H ${left} Z M ${cx-aw*scale/2} ${cy-ah*scale/2} V ${cy+ah*scale/2} H ${cx+aw*scale/2} V ${cy-ah*scale/2} Z`,'fill-rule':'evenodd',class:'nc-mask'},detail);
+    rect(detail,cx-20*scale,cy-14*scale,40*scale,28*scale,'nc-beam');
+    label(detail,cx,cy-28*scale+22,wide.checked?'35 mm opening':`${aw.toFixed(1)} × ${ah.toFixed(1)} mm mask`,'middle');
+    label(detail,cx,cy+28*scale-12,'Stationary mask','middle');
+    // Tactile positions are outside the film and outside the optical opening.
+    for(let i=0;i<f.count;i++) {
+      const x=cx+(i-shown)*f.pitch*scale;
+      if(x>10 && x<width-10) node('circle',{cx:x,cy:cy+31*scale,r:2.5,class:'nc-dot'},detail);
+    }
+    label(detail,12,365,'Blue: selected image');
+    label(detail,12,386,'Dashed: estimated light footprint');
+    let leakage=0;
+    for(let i=0;i<f.count;i++) if(i!==frame) {
+      const pos=(i-frame)*f.pitch;
+      leakage+=Math.max(0,Math.min(pos+f.iw/2,aw/2)-Math.max(pos-f.iw/2,-aw/2))*Math.min(f.ih,ah);
+    }
+    root.querySelector('[data-result]').textContent=leakage>0?`Adjacent images visible (${leakage.toFixed(1)} mm²)`:'Only the selected image is visible';
+    root.querySelector('[data-counter]').textContent=`Frame ${frame+1} of ${f.count}`;
+    root.querySelector('[data-prev]').disabled=frame===0;
+    root.querySelector('[data-next]').disabled=frame===f.count-1;
+    overview.setAttribute('viewBox',`0 0 ${width} 210`);
+    overview.replaceChildren();
+    const travel=(f.count-1)*f.pitch, caselen=len+travel+16;
+    const extent=concept.value==='cassette'?caselen:len+travel;
+    const s=(width-30)/extent, c=width/2, y=120;
+    label(overview,12,28,concept.value==='cassette'?'Whole cassette · fixed case':'Whole holder · full travel');
+    if(concept.value==='cassette') {
+      rect(overview,c-caselen*s/2,y-30,caselen*s,60,'nc-holder');
+      node('circle',{cx:c,cy:y+44,r:9,class:'nc-structure'},overview);
+    }
+    const sx=c-len*s/2+((f.count-1)/2-shown)*f.pitch*s;
+    rect(overview,sx,y-17,len*s,34,'nc-holder');
+    for(let i=0;i<f.count;i++) {
+      const x=sx+8*s+(i+0.5)*f.pitch*s;
+      rect(overview,x-f.iw*s/2,y-10,f.iw*s,20,i===frame?'nc-active':'nc-image');
+    }
+    rect(overview,c-35*s,y-24,70*s,48,'nc-structure');
+    node('path',{d:`M ${c} 68 V 92`,class:'nc-structure'},overview);
+    label(overview,c,65,'Receiver','middle');
+    if(concept.value==='drawer') rect(overview,c-8,y+24,16,16,'nc-holder');
+    label(overview,12,193,concept.value==='cassette'?`${caselen.toFixed(0)} mm case length`:`${len.toFixed(0)} mm holder · ${travel.toFixed(0)} mm travel`);
+    const details={
+      collar:'B · The collar docks; the holder slides. Remove both together to change format.',
+      drawer:'A · The mask stays in the receiver. Exchange it separately when changing format.',
+      cassette:'C · The case docks; a thumbwheel translates the holder inside it. Larger enclosure.'
+    };
+    root.querySelector('[data-detail-text]').textContent=details[concept.value];
+  }
+  function save() {
+    if(window.openai?.setWidgetState) window.openai.setWidgetState({modelContent:{concept:concept.value,format:fmt.value,frame:frame+1,oversizedMask:wide.checked},privateContent:null}).catch(()=>{});
+  }
+  function changeFrame(next) {
+    cancelAnimationFrame(animation);
+    const start=shown, then=performance.now(); frame=next;
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    function step(now) { const p=reduced?1:Math.min(1,(now-then)/260); shown=start+(frame-start)*(p*p*(3-2*p)); draw(); if(p<1) animation=requestAnimationFrame(step); }
+    animation=requestAnimationFrame(step); save();
+  }
+  root.querySelector('[data-prev]').addEventListener('click',()=>changeFrame(Math.max(0,frame-1)));
+  root.querySelector('[data-next]').addEventListener('click',()=>changeFrame(Math.min(formats[fmt.value].count-1,frame+1)));
+  fmt.addEventListener('change',()=>{cancelAnimationFrame(animation);frame=Math.min(frame,formats[fmt.value].count-1);shown=frame;draw();save();});
+  concept.addEventListener('change',()=>{draw();save();});
+  wide.addEventListener('change',()=>{draw();save();});
+  function restore(value) {
+    const s=value?.modelContent;
+    if(!s) return;
+    if(formats[s.format]) fmt.value=s.format;
+    if(['drawer','collar','cassette'].includes(s.concept)) concept.value=s.concept;
+    frame=Number.isInteger(s.frame)?Math.max(0,Math.min(formats[fmt.value].count-1,s.frame-1)):2;
+    shown=frame; wide.checked=Boolean(s.oversizedMask); draw();
+  }
+  restore(window.openai?.widgetState);
+  window.addEventListener('openai:set_globals',e=>{if(e.detail?.globals?.widgetState) restore(e.detail.globals.widgetState);});
+  new ResizeObserver(draw).observe(root);
+  draw();
+})();
+</script>
