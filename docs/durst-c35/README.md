@@ -81,7 +81,8 @@ uv pip install --python .venv-cad/bin/python -r cad/requirements.txt
 Install FreeCAD separately. The runner uses `FREECAD_CMD`, then `FreeCADCmd` or
 `freecadcmd` on PATH, then the standard macOS app path. You can also pass
 `--freecad /path/to/freecadcmd`. Tested locally with build123d 0.13.0 and FreeCAD
-1.1.4. The dedicated `durst-cad` CI job installs Ubuntu's FreeCAD console and runs
+1.1.4. The dedicated `durst-cad` CI job installs the official, checksum-pinned Linux
+FreeCAD 1.1.4 bundle and runs
 the same export and verification commands.
 
 To revise an estimate, pass `--config dimensions.json`, for example

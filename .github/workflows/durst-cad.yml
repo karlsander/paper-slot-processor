@@ -20,11 +20,21 @@ jobs:
           cache-dependency-path: cad/requirements.txt
       - run: python -m pip install -r cad/requirements.txt
       - run: python -m unittest discover -s tests -p test_durst_c35.py
-      - name: Install Ubuntu FreeCAD console
+      - name: Prepare official FreeCAD 1.1.4 console
         run: |
-          sudo apt-get update
-          sudo apt-get install -y freecad
-          echo "FREECAD_CMD=$(command -v freecadcmd || command -v FreeCADCmd)" >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/durst-freecad"
+          cd "$RUNNER_TEMP/durst-freecad"
+          curl -fL --retry 3 -o FreeCAD.AppImage \
+            https://github.com/FreeCAD/FreeCAD/releases/download/1.1.4/FreeCAD_1.1.4-Linux-x86_64-py311.AppImage
+          echo "f6dc6ba676e5ac96a565ebc8d657232f94c6158e85b4352141bd1a46f6b43434  FreeCAD.AppImage" | sha256sum -c -
+          chmod +x FreeCAD.AppImage
+          ./FreeCAD.AppImage --appimage-extract > extraction.log
+          cat > freecadcmd <<'SH'
+          #!/bin/sh
+          exec "$(dirname "$0")/squashfs-root/AppRun" --console "$@"
+          SH
+          chmod +x freecadcmd
+          echo "FREECAD_CMD=$RUNNER_TEMP/durst-freecad/freecadcmd" >> "$GITHUB_ENV"
       - run: python scripts/check_durst_geometry.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
