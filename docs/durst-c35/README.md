@@ -163,8 +163,11 @@ Local checks passed on 2026-10-31:
   stale reports and requires a newly written success; exit code zero is insufficient.
 
 Physical slot fit, film grip, printed hinge flexibility, light leaks and temperature
-performance remain unverified. **No enlarger geometry or insertion simulation is
-included yet.** The optional GUI slider is separate from the verified headless study.
+performance remain unverified. A separate [provisional insertion study](insertion-study.md)
+now models estimated mating envelopes and stage motion. Its dimensions are
+unmeasured and it does not certify enlarger fit. The carrier's own validation
+report remains independent of that study. The optional GUI slider is separate
+from the verified headless study.
 
 ## Print handoff
 
@@ -193,10 +196,10 @@ The mesh's actual part volume is 14.686 cm³ for A and 15.150 cm³ for B. Slicer
 material totals include the extra support. Examine the support/model colours in
 Bambu's Preview before printing, and check the cleared cavity against `section.png`.
 
-## Next: model the enlarger interface
+## Next: measure the enlarger interface
 
-Keep this carrier coordinate system for the mating model. Before creating a slot
-fixture, collect these dimensions/photos from the actual enlarger:
+The [provisional mating model](insertion-study.md) uses this carrier coordinate
+system and explicit estimates. Replace them with dimensions/photos from the actual enlarger:
 
 1. Slot cross-section at the entrance and deeper rails: gap height, usable width,
    rail/ledge widths, corner radii and any relief for the raised edges/window rims.
@@ -207,7 +210,7 @@ fixture, collect these dimensions/photos from the actual enlarger:
    and the first contact marks on the failed print after support removal.
 
 Use orthogonal views with a ruler in the same plane and caliper measurements when
-available. The future study should keep the enlarger fixed, translate the closed
-carrier along the measured path, report collision/contact surfaces and minimum
-clearance, and sweep measured printer/slot tolerances. Do not substitute a guessed
-rectangular opening and describe a passing result as reliable slot fit.
+available. The provisional study checks stage release, carrier insertion and
+seating, including collisions and surface distances. After measurement, update
+the contact profiles and sweep measured printer/slot tolerances. A clear path
+through estimated geometry is not reliable evidence of physical fit.

@@ -36,8 +36,11 @@ jobs:
           chmod +x freecadcmd
           echo "FREECAD_CMD=$RUNNER_TEMP/durst-freecad/freecadcmd" >> "$GITHUB_ENV"
       - run: python scripts/check_durst_geometry.py
+      - run: python scripts/check_durst_insertion.py
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
           name: durst-c35-native
-          path: build/durst-c35-native
+          path: |
+            build/durst-c35-native
+            build/durst-c35-insertion
