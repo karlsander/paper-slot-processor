@@ -1,0 +1,28 @@
+{
+  "date": "2026-10-31",
+  "manual": {
+    "title": "Durst C35 Operating manual",
+    "author": "Durst Phototechnik",
+    "archive_url": "http://www.jollinger.com/photo/cam-coll/manuals/enlargers/durst/Durst_C35.pdf",
+    "sha256": "5754515af8b995252c00e2c46af59ca241e07964d5bfdf4dd4deda5a72da3ad0",
+    "pdf_pages": 14,
+    "visually_inspected_pdf_pages": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "insertion_section": "2.3.2, printed page 8 / PDF page 6",
+    "film_loading_section": "5.3.0, printed page 12 / PDF page 10",
+    "dimensioned_interface_drawing_found": false
+  },
+  "private_reference": {
+    "attachment": "Photo 1.jpg",
+    "sha256": "ef89da288c38e052ca273f0eff001a21f186eb3ac30d30e0dc128e7ffb29d84d",
+    "use": "C35 identification and overall assembly context; no dimensional calibration"
+  },
+  "fixture_evidence": "All mating geometry is provisional and unmeasured. Manual photos inform operation, not exact contact profiles."
+}

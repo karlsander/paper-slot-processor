@@ -1,0 +1,67 @@
+[
+  {
+    "file": "01-open-concept.HEIC",
+    "original_name": "IMG_0946.HEIC",
+    "sha256": "1c5665d701acb3d6e8d88ba6ee3e05aa07e2413e70a201a83df111c4de92036f"
+  },
+  {
+    "file": "02-a-exterior.HEIC",
+    "original_name": "IMG_0932.HEIC",
+    "sha256": "f3612103a6e70a9fc0485a9c139a985cbcb40a657eb45ed26cef65f80aed3e90"
+  },
+  {
+    "file": "03-a-interior.HEIC",
+    "original_name": "IMG_0931.HEIC",
+    "sha256": "998f9743319b915cc62d1624bff6022db3956c1f1b61e8f8efe43f6919bf4c4e"
+  },
+  {
+    "file": "04-b-interior.HEIC",
+    "original_name": "IMG_0933.HEIC",
+    "sha256": "53f4a95a230e8bad94436c5e081389688907e51d35a1f3796a97e2e5e4229a2b"
+  },
+  {
+    "file": "05-hinge-scale.jpg",
+    "original_name": "1-Photo-1.jpg",
+    "sha256": "e064e5964f7d45a3d66c7eb4abd2e3642410c8132d3fa0d39ae5dbbe81962a5a"
+  },
+  {
+    "file": "06-closed-side.jpg",
+    "original_name": "2-Photo-2.jpg",
+    "sha256": "880ed2cd9e9f289e5ba025b40b0268dd175029f7fff9ecf270a9f18d022202b9"
+  },
+  {
+    "file": "07-hinge-separated.jpg",
+    "original_name": "3-Photo-3.jpg",
+    "sha256": "8da86b82fe0450cad446b24d9cd2fbe3d6c183136617cb207158b2367b7fe008"
+  },
+  {
+    "file": "08-hinge-assembled.jpg",
+    "original_name": "4-Photo-4.jpg",
+    "sha256": "0f823281bcd6b8c8106fe258c708881f32fda1df6fb729d2568cce6e82265911"
+  },
+  {
+    "file": "09-a-inside-overhead.jpg",
+    "original_name": "1-Photo-1.jpg",
+    "sha256": "f704b744da1c98e18949f6537cd6486c1e3f3f8b507ea20f757d0ed14b110b3e"
+  },
+  {
+    "file": "10-b-inside-overhead.jpg",
+    "original_name": "2-Photo-2.jpg",
+    "sha256": "5eccb7aac491ad323c1e0fa343f15d3cb57e26c5e82a62918e79df7b9dc71033"
+  },
+  {
+    "file": "11-a-outside-overhead.jpg",
+    "original_name": "1-Photo-1.jpg",
+    "sha256": "513173bae6349912f5bc66e503444d39ee15a677362ce8309e29cf806c05a47b"
+  },
+  {
+    "file": "12-b-outside-tilted.jpg",
+    "original_name": "2-Photo-2.jpg",
+    "sha256": "ad9b3c9482c7b25388a8c72ea474f83d4ab76744137b4097f99b2036360ff1b2"
+  },
+  {
+    "file": "13-insertion.jpg",
+    "original_name": "1-Photo-1.jpg",
+    "sha256": "750052daa6b606146b302f80c7956523dae7dc6226eb784ef70b7314ff7855cb"
+  }
+]

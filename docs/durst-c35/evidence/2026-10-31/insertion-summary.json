@@ -1,0 +1,126 @@
+{
+  "date": "2026-10-31",
+  "evidence_level": "provisional fixture consistency only",
+  "physical_fit_verified": false,
+  "fixture_dimensions_measured": false,
+  "freecad_version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "sample_count": 181,
+  "nominal_path_clear": true,
+  "max_pair_overlap_mm3": 0,
+  "negative_controls": {
+    "over_insert_2mm": {
+      "detected": true,
+      "total_overlap_mm3": 111.84694123684717
+    },
+    "side_offset_3mm": {
+      "detected": true,
+      "total_overlap_mm3": 1260.9599999999962
+    },
+    "stage_not_depressed_on_lowered_path": {
+      "detected": true,
+      "total_overlap_mm3": 1843.0768750507232
+    },
+    "local_2_5mm_panel_regression": {
+      "detected": true,
+      "total_overlap_mm3": 117.0
+    }
+  },
+  "mixing_width_sweep": [
+    {
+      "mixing_width_mm": 88.0,
+      "overlap_mm3": 0
+    },
+    {
+      "mixing_width_mm": 90.0,
+      "overlap_mm3": 0
+    },
+    {
+      "mixing_width_mm": 92.0,
+      "overlap_mm3": 0
+    },
+    {
+      "mixing_width_mm": 93.0,
+      "overlap_mm3": 846.2400000000041
+    },
+    {
+      "mixing_width_mm": 94.0,
+      "overlap_mm3": 1904.0400000000236
+    }
+  ],
+  "wide_box_rebuild_control": {
+    "mixing_width_mm": 94,
+    "expected_exit": 1,
+    "observed_exit": 1,
+    "nominal_path_clear": false,
+    "colliding_sample_count": 122,
+    "report_sha256": "daf2a20451b7deeade82225df19d638ff507e2271dd736071272d2ca878279a5"
+  },
+  "fixture_parameters": {
+    "mixing_width": 90.0,
+    "mixing_rear_y": 10.0,
+    "mixing_front_y": 96.0,
+    "mixing_height": 110.0,
+    "mixing_wall": 2.5,
+    "upper_contact_z": 1.4,
+    "upper_contact_width": 7.0,
+    "upper_relief_depth": 2.0,
+    "optical_width": 40.0,
+    "optical_length": 28.0,
+    "optical_center_y": 54.0,
+    "stage_width": 84.0,
+    "stage_rail_width": 6.0,
+    "stage_rear_y": 14.0,
+    "stage_front_y": 96.0,
+    "stage_crossbar_depth": 6.0,
+    "stage_contact_z": -1.2,
+    "stage_height": 10.8,
+    "stage_depression": 3.0,
+    "stop_front_y": -7.0,
+    "stop_depth": 4.0,
+    "stop_width": 104.0,
+    "stop_bottom_z": -16.0,
+    "stop_height": 32.0,
+    "withdrawal": 120.0
+  },
+  "report_sha256": "e32ab6878fcc3aab165e9216725a55fc1240197757f4cf14cbd6b3965509771e",
+  "manifest": {
+    "schema_version": 1,
+    "evidence_level": "provisional, unmeasured contact envelopes",
+    "physical_fit_verified": false,
+    "files_sha256": {
+      "back-stop.step": "ef1611dc572b9887a851825ece34746016bb74099e944a555ae105acc09cf53c",
+      "carrier-a.step": "94de2f83687f50027342d426bb674f448ee61b349b2624ff25976f42ba8b0e4d",
+      "carrier-b.step": "03a5a83d53919f3ffcc3bd3c864ed14a643056bfa4d7339c4e21e32cca6b0fb9",
+      "mixing-box.step": "33e9b72bc27a23eef97d163f749bcbe775b9074f878a86dac3e6195f05769b59",
+      "stage.step": "3a49196a98b5e92b6fbb01b3cf1ba32547b5f19e91ae4deae5abd9c5e0d4f97d",
+      "fixture-parameters.json": "01b2a134e8dff788e9adc488e3171492813235cc8e80e2a5c1e4f1316d5a9341",
+      "motion.json": "d493b1a5e98e86d692bd1996c2538170664b3688475387674866d4bf981b2dfb",
+      "carrier-parameters.json": "b6b847d8febe53fc863ac7af7009b219ca3634558c3046daa0bd43cab400cc16",
+      "carrier-model-report.json": "6d9064324b671ef39e5e9a6159159b5a56315f18006c72245e95b5f1ff7c9ece",
+      "carrier-validation.json": "a97dbafb4deb977f20f11d4ebc1231e39edc35646dfada63f6c32231589ff87b"
+    },
+    "source_sha256": {
+      "__init__.py": "e1e77a7c9211ff5aa4479fd69eeaca546c88241ac7306cb8d731f26588635914",
+      "model.py": "10af8ee40af97af7928334ad42372ff137fd7d76ba705e1258a0d4091c18cbf1",
+      "verify_freecad.py": "3eb9fee4744d21d9147e2f6748ce8381cf7da6fe292f28951677ced82b5cddc2"
+    },
+    "runner_sha256": "c46d770d0923c263f6b2eed006bbd5ecf1c230d000a7d78e08b1ecd9f48080df"
+  },
+  "video": {
+    "file": "insertion.mp4",
+    "sha256": "09d1759e99fc5dfe4fa0925f544ab67d279e79c4a75e07ff46ed61932f7c220b",
+    "frames": 384,
+    "fps": 24,
+    "duration_seconds": 16.0,
+    "report_sha256": "1567740dcce18ae552dad584c47863bab0735d68d9980f44b00286e5ba3eb23c"
+  }
+}

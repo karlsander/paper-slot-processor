@@ -1,0 +1,923 @@
+{
+  "passed": true,
+  "freecad_version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "roundtrips": [
+    {
+      "part": "a",
+      "volume_error_mm3": 2.3646862246096134e-10
+    },
+    {
+      "part": "b",
+      "volume_error_mm3": 1.3642420526593924e-10
+    }
+  ],
+  "plates": [
+    {
+      "part": "a",
+      "size_mm": [
+        94.60000228881836,
+        110.63541030883789,
+        14.699999809265137
+      ],
+      "mesh_solid": true
+    },
+    {
+      "part": "b",
+      "size_mm": [
+        94.60000228881836,
+        107.0,
+        23.5
+      ],
+      "mesh_solid": true
+    }
+  ],
+  "model_report_sha256": "6d9064324b671ef39e5e9a6159159b5a56315f18006c72245e95b5f1ff7c9ece",
+  "sheet_sections": [
+    {
+      "part": "a",
+      "xy_mm": [
+        -35,
+        25
+      ],
+      "thickness_mm": 1.1999999999999997
+    },
+    {
+      "part": "a",
+      "xy_mm": [
+        35,
+        25
+      ],
+      "thickness_mm": 1.1999999999999997
+    },
+    {
+      "part": "a",
+      "xy_mm": [
+        -35,
+        54
+      ],
+      "thickness_mm": 1.1999999999999997
+    },
+    {
+      "part": "a",
+      "xy_mm": [
+        35,
+        54
+      ],
+      "thickness_mm": 1.1999999999999997
+    },
+    {
+      "part": "a",
+      "xy_mm": [
+        -35,
+        80
+      ],
+      "thickness_mm": 1.1999999999999997
+    },
+    {
+      "part": "a",
+      "xy_mm": [
+        35,
+        80
+      ],
+      "thickness_mm": 1.1999999999999997
+    },
+    {
+      "part": "a",
+      "xy_mm": [
+        0,
+        20
+      ],
+      "thickness_mm": 1.1999999999999997
+    },
+    {
+      "part": "a",
+      "xy_mm": [
+        0,
+        85
+      ],
+      "thickness_mm": 1.1999999999999997
+    },
+    {
+      "part": "b",
+      "xy_mm": [
+        -35,
+        25
+      ],
+      "thickness_mm": 1.2
+    },
+    {
+      "part": "b",
+      "xy_mm": [
+        35,
+        25
+      ],
+      "thickness_mm": 1.2
+    },
+    {
+      "part": "b",
+      "xy_mm": [
+        -35,
+        54
+      ],
+      "thickness_mm": 1.2
+    },
+    {
+      "part": "b",
+      "xy_mm": [
+        35,
+        54
+      ],
+      "thickness_mm": 1.2
+    },
+    {
+      "part": "b",
+      "xy_mm": [
+        -35,
+        80
+      ],
+      "thickness_mm": 1.2
+    },
+    {
+      "part": "b",
+      "xy_mm": [
+        35,
+        80
+      ],
+      "thickness_mm": 1.2
+    },
+    {
+      "part": "b",
+      "xy_mm": [
+        0,
+        20
+      ],
+      "thickness_mm": 1.2
+    },
+    {
+      "part": "b",
+      "xy_mm": [
+        0,
+        85
+      ],
+      "thickness_mm": 1.2
+    }
+  ],
+  "blind_floor_mm": [
+    0.5999999999999999,
+    0.5999999999999999
+  ],
+  "hinge_samples": [
+    {
+      "angle_deg": 0,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 1,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 2,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 3,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 4,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 5,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 6,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 7,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 8,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 9,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 10,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 11,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 12,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 13,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 14,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 15,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 16,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 17,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 18,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 19,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 20,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 21,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 22,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 23,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 24,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 25,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 26,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 27,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 28,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 29,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 30,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 31,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 32,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 33,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 34,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 35,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 36,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 37,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 38,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 39,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 40,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 41,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 42,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 43,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 44,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 45,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 46,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 47,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 48,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 49,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 50,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 51,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 52,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 53,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 54,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 55,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 56,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 57,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 58,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 59,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 60,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 61,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 62,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 63,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 64,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 65,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 66,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 67,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 68,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 69,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 70,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 71,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 72,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 73,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 74,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 75,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 76,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 77,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 78,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 79,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 80,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 81,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 82,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 83,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 84,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 85,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 86,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 87,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 88,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 89,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 90,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 91,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 92,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 93,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 94,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 95,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 96,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 97,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 98,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 99,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 100,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 101,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 102,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 103,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 104,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 105,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 106,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 107,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 108,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 109,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 110,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 111,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 112,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 113,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 114,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 115,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 116,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 117,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 118,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 119,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 120,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 121,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 122,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 123,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 124,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 125,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 126,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 127,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 128,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 129,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 130,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 131,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 132,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 133,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 134,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 135,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 136,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 137,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 138,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 139,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 140,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 141,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 142,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 143,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 144,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 145,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 146,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 147,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 148,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 149,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 150,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 151,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 152,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 153,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 154,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 155,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 156,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 157,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 158,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 159,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 160,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 161,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 162,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 163,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 164,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 165,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 166,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 167,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 168,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 169,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 170,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 171,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 172,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 173,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 174,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 175,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 176,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 177,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 178,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 179,
+      "overlap_mm3": 0
+    },
+    {
+      "angle_deg": 180,
+      "overlap_mm3": 0
+    }
+  ],
+  "optical_opening_mm": [
+    36.0,
+    24.0
+  ],
+  "film_probe_mm": [
+    90,
+    35,
+    0.14
+  ],
+  "nominal_closed_sheet_stack_mm": 2.6,
+  "nominal_window_rim_stack_mm": 5.2,
+  "physical_fit_verified": false,
+  "enlarger_slot_modeled": false,
+  "limitations": [
+    "Rigid hinge samples at 1 degree intervals, not a continuous swept-volume proof.",
+    "No elastic snap-fit, friction, print warp, film grip, light leaks or thermal performance solved.",
+    "The enlarger mating slot has not been modeled; no insertion-fit claim.",
+    "build123d and FreeCAD both use Open Cascade."
+  ]
+}

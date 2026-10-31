@@ -1,0 +1,167 @@
+{
+  "passed": true,
+  "version": "0.2",
+  "build123d": "0.13.0",
+  "parts": [
+    {
+      "name": "a",
+      "volume_mm3": 14685.597324493112,
+      "size_mm": [
+        94.60000000000001,
+        110.63541565040624,
+        14.7
+      ],
+      "sheet_sections": [
+        {
+          "xy_mm": [
+            -35,
+            25
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            35,
+            25
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            -35,
+            54
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            35,
+            54
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            -35,
+            80
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            35,
+            80
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            0,
+            20
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            0,
+            85
+          ],
+          "thickness_mm": 1.1999999999999997
+        }
+      ],
+      "mesh_volume_mm3": 14685.568168411823,
+      "mesh_watertight": true
+    },
+    {
+      "name": "b",
+      "volume_mm3": 15149.594370737106,
+      "size_mm": [
+        94.60000000000001,
+        107.0,
+        23.500000000000014
+      ],
+      "sheet_sections": [
+        {
+          "xy_mm": [
+            -35,
+            25
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            35,
+            25
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            -35,
+            54
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            35,
+            54
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            -35,
+            80
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            35,
+            80
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            0,
+            20
+          ],
+          "thickness_mm": 1.1999999999999997
+        },
+        {
+          "xy_mm": [
+            0,
+            85
+          ],
+          "thickness_mm": 1.1999999999999997
+        }
+      ],
+      "mesh_volume_mm3": 15149.57737149758,
+      "mesh_watertight": true
+    }
+  ],
+  "source_sha256": {
+    "__init__.py": "861c7f811a0c5c8669b3e5b0d25706007056cd0db3015d207fc8ec371722c0de",
+    "export.py": "4079c19fcc899e5bf3c63687e798c3fcf089606eadc689325f4b53e36bad298e",
+    "inspect_freecad.py": "97293f4321bc377cd7ab4367993b1dc29a6666ab54b03b4bb9cbeef93f9331b4",
+    "parameters.py": "2343c8cd6d1ed93aab3f1368ecb151ee84003e7d63b4b38618cb73a5211e6fe1",
+    "parts.py": "3a5d72f47bbbe550f896a4c95bcfc59916130d4a03c01ae0157be2b9984f5048",
+    "render.py": "96c625fde51a5d60076036218442598742be8e8bb4a48440de105af2af4c0acc",
+    "verify_freecad.py": "8a1e2f79b9ee3ed803461e63af51dc727d8d003f3b6011d218d2441f73b1b454"
+  },
+  "files_sha256": {
+    "a.step": "94de2f83687f50027342d426bb674f448ee61b349b2624ff25976f42ba8b0e4d",
+    "assembly-open.step": "0afd908102dd9d12bbfa4647bed1622c6cae5d322fa95ca38a3e93ccd76f18e9",
+    "assembly.step": "1d1a5161fed33b85a3c059861c4f0adb50abfe9e8e5d55286150748b6fce3304",
+    "b.step": "03a5a83d53919f3ffcc3bd3c864ed14a643056bfa4d7339c4e21e32cca6b0fb9",
+    "parameters.json": "b6b847d8febe53fc863ac7af7009b219ca3634558c3046daa0bd43cab400cc16",
+    "plates/a.step": "a194259ce76b34042180a61c7d6d4ca378f7d5dec6f4ba53c7973cae0e0f40fc",
+    "plates/a.stl": "b9f710688bda0339f6b9355f049bb993d38c6760d1c6dc56d421974071b3d907",
+    "plates/b.step": "431302b7e052e2b867b192ef5cadf875097e4f74fd51e5f785e40944d6ee9b73",
+    "plates/b.stl": "755d3ff08241b2a26a3cdd0d64a60e16a69c7776f44a48e99967f6688561a939"
+  },
+  "physical_fit_verified": false,
+  "enlarger_slot_modeled": false
+}

@@ -1,5 +1,7 @@
 # Modular paper processor · v2
 
+The separate [Durst C35 carrier](docs/durst-c35/README.md) uses thin build123d panels, native STEP exchange and FreeCAD section/hinge verification. Its provisional 1.2 mm sheet corrects the first-print geometry; enlarger insertion fit remains the next study.
+
 **For the first unheated prototype, use [v1.8: two reusable baths in one shared base](docs/v1.8.md).**
 
 The [fluid/thermal study and PETG print audit](docs/processor-physics.md) cover actual OpenFOAM simulations and A1 mini slicing with both 0.2 and 0.4 mm nozzles.
