@@ -41,7 +41,9 @@ class InterfaceTests(unittest.TestCase):
 
     def test_rest_gap_and_independent_lower_motion(self):
         moved = parts(self.data, lower_drop_mm=0.15)
-        self.assertAlmostEqual(moved["lower-support"].bounding_box().max.Z, -6.15)
+        self.assertAlmostEqual(
+            moved["lower-support"].bounding_box().max.Z, -6.15, places=6
+        )
         for name in self.shapes:
             if name != "lower-support":
                 self.assertAlmostEqual(
@@ -127,7 +129,7 @@ class InterfaceTests(unittest.TestCase):
 
     def test_opening_void_matches_all_four_measured_edges(self):
         # Recover the actual hole from a section, rather than retest centre arithmetic.
-        void = box(0, -49.15, -6.2, 80, 90, 0.1) - self.shapes["lower-support"]
+        void = box(0, -49.15, -7.0, 80, 90, 0.1) - self.shapes["lower-support"]
         self.assertEqual(len(void.solids()), 1)
         bounds = void.bounding_box()
         self.assertAlmostEqual(bounds.size.X, 55.3)
@@ -136,6 +138,25 @@ class InterfaceTests(unittest.TestCase):
         self.assertAlmostEqual(bounds.min.X + 43.35, 16.5)
         self.assertAlmostEqual(-bounds.max.Y, 15.3)
         self.assertAlmostEqual(bounds.min.Y + 98.3, 26.9)
+
+    def test_bevel_sections_preserve_clear_opening_and_asymmetric_position(self):
+        # Independent expected sections of the measured 0.8-drop / 1.5-run bevel.
+        # Slab bounds recover the mouth at its upper plane, not its midpoint.
+        for depth, width, length in [
+            (0, 58.3, 59.1),
+            (0.4, 56.8, 57.6),
+            (0.8, 55.3, 56.1),
+            (2.0, 55.3, 56.1),
+        ]:
+            with self.subTest(depth=depth):
+                void = box(0, -49.15, -6 - depth - 0.02, 80, 90, 0.02)
+                void -= self.shapes["lower-support"]
+                self.assertEqual(len(void.solids()), 1)
+                bounds = void.bounding_box()
+                self.assertAlmostEqual(bounds.size.X, width, places=5)
+                self.assertAlmostEqual(bounds.size.Y, length, places=5)
+                self.assertAlmostEqual((bounds.min.X + bounds.max.X) / 2, 0.8)
+                self.assertAlmostEqual((bounds.min.Y + bounds.max.Y) / 2, -43.35)
 
     def test_bad_measurement_fails_before_export(self):
         for key, value in [
@@ -146,6 +167,8 @@ class InterfaceTests(unittest.TestCase):
             ("lower_front_offset", 1),
             ("lower_opening_left_offset", 40),
             ("lower_opening_front_offset", 50),
+            ("lower_bevel_run", 14),
+            ("lower_bevel_drop", 11),
         ]:
             with self.subTest(key=key), tempfile.TemporaryDirectory() as folder:
                 data = copy.deepcopy(self.data)

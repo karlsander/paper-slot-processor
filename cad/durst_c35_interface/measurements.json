@@ -10,6 +10,7 @@
     "optical_axis": "Provisional offset from front; not yet measured. No automatic alignment to old carrier coordinates."
   },
   "observations": {
+    "local_top_thickness_mm": {"value": 11.0, "status": "user_measured", "label": "Z", "source": "User reading Z, 2026-11-01; requested flat top to matching underside beside opening", "endpoints_confirmed": false, "applied_to_geometry": false, "limitation": "Confirm local underside versus external sidewall endpoints before reconstructing hidden underside; no underside pocket extent inferred"},
     "neck_and_lower_rear_faces_coincide": {"value": true, "status": "user_observed", "source": "User correction, 2026-11-01: P and Q are both 98.3 mm and end at exactly the same rear plane"},
     "original_closed_height_mm": {"value": 6.15, "status": "user_approximate", "source": "User: both original halves sandwiched together, 2026-11-01"},
     "lower_support_moves_on_insertion": {"value": true, "status": "user_observed", "source": "User description; IMG_1075.HEIC and IMG_1078.HEIC identify the part, not its stiffness"},
@@ -43,6 +44,8 @@
     "lower_opening_depth": {"value": 56.1, "status": "user_measured", "label": "U", "source": "User caliper reading U, 2026-11-01; clear opening front-to-back depth below bevel"},
     "lower_opening_front_offset": {"value": 15.3, "status": "user_measured", "label": "V", "source": "User caliper reading V, 2026-11-01; raised support front outside plane to inner front opening edge, excludes flange"},
     "lower_opening_left_offset": {"value": 14.9, "status": "user_measured", "label": "W", "source": "User caliper reading W, 2026-11-01; raised support left outside plane to inner left opening edge, excludes flange"},
+    "lower_bevel_drop": {"value": 0.8, "status": "user_measured", "label": "X", "source": "User caliper reading X, 2026-11-01; flat top down to inner edge of opening bevel"},
+    "lower_bevel_run": {"value": 1.5, "status": "user_measured", "label": "Y", "source": "User reading, 2026-11-01; uniform horizontal bevel width on all four sides, outer dimensions explicitly T+3 and U+3"},
     "flange_depth": {"value": 111.8, "status": "provisional", "label": null, "source": "Q + S + 9 mm rear extension; retains the former UNMEASURED 9 mm rear flange envelope. Actual flange rear extent unknown"},
     "flange_front_overhang": {"value": 4.5, "status": "user_measured", "label": "S", "source": "User caliper reading S, 2026-11-01; flange projects ahead of the raised support front face"},
     "flange_thickness": {"value": 2.5, "status": "user_measured", "label": "R", "source": "User caliper reading R, 2026-11-01; thin flange thickness excluding raised support"},

@@ -73,7 +73,7 @@ def render(folder, target):
                     meshes[name]
                     .clean()
                     .extract_feature_edges(
-                        feature_angle=35,
+                        feature_angle=20,
                         boundary_edges=True,
                         feature_edges=True,
                         non_manifold_edges=False,
@@ -101,7 +101,7 @@ def render(folder, target):
         note = [
             f"P = Q = {p['neck_depth']:g} mm; cyan = shared end planes\nR = {p['flange_thickness']:g} mm; S = {p['flange_front_overhang']:g} mm; front at left\nOuter housing / rear flange extent provisional",
             "Six visible heads: sizes/positions provisional\nLight opening and optical position unmeasured",
-            f"T = {p['lower_opening_width']:g} mm; U = {p['lower_opening_depth']:g} mm\nV = {p['lower_opening_front_offset']:g} mm; W = {p['lower_opening_left_offset']:g} mm\nBevel / contact heights still unmeasured",
+            f"T = {p['lower_opening_width']:g} mm; U = {p['lower_opening_depth']:g} mm\nV = {p['lower_opening_front_offset']:g} mm; W = {p['lower_opening_left_offset']:g} mm\nBevel: {p['lower_bevel_drop']:g} mm drop / {p['lower_bevel_run']:g} mm run per side",
         ][i]
         plot.add_text(note, position=(12, 24), font_size=10, color="#17394e")
     target.parent.mkdir(parents=True, exist_ok=True)

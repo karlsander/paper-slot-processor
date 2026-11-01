@@ -88,7 +88,7 @@ assert abs(shapes["lower-support"].BoundBox.ZMax + p["slot_gap"]) < 1e-6
 opening = probe(
     0,
     p["lower_front_offset"] - p["lower_depth"] / 2,
-    -p["slot_gap"] - 0.2,
+    -p["slot_gap"] - p["lower_bevel_drop"] - 0.2,
     p["lower_width"] - 2 * p["corner_radius"],
     p["lower_depth"] - 2 * p["corner_radius"],
     0.1,
@@ -112,6 +112,35 @@ for actual, expected in [
     (opening_profile["front_margin"], p["lower_opening_front_offset"]),
 ]:
     assert abs(actual - expected) < 1e-6, (actual, expected)
+# Check the sloping mouth in imported STEP geometry, including its transition
+# to the unchanged clear walls. A thin slab ends at each reported depth.
+bevel_sections = []
+for fraction in (0.0, 0.25, 0.5, 0.75, 1.0, 1.25):
+    depth = fraction * p["lower_bevel_drop"]
+    void = probe(
+        0,
+        p["lower_front_offset"] - p["lower_depth"] / 2,
+        -p["slot_gap"] - depth - 0.02,
+        p["lower_width"] - 2 * p["corner_radius"],
+        p["lower_depth"] - 2 * p["corner_radius"],
+        0.02,
+    ).cut(shapes["lower-support"])
+    assert len(void.Solids) == 1
+    # STEP lofts may retain a larger underlying spline surface after trimming.
+    # BoundBox encloses that surface; optimalBoundingBox measures the trimmed slab.
+    bounds = void.optimalBoundingBox()
+    extra = 2 * p["lower_bevel_run"] * max(0.0, 1 - fraction)
+    assert abs(bounds.XLength - p["lower_opening_width"] - extra) < 1e-6
+    assert abs(bounds.YLength - p["lower_opening_depth"] - extra) < 1e-6
+    assert abs((bounds.XMin + bounds.XMax) / 2 - opening_profile["centre_x"]) < 1e-6
+    assert abs((bounds.YMin + bounds.YMax) / 2 - opening_profile["centre_y"]) < 1e-6
+    bevel_sections.append(
+        {
+            "depth_below_top": depth,
+            "width": bounds.XLength,
+            "depth": bounds.YLength,
+        }
+    )
 controls = {}
 for label, thickness in (
     ("below", p["slot_gap"] - 0.1),
@@ -218,6 +247,7 @@ App.closeDocument(reopened.Name)
             "native_document_sha256": sha(path),
             "native_solids": len(shapes),
             "lower_opening_mm": opening_profile,
+            "lower_bevel_sections_mm": bevel_sections,
             "side_profile_mm": {
                 "neck_depth": neck_section.BoundBox.YLength,
                 "raised_support_depth": lower_section.BoundBox.YLength,

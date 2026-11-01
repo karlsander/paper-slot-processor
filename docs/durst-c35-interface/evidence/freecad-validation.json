@@ -11,8 +11,8 @@
     "(HEAD detached at 4fd3bf320)",
     "4fd3bf320d9566a27e60069fc8387448aaa3a094"
   ],
-  "manifest_sha256": "c1c0b04179f5324a2b160c5a0899831197a636ad414e333eb9482f6fec6ab102",
-  "native_document_sha256": "b5d8903d543f0593ad3df0eccaa2343a1fd8893a42b476fd7ea5de7dfc31fe65",
+  "manifest_sha256": "409a6a6096d790fce976deae9e09822c31794df8a2fb7a599e6a0182cfc689af",
+  "native_document_sha256": "676f928991c1a82bcd87845288126514712c538f508160c72679f931af580526",
   "native_solids": 9,
   "lower_opening_mm": {
     "width": 55.3,
@@ -24,6 +24,38 @@
     "centre_x": 0.7999999999999989,
     "centre_y": -43.35
   },
+  "lower_bevel_sections_mm": [
+    {
+      "depth_below_top": 0.0,
+      "width": 58.3000002,
+      "depth": 59.1000002
+    },
+    {
+      "depth_below_top": 0.2,
+      "width": 57.5500002,
+      "depth": 58.35000020000002
+    },
+    {
+      "depth_below_top": 0.4,
+      "width": 56.8000002,
+      "depth": 57.60000020000002
+    },
+    {
+      "depth_below_top": 0.6000000000000001,
+      "width": 56.0500002,
+      "depth": 56.85000020000002
+    },
+    {
+      "depth_below_top": 0.8,
+      "width": 55.3,
+      "depth": 56.10000000000001
+    },
+    {
+      "depth_below_top": 1.0,
+      "width": 55.3,
+      "depth": 56.10000000000001
+    }
+  ],
   "side_profile_mm": {
     "neck_depth": 98.3,
     "raised_support_depth": 98.3,
@@ -34,7 +66,7 @@
   "relative_import_volume_errors": {
     "head-shell": 1.84297022087776e-14,
     "underside-plate": 2.220446049250313e-16,
-    "lower-support": 1.5543122344752192e-15,
+    "lower-support": 1.3322676295501878e-15,
     "screw-head-1": 0.0,
     "screw-head-2": 4.440892098500626e-16,
     "screw-head-3": 2.220446049250313e-16,

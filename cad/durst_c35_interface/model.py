@@ -66,8 +66,12 @@ def load_measurements(path=DEFAULT_MEASUREMENTS):
         raise ValueError("Flange must enclose raised support")
     if not 0 < p["flange_front_overhang"] < p["flange_depth"] - p["lower_depth"]:
         raise ValueError("Flange must enclose front and back of support")
-    if min(lower_opening_margins(p).values()) <= p["corner_radius"]:
-        raise ValueError("Offset lower opening consumes frame or rounded perimeter")
+    if min(lower_opening_margins(p).values()) <= (
+        p["corner_radius"] + p["lower_bevel_run"]
+    ):
+        raise ValueError("Offset bevel opening consumes frame or rounded perimeter")
+    if p["lower_bevel_drop"] >= p["lower_height"]:
+        raise ValueError("Bevel drop must stay within the raised support")
     if p["corner_radius"] * 2 >= min(
         p["neck_width"], p["neck_depth"], p["lower_width"], p["lower_depth"]
     ):
@@ -233,6 +237,20 @@ def parts(data=None, lower_drop_mm=0.0):
         p["lower_opening_width"],
         p["lower_opening_depth"],
         p["lower_height"] + p["flange_thickness"] + 2,
+    )
+    # Unequal measured run/drop: a generic 45-degree chamfer would be wrong.
+    # The clear T/U walls stay fixed; only the mouth widens toward the top.
+    lower -= bd.loft(
+        [
+            bd.Pos(opening_x, opening_y, top - p["lower_bevel_drop"])
+            * bd.Rectangle(p["lower_opening_width"], p["lower_opening_depth"]),
+            bd.Pos(opening_x, opening_y, top)
+            * bd.Rectangle(
+                p["lower_opening_width"] + 2 * p["lower_bevel_run"],
+                p["lower_opening_depth"] + 2 * p["lower_bevel_run"],
+            ),
+        ],
+        ruled=True,
     )
     result = {"head-shell": head, "underside-plate": plate, "lower-support": lower}
     # Cylinders are collision envelopes, not detailed screw/drive geometry.

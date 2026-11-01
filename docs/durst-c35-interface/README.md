@@ -19,7 +19,7 @@ These labels are new and do not reuse the earlier A-K sheet. The previous **C / 
 
 These readings were supplied on 2026-11-01 and are applied to the model. The original annotation retains its request labels as an endpoint guide. It is an imagegen overlay on IMG_1078; the original photo and actual caliper readings remain authoritative. It must not be used to extract numerical dimensions. The exact built-in imagegen prompt is saved in [annotation-prompt.txt](annotation-prompt.txt).
 
-Next: measure the lower opening's bevel/contact heights, the separate head optical opening and its position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. The outer housing and rear flange extents also remain provisional. Those later dimensions are not being inferred from photographs.
+Next: confirm the local underside measurement Z, then measure the separate head optical opening and its position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. The outer housing and rear flange extents also remain provisional. Those later dimensions are not being inferred from photographs.
 
 ## Recorded side-view measurements: P-S
 
@@ -57,21 +57,25 @@ T and U now replace the old 74 x 68 mm centred clearance proxy. Margins to the i
 
 The earlier X-axis wording was inconsistent with a right-handed CAD frame. With Y toward the operator and Z upward, **positive X points to operator-left**. Previous geometry was laterally symmetric; no existing asymmetric feature was moved. The measured opening is now located at `X = M/2 - W - T/2 = +0.8`, `Y = lower_front_offset - V - U/2 = -43.35`. The top-view preview puts front at bottom and operator-left at image-left. FreeCAD recovers the actual opening void from an imported section and verifies T/U/V/W independently.
 
-Bevel size/height, actual wall thickness, front features and contact heights remain later measurements. The current collision envelope extrudes the measured clear rectangle straight through the support; it does not reconstruct the bevel or the shell underneath. This is the lower support opening, not the separate head's optical aperture; the latter remains provisional and is not automatically recentered.
+The measured bevel now widens the mouth above the clear rectangle; the straight walls begin 0.8 mm below the top. The hidden shell underneath, front features and contact details remain incomplete. This is the lower support opening, not the separate head's optical aperture; the latter remains provisional and is not automatically recentered.
 
-## Next opening-edge measurements: X-Z
+## Recorded opening-edge measurements: X-Z
 
 ![Opening edge and top wall measurement callouts](measurements-X-Z.png)
 
 IMG_1081 is a useful oblique view from the front-left. These three callouts identify surfaces for caliper measurements; they are not dimensions read from the photograph. The front rectangular features look like openings in this view, but their function and depth remain unassigned.
 
-| Label | Requested reading | Definition |
+| Label | Reading (mm) | Definition / use |
 | --- | --- | --- |
-| X | Bevel vertical drop | From the adjacent broad flat top surface down to the inner bevel edge where the straight opening wall starts. Report 0 if flush, or explicitly **raised** with the amount if that edge is above the flat top. If there is no distinct transition, describe it instead of guessing. |
-| Y | Bevel width in the top plane | Across the narrow strip, from where the broad top begins sloping to the inner edge used for T/U. This is the horizontal run, not the diagonal length along the slope. |
-| Z | Top-wall material thickness beside the opening | From flat top to its matching underside, immediately beside the opening. This is not the exterior raised-support height N or flange thickness R. Reply **hidden** if the matching underside is inaccessible. |
+| X | 0.8 | Vertical drop from the broad flat top down to the inner bevel edge where the straight opening wall starts. Applied to geometry. |
+| Y | 1.5 on all four sides | Horizontal run in the top plane. User explicitly confirms the outer opening is 3 mm larger in both dimensions. Applied to geometry. |
+| Z | 11 | Recorded reading; endpoint clarification pending. Requested flat top to matching underside immediately beside the opening. Do not substitute for exterior height N or flange thickness R. |
 
-Send `X=..., Y=..., Z=...`, in mm. Use a straight section of the opening edge, away from corners and front notches. The corrected annotation uses leaders only because the underside is obscured and the photograph cannot establish the vertical levels. The initial annotation mistakenly drew Z over the whole exterior sidewall; that image is rejected. The [built-in imagegen prompt record](bevel-annotation-prompts.txt) includes the correction. No new numeric geometry or contact/force acceptance follows from this photo alone.
+The upper mouth is therefore **58.3 x 59.1 mm**, concentric with the clear **55.3 x 56.1 mm** opening. Flat top margins to the bevel's outer edge are **front 13.8, rear 25.4, left 13.4 and right 15.0 mm**. A ruled rectangular loft models the measured slope; it is not a 45-degree chamfer. Corner transitions are an idealization. Build123d tests and independent FreeCAD sections verify the outer mouth, intermediate widths, and unchanged clear opening below the bevel.
+
+Z is stored in the observations with `applied_to_geometry: false` until its endpoints are confirmed. The existing exterior height is N + R = **13 mm**; a local top-to-underside reading of 11 mm could coexist with that envelope, but it does not establish the extent or shape of a hidden underside recess. No recess has been invented from that single reading.
+
+Use straight sections away from corners and front notches for these measurements. The corrected annotation uses leaders only because the underside is obscured and the photograph cannot establish the vertical levels. The initial annotation mistakenly drew Z over the whole exterior sidewall; that image is rejected. The [built-in imagegen prompt record](bevel-annotation-prompts.txt) includes the correction. The supplied readings are authoritative; no numeric geometry is extracted from the photo.
 
 ## Evidence and editable parameters
 
@@ -79,7 +83,7 @@ Send `X=..., Y=..., Z=...`, in mm. Use a straight section of the opening edge, a
 
 When a reading arrives, change its `value`, `status` and `source` together, then rebuild. Never turn a visually estimated number into a measured one merely because a CAD check passes. Local photo filenames and hashes are recorded in `photo-evidence.json` so geometry observations are traceable without committing the original high-resolution photos.
 
-The lower interior uses the measured clear rectangular opening and its position. The surrounding bevel, shell thickness, contact heights and front features remain unmeasured; the simple envelope does not establish uniform carrier contact around all four sides. Screw heads are simple cylinders for collision checks: six are visible, but their diameter, projection and coordinates are unmeasured. The black plate's front tab is represented with its function left unassigned. No rear stop or hidden spring mounting has been invented.
+The lower interior uses the measured clear rectangular opening, its position, and the bevel's drop and run. Z is recorded pending endpoint confirmation; hidden shell geometry, contact details and front features remain incomplete. The envelope does not establish uniform carrier contact around all four sides. Screw heads are simple cylinders for collision checks: six are visible, but their diameter, projection and coordinates are unmeasured. The black plate's front tab is represented with its function left unassigned. No rear stop or hidden spring mounting has been invented.
 
 ## Datums and lower-support movement
 
@@ -112,7 +116,7 @@ Outputs under `build/durst-c35-interface/`:
 - `insertion-area.FCStd`, saved/reopened and with lower-support placement checked.
 - `measurements.json`, `manifest.json`, `freecad-validation.json` and console log.
 
-The controls test imported solid validity and volume agreement, separation between fixture parts, the measured neck section width, clear optical passage through the provisional openings, interference above the nominal slot height and local interference at a screw. They also verify the saved lower-support expression after reopening the FreeCAD document. They do **not** test the complete carrier, force, light leakage, repeatability or physical manufacture.
+The controls test imported solid validity and volume agreement, separation between fixture parts, the measured neck section width, the lower opening's position and bevel sections, clear optical passage through the provisional head aperture, interference above the nominal slot height and local interference at a screw. They also verify the saved lower-support expression after reopening the FreeCAD document. They do **not** test the complete carrier, force, light leakage, repeatability or physical manufacture.
 
 Optional preview, rendered from the verified STEP files:
 
