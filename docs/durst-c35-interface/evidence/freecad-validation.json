@@ -11,19 +11,26 @@
     "(HEAD detached at 4fd3bf320)",
     "4fd3bf320d9566a27e60069fc8387448aaa3a094"
   ],
-  "manifest_sha256": "39972cdc61e99370bcff2ede73291357a29dadf37f61a04d1a150f49d9c3af6b",
-  "native_document_sha256": "13cc6e2ac431ecc19e7cbe0a9edcf5e56c0721b0ec4a9d6a36a6a119e617879c",
+  "manifest_sha256": "a6af82ac8190a1c62338ff9152dd311ea8e1b1e2767750dcbaa5ab3cb8eda396",
+  "native_document_sha256": "7c2a61ae5bbedab9db7a6a4a482a5e325b83e6568946454b89b0fe277f19281a",
   "native_solids": 9,
+  "side_profile_mm": {
+    "neck_depth": 98.3,
+    "raised_support_depth": 98.3,
+    "rear_plane_difference": 0.0,
+    "flange_front_overhang": 4.5,
+    "flange_thickness": 2.5
+  },
   "relative_import_volume_errors": {
-    "head-shell": 1.9761969838327786e-14,
+    "head-shell": 1.84297022087776e-14,
     "underside-plate": 2.220446049250313e-16,
-    "lower-support": 3.9968028886505635e-15,
+    "lower-support": 2.220446049250313e-15,
     "screw-head-1": 0.0,
     "screw-head-2": 4.440892098500626e-16,
     "screw-head-3": 2.220446049250313e-16,
     "screw-head-4": 4.440892098500626e-16,
     "screw-head-5": 0.0,
-    "screw-head-6": 0.0
+    "screw-head-6": 2.220446049250313e-16
   },
   "maximum_part_overlap_mm3": 0.0,
   "optical_path_intersection_mm3": 0.0,

@@ -3,23 +3,23 @@
   "geometry_passed": true,
   "physical_fit_accepted": false,
   "material_or_force_model": null,
-  "measurement_sha256": "d4e810afe83f6ff0e9865cdf5644cee3ee25b0b62a6aa5e9d14ecbf23f1421c6",
+  "measurement_sha256": "edef9e2d1f113764c03c95a865b8075457bcc716ca2ef168fff62005c0cc8692",
   "sources": {
     "cad/durst_c35_interface/__init__.py": "bf77f8ccaa75b5e4f9271b2d698899178d1ab52d672232db3f398994c14a8530",
     "cad/durst_c35_interface/export.py": "d8cc19477c59317cf5c9e62e0fd4c4cba8e52b26bb43a29cbf90f3785be791b2",
-    "cad/durst_c35_interface/model.py": "8d66255fde066e1b9654c8cc523f2308282a1eb15f64a0e55033c18350c78f3d",
-    "cad/durst_c35_interface/render.py": "d0b4460e64c7100e63ae2f44e4758251322b6a6a70c75c9f746d9370fbcd3474",
-    "cad/durst_c35_interface/verify_freecad.py": "52526c9ec37d1f13c89b401c32d2a12de0c75f9290af914b2b9541442bbb8bed"
+    "cad/durst_c35_interface/model.py": "49d603c2651109265c66bc3c6b1050247333e29c5cdd7315588dc6b54175cd09",
+    "cad/durst_c35_interface/render.py": "b6fe0e6de19031fad3f2c7413e7eb634c3ed9ac93b2875778318768e86613e17",
+    "cad/durst_c35_interface/verify_freecad.py": "5d0ed0d5abc2c6f664756e71416fd0a8312a600f9e6f42f1137e13e63e401bf7"
   },
   "parts": {
     "head-shell": {
       "file": "head-shell.step",
-      "sha256": "ced0e5f5599828880cd3944fc7ba2694ac83cfaadad9e3f16ce3babd4e9a1375",
-      "volume_mm3": 20665.424522623078,
+      "sha256": "493ca709761c959be3688ed3d5c9309e5e6654a09c52062e55a2afa8ed8f2c70",
+      "volume_mm3": 22056.55452262309,
       "bounds_mm": {
         "min": [
           -48.0,
-          -90.0,
+          -102.3,
           0.0
         ],
         "max": [
@@ -32,12 +32,12 @@
     },
     "underside-plate": {
       "file": "underside-plate.step",
-      "sha256": "0a88c887e9150f3850d29052aabc2b4a8ce62b608e088e36592d80ae00ab1db9",
-      "volume_mm3": 7322.567999999998,
+      "sha256": "cebbadefa7f55d7f663ee22ec730890051314a8af1e680d4c57d4f25a40ecc30",
+      "volume_mm3": 8594.141999999998,
       "bounds_mm": {
         "min": [
           -43.074999999999996,
-          -84.8,
+          -97.1,
           0.0
         ],
         "max": [
@@ -50,17 +50,17 @@
     },
     "lower-support": {
       "file": "lower-support.step",
-      "sha256": "3bcc60ce922bd97929310aefc8f4e32a43ffe994e007316691910e3b90dc36ad",
-      "volume_mm3": 29640.957293382213,
+      "sha256": "6e51adabf831889e4beca14e9bd26a9c520fa84e4a774c8eed5d4f0cc1778dd6",
+      "volume_mm3": 50682.6465851175,
       "bounds_mm": {
         "min": [
           -47.65,
-          -91.0,
-          -18.5
+          -107.3,
+          -19.0
         ],
         "max": [
           47.65,
-          3.0,
+          4.5,
           -6.0
         ]
       },
@@ -68,7 +68,7 @@
     },
     "screw-head-1": {
       "file": "screw-head-1.step",
-      "sha256": "faddbad5215a384b994637f7521878ac92e019d09a0c96d6277e88f33427eadc",
+      "sha256": "8fdb744829f8ca8754ff52f8c8ee714d6a65d63eab7324e918860795c1294c96",
       "volume_mm3": 8.309512568745001,
       "bounds_mm": {
         "min": [
@@ -86,17 +86,17 @@
     },
     "screw-head-2": {
       "file": "screw-head-2.step",
-      "sha256": "05d665f184a93481c67f2f5d95c57d6f6d4332236bd37f62ec526704e228fa4a",
+      "sha256": "536c5620db9b40c6c744c3a4cdee0c2b098ff9a5a5a882c40cee2cce01dcba5d",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
           -40.574999999999996,
-          -80.3,
+          -92.6,
           -0.5
         ],
         "max": [
           -35.975,
-          -75.7,
+          -88.0,
           0.0
         ]
       },
@@ -104,7 +104,7 @@
     },
     "screw-head-3": {
       "file": "screw-head-3.step",
-      "sha256": "afc6417a0e6858674760106f7954c42c858d96faa837d4dfa1ba439d84d32b97",
+      "sha256": "fc4f494850b28f6a31dd8c7c48233f2ad4e7d2287a5e729eb96ad796509cba5f",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
@@ -122,17 +122,17 @@
     },
     "screw-head-4": {
       "file": "screw-head-4.step",
-      "sha256": "0d3683400247aac7763ea9b9055c48707c0fa11db4ce82a85b94508dc5a95fe2",
+      "sha256": "83034e04f201afc1d7f2a09589a49b6030e6ad851337b20092ea8485ca772d89",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
           35.975,
-          -80.3,
+          -92.6,
           -0.5
         ],
         "max": [
           40.574999999999996,
-          -75.7,
+          -88.0,
           0.0
         ]
       },
@@ -140,7 +140,7 @@
     },
     "screw-head-5": {
       "file": "screw-head-5.step",
-      "sha256": "d646b1bceb98af03c8e541b8a0bcc136e9a158c902c56ab7d28735fb328c8887",
+      "sha256": "bbe39b493b6d217554d594f4cb77f10545b7dfc92865e2fe24163d33943e3cb3",
       "volume_mm3": 8.309512568745001,
       "bounds_mm": {
         "min": [
@@ -158,24 +158,24 @@
     },
     "screw-head-6": {
       "file": "screw-head-6.step",
-      "sha256": "b4f437b81f8518512d440bd68d1bceddc7aa0806103e0464769bbc641692d11b",
-      "volume_mm3": 8.309512568745001,
+      "sha256": "c9d5b395962608407108720ce8bc8a9bc3d2f28954c351ab60c1c540a74a458c",
+      "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
           -2.3,
-          -78.3,
+          -90.6,
           -0.5
         ],
         "max": [
           2.3,
-          -73.7,
+          -86.0,
           0.0
         ]
       },
       "role": "fixed head"
     }
   },
-  "assembly_sha256": "02dbcb4b678de5f2312cb0a091e03f57e45d409cf88f5fc161b81f1debe9e273",
+  "assembly_sha256": "58d985fc0fa0628509b5143f528adcffc87dfb82ef3fb94ebad89d0994c26848",
   "maximum_part_overlap_mm3": 0.0,
   "negative_controls": {
     "flat_plate_probe_overlap_mm3": {
@@ -213,7 +213,6 @@
     }
   },
   "pending_parameters": [
-    "neck_depth",
     "shell_wall",
     "body_width",
     "body_depth",
@@ -225,13 +224,9 @@
     "optical_centre_depth",
     "front_tab_width",
     "front_tab_projection",
-    "lower_depth",
-    "lower_front_offset",
     "lower_opening_width",
     "lower_opening_depth",
     "flange_depth",
-    "flange_front_overhang",
-    "flange_thickness",
     "screw_head_diameter",
     "screw_protrusion",
     "screw_side_inset",

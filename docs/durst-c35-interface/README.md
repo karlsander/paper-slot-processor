@@ -19,26 +19,28 @@ These labels are new and do not reuse the earlier A-K sheet. The previous **C / 
 
 These readings were supplied on 2026-11-01 and are applied to the model. The original annotation retains its request labels as an endpoint guide. It is an imagegen overlay on IMG_1078; the original photo and actual caliper readings remain authoritative. It must not be used to extract numerical dimensions. The exact built-in imagegen prompt is saved in [annotation-prompt.txt](annotation-prompt.txt).
 
-Next: measure head and lower-support depths, their front/back offset, flange thickness, actual lower opening/contact surfaces, optical opening and front-to-optical position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. Those later dimensions are not being inferred from the front photo.
+Next: measure actual lower opening/contact surfaces, optical opening and front-to-optical position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. The outer housing and rear flange extents also remain provisional. Those later dimensions are not being inferred from photographs.
 
-## Next side-view measurements: P-S
+## Recorded side-view measurements: P-S
 
-![Side-view measurement endpoints](measurements-P-S.png)
+IMG_1079 shows the front on the left and the column/rear on the right. The user supplied these readings and explicitly confirmed that **the narrow white head and raised black support end at the same rear plane**. The earlier shallow lower-support model and misleading Q arrow are superseded by this correction.
 
-IMG_1079 shows the front on the left and the column/rear on the right. These are pending readings; no numerical dimensions have been extracted from the photograph.
-
-| Label | Measurement | Exact endpoints / model parameter |
+| Label | Reading (mm) | Measurement / model parameter |
 | --- | --- | --- |
-| P | Narrow white band: front-to-back depth | Outside front and rear faces of the narrow band, excluding the wider housing above (`neck_depth`). |
-| Q | Raised black lower support: front-to-back depth | Outside front straight face below the rounded corner to the actual rear face of this movable support, excluding the fixed rear housing (`lower_depth`). The rear endpoint is partly obscured: reply **hidden** if inaccessible; do not measure only to the visible seam or arrowhead before the dashed section. |
-| R | Thin black flange: thickness | Top to bottom of the thin flange at its projecting front edge; exclude raised support and bellows (`flange_thickness`). |
-| S | Flange front overhang | Horizontal distance from frontmost flange edge to the front straight face of the raised black support (`flange_front_overhang`). |
+| P | 98.3 | Narrow white band's front-to-back depth, excluding the wider housing (`neck_depth`). |
+| Q | 98.3 | Raised black support's front-to-back depth, excluding the fixed rear housing (`lower_depth`). Its rear face coincides with P's rear face. |
+| R | 2.5 | Thin black flange's thickness, excluding raised support and bellows (`flange_thickness`). |
+| S | 4.5 | Flange projection ahead of the raised support's straight front face (`flange_front_overhang`). |
 
-Send `P=..., Q=... (or hidden), R=..., S=...`, in mm. S is not the offset between the head and lower support; that alignment remains a separate pending measurement. Q is not an established insertion stop or usable travel. These are endpoint guides on the supplied photo, not calibrated drawings. The [saved prompt set](side-annotation-prompts.txt) records the built-in imagegen edit and annotation cleanup.
+Equal depths plus the explicitly shared rear plane imply a **0 mm front-face offset** (`lower_front_offset = Q - P`). That offset is labelled `derived_from_user`, not a separate caliper reading. The neck and raised support now both span Y=-98.3 to Y=0. A section-based native check verifies these end planes, excluding the wider housing and flange. Q is not an established insertion stop or usable travel.
+
+The cropped outer housing remains an envelope: its former unmeasured 4 mm front/rear overhangs are retained, giving a provisional depth of 106.3 mm. The flange retains its former **unmeasured 9 mm rear extension**; its provisional total depth is now Q + S + 9 = 111.8 mm. Neither total is a user measurement. The shared rear plane applies to the neck and raised support; rear flange extent still needs confirmation.
+
+The [original photo annotation](measurements-P-S.png) and [built-in imagegen prompts](side-annotation-prompts.txt) remain as historical records. Their uncertain Q endpoint does not override the corrected readings or datum relationship above. No new values were inferred from pixels.
 
 ## Evidence and editable parameters
 
-[`measurements.json`](../../cad/durst_c35_interface/measurements.json) is the single source for dimensions. Every value has a status, source and (where applicable) photo label. `user_measured` records the supplied reading without claiming caliper accuracy; `user_approximate` preserves the approximate gap. Unmeasured values remain `provisional`, and the truncated upper housing height is a `display_extent`.
+[`measurements.json`](../../cad/durst_c35_interface/measurements.json) is the single source for dimensions. Every value has a status, source and (where applicable) photo label. `user_measured` records the supplied reading without claiming caliper accuracy; `user_approximate` preserves the approximate gap. `derived_from_user` records a dimension calculated from explicit readings/observations. Unmeasured values remain `provisional`, and the truncated upper housing height is a `display_extent`.
 
 When a reading arrives, change its `value`, `status` and `source` together, then rebuild. Never turn a visually estimated number into a measured one merely because a CAD check passes. Local photo filenames and hashes are recorded in `photo-evidence.json` so geometry observations are traceable without committing the original high-resolution photos.
 

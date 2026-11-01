@@ -11,7 +11,13 @@ from pathlib import Path
 import build123d as bd
 
 DEFAULT_MEASUREMENTS = Path(__file__).with_name("measurements.json")
-STATUSES = {"user_measured", "user_approximate", "provisional", "display_extent"}
+STATUSES = {
+    "user_measured",
+    "user_approximate",
+    "derived_from_user",
+    "provisional",
+    "display_extent",
+}
 
 
 def load_measurements(path=DEFAULT_MEASUREMENTS):
@@ -32,6 +38,16 @@ def load_measurements(path=DEFAULT_MEASUREMENTS):
         if entry["status"] not in STATUSES or not entry.get("source"):
             raise ValueError(f"Missing evidence/status: {key}")
     p = values(data)
+    if data["observations"].get("neck_and_lower_rear_faces_coincide", {}).get(
+        "value"
+    ) and not math.isclose(
+        p["lower_front_offset"] - p["lower_depth"],
+        -p["neck_depth"],
+        abs_tol=1e-6,
+    ):
+        raise ValueError(
+            "Head neck and raised support must share the observed rear plane"
+        )
     for key, value in p.items():
         if key not in {"lower_front_offset", "screw_protrusion"} and value <= 0:
             raise ValueError(f"Dimension must be positive: {key}")

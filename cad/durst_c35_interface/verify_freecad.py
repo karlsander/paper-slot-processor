@@ -52,6 +52,37 @@ neck_section = shapes["head-shell"].common(
     probe(0, -p["neck_depth"] / 2, 2, 200, 200, 1)
 )
 assert abs(neck_section.BoundBox.XLength - p["neck_width"]) < 1e-6
+assert abs(neck_section.BoundBox.YLength - p["neck_depth"]) < 1e-6
+lower_section = shapes["lower-support"].common(
+    probe(
+        0,
+        p["lower_front_offset"] - p["lower_depth"] / 2,
+        -p["slot_gap"] - p["lower_height"] / 2,
+        200,
+        200,
+        0.1,
+    )
+)
+assert abs(lower_section.BoundBox.YLength - p["lower_depth"]) < 1e-6
+rear_difference = lower_section.BoundBox.YMin - neck_section.BoundBox.YMin
+if measured["observations"].get("neck_and_lower_rear_faces_coincide", {}).get("value"):
+    assert abs(rear_difference) < 1e-6, rear_difference
+assert (
+    abs(
+        shapes["lower-support"].BoundBox.YMax
+        - lower_section.BoundBox.YMax
+        - p["flange_front_overhang"]
+    )
+    < 1e-6
+)
+assert (
+    abs(
+        shapes["lower-support"].BoundBox.ZLength
+        - p["lower_height"]
+        - p["flange_thickness"]
+    )
+    < 1e-6
+)
 assert abs(shapes["lower-support"].BoundBox.ZMax + p["slot_gap"]) < 1e-6
 controls = {}
 for label, thickness in (
@@ -158,6 +189,15 @@ App.closeDocument(reopened.Name)
             "manifest_sha256": sha(manifest_path),
             "native_document_sha256": sha(path),
             "native_solids": len(shapes),
+            "side_profile_mm": {
+                "neck_depth": neck_section.BoundBox.YLength,
+                "raised_support_depth": lower_section.BoundBox.YLength,
+                "rear_plane_difference": rear_difference,
+                "flange_front_overhang": shapes["lower-support"].BoundBox.YMax
+                - lower_section.BoundBox.YMax,
+                "flange_thickness": shapes["lower-support"].BoundBox.ZLength
+                - p["lower_height"],
+            },
             "relative_import_volume_errors": volume_errors,
             "maximum_part_overlap_mm3": max_overlap,
             "optical_path_intersection_mm3": beam_overlap,

@@ -14,6 +14,8 @@ from .export import ROOT, sha
 def render(folder, target):
     data = json.loads((folder / "manifest.json").read_text())
     native = json.loads((folder / "freecad-validation.json").read_text())
+    measured = json.loads((folder / "measurements.json").read_text())
+    p = {k: entry["value"] for k, entry in measured["parameters"].items()}
     assert native["geometry_passed"] and native["manifest_sha256"] == sha(
         folder / "manifest.json"
     )
@@ -31,15 +33,15 @@ def render(folder, target):
         shape=(1, 3), off_screen=True, window_size=(1920, 850), border=False
     )
     groups = [
-        ("FRONT / RESTING STATE", list(meshes), (0, 250, -5), (0, -40, 8), 69),
+        ("SIDE / MEASURED PROFILE", list(meshes), (-250, -49, 9), (0, -49, 9), 81),
         (
             "HEAD UNDERSIDE",
             [n for n in meshes if n != "lower-support"],
             (115, 140, -155),
-            (0, -40, 10),
-            98,
+            (0, -49, 10),
+            110,
         ),
-        ("LOWER SUPPORT / TOP", ["lower-support"], (125, 145, 145), (0, -40, -12), 98),
+        ("LOWER SUPPORT / TOP", ["lower-support"], (125, 145, 145), (0, -49, -12), 110),
     ]
     for i, (title, names, eye, centre, scale) in enumerate(groups):
         plot.subplot(0, i)
@@ -59,12 +61,25 @@ def render(folder, target):
                 specular=0.15,
                 ambient=0.3,
             )
+        if i == 0:
+            # Foreground datum markers, using the measured neck and raised support.
+            for y in (0, -p["neck_depth"]):
+                plot.add_lines(
+                    np.array(
+                        [
+                            [-60, y, -p["slot_gap"] - p["lower_height"]],
+                            [-60, y, p["neck_height"]],
+                        ]
+                    ),
+                    color="#00869b",
+                    width=2,
+                )
         plot.camera_position = [eye, centre, (0, 0, 1)]
         plot.enable_parallel_projection()
         plot.camera.parallel_scale = scale
         plot.add_text(title, position=(12, 805), font_size=12, color="#17394e")
         note = [
-            "Head width 88.55 mm; rest gap about 6 mm\nL-O measured; depth/interior provisional\nHead cropped above shoulder",
+            f"P = Q = {p['neck_depth']:g} mm; cyan = shared end planes\nR = {p['flange_thickness']:g} mm; S = {p['flange_front_overhang']:g} mm; front at left\nOuter housing / rear flange extent provisional",
             "Six visible heads: sizes/positions provisional\nLight opening and optical position unmeasured",
             "Outer form observed; interior unmeasured\nLowerDrop is prescribed movement, not FEA",
         ][i]

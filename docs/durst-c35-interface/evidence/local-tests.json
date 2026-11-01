@@ -1,11 +1,11 @@
 {
   "date": "2026-11-01",
   "command": "python -m unittest discover -s tests -p 'test_*.py'",
-  "tests_run": 39,
+  "tests_run": 40,
   "passed": true,
-  "fixture_tests": 8,
+  "fixture_tests": 9,
   "lint": "ruff check: passed",
   "physical_fit_accepted": false,
-  "measurement_sha256": "d4e810afe83f6ff0e9865cdf5644cee3ee25b0b62a6aa5e9d14ecbf23f1421c6",
-  "duration_seconds": 16.183
+  "measurement_sha256": "edef9e2d1f113764c03c95a865b8075457bcc716ca2ef168fff62005c0cc8692",
+  "duration_seconds": 14.088
 }

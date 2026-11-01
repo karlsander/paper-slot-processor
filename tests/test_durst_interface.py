@@ -67,11 +67,14 @@ class InterfaceTests(unittest.TestCase):
         self.assertLess(overlap(plate, box(0, -4, -6, 8, 2, 5.9)), 1e-6)
         self.assertGreater(overlap(plate, box(0, -4, -6, 8, 2, 6.1)), 0.1)
 
-    def test_user_values_do_not_promote_unmeasured_depth(self):
+    def test_user_values_do_not_promote_unmeasured_interiors(self):
         entries = self.data["parameters"]
         self.assertEqual(entries["neck_width"]["status"], "user_measured")
         self.assertEqual(entries["slot_gap"]["status"], "user_approximate")
-        self.assertEqual(entries["neck_depth"]["status"], "provisional")
+        self.assertEqual(entries["neck_depth"]["status"], "user_measured")
+        self.assertEqual(entries["lower_front_offset"]["status"], "derived_from_user")
+        self.assertEqual(entries["lower_opening_depth"]["status"], "provisional")
+        self.assertEqual(entries["flange_depth"]["status"], "provisional")
         self.assertIsNone(
             self.data["observations"]["lower_support_stiffness_N_per_mm"]["value"]
         )
@@ -80,6 +83,17 @@ class InterfaceTests(unittest.TestCase):
         data = copy.deepcopy(self.data)
         data["parameters"]["screw_protrusion"]["value"] = 0
         self.assertEqual(len(parts(data)), 3)
+
+    def test_measured_sections_share_front_and_rear_planes(self):
+        # Section the neck and raised support, excluding the wider body/flange.
+        for name, z in [("head-shell", 2), ("lower-support", -8)]:
+            section = self.shapes[name].intersect(box(0, -49, z, 200, 200, 1))
+            bounds = bd.Compound(children=section).bounding_box()
+            self.assertAlmostEqual(bounds.min.Y, -98.3)
+            self.assertAlmostEqual(bounds.max.Y, 0)
+        flange = self.shapes["lower-support"].bounding_box()
+        self.assertAlmostEqual(flange.max.Y, 4.5)
+        self.assertAlmostEqual(flange.min.Z, -6 - 10.5 - 2.5)
 
     def test_new_caliper_readings_rebuild_without_old_gap_constants(self):
         with tempfile.TemporaryDirectory() as folder:
@@ -113,6 +127,7 @@ class InterfaceTests(unittest.TestCase):
             ("lower_opening_width", 100),
             ("neck_width", float("nan")),
             ("screw_head_diameter", 50),
+            ("lower_front_offset", 1),
         ]:
             with self.subTest(key=key), tempfile.TemporaryDirectory() as folder:
                 data = copy.deepcopy(self.data)
