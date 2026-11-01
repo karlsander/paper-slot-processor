@@ -31,6 +31,11 @@
       "filename": "IMG_1080.HEIC",
       "sha256": "480647a4b1843d553862d9c057fe223c4b8e478f840d77bf572643efff08eec0",
       "role": "Lower support viewed from above: broad top surface, beveled rectangular opening, two front features; T-W measurement guide, no numerical readings yet"
+    },
+    {
+      "filename": "IMG_1081.HEIC",
+      "sha256": "be91fbc69fd73ca809c84921e783012449216fb6863ff7198d37b9dac9e7b28d",
+      "role": "Front-left oblique view of lower support opening edge and two front apertures; X-Z guide requests bevel profile and top-wall thickness without inferring unseen underside"
     }
   ]
 }

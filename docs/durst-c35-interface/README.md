@@ -59,6 +59,20 @@ The earlier X-axis wording was inconsistent with a right-handed CAD frame. With 
 
 Bevel size/height, actual wall thickness, front features and contact heights remain later measurements. The current collision envelope extrudes the measured clear rectangle straight through the support; it does not reconstruct the bevel or the shell underneath. This is the lower support opening, not the separate head's optical aperture; the latter remains provisional and is not automatically recentered.
 
+## Next opening-edge measurements: X-Z
+
+![Opening edge and top wall measurement callouts](measurements-X-Z.png)
+
+IMG_1081 is a useful oblique view from the front-left. These three callouts identify surfaces for caliper measurements; they are not dimensions read from the photograph. The front rectangular features look like openings in this view, but their function and depth remain unassigned.
+
+| Label | Requested reading | Definition |
+| --- | --- | --- |
+| X | Bevel vertical drop | From the adjacent broad flat top surface down to the inner bevel edge where the straight opening wall starts. Report 0 if flush, or explicitly **raised** with the amount if that edge is above the flat top. If there is no distinct transition, describe it instead of guessing. |
+| Y | Bevel width in the top plane | Across the narrow strip, from where the broad top begins sloping to the inner edge used for T/U. This is the horizontal run, not the diagonal length along the slope. |
+| Z | Top-wall material thickness beside the opening | From flat top to its matching underside, immediately beside the opening. This is not the exterior raised-support height N or flange thickness R. Reply **hidden** if the matching underside is inaccessible. |
+
+Send `X=..., Y=..., Z=...`, in mm. Use a straight section of the opening edge, away from corners and front notches. The corrected annotation uses leaders only because the underside is obscured and the photograph cannot establish the vertical levels. The initial annotation mistakenly drew Z over the whole exterior sidewall; that image is rejected. The [built-in imagegen prompt record](bevel-annotation-prompts.txt) includes the correction. No new numeric geometry or contact/force acceptance follows from this photo alone.
+
 ## Evidence and editable parameters
 
 [`measurements.json`](../../cad/durst_c35_interface/measurements.json) is the single source for dimensions. Every value has a status, source and (where applicable) photo label. `user_measured` records the supplied reading without claiming caliper accuracy; `user_approximate` preserves the approximate gap. `derived_from_user` records a dimension calculated from explicit readings/observations. Unmeasured values remain `provisional`, and the truncated upper housing height is a `display_extent`.
