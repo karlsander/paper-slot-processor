@@ -66,11 +66,8 @@ def load_measurements(path=DEFAULT_MEASUREMENTS):
         raise ValueError("Flange must enclose raised support")
     if not 0 < p["flange_front_overhang"] < p["flange_depth"] - p["lower_depth"]:
         raise ValueError("Flange must enclose front and back of support")
-    if (
-        p["lower_opening_width"] >= p["lower_width"] - 2 * p["corner_radius"]
-        or p["lower_opening_depth"] >= p["lower_depth"] - 2 * p["corner_radius"]
-    ):
-        raise ValueError("Lower opening consumes frame")
+    if min(lower_opening_margins(p).values()) <= p["corner_radius"]:
+        raise ValueError("Offset lower opening consumes frame or rounded perimeter")
     if p["corner_radius"] * 2 >= min(
         p["neck_width"], p["neck_depth"], p["lower_width"], p["lower_depth"]
     ):
@@ -99,6 +96,31 @@ def load_measurements(path=DEFAULT_MEASUREMENTS):
 
 def values(data):
     return {key: entry["value"] for key, entry in data["parameters"].items()}
+
+
+def lower_opening_centre(p):
+    # +X is operator-left in our right-handed X/Y/Z coordinates.
+    return (
+        p["lower_width"] / 2
+        - p["lower_opening_left_offset"]
+        - p["lower_opening_width"] / 2,
+        p["lower_front_offset"]
+        - p["lower_opening_front_offset"]
+        - p["lower_opening_depth"] / 2,
+    )
+
+
+def lower_opening_margins(p):
+    return {
+        "front": p["lower_opening_front_offset"],
+        "rear": p["lower_depth"]
+        - p["lower_opening_front_offset"]
+        - p["lower_opening_depth"],
+        "left": p["lower_opening_left_offset"],
+        "right": p["lower_width"]
+        - p["lower_opening_left_offset"]
+        - p["lower_opening_width"],
+    }
 
 
 def box(x, y, z, width, depth, height):
@@ -203,9 +225,10 @@ def parts(data=None, lower_drop_mm=0.0):
         p["flange_thickness"],
         p["corner_radius"],
     )
+    opening_x, opening_y = lower_opening_centre(p)
     lower -= box(
-        0,
-        lower_cy,
+        opening_x,
+        opening_y,
         bottom - 1,
         p["lower_opening_width"],
         p["lower_opening_depth"],

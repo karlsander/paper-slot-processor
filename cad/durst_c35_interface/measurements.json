@@ -4,7 +4,7 @@
   "recorded_on": "2026-11-01",
   "datums": {
     "origin": "Centre of the narrow head's front edge, at its flat underside plane; screw heads excluded.",
-    "x": "Left/right across the entry; positive right when facing the enlarger.",
+    "x": "Positive left when facing the entry: right-handed with Y toward operator and Z upward.",
     "y": "Positive toward operator; insertion travels in negative Y.",
     "z": "Positive upward; flat underside Z=0, unloaded lower contact surface Z=-slot_gap.",
     "optical_axis": "Provisional offset from front; not yet measured. No automatic alignment to old carrier coordinates."
@@ -39,8 +39,10 @@
     "front_tab_projection": {"value": 0.8, "status": "provisional", "label": null, "source": "Visible tab extent unmeasured"},
     "lower_depth": {"value": 98.3, "status": "user_measured", "label": "Q", "source": "User caliper reading Q, 2026-11-01; explicitly equal to P with the same rear plane"},
     "lower_front_offset": {"value": 0.0, "status": "derived_from_user", "label": null, "source": "Q - P = 0 because the user confirms the two rear faces coincide; not inferred from photo pixels"},
-    "lower_opening_width": {"value": 74.0, "status": "provisional", "label": null, "source": "Unseen interior of lower support: rectangular clearance proxy, NOT measured contact lands"},
-    "lower_opening_depth": {"value": 68.0, "status": "provisional", "label": null, "source": "Unseen interior of lower support: rectangular clearance proxy"},
+    "lower_opening_width": {"value": 55.3, "status": "user_measured", "label": "T", "source": "User caliper reading T, 2026-11-01; clear opening width between inner walls below bevel"},
+    "lower_opening_depth": {"value": 56.1, "status": "user_measured", "label": "U", "source": "User caliper reading U, 2026-11-01; clear opening front-to-back depth below bevel"},
+    "lower_opening_front_offset": {"value": 15.3, "status": "user_measured", "label": "V", "source": "User caliper reading V, 2026-11-01; raised support front outside plane to inner front opening edge, excludes flange"},
+    "lower_opening_left_offset": {"value": 14.9, "status": "user_measured", "label": "W", "source": "User caliper reading W, 2026-11-01; raised support left outside plane to inner left opening edge, excludes flange"},
     "flange_depth": {"value": 111.8, "status": "provisional", "label": null, "source": "Q + S + 9 mm rear extension; retains the former UNMEASURED 9 mm rear flange envelope. Actual flange rear extent unknown"},
     "flange_front_overhang": {"value": 4.5, "status": "user_measured", "label": "S", "source": "User caliper reading S, 2026-11-01; flange projects ahead of the raised support front face"},
     "flange_thickness": {"value": 2.5, "status": "user_measured", "label": "R", "source": "User caliper reading R, 2026-11-01; thin flange thickness excluding raised support"},

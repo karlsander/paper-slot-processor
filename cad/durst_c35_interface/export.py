@@ -121,7 +121,8 @@ def export(output, measurements=DEFAULT_MEASUREMENTS):
         "limitations": [
             "Measured head width and approximate rest gap do not establish full fit.",
             "Lower support placement is rigid and prescribed, not elastic deformation.",
-            "Screw dimensions/positions and lower-frame interior are provisional collision envelopes.",
+            "Lower clear opening and offsets are measured; bevel, wall thickness, contact heights and front features are not reconstructed.",
+            "Screw dimensions/positions remain provisional collision envelopes.",
             "No inferred force, preload, maximum travel, friction or spring material.",
             "No automatic reuse of old 2.6 mm fixture acceptance or film-plane alignment.",
         ],

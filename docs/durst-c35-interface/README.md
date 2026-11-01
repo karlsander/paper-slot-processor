@@ -19,7 +19,7 @@ These labels are new and do not reuse the earlier A-K sheet. The previous **C / 
 
 These readings were supplied on 2026-11-01 and are applied to the model. The original annotation retains its request labels as an endpoint guide. It is an imagegen overlay on IMG_1078; the original photo and actual caliper readings remain authoritative. It must not be used to extract numerical dimensions. The exact built-in imagegen prompt is saved in [annotation-prompt.txt](annotation-prompt.txt).
 
-Next: measure actual lower opening/contact surfaces, optical opening and front-to-optical position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. The outer housing and rear flange extents also remain provisional. Those later dimensions are not being inferred from photographs.
+Next: measure the lower opening's bevel/contact heights, the separate head optical opening and its position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. The outer housing and rear flange extents also remain provisional. Those later dimensions are not being inferred from photographs.
 
 ## Recorded side-view measurements: P-S
 
@@ -38,22 +38,26 @@ The cropped outer housing remains an envelope: its former unmeasured 4 mm front/
 
 The [original photo annotation](measurements-P-S.png) and [built-in imagegen prompts](side-annotation-prompts.txt) remain as historical records. Their uncertain Q endpoint does not override the corrected readings or datum relationship above. No new values were inferred from pixels.
 
-## Next lower-support measurements: T-W
+## Recorded lower-support measurements: T-W
 
 ![Lower support opening and position measurements](measurements-T-W.png)
 
-IMG_1080 shows the lower support from above, with the front at the bottom of the photo. It reveals a broad top surface around a beveled rectangular opening and two small front features. Their height, purpose and actual carrier contact are not established by the photo. The following readings are pending; no new dimensions have been inferred from pixels.
+IMG_1080 shows the lower support from above, with the front at the bottom of the photo. It reveals a broad top surface around a beveled rectangular opening and two small front features. Their height, purpose and actual carrier contact are not established by the photo. The user supplied T-W on 2026-11-01; the annotation above remains an endpoint guide, and no dimensions were inferred from pixels.
 
-| Label | Measurement | Exact endpoints |
-| --- | --- | --- |
-| T | Clear opening width | Left inner straight wall to right inner straight wall, immediately below the bevel. Exclude the larger outer bevel outline and the lens underneath. |
-| U | Clear opening front-to-back depth | Front inner wall to rear inner wall, at the same level as T. |
-| V | Front offset of clear opening | Outside front plane of the raised black support to the inner front edge used for U. Include the bevel within this distance; exclude the wider projecting flange. Use the straight section between the small front features, not the beginning of the rounded top corner. |
-| W | Left offset of clear opening | Outside left plane of the raised black support to the inner left edge used for T. Include the bevel within this distance; exclude the wider flange. |
+| Label | Reading (mm) | Measurement | Exact endpoints |
+| --- | --- | --- | --- |
+| T | 55.3 | Clear opening width | Left inner straight wall to right inner straight wall, immediately below the bevel. Exclude the larger outer bevel outline and the lens underneath. |
+| U | 56.1 | Clear opening front-to-back depth | Front inner wall to rear inner wall, at the same level as T. |
+| V | 15.3 | Front offset of clear opening | Outside front plane of the raised black support to the inner front edge used for U. Include the bevel within this distance; exclude the wider projecting flange. Use the straight section between the small front features, not the beginning of the rounded top corner. |
+| W | 14.9 | Left offset of clear opening | Outside left plane of the raised black support to the inner left edge used for T. Include the bevel within this distance; exclude the wider flange. |
 
-Send `T=..., U=..., V=..., W=...`, in mm. The T/U caliper jaws should touch the inner walls just below the bevel, without reaching down towards the lens. The actual edges and readings take precedence over the imagegen annotation. Its [prompt set](lower-support-annotation-prompts.txt) records both the built-in edit and the V endpoint correction.
+The actual edges and readings take precedence over the imagegen annotation. Its [prompt set](lower-support-annotation-prompts.txt) records both the built-in edit and the V endpoint correction.
 
-Once measured, T and U replace the lower opening width/depth proxies. The opening centre will be located explicitly at `X = -M/2 + W + T/2`, `Y = lower_front_offset - V - U/2`; it must not be assumed centred. Sanity checks are `right margin = M - W - T` and `rear margin = Q - V - U`. Bevel size/height, front features and contact heights remain later measurements. This is the lower support opening, not the separate head's optical aperture.
+T and U now replace the old 74 x 68 mm centred clearance proxy. Margins to the inner opening are **front 15.3, rear 26.9, left 14.9 and right 16.5 mm**. Its centre is **43.35 mm behind the front plane** and **0.8 mm left of the support centreline**, or 5.8 mm forward of the support's depth midpoint. These are derived from the readings, not new caliper measurements.
+
+The earlier X-axis wording was inconsistent with a right-handed CAD frame. With Y toward the operator and Z upward, **positive X points to operator-left**. Previous geometry was laterally symmetric; no existing asymmetric feature was moved. The measured opening is now located at `X = M/2 - W - T/2 = +0.8`, `Y = lower_front_offset - V - U/2 = -43.35`. The top-view preview puts front at bottom and operator-left at image-left. FreeCAD recovers the actual opening void from an imported section and verifies T/U/V/W independently.
+
+Bevel size/height, actual wall thickness, front features and contact heights remain later measurements. The current collision envelope extrudes the measured clear rectangle straight through the support; it does not reconstruct the bevel or the shell underneath. This is the lower support opening, not the separate head's optical aperture; the latter remains provisional and is not automatically recentered.
 
 ## Evidence and editable parameters
 
@@ -61,11 +65,11 @@ Once measured, T and U replace the lower opening width/depth proxies. The openin
 
 When a reading arrives, change its `value`, `status` and `source` together, then rebuild. Never turn a visually estimated number into a measured one merely because a CAD check passes. Local photo filenames and hashes are recorded in `photo-evidence.json` so geometry observations are traceable without committing the original high-resolution photos.
 
-The lower interior remains a provisional **open rectangular envelope**. IMG_1080 now shows the surrounding top surface and beveled opening, but their dimensions, contact heights and front features are awaiting measurement. The simple envelope does not establish uniform carrier contact around all four sides. Screw heads are simple cylinders for collision checks: six are visible, but their diameter, projection and coordinates are unmeasured. The black plate's front tab is represented with its function left unassigned. No rear stop or hidden spring mounting has been invented.
+The lower interior uses the measured clear rectangular opening and its position. The surrounding bevel, shell thickness, contact heights and front features remain unmeasured; the simple envelope does not establish uniform carrier contact around all four sides. Screw heads are simple cylinders for collision checks: six are visible, but their diameter, projection and coordinates are unmeasured. The black plate's front tab is represented with its function left unassigned. No rear stop or hidden spring mounting has been invented.
 
 ## Datums and lower-support movement
 
-- X: left/right; positive to the right when facing the entry.
+- X: left/right; positive to the left when facing the entry (right-handed with Y/Z below).
 - Y: positive toward the operator. Insertion is along negative Y.
 - Z: upward. **Z=0 is the flat underside of the head**, excluding screw protrusions.
 - Origin: centre of the narrow head's front edge at that underside plane.

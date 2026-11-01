@@ -84,6 +84,34 @@ assert (
     < 1e-6
 )
 assert abs(shapes["lower-support"].BoundBox.ZMax + p["slot_gap"]) < 1e-6
+# Recover the clear opening from imported solid geometry, independently of its builder.
+opening = probe(
+    0,
+    p["lower_front_offset"] - p["lower_depth"] / 2,
+    -p["slot_gap"] - 0.2,
+    p["lower_width"] - 2 * p["corner_radius"],
+    p["lower_depth"] - 2 * p["corner_radius"],
+    0.1,
+).cut(shapes["lower-support"])
+assert len(opening.Solids) == 1
+ob = opening.BoundBox
+opening_profile = {
+    "width": ob.XLength,
+    "depth": ob.YLength,
+    "left_margin": lower_section.BoundBox.XMax - ob.XMax,
+    "right_margin": ob.XMin - lower_section.BoundBox.XMin,
+    "front_margin": lower_section.BoundBox.YMax - ob.YMax,
+    "rear_margin": ob.YMin - lower_section.BoundBox.YMin,
+    "centre_x": (ob.XMin + ob.XMax) / 2,
+    "centre_y": (ob.YMin + ob.YMax) / 2,
+}
+for actual, expected in [
+    (opening_profile["width"], p["lower_opening_width"]),
+    (opening_profile["depth"], p["lower_opening_depth"]),
+    (opening_profile["left_margin"], p["lower_opening_left_offset"]),
+    (opening_profile["front_margin"], p["lower_opening_front_offset"]),
+]:
+    assert abs(actual - expected) < 1e-6, (actual, expected)
 controls = {}
 for label, thickness in (
     ("below", p["slot_gap"] - 0.1),
@@ -189,6 +217,7 @@ App.closeDocument(reopened.Name)
             "manifest_sha256": sha(manifest_path),
             "native_document_sha256": sha(path),
             "native_solids": len(shapes),
+            "lower_opening_mm": opening_profile,
             "side_profile_mm": {
                 "neck_depth": neck_section.BoundBox.YLength,
                 "raised_support_depth": lower_section.BoundBox.YLength,

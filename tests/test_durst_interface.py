@@ -73,7 +73,11 @@ class InterfaceTests(unittest.TestCase):
         self.assertEqual(entries["slot_gap"]["status"], "user_approximate")
         self.assertEqual(entries["neck_depth"]["status"], "user_measured")
         self.assertEqual(entries["lower_front_offset"]["status"], "derived_from_user")
-        self.assertEqual(entries["lower_opening_depth"]["status"], "provisional")
+        self.assertEqual(entries["lower_opening_depth"]["status"], "user_measured")
+        self.assertEqual(
+            entries["lower_opening_left_offset"]["status"], "user_measured"
+        )
+        self.assertEqual(entries["optical_centre_depth"]["status"], "provisional")
         self.assertEqual(entries["flange_depth"]["status"], "provisional")
         self.assertIsNone(
             self.data["observations"]["lower_support_stiffness_N_per_mm"]["value"]
@@ -121,6 +125,18 @@ class InterfaceTests(unittest.TestCase):
                 6.3,
             )
 
+    def test_opening_void_matches_all_four_measured_edges(self):
+        # Recover the actual hole from a section, rather than retest centre arithmetic.
+        void = box(0, -49.15, -6.2, 80, 90, 0.1) - self.shapes["lower-support"]
+        self.assertEqual(len(void.solids()), 1)
+        bounds = void.bounding_box()
+        self.assertAlmostEqual(bounds.size.X, 55.3)
+        self.assertAlmostEqual(bounds.size.Y, 56.1)
+        self.assertAlmostEqual(43.35 - bounds.max.X, 14.9)  # Operator-left is +X.
+        self.assertAlmostEqual(bounds.min.X + 43.35, 16.5)
+        self.assertAlmostEqual(-bounds.max.Y, 15.3)
+        self.assertAlmostEqual(bounds.min.Y + 98.3, 26.9)
+
     def test_bad_measurement_fails_before_export(self):
         for key, value in [
             ("slot_gap", -1),
@@ -128,6 +144,8 @@ class InterfaceTests(unittest.TestCase):
             ("neck_width", float("nan")),
             ("screw_head_diameter", 50),
             ("lower_front_offset", 1),
+            ("lower_opening_left_offset", 40),
+            ("lower_opening_front_offset", 50),
         ]:
             with self.subTest(key=key), tempfile.TemporaryDirectory() as folder:
                 data = copy.deepcopy(self.data)

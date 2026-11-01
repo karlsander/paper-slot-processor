@@ -41,7 +41,13 @@ def render(folder, target):
             (0, -49, 10),
             110,
         ),
-        ("LOWER SUPPORT / TOP", ["lower-support"], (125, 145, 145), (0, -49, -12), 110),
+        (
+            "LOWER SUPPORT / FRONT AT BOTTOM",
+            ["lower-support"],
+            (0, -49, 200),
+            (0, -49, -12),
+            75,
+        ),
     ]
     for i, (title, names, eye, centre, scale) in enumerate(groups):
         plot.subplot(0, i)
@@ -61,6 +67,20 @@ def render(folder, target):
                 specular=0.15,
                 ambient=0.3,
             )
+            if i == 2:
+                # Show the raised support boundary separately from the wider flange.
+                edges = (
+                    meshes[name]
+                    .clean()
+                    .extract_feature_edges(
+                        feature_angle=35,
+                        boundary_edges=True,
+                        feature_edges=True,
+                        non_manifold_edges=False,
+                        manifold_edges=False,
+                    )
+                )
+                plot.add_mesh(edges, color="#9eafba", line_width=1.5)
         if i == 0:
             # Foreground datum markers, using the measured neck and raised support.
             for y in (0, -p["neck_depth"]):
@@ -74,14 +94,14 @@ def render(folder, target):
                     color="#00869b",
                     width=2,
                 )
-        plot.camera_position = [eye, centre, (0, 0, 1)]
+        plot.camera_position = [eye, centre, (0, -1, 0) if i == 2 else (0, 0, 1)]
         plot.enable_parallel_projection()
         plot.camera.parallel_scale = scale
         plot.add_text(title, position=(12, 805), font_size=12, color="#17394e")
         note = [
             f"P = Q = {p['neck_depth']:g} mm; cyan = shared end planes\nR = {p['flange_thickness']:g} mm; S = {p['flange_front_overhang']:g} mm; front at left\nOuter housing / rear flange extent provisional",
             "Six visible heads: sizes/positions provisional\nLight opening and optical position unmeasured",
-            "Outer form observed; interior unmeasured\nLowerDrop is prescribed movement, not FEA",
+            f"T = {p['lower_opening_width']:g} mm; U = {p['lower_opening_depth']:g} mm\nV = {p['lower_opening_front_offset']:g} mm; W = {p['lower_opening_left_offset']:g} mm\nBevel / contact heights still unmeasured",
         ][i]
         plot.add_text(note, position=(12, 24), font_size=10, color="#17394e")
     target.parent.mkdir(parents=True, exist_ok=True)
