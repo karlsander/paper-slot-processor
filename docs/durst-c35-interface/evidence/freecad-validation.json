@@ -11,11 +11,11 @@
     "(HEAD detached at 4fd3bf320)",
     "4fd3bf320d9566a27e60069fc8387448aaa3a094"
   ],
-  "manifest_sha256": "245fc4bf3961493e8aca5039b2507dd2de53c5dc553e1e4b4b53a06937063664",
-  "native_document_sha256": "7dc594864b2aa2746ba1b864b57ffba1a60c6b15760e18eeea92c8fbb2e73fcb",
+  "manifest_sha256": "39972cdc61e99370bcff2ede73291357a29dadf37f61a04d1a150f49d9c3af6b",
+  "native_document_sha256": "13cc6e2ac431ecc19e7cbe0a9edcf5e56c0721b0ec4a9d6a36a6a119e617879c",
   "native_solids": 9,
   "relative_import_volume_errors": {
-    "head-shell": 1.9095836023552692e-14,
+    "head-shell": 1.9761969838327786e-14,
     "underside-plate": 2.220446049250313e-16,
     "lower-support": 3.9968028886505635e-15,
     "screw-head-1": 0.0,

@@ -3,19 +3,19 @@
   "geometry_passed": true,
   "physical_fit_accepted": false,
   "material_or_force_model": null,
-  "measurement_sha256": "6976701095f63d15eaa66221b65708b01bac9dee9df73b09a412b3cba344c3c1",
+  "measurement_sha256": "d4e810afe83f6ff0e9865cdf5644cee3ee25b0b62a6aa5e9d14ecbf23f1421c6",
   "sources": {
     "cad/durst_c35_interface/__init__.py": "bf77f8ccaa75b5e4f9271b2d698899178d1ab52d672232db3f398994c14a8530",
     "cad/durst_c35_interface/export.py": "d8cc19477c59317cf5c9e62e0fd4c4cba8e52b26bb43a29cbf90f3785be791b2",
     "cad/durst_c35_interface/model.py": "8d66255fde066e1b9654c8cc523f2308282a1eb15f64a0e55033c18350c78f3d",
-    "cad/durst_c35_interface/render.py": "1bbc1f8b47a3f4e6d34607c31bf11e1a72a08dffad4743946df7d15c2ca70386",
+    "cad/durst_c35_interface/render.py": "d0b4460e64c7100e63ae2f44e4758251322b6a6a70c75c9f746d9370fbcd3474",
     "cad/durst_c35_interface/verify_freecad.py": "52526c9ec37d1f13c89b401c32d2a12de0c75f9290af914b2b9541442bbb8bed"
   },
   "parts": {
     "head-shell": {
       "file": "head-shell.step",
-      "sha256": "b629924274c951f17800edd0b0514fa2e48288bee8f6b18dfaa25c8a507fbdbb",
-      "volume_mm3": 21323.390256176055,
+      "sha256": "ced0e5f5599828880cd3944fc7ba2694ac83cfaadad9e3f16ce3babd4e9a1375",
+      "volume_mm3": 20665.424522623078,
       "bounds_mm": {
         "min": [
           -48.0,
@@ -25,14 +25,14 @@
         "max": [
           48.0,
           4.0,
-          45.0
+          43.4
         ]
       },
       "role": "fixed head"
     },
     "underside-plate": {
       "file": "underside-plate.step",
-      "sha256": "f78988997732abfc90ee4dfa738b12d2058106bef4923748b800203a75e9fec1",
+      "sha256": "0a88c887e9150f3850d29052aabc2b4a8ce62b608e088e36592d80ae00ab1db9",
       "volume_mm3": 7322.567999999998,
       "bounds_mm": {
         "min": [
@@ -50,16 +50,16 @@
     },
     "lower-support": {
       "file": "lower-support.step",
-      "sha256": "6a5514f33c64e5db49522dbb5767298d1aec2424eb56892a0f80198b6b05aa42",
-      "volume_mm3": 31563.925876852787,
+      "sha256": "3bcc60ce922bd97929310aefc8f4e32a43ffe994e007316691910e3b90dc36ad",
+      "volume_mm3": 29640.957293382213,
       "bounds_mm": {
         "min": [
-          -49.0,
+          -47.65,
           -91.0,
-          -19.5
+          -18.5
         ],
         "max": [
-          49.0,
+          47.65,
           3.0,
           -6.0
         ]
@@ -68,7 +68,7 @@
     },
     "screw-head-1": {
       "file": "screw-head-1.step",
-      "sha256": "fc972e0e28a37efa9faa90288318b32b518d837a2bb7c215340983b41d79502c",
+      "sha256": "faddbad5215a384b994637f7521878ac92e019d09a0c96d6277e88f33427eadc",
       "volume_mm3": 8.309512568745001,
       "bounds_mm": {
         "min": [
@@ -86,7 +86,7 @@
     },
     "screw-head-2": {
       "file": "screw-head-2.step",
-      "sha256": "74c2bfd2da5d6d4860dff4505388ed999dbfd37162c932b0b406d2aee7a6a851",
+      "sha256": "05d665f184a93481c67f2f5d95c57d6f6d4332236bd37f62ec526704e228fa4a",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
@@ -104,7 +104,7 @@
     },
     "screw-head-3": {
       "file": "screw-head-3.step",
-      "sha256": "240706ae039cacd2c63ba2f4399ea6d9b59fc752d1a38e2d7e344149052f7635",
+      "sha256": "afc6417a0e6858674760106f7954c42c858d96faa837d4dfa1ba439d84d32b97",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
@@ -122,7 +122,7 @@
     },
     "screw-head-4": {
       "file": "screw-head-4.step",
-      "sha256": "defb849ea45418d44d1a09d19bd3fdcabb985efdd5f02f0580abacb0e33729ed",
+      "sha256": "0d3683400247aac7763ea9b9055c48707c0fa11db4ce82a85b94508dc5a95fe2",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
@@ -140,7 +140,7 @@
     },
     "screw-head-5": {
       "file": "screw-head-5.step",
-      "sha256": "30736b1f3e41276d4b6a42939e1fe1de706a1f966b3930b168c94f9ac8de3e42",
+      "sha256": "d646b1bceb98af03c8e541b8a0bcc136e9a158c902c56ab7d28735fb328c8887",
       "volume_mm3": 8.309512568745001,
       "bounds_mm": {
         "min": [
@@ -158,7 +158,7 @@
     },
     "screw-head-6": {
       "file": "screw-head-6.step",
-      "sha256": "ffb74afaa6fd6856737bcd1ad3920b66cd137a24f877d55686a28241f4d105ce",
+      "sha256": "b4f437b81f8518512d440bd68d1bceddc7aa0806103e0464769bbc641692d11b",
       "volume_mm3": 8.309512568745001,
       "bounds_mm": {
         "min": [
@@ -175,7 +175,7 @@
       "role": "fixed head"
     }
   },
-  "assembly_sha256": "763bd6ee2f2a502ce082fdf3b9c71a1f33d47b34100df29dd6adcfd820f42d90",
+  "assembly_sha256": "02dbcb4b678de5f2312cb0a091e03f57e45d409cf88f5fc161b81f1debe9e273",
   "maximum_part_overlap_mm3": 0.0,
   "negative_controls": {
     "flat_plate_probe_overlap_mm3": {
@@ -213,10 +213,6 @@
     }
   },
   "pending_parameters": [
-    "neck_height",
-    "lower_width",
-    "lower_height",
-    "flange_width",
     "neck_depth",
     "shell_wall",
     "body_width",

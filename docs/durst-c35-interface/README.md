@@ -2,24 +2,24 @@
 
 This model replaces the *assumptions* behind the earlier two-ledge sketch with the visible head neck, black underside plate, six screw heads, and the raised lower support with its wider flange. It is a partial reconstruction for future carrier studies, not a dimensionally complete OEM model or a print replacement for the enlarger.
 
-The two machine dimensions supplied so far are **88.55 mm external neck width** and **approximately 6 mm unloaded vertical gap**. The closed original carrier is approximately **6.15 mm** high. The user reports that the lower support moves when inserting it. These are separate observations: they do not establish spring stiffness, insertion force, local screw clearances, or the film plane.
+The measured front profile uses **88.55 mm external neck width**, **11.4 mm neck height (L)**, **86.7 mm lower support width (M)**, **10.5 mm lower support height (N)** and **95.3 mm flange width (O)**. The unloaded vertical gap is **approximately 6 mm**. The closed original carrier is approximately **6.15 mm** high. The user reports that the lower support moves when inserting it. These are separate observations: they do not establish spring stiffness, insertion force, local screw clearances, or the film plane.
 
-![Next front-view measurements](measurements-L-O.png)
+![Front-view measurement endpoints](measurements-L-O.png)
 
-## Next measurements: L-O
+## Recorded front measurements: L-O
 
 These labels are new and do not reuse the earlier A-K sheet. The previous **C / assumed support ledges is withdrawn**. B-head means the outside width of the narrow head, not an inside slot width.
 
-| Label | Measure in mm | Exact endpoints |
-| --- | --- | --- |
-| L | Narrow white band height | From underside of the wider white shoulder to the flat underside of the narrow white band; exclude slot and protruding screws. |
-| M | Raised black support width | Outside left to outside right of the raised black section directly below the slot; exclude its wider thin flange. |
-| N | Raised black support height | Top contact surface down to **top of flange**, excluding flange thickness. Use the straight part away from rounded corners. |
-| O | Black flange overall width | Its leftmost to rightmost outside edges, immediately above the bellows. |
+| Label | Reading (mm) | Measurement | Exact endpoints |
+| --- | --- | --- | --- |
+| L | 11.4 | Narrow white band height | From underside of the wider white shoulder to the flat underside of the narrow white band; exclude slot and protruding screws. |
+| M | 86.7 | Raised black support width | Outside left to outside right of the raised black section directly below the slot; exclude its wider thin flange. |
+| N | 10.5 | Raised black support height | Top contact surface down to **top of flange**, excluding flange thickness. Use the straight part away from rounded corners. |
+| O | 95.3 | Black flange overall width | Its leftmost to rightmost outside edges, immediately above the bellows. |
 
-Send `L=..., M=..., N=..., O=...`. If a pointer is ambiguous, a photo of caliper placement is more useful than guessing. The annotation is an imagegen overlay on IMG_1078; the original photo and actual caliper readings remain authoritative. It must not be used to extract numerical dimensions. The exact built-in imagegen prompt is saved in [annotation-prompt.txt](annotation-prompt.txt).
+These readings were supplied on 2026-11-01 and are applied to the model. The original annotation retains its request labels as an endpoint guide. It is an imagegen overlay on IMG_1078; the original photo and actual caliper readings remain authoritative. It must not be used to extract numerical dimensions. The exact built-in imagegen prompt is saved in [annotation-prompt.txt](annotation-prompt.txt).
 
-After L-O: measure head and lower-support depths, their front/back offset, flange thickness, actual lower opening/contact surfaces, optical opening and front-to-optical position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. Those later dimensions are not being inferred from the front photo.
+Next: measure head and lower-support depths, their front/back offset, flange thickness, actual lower opening/contact surfaces, optical opening and front-to-optical position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. Those later dimensions are not being inferred from the front photo.
 
 ## Evidence and editable parameters
 

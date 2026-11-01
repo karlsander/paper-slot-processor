@@ -5,5 +5,7 @@
   "passed": true,
   "fixture_tests": 8,
   "lint": "ruff check: passed",
-  "physical_fit_accepted": false
+  "physical_fit_accepted": false,
+  "measurement_sha256": "d4e810afe83f6ff0e9865cdf5644cee3ee25b0b62a6aa5e9d14ecbf23f1421c6",
+  "duration_seconds": 16.183
 }

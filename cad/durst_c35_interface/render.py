@@ -64,7 +64,7 @@ def render(folder, target):
         plot.camera.parallel_scale = scale
         plot.add_text(title, position=(12, 805), font_size=12, color="#17394e")
         note = [
-            "Head width 88.55 mm; rest gap about 6 mm\nOther dimensions provisional\nHead cropped above shoulder",
+            "Head width 88.55 mm; rest gap about 6 mm\nL-O measured; depth/interior provisional\nHead cropped above shoulder",
             "Six visible heads: sizes/positions provisional\nLight opening and optical position unmeasured",
             "Outer form observed; interior unmeasured\nLowerDrop is prescribed movement, not FEA",
         ][i]
