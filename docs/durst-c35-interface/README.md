@@ -2,7 +2,7 @@
 
 This model replaces the *assumptions* behind the earlier two-ledge sketch with the visible head neck, black underside plate, six screw heads, and the raised lower support with its wider flange. It is a partial reconstruction for future carrier studies, not a dimensionally complete OEM model or a print replacement for the enlarger.
 
-The measured front profile uses **88.55 mm external neck width**, **11.4 mm neck height (L)**, **86.7 mm lower support width (M)**, **10.5 mm lower support height (N)** and **95.3 mm flange width (O)**. The unloaded vertical gap is **approximately 6 mm**. The closed original carrier is approximately **6.15 mm** high. The user reports that the lower support moves when inserting it. These are separate observations: they do not establish spring stiffness, insertion force, local screw clearances, or the film plane.
+The measured front profile uses **88.55 mm external neck width**, **11.4 mm neck height (L)**, **86.7 mm lower support width (M)**, **11 mm lower support height (clarified Z, replacing N)** and **95.3 mm flange width (O)**. The unloaded vertical gap is **approximately 6 mm**. The closed original carrier is approximately **6.15 mm** high. The user reports that the lower support moves when inserting it. These are separate observations: they do not establish spring stiffness, insertion force, local screw clearances, or the film plane.
 
 ![Front-view measurement endpoints](measurements-L-O.png)
 
@@ -14,12 +14,12 @@ These labels are new and do not reuse the earlier A-K sheet. The previous **C / 
 | --- | --- | --- | --- |
 | L | 11.4 | Narrow white band height | From underside of the wider white shoulder to the flat underside of the narrow white band; exclude slot and protruding screws. |
 | M | 86.7 | Raised black support width | Outside left to outside right of the raised black section directly below the slot; exclude its wider thin flange. |
-| N | 10.5 | Raised black support height | Top contact surface down to **top of flange**, excluding flange thickness. Use the straight part away from rounded corners. |
+| N / clarified Z | 11 (supersedes 10.5) | Raised black support height | Top surface of outer rim down to **top of wider plate/flange**, measured outside and excluding flange thickness. |
 | O | 95.3 | Black flange overall width | Its leftmost to rightmost outside edges, immediately above the bellows. |
 
 These readings were supplied on 2026-11-01 and are applied to the model. The original annotation retains its request labels as an endpoint guide. It is an imagegen overlay on IMG_1078; the original photo and actual caliper readings remain authoritative. It must not be used to extract numerical dimensions. The exact built-in imagegen prompt is saved in [annotation-prompt.txt](annotation-prompt.txt).
 
-Next: confirm the local underside measurement Z, then measure the separate head optical opening and its position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. The outer housing and rear flange extents also remain provisional. Those later dimensions are not being inferred from photographs.
+Next: measure the separate head optical opening and its position, then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. Local material thickness beside the lower opening, the outer housing and rear flange extents remain unmeasured. Those later dimensions are not being inferred from photographs.
 
 ## Recorded side-view measurements: P-S
 
@@ -69,11 +69,11 @@ IMG_1081 is a useful oblique view from the front-left. These three callouts iden
 | --- | --- | --- |
 | X | 0.8 | Vertical drop from the broad flat top down to the inner bevel edge where the straight opening wall starts. Applied to geometry. |
 | Y | 1.5 on all four sides | Horizontal run in the top plane. User explicitly confirms the outer opening is 3 mm larger in both dimensions. Applied to geometry. |
-| Z | 11 | Recorded reading; endpoint clarification pending. Requested flat top to matching underside immediately beside the opening. Do not substitute for exterior height N or flange thickness R. |
+| Z | 11 | User clarified this was measured **outside**, from the outer rim's top surface to the top of the whole plate (wider flange). Applied as exterior support height, replacing N=10.5. It is not local top-wall material thickness. |
 
 The upper mouth is therefore **58.3 x 59.1 mm**, concentric with the clear **55.3 x 56.1 mm** opening. Flat top margins to the bevel's outer edge are **front 13.8, rear 25.4, left 13.4 and right 15.0 mm**. A ruled rectangular loft models the measured slope; it is not a 45-degree chamfer. Corner transitions are an idealization. Build123d tests and independent FreeCAD sections verify the outer mouth, intermediate widths, and unchanged clear opening below the bevel.
 
-Z is stored in the observations with `applied_to_geometry: false` until its endpoints are confirmed. The existing exterior height is N + R = **13 mm**; a local top-to-underside reading of 11 mm could coexist with that envelope, but it does not establish the extent or shape of a hidden underside recess. No recess has been invented from that single reading.
+The clarified Z reading sets `lower_height = 11 mm`. The earlier N=10.5 mm is retained as a superseded observation. With flange R=2.5 mm, the full exterior height is now **13.5 mm**. The top contact plane and approximately 6 mm slot gap stay fixed; the flange moves 0.5 mm downward. The requested local top-wall material thickness remains unknown (`value: null`), and no hidden underside recess is inferred.
 
 Use straight sections away from corners and front notches for these measurements. The corrected annotation uses leaders only because the underside is obscured and the photograph cannot establish the vertical levels. The initial annotation mistakenly drew Z over the whole exterior sidewall; that image is rejected. The [built-in imagegen prompt record](bevel-annotation-prompts.txt) includes the correction. The supplied readings are authoritative; no numeric geometry is extracted from the photo.
 
@@ -83,7 +83,7 @@ Use straight sections away from corners and front notches for these measurements
 
 When a reading arrives, change its `value`, `status` and `source` together, then rebuild. Never turn a visually estimated number into a measured one merely because a CAD check passes. Local photo filenames and hashes are recorded in `photo-evidence.json` so geometry observations are traceable without committing the original high-resolution photos.
 
-The lower interior uses the measured clear rectangular opening, its position, and the bevel's drop and run. Z is recorded pending endpoint confirmation; hidden shell geometry, contact details and front features remain incomplete. The envelope does not establish uniform carrier contact around all four sides. Screw heads are simple cylinders for collision checks: six are visible, but their diameter, projection and coordinates are unmeasured. The black plate's front tab is represented with its function left unassigned. No rear stop or hidden spring mounting has been invented.
+The lower interior uses the measured clear rectangular opening, its position, and the bevel's drop and run. Z corrects the exterior support height; hidden shell geometry, local material thickness, contact details and front features remain incomplete. The envelope does not establish uniform carrier contact around all four sides. Screw heads are simple cylinders for collision checks: six are visible, but their diameter, projection and coordinates are unmeasured. The black plate's front tab is represented with its function left unassigned. No rear stop or hidden spring mounting has been invented.
 
 ## Datums and lower-support movement
 

@@ -99,7 +99,7 @@ def render(folder, target):
         plot.camera.parallel_scale = scale
         plot.add_text(title, position=(12, 805), font_size=12, color="#17394e")
         note = [
-            f"P = Q = {p['neck_depth']:g} mm; cyan = shared end planes\nR = {p['flange_thickness']:g} mm; S = {p['flange_front_overhang']:g} mm; front at left\nOuter housing / rear flange extent provisional",
+            f"P = Q = {p['neck_depth']:g} mm; cyan = shared end planes\nN/Z = {p['lower_height']:g}; R = {p['flange_thickness']:g}; S = {p['flange_front_overhang']:g} mm; front at left\nOuter housing / rear flange extent provisional",
             "Six visible heads: sizes/positions provisional\nLight opening and optical position unmeasured",
             f"T = {p['lower_opening_width']:g} mm; U = {p['lower_opening_depth']:g} mm\nV = {p['lower_opening_front_offset']:g} mm; W = {p['lower_opening_left_offset']:g} mm\nBevel: {p['lower_bevel_drop']:g} mm drop / {p['lower_bevel_run']:g} mm run per side",
         ][i]

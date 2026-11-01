@@ -1,6 +1,6 @@
 {
   "renderer": "PyVista from verified build123d STEP solids",
-  "manifest_sha256": "409a6a6096d790fce976deae9e09822c31794df8a2fb7a599e6a0182cfc689af",
-  "native_report_sha256": "b7edd2d5e04f1e1b6fc097427f4d7520de08e37296f8075cbb8878f6c0c1af57",
-  "png_sha256": "a42124312625ca97050dc4165dbd3f35a87a7eea14e5f47157fd31423371727d"
+  "manifest_sha256": "eb73c8ae0cdcd9b7d26d1c8f059b725e0325ed50914888d2a1a44e312d37b20d",
+  "native_report_sha256": "fa6ca7e7746b6832f7090594f62837d50a31bc753f5f545606cca3125eee8f08",
+  "png_sha256": "a9a6c12739dbbd18f514eb79deda4507a7826237a2c58947e00aab2c9a06e0ce"
 }

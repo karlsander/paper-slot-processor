@@ -99,7 +99,7 @@ class InterfaceTests(unittest.TestCase):
             self.assertAlmostEqual(bounds.max.Y, 0)
         flange = self.shapes["lower-support"].bounding_box()
         self.assertAlmostEqual(flange.max.Y, 4.5)
-        self.assertAlmostEqual(flange.min.Z, -6 - 10.5 - 2.5)
+        self.assertAlmostEqual(flange.min.Z, -6 - 11 - 2.5)
 
     def test_new_caliper_readings_rebuild_without_old_gap_constants(self):
         with tempfile.TemporaryDirectory() as folder:

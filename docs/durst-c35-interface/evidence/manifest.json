@@ -3,18 +3,18 @@
   "geometry_passed": true,
   "physical_fit_accepted": false,
   "material_or_force_model": null,
-  "measurement_sha256": "b9dd5221f69dbe26f6b4a902283018f2235ebedae41770b11eb8b263682cc28f",
+  "measurement_sha256": "b30af6fa55e37b24d91b1e7bf6921a429011617b586b1b8305da6145582212ac",
   "sources": {
     "cad/durst_c35_interface/__init__.py": "bf77f8ccaa75b5e4f9271b2d698899178d1ab52d672232db3f398994c14a8530",
-    "cad/durst_c35_interface/export.py": "82ea0c97637d6bd69e9ec5b7df9c9acbebe431060c5e902566a9039170308205",
+    "cad/durst_c35_interface/export.py": "5c52608f61f7e6f7e20790bd9fa8f51540489d2cca5308d56e8a748c305d812e",
     "cad/durst_c35_interface/model.py": "9e4d696fef0b367285efdd15491b11e4044699e89e40071006a6f2a19c19c134",
-    "cad/durst_c35_interface/render.py": "400e132fa99199e5bb417aac1b161a90b69f29e2bfeb52ea9cd697c0bb5853eb",
-    "cad/durst_c35_interface/verify_freecad.py": "850d24a0d3d4f6c90fb1416b3712de5264080634fe259d4cebf409ae7c973f78"
+    "cad/durst_c35_interface/render.py": "51b6af2dd387cbaa4b144808d0f127dfa46853d40b2571198e8c920bdd3abcb6",
+    "cad/durst_c35_interface/verify_freecad.py": "734ebc34c5231847d985d241d3ce7c2ea3afd7b02364d7dc568617a55850f8f2"
   },
   "parts": {
     "head-shell": {
       "file": "head-shell.step",
-      "sha256": "c4ec27b8912e46ff6bf405ece092ad040b27196917505dccc09df306a93d951d",
+      "sha256": "ecb81688a7753ece5168b93b43420f2611c491fd7db21b99370c49eb7ecf2591",
       "volume_mm3": 22056.55452262309,
       "bounds_mm": {
         "min": [
@@ -32,7 +32,7 @@
     },
     "underside-plate": {
       "file": "underside-plate.step",
-      "sha256": "a3261b00687f5f68041ee459522a0a909299f5bd564d209552816fa0b03d2add",
+      "sha256": "fa829bdaf4cc802fab9ad8a05a737f5fd7e1bf7b8c1e232e43ab4509bf654464",
       "volume_mm3": 8594.141999999998,
       "bounds_mm": {
         "min": [
@@ -50,13 +50,13 @@
     },
     "lower-support": {
       "file": "lower-support.step",
-      "sha256": "5e43422c92c089dff942a3040829f10037b7ab33b9ad14eff7d8f4986464332e",
-      "volume_mm3": 75632.27658511749,
+      "sha256": "207850f8c96ea6169d78974e3020e455f7edc936613e632745a2b8782fad2af5",
+      "volume_mm3": 78341.45087685279,
       "bounds_mm": {
         "min": [
           -47.65,
           -107.3,
-          -19.0
+          -19.5
         ],
         "max": [
           47.65,
@@ -68,7 +68,7 @@
     },
     "screw-head-1": {
       "file": "screw-head-1.step",
-      "sha256": "01e14ff97e67b0fb8fa0ece5fb7966004302be2a02adf77743d7f17d22d9b175",
+      "sha256": "1471672d44afb4f3867345be5ddeb278851270ed34666b47d278ea6a44e36287",
       "volume_mm3": 8.309512568745001,
       "bounds_mm": {
         "min": [
@@ -86,7 +86,7 @@
     },
     "screw-head-2": {
       "file": "screw-head-2.step",
-      "sha256": "1993fa245ef980f2a4adb7bdb6417511a71921bd065d1117aa54d6de242002f1",
+      "sha256": "988feabec67a140e2cc303ae42f8627e36488258a81238596cfde00b93b1268d",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
@@ -104,7 +104,7 @@
     },
     "screw-head-3": {
       "file": "screw-head-3.step",
-      "sha256": "6cfbdae36914d49fc14978f9fc2e8c2b3536f2d680c65702d333eeaea6e1a8c2",
+      "sha256": "f9f7942361921505c6881384e7ed9b210db83fa41fab2667844711dde3971342",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
@@ -122,7 +122,7 @@
     },
     "screw-head-4": {
       "file": "screw-head-4.step",
-      "sha256": "8883607f655d1b484a84f76a3955f1a715ce1c355a1544639e4f2302d3688092",
+      "sha256": "699ac2f8cb31e61f51a48d0ed890ab198cac2a09f5f41cecbcac61a25cc7dd3d",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
@@ -140,7 +140,7 @@
     },
     "screw-head-5": {
       "file": "screw-head-5.step",
-      "sha256": "f168c1143b2cc068414632d29ecbe2f58ed8a42a34d29b8414c5127d5af32a19",
+      "sha256": "4829964f3675334fcb22468588f9b0f177d6b66d43d120d5eb91824588f2bd2a",
       "volume_mm3": 8.309512568745001,
       "bounds_mm": {
         "min": [
@@ -158,7 +158,7 @@
     },
     "screw-head-6": {
       "file": "screw-head-6.step",
-      "sha256": "019a88d13da66dd32a5d89d00825cd721e75f9e938c450c93d5a30f641a26a88",
+      "sha256": "15935eb41efebe4b3ce18b86d769ae5e06e7649f9683a406e98e305c8e0889b2",
       "volume_mm3": 8.309512568745003,
       "bounds_mm": {
         "min": [
@@ -175,7 +175,7 @@
       "role": "fixed head"
     }
   },
-  "assembly_sha256": "81b9bb1be297850b1c1870f4dcb88aa47cd6c6f3e87e4f6139cc8748fe1b757d",
+  "assembly_sha256": "5fcde5a4da85c62efc4713603473c3b0051d9ffd86b4626d2bdb770bcf7e0fd2",
   "maximum_part_overlap_mm3": 0.0,
   "negative_controls": {
     "flat_plate_probe_overlap_mm3": {
@@ -237,7 +237,7 @@
     "Measured head width and approximate rest gap do not establish full fit.",
     "Lower support placement is rigid and prescribed, not elastic deformation.",
     "Lower clear opening, offsets and bevel are measured; hidden underside, contact details and front features are not reconstructed.",
-    "Z=11 mm is recorded separately pending endpoint confirmation; it does not define an underside pocket or replace N/R.",
+    "Clarified Z=11 mm replaces exterior support height N; local top material thickness and hidden underside remain unknown.",
     "Screw dimensions/positions remain provisional collision envelopes.",
     "No inferred force, preload, maximum travel, friction or spring material.",
     "No automatic reuse of old 2.6 mm fixture acceptance or film-plane alignment."

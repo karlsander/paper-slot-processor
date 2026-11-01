@@ -249,6 +249,9 @@ App.closeDocument(reopened.Name)
             "lower_opening_mm": opening_profile,
             "lower_bevel_sections_mm": bevel_sections,
             "side_profile_mm": {
+                "raised_support_height": shapes["lower-support"].BoundBox.ZLength
+                - p["flange_thickness"],
+                "overall_support_height": shapes["lower-support"].BoundBox.ZLength,
                 "neck_depth": neck_section.BoundBox.YLength,
                 "raised_support_depth": lower_section.BoundBox.YLength,
                 "rear_plane_difference": rear_difference,

@@ -10,7 +10,8 @@
     "optical_axis": "Provisional offset from front; not yet measured. No automatic alignment to old carrier coordinates."
   },
   "observations": {
-    "local_top_thickness_mm": {"value": 11.0, "status": "user_measured", "label": "Z", "source": "User reading Z, 2026-11-01; requested flat top to matching underside beside opening", "endpoints_confirmed": false, "applied_to_geometry": false, "limitation": "Confirm local underside versus external sidewall endpoints before reconstructing hidden underside; no underside pocket extent inferred"},
+    "local_top_thickness_mm": {"value": null, "status": "unknown", "source": "User clarified Z was measured outside, from outer rim top to wider plate top; local material thickness beside opening was not measured", "applied_to_geometry": false},
+    "superseded_lower_height_N_mm": {"value": 10.5, "status": "superseded_user_measurement", "label": "N", "source": "Earlier user reading, superseded by clarified external height Z=11 mm on 2026-11-01", "applied_to_geometry": false},
     "neck_and_lower_rear_faces_coincide": {"value": true, "status": "user_observed", "source": "User correction, 2026-11-01: P and Q are both 98.3 mm and end at exactly the same rear plane"},
     "original_closed_height_mm": {"value": 6.15, "status": "user_approximate", "source": "User: both original halves sandwiched together, 2026-11-01"},
     "lower_support_moves_on_insertion": {"value": true, "status": "user_observed", "source": "User description; IMG_1075.HEIC and IMG_1078.HEIC identify the part, not its stiffness"},
@@ -23,7 +24,7 @@
     "slot_gap": {"value": 6.0, "status": "user_approximate", "label": "A", "source": "User: total unloaded slot height, before local screw-head protrusions"},
     "neck_height": {"value": 11.4, "status": "user_measured", "label": "L", "source": "User caliper reading L, 2026-11-01; narrow white band height"},
     "lower_width": {"value": 86.7, "status": "user_measured", "label": "M", "source": "User caliper reading M, 2026-11-01; raised black support outside width"},
-    "lower_height": {"value": 10.5, "status": "user_measured", "label": "N", "source": "User caliper reading N, 2026-11-01; top contact plane to flange top"},
+    "lower_height": {"value": 11.0, "status": "user_measured", "label": "N/Z", "source": "User clarification of Z, 2026-11-01: measured outside from top surface of outer rim to top of the whole plate (wider flange); supersedes earlier N=10.5 mm, excludes flange thickness R"},
     "flange_width": {"value": 95.3, "status": "user_measured", "label": "O", "source": "User caliper reading O, 2026-11-01; black flange outside width"},
     "neck_depth": {"value": 98.3, "status": "user_measured", "label": "P", "source": "User caliper reading P, 2026-11-01; narrow white head front-to-back depth"},
     "shell_wall": {"value": 1.2, "status": "provisional", "label": null, "source": "Geometry proxy; head wall thickness unmeasured"},
