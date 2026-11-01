@@ -1,0 +1,164 @@
+{
+  "passed": true,
+  "freecad_version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "manifest_sha256": "3d04fd0791017dae431bc59481a76d263ac77de6b5eb698e93be8d6bb95a9ee7",
+  "models": [
+    {
+      "config": {
+        "format": "135",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "passed": true,
+      "native_parts": 14,
+      "relative_import_volume_errors": {
+        "base": 1.9095836023552692e-14,
+        "lid": 3.774758283725532e-15,
+        "wedge-0--1": 1.5543122344752192e-15,
+        "wedge-0-1": 8.881784197001252e-16,
+        "wedge-1--1": 1.5543122344752192e-15,
+        "wedge-1-1": 8.881784197001252e-16,
+        "wedge-2--1": 1.5543122344752192e-15,
+        "wedge-2-1": 8.881784197001252e-16,
+        "sleeve": 1.416041743351748e-05,
+        "shoe": 5.440092820663267e-15,
+        "screw": 5.322710205923897e-08,
+        "receiver": 2.220446049250313e-16,
+        "dock-wedge": 8.104628079763643e-15,
+        "film": 0.0
+      },
+      "max_closed_overlap_mm3": 0.0,
+      "continuous_sweep_mm": 190.0,
+      "sweep_prisms": 78,
+      "max_sweep_overlap_mm3": 0,
+      "negative_controls": {
+        "unreleased_index_blocks_slide_mm3": 12.68749995841475,
+        "wedges_block_lid_lift_mm3": 102.6000000000027
+      },
+      "assembly_sha256": "a41affa4d46102e82090b61871cfba138f3dce2046babca1efe34cce9b6b676e"
+    },
+    {
+      "config": {
+        "format": "half",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "passed": true,
+      "native_parts": 14,
+      "relative_import_volume_errors": {
+        "base": 5.1958437552457326e-14,
+        "lid": 2.7755575615628914e-15,
+        "wedge-0--1": 1.5543122344752192e-15,
+        "wedge-0-1": 8.881784197001252e-16,
+        "wedge-1--1": 1.5543122344752192e-15,
+        "wedge-1-1": 8.881784197001252e-16,
+        "wedge-2--1": 1.5543122344752192e-15,
+        "wedge-2-1": 8.881784197001252e-16,
+        "sleeve": 1.3599731507607515e-05,
+        "shoe": 5.440092820663267e-15,
+        "screw": 5.322710205923897e-08,
+        "receiver": 2.220446049250313e-16,
+        "dock-wedge": 8.104628079763643e-15,
+        "film": 0.0
+      },
+      "max_closed_overlap_mm3": 0.0,
+      "continuous_sweep_mm": 209.0,
+      "sweep_prisms": 114,
+      "max_sweep_overlap_mm3": 0,
+      "negative_controls": {
+        "unreleased_index_blocks_slide_mm3": 12.68749995841475,
+        "wedges_block_lid_lift_mm3": 102.6000000000027
+      },
+      "assembly_sha256": "c3e15742c6a9705e0ca515710dd33362547ef5a160444fffd4319f6e422b491a"
+    },
+    {
+      "config": {
+        "format": "aps",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "passed": true,
+      "native_parts": 14,
+      "relative_import_volume_errors": {
+        "base": 2.2426505097428162e-14,
+        "lid": 1.5543122344752192e-15,
+        "wedge-0--1": 1.5543122344752192e-15,
+        "wedge-0-1": 8.881784197001252e-16,
+        "wedge-1--1": 1.5543122344752192e-15,
+        "wedge-1-1": 8.881784197001252e-16,
+        "wedge-2--1": 1.5543122344752192e-15,
+        "wedge-2-1": 8.881784197001252e-16,
+        "sleeve": 1.3441767191979537e-05,
+        "shoe": 5.440092820663267e-15,
+        "screw": 5.322710205923897e-08,
+        "receiver": 2.220446049250313e-16,
+        "dock-wedge": 8.104628079763643e-15,
+        "film": 0.0
+      },
+      "max_closed_overlap_mm3": 0.0,
+      "continuous_sweep_mm": 160.0,
+      "sweep_prisms": 78,
+      "max_sweep_overlap_mm3": 0,
+      "negative_controls": {
+        "unreleased_index_blocks_slide_mm3": 12.68749995841475,
+        "wedges_block_lid_lift_mm3": 102.60000000000237
+      },
+      "assembly_sha256": "82a616a5a49feb5d8ccf10640c6bbecb5ad8c46118a887f178ad584553409a40"
+    },
+    {
+      "config": {
+        "format": "110",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "passed": true,
+      "native_parts": 14,
+      "relative_import_volume_errors": {
+        "base": 3.68594044175552e-14,
+        "lid": 2.6645352591003757e-15,
+        "wedge-0--1": 1.5543122344752192e-15,
+        "wedge-0-1": 8.881784197001252e-16,
+        "wedge-1--1": 1.5543122344752192e-15,
+        "wedge-1-1": 8.881784197001252e-16,
+        "wedge-2--1": 1.5543122344752192e-15,
+        "wedge-2-1": 8.881784197001252e-16,
+        "sleeve": 1.2926138099667028e-05,
+        "shoe": 5.440092820663267e-15,
+        "screw": 5.322710205923897e-08,
+        "receiver": 2.220446049250313e-16,
+        "dock-wedge": 8.104628079763643e-15,
+        "film": 0.0
+      },
+      "max_closed_overlap_mm3": 0.0,
+      "continuous_sweep_mm": 100.0,
+      "sweep_prisms": 78,
+      "max_sweep_overlap_mm3": 0,
+      "negative_controls": {
+        "unreleased_index_blocks_slide_mm3": 12.687499958414763,
+        "wedges_block_lid_lift_mm3": 102.60000000000214
+      },
+      "assembly_sha256": "f27fb9173bda87df96ae1c94114932bc01ca4617badab806cac0a150f1e3431e"
+    }
+  ]
+}

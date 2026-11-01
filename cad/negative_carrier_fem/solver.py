@@ -23,6 +23,37 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def quadratic_volume(xyz, conn):
+    """C3D10 Jacobians at integration points, including curved midside nodes.
+
+    The five-point tetrahedron rule integrates the cubic Jacobian determinant
+    exactly. Also check the four points used by the solid stiffness rule.
+    A corner-only volume underestimates small curved screw-bearing pieces.
+    """
+    derivatives = np.array([[-1, -1, -1], [1, 0, 0], [0, 1, 0], [0, 0, 1]])
+    edges = [(0, 1), (1, 2), (0, 2), (0, 3), (1, 3), (2, 3)]
+    points = [(np.full(4, 0.25), -2 / 15)]
+    for i in range(4):
+        p = np.full(4, 1 / 6)
+        p[i] = 0.5
+        points.append((p, 3 / 40))
+    for i in range(4):
+        p = np.full(4, 0.138196601125)
+        p[i] = 0.585410196625
+        points.append((p, 0))
+    vertices = xyz[conn - 1]
+    total = 0.0
+    for bary, weight in points:
+        grad = [(4 * bary[i] - 1) * derivatives[i] for i in range(4)]
+        grad.extend(
+            4 * (bary[j] * derivatives[i] + bary[i] * derivatives[j]) for i, j in edges
+        )
+        jac = np.linalg.det(np.einsum("eni,nj->eij", vertices, np.array(grad)))
+        assert np.all(jac > 0), "Inverted quadratic element at an integration point"
+        total += float(jac.sum()) * weight
+    return total
+
+
 def mesh(shape, folder, size):
     import gmsh
 
@@ -53,7 +84,7 @@ def mesh(shape, folder, size):
             )
         )
         assert np.all(jac > 0)
-        volume = float(jac.sum() / 6)
+        volume = quadratic_volume(xyz, conn)
         assert abs(volume / shape.volume - 1) < 0.015
         gmsh.write(str(folder / "part.msh"))
         np.savez_compressed(folder / "mesh.npz", xyz=xyz, conn=conn)
@@ -90,7 +121,7 @@ def cached_mesh(shape, folder, size):
                     axis=2,
                 )
             )
-            volume = float(jac.sum() / 6)
+            volume = quadratic_volume(xyz, conn)
             assert np.all(jac > 0) and abs(volume / shape.volume - 1) < 0.015
             return (
                 xyz,
@@ -360,7 +391,7 @@ def contact_deck(
     }
 
 
-def solve(folder, deck, executable=CCX):
+def solve(folder, deck, executable=CCX, timeout=1800):
     path = folder / "job.inp"
     (folder / "result.json").unlink(missing_ok=True)
     path.write_text(deck)
@@ -375,7 +406,7 @@ def solve(folder, deck, executable=CCX):
             env=env,
             stdout=log,
             stderr=subprocess.STDOUT,
-            timeout=1800,
+            timeout=timeout,
         )
     log = (folder / "solver.log").read_text()
     assert proc.returncode == 0 and "Job finished" in log and "*ERROR" not in log, log[
@@ -387,7 +418,7 @@ def solve(folder, deck, executable=CCX):
 FLOAT = r"[-+]?\d*\.?\d+(?:[EeDd][-+]?\d+)?"
 
 
-def read_dat(path):
+def read_dat(path, orientations=None):
     lines = Path(path).read_text().splitlines()
     results, current = [], None
     i = 0
@@ -427,7 +458,25 @@ def read_dat(path):
                 i += 1
             rows = []
             while i < len(lines) and lines[i].strip():
-                rows.append(list(map(float, lines[i].split())))
+                fields = lines[i].split()
+                values = list(map(float, fields[:8]))
+                if len(fields) > 8:
+                    # CalculiX prints material-local tensors and appends the
+                    # orientation name unless GLOBAL=YES was requested.
+                    assert (
+                        kind in ("stress", "strain")
+                        and orientations
+                        and fields[8] in orientations
+                    )
+                    rotation = np.asarray(orientations[fields[8]])
+                    xx, yy, zz, xy, xz, yz = values[2:8]
+                    local = np.array([[xx, xy, xz], [xy, yy, yz], [xz, yz, zz]])
+                    global_tensor = rotation @ local @ rotation.T
+                    values[2:8] = [
+                        global_tensor[a, b]
+                        for a, b in ((0, 0), (1, 1), (2, 2), (0, 1), (0, 2), (1, 2))
+                    ]
+                rows.append(values)
                 i += 1
             if rows and current is not None:
                 a = np.array(rows)

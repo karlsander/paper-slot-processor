@@ -1,5 +1,7 @@
 # B1: captive-mask strip cartridges
 
+The current redesign is [B2: manual indexing and broad wedge clamps](../negative-carrier-b2/README.md). B1 is retained as the earlier spring-based concept and force-study baseline.
+
 B1 develops the selected [concept B](../negative-carrier-concepts/README.md) into native build123d parts, a fixed receiver, printed locks and springs, and a FreeCAD-checked operating sequence. The base and lid are **each one piece, with film passages at both ends**. There are no section joints; assume a roughly **300 × 300 mm printer bed** for the default set. A separate compact configuration fits an A1 mini bed.
 
 This is a complete geometric prototype for evaluation, not a measured replacement for the C35. The slot dimensions remain estimates, and APS/110 frame spacing remains illustrative. Actual film grip, spring return, registration error, print tolerances, light leaks and thermal behavior have not been measured. The videos prescribe motion and elastic shapes; they do not solve hand forces or material mechanics. A separate [PETG finite-element study](forces/README.md) now tests the relaxed geometry and identifies overstress and preload problems; this prototype is not ready for mechanical acceptance.
