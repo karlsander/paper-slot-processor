@@ -1,0 +1,29 @@
+Mode: built-in image_gen; edit of user photo IMG_1079.HEIC converted losslessly to PNG for tool input.
+Final output: measurements-P-S.png
+
+Initial prompt:
+Use case: precise-object-edit.
+Asset type: measurement annotation on the user's actual side photograph of a Durst C35 enlarger.
+Input image: IMG_1079.png is the EDIT TARGET, not inspiration. Preserve the original photograph and every mechanical edge, screw, gap, perspective, surface, background and proportion. Do not redraw, reshape or invent machine geometry. Add an annotation layer only. Can extend canvas with a white footer for legend. Retain the full photograph large enough to inspect the slot.
+
+Orientation: FRONT of enlarger is LEFT in this photo; REAR / COLUMN is RIGHT.
+Only FOUR dimensions P Q R S, NO numerical dimension values. Use thin vivid cyan dimension arrows, extension lines, high-contrast white-backed letter badges, and unobtrusive small endpoint dots. Exact endpoints matter.
+P — full front-to-back DEPTH of the narrowed WHITE BAND just above the slot. The narrow white band extends in source normalized coordinates from x=18.0%, y=40.5% on its front vertical edge to x=81.8%, y=41.5% at its rear vertical edge against the black column housing. Draw the long double-ended P arrow across the middle of this white band, parallel to its long bottom edge. It must start/end at the band, NOT the wider white housing above.
+Q — front-to-back DEPTH of the RAISED BLACK LOWER SUPPORT, excluding the thin wide flange below it. Draw a separate cyan horizontal double-ended Q arrow across the side of the raised black support, around source y=56.0%, from its front straight vertical face around x=18.4% to its rear edge around x=81.1%, where it meets the fixed black rear housing. Mark the last rear endpoint with a hollow dot and short DASHED extension rather than pretending the hidden portion is known. The Q badge must be distinct. Do NOT extend Q across the fixed column assembly. Q's arrow is across the black raised section itself, NOT in the air slot.
+R — THICKNESS of the thin wide BLACK FLANGE immediately below the raised support, ABOVE the bellows. Use a short vertical double-ended R dimension to the left of the front flange, with fine extension lines from the actual front flange TOP and BOTTOM faces: source x about 15.3-17%, y about 60.6% to 62.8%. Enlarge the letter badge and place outside object. Exclude the raised black support and bellows completely. Do not confuse this with slot height.
+S — FRONT OVERHANG of that same flange beyond the front straight vertical face of the raised black support above it. A short horizontal S dimension with separate thin vertical extension lines at source x=15.0% (frontmost flange edge) and x=18.3% (front plane of the raised black support), situated just below the flange near y=66.0%. This is a small horizontal offset, NOT the full flange depth. Put S below-left of arrow on a white-backed badge, avoiding collision with R.
+
+Make P and Q easy to read against their different surfaces. Keep R and S legible with offset dimension lines outside the left of the machine; thin extension lines identify actual surfaces. Do not crop away rear column context.
+Add these exact texts in a white footer, professional sans-serif:
+"SIDE VIEW — NEXT MEASUREMENTS (mm)"
+"P  Narrow white band: front-to-back depth"
+"Q  Raised black support: front-to-back depth"
+"R  Thin black flange: thickness"
+"S  Flange projection ahead of raised support"
+"Q: measure the actual rear edge only if accessible; otherwise reply 'hidden'."
+"Front = left. Rear / column = right. Measure real edges; photo is not to scale."
+No other letters, numeric measurements, rulers, CAD sketches, generated calipers, inset geometries, or guessed values. The photograph must remain recognizable and unaltered under the overlay.
+
+Precision cleanup prompt (on initial generated annotation):
+Edit this existing annotated photograph only; preserve its photograph, colors, text, footer and all other geometry faithfully. Correct the Q dimension so it has ONE unambiguous rear endpoint: remove the intermediate right endpoint dot and vertical cyan witness line currently near x=77% of the full image, and extend the Q double-ended arrow to the existing hollow rear dot near x=81.8%. Keep only the last short portion of the Q dimension dashed to signal that the actual rear edge is partly obscured. No intermediate arrowhead, dot, or witness line. Its arrow should be one continuous measurement from the support's front plane to the rear hollow dot. Also move the front Q/S common vertical witness line slightly left, from x=20.6% to about x=19.7%, so it aligns exactly with the straight external FRONT FACE of the raised black support, below the rounded top corner. Move Q's left endpoint and S's right endpoint with that witness line. Keep S's left endpoint on the frontmost flange edge. Keep P and R unchanged. This is a precision annotation cleanup; do not alter or reshape any of the machine.
+

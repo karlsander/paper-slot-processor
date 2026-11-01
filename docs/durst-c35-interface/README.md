@@ -21,6 +21,21 @@ These readings were supplied on 2026-11-01 and are applied to the model. The ori
 
 Next: measure head and lower-support depths, their front/back offset, flange thickness, actual lower opening/contact surfaces, optical opening and front-to-optical position. Then locate each screw centre and protrusion, any physical insertion stop, and the original carrier's rim spacing/film seat height. Those later dimensions are not being inferred from the front photo.
 
+## Next side-view measurements: P-S
+
+![Side-view measurement endpoints](measurements-P-S.png)
+
+IMG_1079 shows the front on the left and the column/rear on the right. These are pending readings; no numerical dimensions have been extracted from the photograph.
+
+| Label | Measurement | Exact endpoints / model parameter |
+| --- | --- | --- |
+| P | Narrow white band: front-to-back depth | Outside front and rear faces of the narrow band, excluding the wider housing above (`neck_depth`). |
+| Q | Raised black lower support: front-to-back depth | Outside front straight face below the rounded corner to the actual rear face of this movable support, excluding the fixed rear housing (`lower_depth`). The rear endpoint is partly obscured: reply **hidden** if inaccessible; do not measure only to the visible seam or arrowhead before the dashed section. |
+| R | Thin black flange: thickness | Top to bottom of the thin flange at its projecting front edge; exclude raised support and bellows (`flange_thickness`). |
+| S | Flange front overhang | Horizontal distance from frontmost flange edge to the front straight face of the raised black support (`flange_front_overhang`). |
+
+Send `P=..., Q=... (or hidden), R=..., S=...`, in mm. S is not the offset between the head and lower support; that alignment remains a separate pending measurement. Q is not an established insertion stop or usable travel. These are endpoint guides on the supplied photo, not calibrated drawings. The [saved prompt set](side-annotation-prompts.txt) records the built-in imagegen edit and annotation cleanup.
+
 ## Evidence and editable parameters
 
 [`measurements.json`](../../cad/durst_c35_interface/measurements.json) is the single source for dimensions. Every value has a status, source and (where applicable) photo label. `user_measured` records the supplied reading without claiming caliper accuracy; `user_approximate` preserves the approximate gap. Unmeasured values remain `provisional`, and the truncated upper housing height is a `display_extent`.

@@ -21,6 +21,11 @@
       "filename": "IMG_1078.HEIC",
       "sha256": "a506c75a6413c62c24442ef5785e4bb14f7a3c640fc190323787fb82539091c4",
       "role": "Front view used for L-O photo annotations"
+    },
+    {
+      "filename": "IMG_1079.HEIC",
+      "sha256": "9a6a95ca3baab94660816579be16d0eaac5058a9969c552c861f74085ee39ef1",
+      "role": "Side view used for P-S photo annotations; rear lower-support endpoint partly obscured"
     }
   ]
 }
