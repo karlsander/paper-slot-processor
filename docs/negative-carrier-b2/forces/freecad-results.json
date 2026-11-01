@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "id": "index-h1.2-E1-mu0-K100000",
+      "passed": true,
+      "result_steps": 6,
+      "nodes_per_step": [
+        26099,
+        26099,
+        26099,
+        26099,
+        26099,
+        26099
+      ],
+      "file_sha256": "24109e9caea9f3605eda6a973f21d81144392948766d14827d83f4e4e18d6fcd",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "wedge-h0.8-E1-mu0.3-K100000",
+      "passed": true,
+      "result_steps": 5,
+      "nodes_per_step": [
+        17666,
+        17666,
+        17666,
+        17666,
+        17666
+      ],
+      "file_sha256": "a3b2244e0c31e4cfbbd9b8224dddc386a356c486dab51946977b8e40a35c9c88",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "dock-h1.2-E1-mu0.3-K100000",
+      "passed": true,
+      "result_steps": 5,
+      "nodes_per_step": [
+        20637,
+        20637,
+        20637,
+        20637,
+        20637
+      ],
+      "file_sha256": "41557515da653af5a463a419c5813164972a2cf311a64dccdcc1b56bd638b092",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "screw-load-h1-E1-mu0.3-K100000",
+      "passed": true,
+      "result_steps": 3,
+      "nodes_per_step": [
+        31888,
+        31888,
+        31888
+      ],
+      "file_sha256": "b8891b6ba23d108578d507d310e1e91e90eaec519d591a3e2267db65c510c9fb",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "nut-load-h1-E1-mu0.3-K100000",
+      "passed": true,
+      "result_steps": 3,
+      "nodes_per_step": [
+        26900,
+        26900,
+        26900
+      ],
+      "file_sha256": "17cccdb847a3a69a24b326d4ad2204d2f58d792c30a84341976a7428063fc8e2",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    }
+  ]
+}

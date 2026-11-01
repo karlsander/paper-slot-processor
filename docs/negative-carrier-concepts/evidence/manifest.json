@@ -1,0 +1,806 @@
+{
+  "evidence_level": "architecture and nominal rigid envelopes only",
+  "physical_fit_verified": false,
+  "repeatability_measured": false,
+  "film_clamping_verified": false,
+  "coordinates": "X strip travel; Y front/rear of enlarger; Z optical axis; film centered at Z=0",
+  "gate_stack_mm": 4.7,
+  "gate_stack_status": "concept allocation; C35 available clearance unknown",
+  "formats": {
+    "135": {
+      "key": "135",
+      "label": "35 mm full frame",
+      "film_width": 35,
+      "image_width": 36,
+      "image_height": 24,
+      "demo_pitch": 38,
+      "frames": 6,
+      "pitch_status": "nominal template; verify actual strips",
+      "centers": [
+        -95.0,
+        -57.0,
+        -19.0,
+        19.0,
+        57.0,
+        95.0
+      ],
+      "length": 244,
+      "travel": 190.0,
+      "aperture": [
+        35.6,
+        23.6
+      ],
+      "enclosed_length": 450.0,
+      "optical_samples": [
+        {
+          "frame": 1,
+          "translation": 95.0,
+          "selected_area_mm2": 840.1600000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 2,
+          "translation": 57.0,
+          "selected_area_mm2": 840.1600000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 3,
+          "translation": 19.0,
+          "selected_area_mm2": 840.1600000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 4,
+          "translation": -19.0,
+          "selected_area_mm2": 840.1600000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 5,
+          "translation": -57.0,
+          "selected_area_mm2": 840.1600000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 6,
+          "translation": -95.0,
+          "selected_area_mm2": 840.1600000000001,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "minimum_square_bed_mm": 212.13203435596427
+    },
+    "half": {
+      "key": "half",
+      "label": "35 mm half frame",
+      "film_width": 35,
+      "image_width": 18,
+      "image_height": 24,
+      "demo_pitch": 19,
+      "frames": 12,
+      "pitch_status": "nominal template; camera-specific image width",
+      "centers": [
+        -104.5,
+        -85.5,
+        -66.5,
+        -47.5,
+        -28.5,
+        -9.5,
+        9.5,
+        28.5,
+        47.5,
+        66.5,
+        85.5,
+        104.5
+      ],
+      "length": 244,
+      "travel": 209.0,
+      "aperture": [
+        17.6,
+        23.6
+      ],
+      "enclosed_length": 469.0,
+      "optical_samples": [
+        {
+          "frame": 1,
+          "translation": 104.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 2,
+          "translation": 85.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 3,
+          "translation": 66.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 4,
+          "translation": 47.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 5,
+          "translation": 28.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 6,
+          "translation": 9.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 7,
+          "translation": -9.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 8,
+          "translation": -28.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 9,
+          "translation": -47.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 10,
+          "translation": -66.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 11,
+          "translation": -85.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 12,
+          "translation": -104.5,
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "minimum_square_bed_mm": 212.13203435596427
+    },
+    "aps": {
+      "key": "aps",
+      "label": "APS",
+      "film_width": 24,
+      "image_width": 30.2,
+      "image_height": 16.7,
+      "demo_pitch": 32,
+      "frames": 6,
+      "pitch_status": "illustrative spacing only; not a sourced standard",
+      "centers": [
+        -80.0,
+        -48.0,
+        -16.0,
+        16.0,
+        48.0,
+        80.0
+      ],
+      "length": 208,
+      "travel": 160.0,
+      "aperture": [
+        29.8,
+        16.3
+      ],
+      "enclosed_length": 384.0,
+      "optical_samples": [
+        {
+          "frame": 1,
+          "translation": 80.0,
+          "selected_area_mm2": 485.74,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 2,
+          "translation": 48.0,
+          "selected_area_mm2": 485.74,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 3,
+          "translation": 16.0,
+          "selected_area_mm2": 485.74,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 4,
+          "translation": -16.0,
+          "selected_area_mm2": 485.74,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 5,
+          "translation": -48.0,
+          "selected_area_mm2": 485.74,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 6,
+          "translation": -80.0,
+          "selected_area_mm2": 485.74,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "minimum_square_bed_mm": 186.67619023324858
+    },
+    "110": {
+      "key": "110",
+      "label": "110",
+      "film_width": 16,
+      "image_width": 17,
+      "image_height": 13,
+      "demo_pitch": 20,
+      "frames": 6,
+      "pitch_status": "illustrative spacing only; not a sourced standard",
+      "centers": [
+        -50.0,
+        -30.0,
+        -10.0,
+        10.0,
+        30.0,
+        50.0
+      ],
+      "length": 136,
+      "travel": 100.0,
+      "aperture": [
+        16.6,
+        12.6
+      ],
+      "enclosed_length": 252.0,
+      "optical_samples": [
+        {
+          "frame": 1,
+          "translation": 50.0,
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 2,
+          "translation": 30.0,
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 3,
+          "translation": 10.0,
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 4,
+          "translation": -10.0,
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 5,
+          "translation": -30.0,
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "frame": 6,
+          "translation": -50.0,
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "minimum_square_bed_mm": 135.76450198781714
+    }
+  },
+  "negative_control_110_with_35mm_gate": [
+    {
+      "frame": 1,
+      "translation": 50.0,
+      "selected_area_mm2": 221.0,
+      "neighbour_area_mm2": 84.5
+    },
+    {
+      "frame": 2,
+      "translation": 30.0,
+      "selected_area_mm2": 221.0,
+      "neighbour_area_mm2": 169.0
+    },
+    {
+      "frame": 3,
+      "translation": 10.0,
+      "selected_area_mm2": 221.0,
+      "neighbour_area_mm2": 169.0
+    },
+    {
+      "frame": 4,
+      "translation": -10.0,
+      "selected_area_mm2": 221.0,
+      "neighbour_area_mm2": 169.0
+    },
+    {
+      "frame": 5,
+      "translation": -30.0,
+      "selected_area_mm2": 221.0,
+      "neighbour_area_mm2": 169.0
+    },
+    {
+      "frame": 6,
+      "translation": -50.0,
+      "selected_area_mm2": 221.0,
+      "neighbour_area_mm2": 84.5
+    }
+  ],
+  "variants": {
+    "drawer": "A \u00b7 Separate mask drawer",
+    "collar": "B \u00b7 Captive mask collar",
+    "cassette": "C \u00b7 Enclosed translating cassette"
+  },
+  "build123d_version": "0.13.0",
+  "models": [
+    {
+      "name": "drawer-135",
+      "variant": "drawer",
+      "format": "135",
+      "parts": [
+        {
+          "name": "receiver",
+          "motion": "fixed",
+          "role": "receiver",
+          "volume_mm3": 4147.392,
+          "dimensions_mm": [
+            94.6,
+            100.0,
+            1.2000000000000002
+          ],
+          "file": "drawer-135/receiver.step",
+          "sha256": "e755a7d8bcab0f460630744101c7e8280ab2e5374b9e8fb59908e1e0719ec561"
+        },
+        {
+          "name": "gate",
+          "motion": "fixed",
+          "role": "gate",
+          "volume_mm3": 7261.344000000002,
+          "dimensions_mm": [
+            70.0,
+            90.0,
+            4.7
+          ],
+          "file": "drawer-135/gate.step",
+          "sha256": "4533c15bc4ae728d6ed117c7ce3863fe4f01af3c5e1e5f7b5cf1913c05b8c532"
+        },
+        {
+          "name": "sled",
+          "motion": "moving",
+          "role": "sled",
+          "volume_mm3": 9005.18399999999,
+          "dimensions_mm": [
+            244.0,
+            54.0,
+            1.2
+          ],
+          "file": "drawer-135/sled.step",
+          "sha256": "8e87e380ea34edf3fa17fa8ed65ff7557a207f92c2aa3606467f0d8ada8f5dfd"
+        },
+        {
+          "name": "lid",
+          "motion": "moving",
+          "role": "lid",
+          "volume_mm3": 8440.319999999996,
+          "dimensions_mm": [
+            244.0,
+            52.0,
+            1.2000000000000002
+          ],
+          "file": "drawer-135/lid.step",
+          "sha256": "4642ddf584b327f263cbfccefc73de101d73f896376c845c58f640ded0c3b33f"
+        },
+        {
+          "name": "film",
+          "motion": "moving",
+          "role": "film",
+          "volume_mm3": 1196.9999999999998,
+          "dimensions_mm": [
+            228.0,
+            35.0,
+            0.15
+          ],
+          "file": "drawer-135/film.step",
+          "sha256": "dc209be7f8483b19df8e52473c10ac7160c19f42bfa95d7178d3d429f39030f9"
+        }
+      ]
+    },
+    {
+      "name": "collar-135",
+      "variant": "collar",
+      "format": "135",
+      "parts": [
+        {
+          "name": "receiver",
+          "motion": "fixed",
+          "role": "receiver",
+          "volume_mm3": 4147.392,
+          "dimensions_mm": [
+            94.6,
+            100.0,
+            1.2000000000000002
+          ],
+          "file": "collar-135/receiver.step",
+          "sha256": "e755a7d8bcab0f460630744101c7e8280ab2e5374b9e8fb59908e1e0719ec561"
+        },
+        {
+          "name": "gate",
+          "motion": "fixed",
+          "role": "gate",
+          "volume_mm3": 7045.344,
+          "dimensions_mm": [
+            70.0,
+            75.0,
+            4.7
+          ],
+          "file": "collar-135/gate.step",
+          "sha256": "954fb8f7398e145698dcaa96bf70556e33e3ee090005aed83e9a8e28ecec272b"
+        },
+        {
+          "name": "sled",
+          "motion": "moving",
+          "role": "sled",
+          "volume_mm3": 9005.18399999999,
+          "dimensions_mm": [
+            244.0,
+            54.0,
+            1.2
+          ],
+          "file": "collar-135/sled.step",
+          "sha256": "8e87e380ea34edf3fa17fa8ed65ff7557a207f92c2aa3606467f0d8ada8f5dfd"
+        },
+        {
+          "name": "lid",
+          "motion": "moving",
+          "role": "lid",
+          "volume_mm3": 8440.319999999996,
+          "dimensions_mm": [
+            244.0,
+            52.0,
+            1.2000000000000002
+          ],
+          "file": "collar-135/lid.step",
+          "sha256": "4642ddf584b327f263cbfccefc73de101d73f896376c845c58f640ded0c3b33f"
+        },
+        {
+          "name": "film",
+          "motion": "moving",
+          "role": "film",
+          "volume_mm3": 1196.9999999999998,
+          "dimensions_mm": [
+            228.0,
+            35.0,
+            0.15
+          ],
+          "file": "collar-135/film.step",
+          "sha256": "1d86b022424bf729c3473500006cd50aa99503477bf404b3e83ad6ced4968458"
+        }
+      ]
+    },
+    {
+      "name": "cassette-135",
+      "variant": "cassette",
+      "format": "135",
+      "parts": [
+        {
+          "name": "receiver",
+          "motion": "fixed",
+          "role": "receiver",
+          "volume_mm3": 4147.392,
+          "dimensions_mm": [
+            94.6,
+            100.0,
+            1.2000000000000002
+          ],
+          "file": "cassette-135/receiver.step",
+          "sha256": "59a01db86da332d1d15f2615c3c94e89d60e87fb1736e47bdea5c50eb9236b2c"
+        },
+        {
+          "name": "gate",
+          "motion": "fixed",
+          "role": "case",
+          "volume_mm3": 124553.35999999987,
+          "dimensions_mm": [
+            450.0,
+            66.0,
+            7.1000000000000005
+          ],
+          "file": "cassette-135/gate.step",
+          "sha256": "bc792d73073dd877e88a5bcdb175ad936d6b6dcd090bcfe89bc8a8f34b3cf2e5"
+        },
+        {
+          "name": "sled",
+          "motion": "moving",
+          "role": "sled",
+          "volume_mm3": 9005.18399999999,
+          "dimensions_mm": [
+            244.0,
+            54.0,
+            1.2
+          ],
+          "file": "cassette-135/sled.step",
+          "sha256": "8e87e380ea34edf3fa17fa8ed65ff7557a207f92c2aa3606467f0d8ada8f5dfd"
+        },
+        {
+          "name": "lid",
+          "motion": "moving",
+          "role": "lid",
+          "volume_mm3": 8440.319999999996,
+          "dimensions_mm": [
+            244.0,
+            52.0,
+            1.2000000000000002
+          ],
+          "file": "cassette-135/lid.step",
+          "sha256": "4642ddf584b327f263cbfccefc73de101d73f896376c845c58f640ded0c3b33f"
+        },
+        {
+          "name": "film",
+          "motion": "moving",
+          "role": "film",
+          "volume_mm3": 1196.9999999999998,
+          "dimensions_mm": [
+            228.0,
+            35.0,
+            0.15
+          ],
+          "file": "cassette-135/film.step",
+          "sha256": "1b41dce71bc1f901525b42c62edcb92a3adbf2918c346aa399edca6f1bc2ce72"
+        },
+        {
+          "name": "wheel-envelope",
+          "motion": "fixed",
+          "role": "control",
+          "volume_mm3": 1256.6370614359173,
+          "dimensions_mm": [
+            20.0,
+            20.0,
+            4.0
+          ],
+          "file": "cassette-135/wheel-envelope.step",
+          "sha256": "8879b864bd2ceffe9cbc18dc9f84401c3bbe55adbb3fec476b96db4037f67828"
+        }
+      ]
+    },
+    {
+      "name": "collar-half",
+      "variant": "collar",
+      "format": "half",
+      "parts": [
+        {
+          "name": "receiver",
+          "motion": "fixed",
+          "role": "receiver",
+          "volume_mm3": 4147.392,
+          "dimensions_mm": [
+            94.6,
+            100.0,
+            1.2000000000000002
+          ],
+          "file": "collar-half/receiver.step",
+          "sha256": "91ddff37e032c1d099136a247606b19317a056a0e0c3ad74ff263eb3aa9ef840"
+        },
+        {
+          "name": "gate",
+          "motion": "fixed",
+          "role": "gate",
+          "volume_mm3": 7725.0239999999985,
+          "dimensions_mm": [
+            70.0,
+            75.0,
+            4.7
+          ],
+          "file": "collar-half/gate.step",
+          "sha256": "3a9a2bba43dd74cb7916806a823e118c2e15b09e1eb8beada1c1f7934c11440e"
+        },
+        {
+          "name": "sled",
+          "motion": "moving",
+          "role": "sled",
+          "volume_mm3": 8954.687999999996,
+          "dimensions_mm": [
+            244.0,
+            54.0,
+            1.2
+          ],
+          "file": "collar-half/sled.step",
+          "sha256": "21a1eef1efa0e797793920e621fc34bd84f769261e717db70d8ca8ba9d04869c"
+        },
+        {
+          "name": "lid",
+          "motion": "moving",
+          "role": "lid",
+          "volume_mm3": 8410.559999999996,
+          "dimensions_mm": [
+            244.0,
+            52.0,
+            1.2000000000000002
+          ],
+          "file": "collar-half/lid.step",
+          "sha256": "d6501969854fe88fde2b196b5dbfff3cd832d9ca263db62845c11b0ac8547dfa"
+        },
+        {
+          "name": "film",
+          "motion": "moving",
+          "role": "film",
+          "volume_mm3": 1196.9999999999998,
+          "dimensions_mm": [
+            228.0,
+            35.0,
+            0.15
+          ],
+          "file": "collar-half/film.step",
+          "sha256": "7f8720b40c38ee411c124a9dfd75658390c3b7663d2b19f918ca4658ffa8ee8b"
+        }
+      ]
+    },
+    {
+      "name": "collar-aps",
+      "variant": "collar",
+      "format": "aps",
+      "parts": [
+        {
+          "name": "receiver",
+          "motion": "fixed",
+          "role": "receiver",
+          "volume_mm3": 4147.392,
+          "dimensions_mm": [
+            94.6,
+            100.0,
+            1.2000000000000002
+          ],
+          "file": "collar-aps/receiver.step",
+          "sha256": "91ddff37e032c1d099136a247606b19317a056a0e0c3ad74ff263eb3aa9ef840"
+        },
+        {
+          "name": "gate",
+          "motion": "fixed",
+          "role": "gate",
+          "volume_mm3": 7612.4159999999965,
+          "dimensions_mm": [
+            70.0,
+            75.0,
+            4.7
+          ],
+          "file": "collar-aps/gate.step",
+          "sha256": "5e37dd924dfe91e3ad603a0ea25d2e36c431b628bbe6b93b879497dc4e8b5a83"
+        },
+        {
+          "name": "sled",
+          "motion": "moving",
+          "role": "sled",
+          "volume_mm3": 9421.46399999999,
+          "dimensions_mm": [
+            208.0,
+            54.0,
+            1.2
+          ],
+          "file": "collar-aps/sled.step",
+          "sha256": "f338ed7fd3f4526e2f872e57e73dbbee86f7ece1748097629138906d764782f9"
+        },
+        {
+          "name": "lid",
+          "motion": "moving",
+          "role": "lid",
+          "volume_mm3": 8942.999999999996,
+          "dimensions_mm": [
+            208.0,
+            52.0,
+            1.2000000000000002
+          ],
+          "file": "collar-aps/lid.step",
+          "sha256": "367ab58f5320915cb92b0db346c4600a0d5897763c397fb8ef50f21ed4748095"
+        },
+        {
+          "name": "film",
+          "motion": "moving",
+          "role": "film",
+          "volume_mm3": 691.1999999999998,
+          "dimensions_mm": [
+            192.0,
+            24.0,
+            0.15
+          ],
+          "file": "collar-aps/film.step",
+          "sha256": "726b59b4e01fe71e8f46aa4b6a79ea3cd55195c79cc51c8cb7b9de9da9d22218"
+        }
+      ]
+    },
+    {
+      "name": "collar-110",
+      "variant": "collar",
+      "format": "110",
+      "parts": [
+        {
+          "name": "receiver",
+          "motion": "fixed",
+          "role": "receiver",
+          "volume_mm3": 4147.392,
+          "dimensions_mm": [
+            94.6,
+            100.0,
+            1.2000000000000002
+          ],
+          "file": "collar-110/receiver.step",
+          "sha256": "91ddff37e032c1d099136a247606b19317a056a0e0c3ad74ff263eb3aa9ef840"
+        },
+        {
+          "name": "gate",
+          "motion": "fixed",
+          "role": "gate",
+          "volume_mm3": 8054.944,
+          "dimensions_mm": [
+            70.0,
+            75.0,
+            4.7
+          ],
+          "file": "collar-110/gate.step",
+          "sha256": "d70aee281e3567f64279df066ebfbaac9e1ce1ae79861442a13b001569b8a13c"
+        },
+        {
+          "name": "sled",
+          "motion": "moving",
+          "role": "sled",
+          "volume_mm3": 6821.423999999998,
+          "dimensions_mm": [
+            136.0,
+            54.0,
+            1.2
+          ],
+          "file": "collar-110/sled.step",
+          "sha256": "57f99e1fe91d607c75090148117b91157896f5ebcb06e91095251c177d5f2502"
+        },
+        {
+          "name": "lid",
+          "motion": "moving",
+          "role": "lid",
+          "volume_mm3": 6515.759999999998,
+          "dimensions_mm": [
+            136.0,
+            52.0,
+            1.2000000000000002
+          ],
+          "file": "collar-110/lid.step",
+          "sha256": "a5c35c79d7d7128f65f86656aa07c2b979771ffc516d3ad9aa044485bbe611de"
+        },
+        {
+          "name": "film",
+          "motion": "moving",
+          "role": "film",
+          "volume_mm3": 288.0,
+          "dimensions_mm": [
+            120.0,
+            16.0,
+            0.15
+          ],
+          "file": "collar-110/film.step",
+          "sha256": "94fb10206897da958b0db79c9d0e925636640aeb717e37fa0a684c6b270aba88"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "__init__.py": "81ee8396a9e3fb9e31ae573cee1f08e74f0bf849ef26472cdb3278df53d08a27",
+    "spec.py": "866a31f0a90225f5ceb08a349d3d2eef80bfd7b7aa7c20bff9e8718719829a64",
+    "verify_freecad.py": "a602697eed9dd627aa322d5339a36085142e52d9e9efdad9d6f922e06b3ff7aa",
+    "model.py": "8d9d2e3be097f9be852739ad2f13185b931999caed6b66892aa991f26d467597"
+  }
+}

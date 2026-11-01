@@ -11,6 +11,8 @@ slotted tops. Fill directly through the open top to the internal ridge; no side
 wells, clips or separate closing lids are included. Its tapered 180 × 180 mm base uses
 the A1 mini footprint, with 25 mm between the chamber bodies. Current fills are 323 ml (16:9) and 360 ml (2:1).
 
+For the separate enlarger project, see the [B2 manual negative-strip carrier, force study and detailed videos](docs/negative-carrier-b2/README.md). Compact and full-length holders are provided; the processor's A1 mini requirement does not apply to the larger versions. The earlier B1 design remains as a comparison.
+
 ## Earlier heated v2 configuration
 
 The remaining instructions and browser viewer describe the older heated v2 design.

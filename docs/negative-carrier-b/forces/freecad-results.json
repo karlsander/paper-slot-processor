@@ -1,0 +1,200 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "id": "index-0.4",
+      "passed": true,
+      "result_steps": 4,
+      "nodes_per_step": [
+        42046,
+        42046,
+        42046,
+        42046
+      ],
+      "file_sha256": "268836d4195ca8e2902aa1b812e1b42e6e22bf7234f3240edf647fc5ff883898",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "index-pinned-0.55",
+      "passed": true,
+      "result_steps": 4,
+      "nodes_per_step": [
+        20706,
+        20706,
+        20706,
+        20706
+      ],
+      "file_sha256": "5f637ea636dfa3964e224854cc608c7961fe6c4dc9989a54a93d9fc3c67e3b5f",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "index-tip-0.085",
+      "passed": true,
+      "result_steps": 4,
+      "nodes_per_step": [
+        46136,
+        46136,
+        46136,
+        46136
+      ],
+      "file_sha256": "a06c27b8d1a1422b609c5bdd0ded16a9a0eaea0fb3c0fefedd446d4ac5540f7a",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "guide-0.2",
+      "passed": true,
+      "result_steps": 4,
+      "nodes_per_step": [
+        11372,
+        11372,
+        11372,
+        11372
+      ],
+      "file_sha256": "12f22133d79a0b22b64452e294073fb84acc2cf38b95db3194a9498afa40bddf",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "roof-0.2",
+      "passed": true,
+      "result_steps": 4,
+      "nodes_per_step": [
+        26315,
+        26315,
+        26315,
+        26315
+      ],
+      "file_sha256": "3084e99b89975e2f20c4f9758fd02a82f33469c4798da4ba701319182aebf13f",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "clip-catch-0.22",
+      "passed": true,
+      "result_steps": 4,
+      "nodes_per_step": [
+        60089,
+        60089,
+        60089,
+        60089
+      ],
+      "file_sha256": "8a8f7324ab2931a369953862c7d354da83e4363f762f6c98fb6c010bfd93b93e",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "contact-0.4-0.3-side1",
+      "passed": true,
+      "result_steps": 3,
+      "nodes_per_step": [
+        12911,
+        12911,
+        12911
+      ],
+      "file_sha256": "12cd5b790ff7f30494ee80a11590c81b61eca18b2a91e1cd1ce25db7bd07c7de",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "contact-0.4-0.3-side-1",
+      "passed": true,
+      "result_steps": 3,
+      "nodes_per_step": [
+        13151,
+        13151,
+        13151
+      ],
+      "file_sha256": "22bba7b7564d5fa0f144dbdd87c29f6f7eafe8f46026051c873fd11f3df14c3a",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    },
+    {
+      "id": "contact-0.4-0.3-side1-mates20-mortar",
+      "passed": true,
+      "result_steps": 3,
+      "nodes_per_step": [
+        27111,
+        27111,
+        27111
+      ],
+      "file_sha256": "24611831de8d11d7a5723b92da9f7d3112fed3b65b80b278e2a62f47b4160b15",
+      "freecad_version": [
+        "1",
+        "1",
+        "4",
+        "20260928 (Git shallow)",
+        "Unknown",
+        "2026/09/28 13:46:34",
+        "(HEAD detached at 4fd3bf320)",
+        "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+      ]
+    }
+  ]
+}

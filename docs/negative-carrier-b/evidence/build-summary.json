@@ -1,0 +1,2430 @@
+{
+  "version": "B1",
+  "build123d_version": "0.13.0",
+  "physical_fit_verified": false,
+  "evidence_level": "Sampled geometric motion; prescribed spring deflections, no FEA",
+  "fixture_parameters": {
+    "mixing_width": 90,
+    "mixing_rear_y": -44,
+    "mixing_front_y": 42,
+    "mixing_height": 110,
+    "wall": 2.5,
+    "upper_contact_z": 1.4,
+    "upper_land_width": 7,
+    "relief": 2,
+    "optical_width": 40,
+    "optical_length": 28,
+    "stage_width": 84,
+    "stage_rail": 6,
+    "stage_rear_y": -40,
+    "stage_front_y": 42,
+    "stage_crossbar": 6,
+    "stage_contact_z": -1.2,
+    "stage_height": 10.8,
+    "stop_front_y": -61,
+    "stop_depth": 4,
+    "stop_width": 104,
+    "stop_bottom_z": -16,
+    "stop_height": 32
+  },
+  "assets": {
+    "fixture/fixture-head": {
+      "file": "fixture/fixture-head.step",
+      "sha256": "0f7eb155a3e226b030a9771b87c2b788838c077b064f620ca744a517f85e709f",
+      "volume_mm3": 110870.50000000004
+    },
+    "fixture/fixture-stage": {
+      "file": "fixture/fixture-stage.step",
+      "sha256": "033b3c6b007579c89375cb394b37bf2dcaf480963e047fa81fb4846ae984fcd9",
+      "volume_mm3": 15292.8
+    },
+    "fixture/fixture-stop": {
+      "file": "fixture/fixture-stop.step",
+      "sha256": "b8b97111b3da43b50b8d7629114333c6365c0fc05fe079bb821061865ae52c0e",
+      "volume_mm3": 13311.999999999996
+    },
+    "135/closure--114--1": {
+      "file": "135/closure--114--1.step",
+      "sha256": "e79f43db1ce61e83e27d2510eb91ceb18a2e060ef9cc710bd065a036670cce07",
+      "volume_mm3": 78.596,
+      "relaxed_native": {
+        "file": "print-native/135/closure--114--1.step",
+        "sha256": "0342a91bca2bceabbe7a89410d281160665146bf1abb6d86a3ba3d7c70fa6a7e",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/135/closure--114--1.stl",
+        "sha256": "6374c75ff1d5556367a943a284c13e43bd354f081c5ab93866f53b3a19a3484b",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788993
+      }
+    },
+    "135/closure--114-1": {
+      "file": "135/closure--114-1.step",
+      "sha256": "051f26fbed3a3b97e78f53baed3c394678c690dd9edf36b4bee9b527ab586a98",
+      "volume_mm3": 78.59599999999999,
+      "relaxed_native": {
+        "file": "print-native/135/closure--114-1.step",
+        "sha256": "fa4a21c18722acbbe2b913ecf2beb236b1e728cc75d25b5696e41f78878921df",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/135/closure--114-1.stl",
+        "sha256": "1edd204f943da0af004fd7e444e46943e941eafd5148ae6111a47b52af0308df",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788988
+      }
+    },
+    "135/closure-0--1": {
+      "file": "135/closure-0--1.step",
+      "sha256": "144c5d118fa215b8d9c9e6b87f606d1652b764743fbf8a02690d74c8f9b030c4",
+      "volume_mm3": 78.59600000000003,
+      "relaxed_native": {
+        "file": "print-native/135/closure-0--1.step",
+        "sha256": "7b02f814640020ff40eb37bf84945c647e8342d48b4a7b7677937c48f0e32f02",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/135/closure-0--1.stl",
+        "sha256": "fcf488aeeac3d042708f210d8ebf985717d51737b49bea76bf5c758e7f962624",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600732612617
+      }
+    },
+    "135/closure-0-1": {
+      "file": "135/closure-0-1.step",
+      "sha256": "14589691992e3eec9fae036410aaae8e0c0ae3e2739f3be08002e890e205791c",
+      "volume_mm3": 78.59600000000003,
+      "relaxed_native": {
+        "file": "print-native/135/closure-0-1.step",
+        "sha256": "0c466ab44ebdef9440d208a4003a5d09225178bf84a83e2a8a36fe7795e9f4bb",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/135/closure-0-1.stl",
+        "sha256": "fdf78b470055159adbe0e1058332d7561f4a6d7fc60b05f534ce5ad3e364b39f",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600732612617
+      }
+    },
+    "135/closure-114--1": {
+      "file": "135/closure-114--1.step",
+      "sha256": "d50c3d062972a14db3c53ff98eef32c0e7fc9f8a81adb77b2f80a2e83f7b8174",
+      "volume_mm3": 78.596,
+      "relaxed_native": {
+        "file": "print-native/135/closure-114--1.step",
+        "sha256": "8b49b75828d7fe24870001aaf96bb008e6dfdbce0bbffa7f7b8345f497a95f1a",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/135/closure-114--1.stl",
+        "sha256": "a8f047d299a246918a5dff7d9a843ec6c1464278c370aafe3d2e549d2aa1f7c2",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788993
+      }
+    },
+    "135/closure-114-1": {
+      "file": "135/closure-114-1.step",
+      "sha256": "87a7fa417e3e8ac72fb74f339440f8741dbbf6f715e84eb26bba15a7c19b1ad4",
+      "volume_mm3": 78.59599999999999,
+      "relaxed_native": {
+        "file": "print-native/135/closure-114-1.step",
+        "sha256": "c2b1c6e16a083e5806d665716ec3d700f17f293f634a2f93d80122a909f47aa6",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/135/closure-114-1.stl",
+        "sha256": "af4a7113f32ffa2390ee982068c36df013e8d751cc4386e204df1bfa4e8de0a9",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788986
+      }
+    },
+    "135/base": {
+      "file": "135/base.step",
+      "sha256": "5d368f36efb7b24d704d70c749bc777cc3fb0139e50d2b5b5f069543309f90ca",
+      "volume_mm3": 8341.295999999998,
+      "print": {
+        "file": "stl/135/base.stl",
+        "sha256": "b0ea59cdc93a963d59bec2f0749d60fbfceae2f0ffee60c6165acdc817e0857f",
+        "watertight": true,
+        "extents_mm": [
+          244.0,
+          62.0,
+          2.4000000953674316
+        ],
+        "volume_mm3": 8341.297232275576
+      }
+    },
+    "135/lid": {
+      "file": "135/lid.step",
+      "sha256": "806600402daf8eea4b8241143fb0d89878adbf584c65b1e8040c8f376410b22d",
+      "volume_mm3": 6284.266333333303,
+      "print": {
+        "file": "stl/135/lid.stl",
+        "sha256": "9858f109251a3f67f09e0155674b98f17f278e6e7879cb08330e1af4cfbaae83",
+        "watertight": true,
+        "extents_mm": [
+          239.60000610351562,
+          47.60000038146973,
+          1.149999976158142
+        ],
+        "volume_mm3": 6284.266939135941
+      }
+    },
+    "135/collar-base": {
+      "file": "135/collar-base.step",
+      "sha256": "61f1daa3847cbe1be5b11e7f4b8ab481fce0e3c27602327be2a5af451e12f174",
+      "volume_mm3": 3751.134838957446,
+      "relaxed_native": {
+        "file": "print-native/135/collar-base.step",
+        "sha256": "d53c928f1afcd54d1c3fa98b3a59027031c5ff95c0b570d5345347f00758a1ba",
+        "volume_mm3": 3751.135084371857
+      },
+      "print": {
+        "file": "stl/135/collar-base.stl",
+        "sha256": "2d6c4251ca9b6e3409f9fab3e4945a179b686527bbf5a0b46c13e6e856200a4b",
+        "watertight": true,
+        "extents_mm": [
+          48.0,
+          83.0,
+          4.5
+        ],
+        "volume_mm3": 3751.148548639505
+      }
+    },
+    "135/collar-cap": {
+      "file": "135/collar-cap.step",
+      "sha256": "34debb60a7bb28b3a02bcbdf74735b9c5ccc620a972369601b73ff22fcfcaac3",
+      "volume_mm3": 2025.7513711479996,
+      "relaxed_native": {
+        "file": "print-native/135/collar-cap.step",
+        "sha256": "856d590be1e932a124ebebdb078545cd60c8094decb80f652808a22ab152e4cf",
+        "volume_mm3": 2025.7522802389074
+      },
+      "print": {
+        "file": "stl/135/collar-cap.stl",
+        "sha256": "49137bd4fab87c2b0eb7e56cb6a11654fc8f942e7366e3bec173c1c256b56d4f",
+        "watertight": true,
+        "extents_mm": [
+          48.0,
+          73.0,
+          1.5
+        ],
+        "volume_mm3": 2025.759805814342
+      }
+    },
+    "common/cap-lock--18--31": {
+      "file": "common/cap-lock--18--31.step",
+      "sha256": "6b96dd2cdc8406334a1d9f5bf45b90a70ec3773d43d9618b1d747fdf7bfd9ead",
+      "volume_mm3": 30.117305111383278,
+      "print": {
+        "file": "stl/common/cap-lock--18--31.stl",
+        "sha256": "6fbf4aa0c03d98b479cfd84c571187a1c02e78e49e1dd92dbffa2974d8dce3c3",
+        "watertight": true,
+        "extents_mm": [
+          5.59999942779541,
+          3.0,
+          6.0
+        ],
+        "volume_mm3": 30.109020730445838
+      }
+    },
+    "common/cap-lock--18-31": {
+      "file": "common/cap-lock--18-31.step",
+      "sha256": "717c726e5c6d6b0a1ab033fc7d1add434cc3e61d2c443e2640efd4ca1fb11dda",
+      "volume_mm3": 30.117305111383278,
+      "print": {
+        "file": "stl/common/cap-lock--18-31.stl",
+        "sha256": "b1e921bbeda9bad6a6aaeb2402571492651b7d2c26c87a3e91ea48d7634feb9d",
+        "watertight": true,
+        "extents_mm": [
+          5.59999942779541,
+          3.0,
+          6.0
+        ],
+        "volume_mm3": 30.109020730445838
+      }
+    },
+    "common/cap-lock-18--31": {
+      "file": "common/cap-lock-18--31.step",
+      "sha256": "6a51fbd9766e84bb910821e2b015590ff24c3320c7a76f70ebcdaf6c9051481f",
+      "volume_mm3": 30.117305111383263,
+      "print": {
+        "file": "stl/common/cap-lock-18--31.stl",
+        "sha256": "1a2b1820db4fa099003a6edf654cde4b72a96c4cf85c2d0384e32c3c0905f3ce",
+        "watertight": true,
+        "extents_mm": [
+          5.59999942779541,
+          3.0,
+          6.0
+        ],
+        "volume_mm3": 30.109020730445824
+      }
+    },
+    "common/cap-lock-18-31": {
+      "file": "common/cap-lock-18-31.step",
+      "sha256": "056c309642c79fec905adace50fca7257eb2e5088a7bd16206832b5729abecd6",
+      "volume_mm3": 30.117305111383263,
+      "print": {
+        "file": "stl/common/cap-lock-18-31.stl",
+        "sha256": "f3d881063426e0174b9ce1d5614fc95ebc413aefd94d7c6475a740ad9e7c77cd",
+        "watertight": true,
+        "extents_mm": [
+          5.59999942779541,
+          3.0,
+          6.0
+        ],
+        "volume_mm3": 30.109020730445824
+      }
+    },
+    "common/dock-lock--18": {
+      "file": "common/dock-lock--18.step",
+      "sha256": "1f22b341f2f903c09de5b8b569e3a8b3966437eaa3e4410d40136ac7eb6cf8c3",
+      "volume_mm3": 33.52436234420162,
+      "print": {
+        "file": "stl/common/dock-lock--18.stl",
+        "sha256": "06cb3f3a82e0746465d2fe77933e1931509a7ff998294e981010728a025f9dfa",
+        "watertight": true,
+        "extents_mm": [
+          5.59999942779541,
+          3.0,
+          5.099999904632568
+        ],
+        "volume_mm3": 33.51335316894556
+      }
+    },
+    "common/dock-lock-18": {
+      "file": "common/dock-lock-18.step",
+      "sha256": "d415cd4e9c801a829f8a3060f55a02d64565e3d856912389dba8c1c5cfdf02ae",
+      "volume_mm3": 33.5243623442014,
+      "print": {
+        "file": "stl/common/dock-lock-18.stl",
+        "sha256": "b2b556ad6aab1d7b0a496e1dd0e335a8b632df23c8d7255b326aaf6d59c6b4e6",
+        "watertight": true,
+        "extents_mm": [
+          5.59999942779541,
+          3.0,
+          5.099999904632568
+        ],
+        "volume_mm3": 33.51335229912657
+      }
+    },
+    "common/index-latch": {
+      "file": "common/index-latch.step",
+      "sha256": "48593707ac6bfaf6721fb3754d04998b9c95e2e3129750da750aa1708cc186ab",
+      "volume_mm3": 257.66183491750604,
+      "relaxed_native": {
+        "file": "print-native/common/index-latch.step",
+        "sha256": "3bb955a7bb974676ee277441d862ab3b5bc88f78773ccfd1d86fa4f3d199ede4",
+        "volume_mm3": 257.76902241750605
+      },
+      "print": {
+        "file": "stl/common/index-latch.stl",
+        "sha256": "a20baabe5fb297bdc84f1dcbc30d6f98e575dc0acbd36059c972b2b17594ef0b",
+        "watertight": true,
+        "extents_mm": [
+          45.0,
+          20.0,
+          1.2000000476837158
+        ],
+        "volume_mm3": 257.7749088303
+      }
+    },
+    "common/receiver": {
+      "file": "common/receiver.step",
+      "sha256": "ce83121bf3060e8cc97835880a3e12412fb875bc6d343a626a486e57f4a3fbd1",
+      "volume_mm3": 8330.966876424854,
+      "print": {
+        "file": "stl/common/receiver.stl",
+        "sha256": "ba51f797404d79fd4c25aba9d685064c04ee425b11754e01e939ae384367a704",
+        "watertight": true,
+        "extents_mm": [
+          94.5999984741211,
+          112.0,
+          5.800000190734863
+        ],
+        "volume_mm3": 8330.96949390336
+      }
+    },
+    "135/film": {
+      "file": "135/film.step",
+      "sha256": "bffb36cc6d973897e0d2c1238669014c2fc1ef7dd0363672cac2589daa1b1ff9",
+      "volume_mm3": 2005.4999999999995
+    },
+    "common/index-r0": {
+      "file": "common/index-r0.step",
+      "sha256": "48593707ac6bfaf6721fb3754d04998b9c95e2e3129750da750aa1708cc186ab",
+      "volume_mm3": 257.66183491750604
+    },
+    "common/index-r1": {
+      "file": "common/index-r1.step",
+      "sha256": "e21788178a22bc59e567e72c5e7c30a3a2f8761088ab97e6fa741c4347d4bdec",
+      "volume_mm3": 257.661834917506
+    },
+    "common/index-r2": {
+      "file": "common/index-r2.step",
+      "sha256": "c6e1be9e523fd45ba2013ee007728a41b75f9f76d08612bc6023bbae0b77d461",
+      "volume_mm3": 257.661834917506
+    },
+    "common/index-r3": {
+      "file": "common/index-r3.step",
+      "sha256": "55090d6b0a94d851719acf3071081ce649faf51afa55492b960601bf76378f9f",
+      "volume_mm3": 257.66183491750604
+    },
+    "common/index-r4": {
+      "file": "common/index-r4.step",
+      "sha256": "a97438954740eae95c57f4088709fba7ab3ae9c7dcd3f5adaf55961d9d12c95d",
+      "volume_mm3": 257.76902241750605
+    },
+    "135/variants/closure--114--1-r0": {
+      "file": "135/variants/closure--114--1-r0.step",
+      "sha256": "de1f97c9bff1c112840d048e02dcf9747830f781ba9fc3e7fac0c6d063c7c9a9",
+      "volume_mm3": 78.596
+    },
+    "135/variants/closure--114-1-r0": {
+      "file": "135/variants/closure--114-1-r0.step",
+      "sha256": "be8582c3eace2aa4814e5bb599338314b1c99c227e9f178d60710e9df2aa459d",
+      "volume_mm3": 78.59599999999999
+    },
+    "135/variants/closure-0--1-r0": {
+      "file": "135/variants/closure-0--1-r0.step",
+      "sha256": "6050121de63b1a14af25fcdf52ed7bc4b3ea9bd36bc193d78440bebfd87ecc21",
+      "volume_mm3": 78.59600000000003
+    },
+    "135/variants/closure-0-1-r0": {
+      "file": "135/variants/closure-0-1-r0.step",
+      "sha256": "a433677712ba4461bc1fe392f4d9e2dbe569bbfc5dd7743ca914615bed4dce51",
+      "volume_mm3": 78.59600000000003
+    },
+    "135/variants/closure-114--1-r0": {
+      "file": "135/variants/closure-114--1-r0.step",
+      "sha256": "5114771e2a7a4ff87afbb2dcb4b40cf78d526f8f6fe83516945f81b81a99ca18",
+      "volume_mm3": 78.596
+    },
+    "135/variants/closure-114-1-r0": {
+      "file": "135/variants/closure-114-1-r0.step",
+      "sha256": "4bdc3e00c271662e95e8322e28e11f4534ba2a23fec2d1017cfd6af16e2b4582",
+      "volume_mm3": 78.59599999999999
+    },
+    "135/variants/closure--114--1-r1": {
+      "file": "135/variants/closure--114--1-r1.step",
+      "sha256": "d2db6d43a51315d7befb179af48bd689a79513be82bdcdbf4a7f7d0be7ae1879",
+      "volume_mm3": 78.59609421570573
+    },
+    "135/variants/closure--114-1-r1": {
+      "file": "135/variants/closure--114-1-r1.step",
+      "sha256": "666d212c4ded5b2a6d72c0d6f8b6914dbad0963308adaa22e089ee427f23332a",
+      "volume_mm3": 78.5960942157057
+    },
+    "135/variants/closure-0--1-r1": {
+      "file": "135/variants/closure-0--1-r1.step",
+      "sha256": "f6f8883af48aa763ac94ab5d1504a2f91175856f3e5e13aec601f8784ef8f02a",
+      "volume_mm3": 78.59609421570573
+    },
+    "135/variants/closure-0-1-r1": {
+      "file": "135/variants/closure-0-1-r1.step",
+      "sha256": "a0aa75578d34c336510fc6a92085a00b9fe19bdf06c30160c25530a84a2c3a9d",
+      "volume_mm3": 78.59609421570572
+    },
+    "135/variants/closure-114--1-r1": {
+      "file": "135/variants/closure-114--1-r1.step",
+      "sha256": "26271c9cf3204a97ffdcad512d2e9f5a331dab61abc5f1594c623997d1a3afd7",
+      "volume_mm3": 78.59609421570572
+    },
+    "135/variants/closure-114-1-r1": {
+      "file": "135/variants/closure-114-1-r1.step",
+      "sha256": "58204e4246503d9a419dd2fd42e003dc9ad7ba60f28e66f1a06a3f954731a1ef",
+      "volume_mm3": 78.5960942157057
+    },
+    "135/variants/closure--114--1-r2": {
+      "file": "135/variants/closure--114--1-r2.step",
+      "sha256": "587d0dd2a6860070acc26e91aa3260d8612da94a6c5782f8eed39d7e1d21038f",
+      "volume_mm3": 78.59412560204952
+    },
+    "135/variants/closure--114-1-r2": {
+      "file": "135/variants/closure--114-1-r2.step",
+      "sha256": "9051cb0e5f61434ab2a3e454bdb66d2c26efbd11ec6faa85632f9cb81b2f7a24",
+      "volume_mm3": 78.59412560204952
+    },
+    "135/variants/closure-0--1-r2": {
+      "file": "135/variants/closure-0--1-r2.step",
+      "sha256": "484233511d212102fd8420b2965f10beec206dd7ace94ae780582107a5ac2992",
+      "volume_mm3": 78.59412560204956
+    },
+    "135/variants/closure-0-1-r2": {
+      "file": "135/variants/closure-0-1-r2.step",
+      "sha256": "650063be3a23f8e0ab9465dc6a33a9e489ab94646501bf09ed31da718e3b3fdd",
+      "volume_mm3": 78.59412560204953
+    },
+    "135/variants/closure-114--1-r2": {
+      "file": "135/variants/closure-114--1-r2.step",
+      "sha256": "2aad0469ecc4979201b5a340b515bd022844e573e1ed26820f8c8e77111046e3",
+      "volume_mm3": 78.59412560204954
+    },
+    "135/variants/closure-114-1-r2": {
+      "file": "135/variants/closure-114-1-r2.step",
+      "sha256": "c56718a0f7f37d3f7dc4e889aef827de7e9fe8a0c648595e38539bc12f4e1412",
+      "volume_mm3": 78.59412560204954
+    },
+    "135/variants/closure--114--1-r3": {
+      "file": "135/variants/closure--114--1-r3.step",
+      "sha256": "7e8a6c2555f56d43a10a1a31ee79172ce081123607e907da45e1872a7a95dbaf",
+      "volume_mm3": 78.59155271931361
+    },
+    "135/variants/closure--114-1-r3": {
+      "file": "135/variants/closure--114-1-r3.step",
+      "sha256": "1c3fe939a1a6b4f3aa3e59ea5705c2878eb5accf347b4ff4df7ce162eb652abb",
+      "volume_mm3": 78.59155271931357
+    },
+    "135/variants/closure-0--1-r3": {
+      "file": "135/variants/closure-0--1-r3.step",
+      "sha256": "d859fe19b20efe16d7716fc96964d151a606afa9688b3b71c1fd8f6acb51d883",
+      "volume_mm3": 78.59155271931363
+    },
+    "135/variants/closure-0-1-r3": {
+      "file": "135/variants/closure-0-1-r3.step",
+      "sha256": "bcecf86eaea1b097bac929379549dab992b3181ad720f28a1fadbd5b43c50685",
+      "volume_mm3": 78.59155271931358
+    },
+    "135/variants/closure-114--1-r3": {
+      "file": "135/variants/closure-114--1-r3.step",
+      "sha256": "419259fd923d7120922e1346395537a8c35b3eb6c624fe810fda06c13bca3cf5",
+      "volume_mm3": 78.59155271931361
+    },
+    "135/variants/closure-114-1-r3": {
+      "file": "135/variants/closure-114-1-r3.step",
+      "sha256": "eec396257a0789292723af0902edc7bd4c10e35ff7178ed81e1f9d11008970db",
+      "volume_mm3": 78.59155271931358
+    },
+    "135/variants/closure--114--1-r4": {
+      "file": "135/variants/closure--114--1-r4.step",
+      "sha256": "12542025d753655ea9c953693e1b2cef6037bc14570350c818146eaba72bd8a3",
+      "volume_mm3": 78.58882576250362
+    },
+    "135/variants/closure--114-1-r4": {
+      "file": "135/variants/closure--114-1-r4.step",
+      "sha256": "88ddf0b82288efa5bc704ffb2ae6c93a3d63d4b32da69597a7912f23eb625561",
+      "volume_mm3": 78.5888257625036
+    },
+    "135/variants/closure-0--1-r4": {
+      "file": "135/variants/closure-0--1-r4.step",
+      "sha256": "a0642d28ba3cbae680e7b1f21e53d5df193307188f0e9d3a28505d112ded74f5",
+      "volume_mm3": 78.58882576250359
+    },
+    "135/variants/closure-0-1-r4": {
+      "file": "135/variants/closure-0-1-r4.step",
+      "sha256": "a0bf7faaede4d10cd17906c82014b401fc13a35ecd61f67b3aeeff7b18c7f2f4",
+      "volume_mm3": 78.58882576250356
+    },
+    "135/variants/closure-114--1-r4": {
+      "file": "135/variants/closure-114--1-r4.step",
+      "sha256": "f5e06421757c3f1f6be145161d6dd0b767e6bc3fdf993fddeee165d2053c8f10",
+      "volume_mm3": 78.58882576250359
+    },
+    "135/variants/closure-114-1-r4": {
+      "file": "135/variants/closure-114-1-r4.step",
+      "sha256": "845a4eff450677765e26393cd2b1e7ab52b5bcbfda14b5153ecb6e42bf28ccf5",
+      "volume_mm3": 78.58882576250359
+    },
+    "half/closure--123.5--1": {
+      "file": "half/closure--123.5--1.step",
+      "sha256": "fb32d70904dec71bf4b60c3c452407ccb26835f7c1aaea101f5b3315430b669f",
+      "volume_mm3": 78.596,
+      "relaxed_native": {
+        "file": "print-native/half/closure--123.5--1.step",
+        "sha256": "134b4553498cefa43f9b9b0c1caf6c9617e161583a1d2fff29731b78ebca6aa9",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/half/closure--123.5--1.stl",
+        "sha256": "2e9520ce868871f47e6323a568260eb99a7b21bed7cdee1dfb4ab1cc004fec1e",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788993
+      }
+    },
+    "half/closure--123.5-1": {
+      "file": "half/closure--123.5-1.step",
+      "sha256": "19426362f8287569e890d3a5612fcb3d78b11e6da193c6f299d5341b6654766a",
+      "volume_mm3": 78.59599999999999,
+      "relaxed_native": {
+        "file": "print-native/half/closure--123.5-1.step",
+        "sha256": "23787eda1fd5e4047a37945cc688994bdae6f5e091f2268bf91bcf29010df9f7",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/half/closure--123.5-1.stl",
+        "sha256": "27b978969cab4e61167d2e2012da7331aa9cacff7318e242eaf84f7fe998c2a2",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788988
+      }
+    },
+    "half/closure-0--1": {
+      "file": "half/closure-0--1.step",
+      "sha256": "4ed6af1eaa0a9b654670f94f8bac98eb5a44b9fcf9c3eb1924c2797919184d7f",
+      "volume_mm3": 78.59600000000003,
+      "relaxed_native": {
+        "file": "print-native/half/closure-0--1.step",
+        "sha256": "e1aca0346a465f7308c3bba2a781948e81bd4e3be7c1f147fbc66fe489b39b12",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/half/closure-0--1.stl",
+        "sha256": "fcf488aeeac3d042708f210d8ebf985717d51737b49bea76bf5c758e7f962624",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600732612617
+      }
+    },
+    "half/closure-0-1": {
+      "file": "half/closure-0-1.step",
+      "sha256": "a66c9ad30f805621f0ecc8c1c5a96e8b6601f6a9a4fec99a3e7fd3d5e98e1290",
+      "volume_mm3": 78.59600000000003,
+      "relaxed_native": {
+        "file": "print-native/half/closure-0-1.step",
+        "sha256": "e5a02692c87792e9df3fc6c40354ca583c9198d532744fdf68099d11cd1258cd",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/half/closure-0-1.stl",
+        "sha256": "fdf78b470055159adbe0e1058332d7561f4a6d7fc60b05f534ce5ad3e364b39f",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600732612617
+      }
+    },
+    "half/closure-123.5--1": {
+      "file": "half/closure-123.5--1.step",
+      "sha256": "883046364becfac1de1b0ac5fe7221238bef19edfdf3668f17fb0231af40b96c",
+      "volume_mm3": 78.596,
+      "relaxed_native": {
+        "file": "print-native/half/closure-123.5--1.step",
+        "sha256": "ea7fd9039d78ed58a40b8de31b7d9c038d436bcdc0fa0b1d6189dbcc321061dd",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/half/closure-123.5--1.stl",
+        "sha256": "da9f7aedaf2e13b0acd08307ad4411c5c58fdaa01d775bddf279dd2e0e5137f7",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788993
+      }
+    },
+    "half/closure-123.5-1": {
+      "file": "half/closure-123.5-1.step",
+      "sha256": "338d455f34eae8d6fdbc758e8aca919893b8257938ecf85b091a22f234c4be2a",
+      "volume_mm3": 78.59599999999999,
+      "relaxed_native": {
+        "file": "print-native/half/closure-123.5-1.step",
+        "sha256": "418647df48f7793f51557534926826582859f602001a685a47ed3e3270699538",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/half/closure-123.5-1.stl",
+        "sha256": "e154790f9cade9db9d64cc21c36e2357c06844a0fa986d2278be25acf85a502c",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788991
+      }
+    },
+    "half/base": {
+      "file": "half/base.step",
+      "sha256": "6a274fce3976ebb9c80ac2fcc826bcd91c700e633c23a802ad161a366b624cea",
+      "volume_mm3": 8757.050000000012,
+      "print": {
+        "file": "stl/half/base.stl",
+        "sha256": "eb882f055c50f5f51d4d766b84e224125c0bbfbf329747f696d35fd679da8c96",
+        "watertight": true,
+        "extents_mm": [
+          263.0,
+          62.0,
+          2.4000000953674316
+        ],
+        "volume_mm3": 8757.051574573707
+      }
+    },
+    "half/lid": {
+      "file": "half/lid.step",
+      "sha256": "606813bd9367faed91d76dc51c49de307f31e0dd223f829113f95b9d22999f9c",
+      "volume_mm3": 6720.486333333304,
+      "print": {
+        "file": "stl/half/lid.stl",
+        "sha256": "93f3e43c337887c55fb15c668fb08897b1c8f87d70b9dc9aa4c84dcd530be040",
+        "watertight": true,
+        "extents_mm": [
+          258.6000061035156,
+          47.60000038146973,
+          1.149999976158142
+        ],
+        "volume_mm3": 6720.4871114017
+      }
+    },
+    "half/collar-base": {
+      "file": "half/collar-base.step",
+      "sha256": "cb9500a47b83fd87fc84d82bf069e3bf3d9e53ac24480b7d2971ae9d3b145b2b",
+      "volume_mm3": 4090.9748389574456,
+      "relaxed_native": {
+        "file": "print-native/half/collar-base.step",
+        "sha256": "7571f3e360de017b4e7b3772c8905862b032ce3c5f883abbcb765a8452f1bb00",
+        "volume_mm3": 4090.9750843718543
+      },
+      "print": {
+        "file": "stl/half/collar-base.stl",
+        "sha256": "871d0c10b4cba1b8f5aa72eba851ec9f87fb7a76398f1474589646cf86794bcf",
+        "watertight": true,
+        "extents_mm": [
+          48.0,
+          83.0,
+          4.5
+        ],
+        "volume_mm3": 4090.988535845962
+      }
+    },
+    "half/collar-cap": {
+      "file": "half/collar-cap.step",
+      "sha256": "ab74d965c133ee5f22f34622102d824ab5fedd14e35de581e8e738ee879bdd21",
+      "volume_mm3": 2365.591371147998,
+      "relaxed_native": {
+        "file": "print-native/half/collar-cap.step",
+        "sha256": "283d9cdf0b0d263cb6f88b672107f833afcd9cb14d51b10edc1ef90315550d4e",
+        "volume_mm3": 2365.5922802389077
+      },
+      "print": {
+        "file": "stl/half/collar-cap.stl",
+        "sha256": "428f01cb88b201cc33141652c79ebbae2b4dc5cb664d5efd8b5821483db600b5",
+        "watertight": true,
+        "extents_mm": [
+          48.0,
+          73.0,
+          1.5
+        ],
+        "volume_mm3": 2365.5997803607734
+      }
+    },
+    "half/film": {
+      "file": "half/film.step",
+      "sha256": "83ffca488bf42551352c482ad05db94a07fd68774f31a9527bbc8b18bc2962d4",
+      "volume_mm3": 1611.7499999999995
+    },
+    "half/variants/closure--123.5--1-r0": {
+      "file": "half/variants/closure--123.5--1-r0.step",
+      "sha256": "cea08b1a0f9686901e102b300096df1d441fa258ec14da95ce2ec7dd44cceb7e",
+      "volume_mm3": 78.596
+    },
+    "half/variants/closure--123.5-1-r0": {
+      "file": "half/variants/closure--123.5-1-r0.step",
+      "sha256": "013e4e7e878705d2afce2bf2ca79c40b39a18fc8bb5ea3114395c1226e0b3757",
+      "volume_mm3": 78.59599999999999
+    },
+    "half/variants/closure-0--1-r0": {
+      "file": "half/variants/closure-0--1-r0.step",
+      "sha256": "13f7106e77428b6e63e8a7401736b53186915a754f7543e3484737f1356c8db1",
+      "volume_mm3": 78.59600000000003
+    },
+    "half/variants/closure-0-1-r0": {
+      "file": "half/variants/closure-0-1-r0.step",
+      "sha256": "5b7cbfead595a07a4ec228df4ce3bef6569fb61090dc2d9f871e743a5bea703e",
+      "volume_mm3": 78.59600000000003
+    },
+    "half/variants/closure-123.5--1-r0": {
+      "file": "half/variants/closure-123.5--1-r0.step",
+      "sha256": "8e594d67c4ad2f14cd66413802706c448dcb9e2ee95b8bf166bec3de0916e3e4",
+      "volume_mm3": 78.596
+    },
+    "half/variants/closure-123.5-1-r0": {
+      "file": "half/variants/closure-123.5-1-r0.step",
+      "sha256": "a4e71e215cc0c4fbf37971351da53e7b0d0b009a51452369bbbac6a046180e00",
+      "volume_mm3": 78.59599999999999
+    },
+    "half/variants/closure--123.5--1-r1": {
+      "file": "half/variants/closure--123.5--1-r1.step",
+      "sha256": "7c866dcfaf0519e6f03263c97089beb5e73990482bf3fc5f09e7f1de31b36291",
+      "volume_mm3": 78.59609421570572
+    },
+    "half/variants/closure--123.5-1-r1": {
+      "file": "half/variants/closure--123.5-1-r1.step",
+      "sha256": "7240ecc4c712c684ba5b5129a256fa0c1cc9317264703f85057934d6b33598f3",
+      "volume_mm3": 78.5960942157057
+    },
+    "half/variants/closure-0--1-r1": {
+      "file": "half/variants/closure-0--1-r1.step",
+      "sha256": "e583d65cf902a1941ded7ff1a510209da5d2e429cbed52861694275665161ed4",
+      "volume_mm3": 78.59609421570573
+    },
+    "half/variants/closure-0-1-r1": {
+      "file": "half/variants/closure-0-1-r1.step",
+      "sha256": "c2f4d0a7186d582530284f27620ac5313fff4756e460e92f286d93047f6daa78",
+      "volume_mm3": 78.59609421570572
+    },
+    "half/variants/closure-123.5--1-r1": {
+      "file": "half/variants/closure-123.5--1-r1.step",
+      "sha256": "43f63a679786151fe4423882dd1fb00b8692e076a20690be679026e13fd9478a",
+      "volume_mm3": 78.59609421570573
+    },
+    "half/variants/closure-123.5-1-r1": {
+      "file": "half/variants/closure-123.5-1-r1.step",
+      "sha256": "ababb5d2b87448ea91fe95ccfa65cf58755b41b8d2478c5410616e3f1c82a1d7",
+      "volume_mm3": 78.59609421570572
+    },
+    "half/variants/closure--123.5--1-r2": {
+      "file": "half/variants/closure--123.5--1-r2.step",
+      "sha256": "3f1d849829a4bf816e18c941307e5b279554ec35d5cef16b98c9d53d86a8760f",
+      "volume_mm3": 78.5941256020495
+    },
+    "half/variants/closure--123.5-1-r2": {
+      "file": "half/variants/closure--123.5-1-r2.step",
+      "sha256": "262296764f56304483531e22a1032861f7c474d4a89edf86905e118867a27f57",
+      "volume_mm3": 78.5941256020495
+    },
+    "half/variants/closure-0--1-r2": {
+      "file": "half/variants/closure-0--1-r2.step",
+      "sha256": "d48e401ee0f1d0ec6c81f16e3b05aa56412ff1c5c117c0d14f7c3ef7102eb63d",
+      "volume_mm3": 78.59412560204956
+    },
+    "half/variants/closure-0-1-r2": {
+      "file": "half/variants/closure-0-1-r2.step",
+      "sha256": "2ee804fe8e054e13b2e41897ebe0492c22702b3bc9f81c72242cf36f6dc089b6",
+      "volume_mm3": 78.59412560204953
+    },
+    "half/variants/closure-123.5--1-r2": {
+      "file": "half/variants/closure-123.5--1-r2.step",
+      "sha256": "72aae2e362ec67e2096f4765031dbabc07f91cf62259949fbe8642b04c05a234",
+      "volume_mm3": 78.5941256020495
+    },
+    "half/variants/closure-123.5-1-r2": {
+      "file": "half/variants/closure-123.5-1-r2.step",
+      "sha256": "30a3c028a6c19bbd41bbc2a82ff0df3574daa4eb4cd19f7b10d6a3198fe54c0a",
+      "volume_mm3": 78.59412560204949
+    },
+    "half/variants/closure--123.5--1-r3": {
+      "file": "half/variants/closure--123.5--1-r3.step",
+      "sha256": "b65a9aa33fbc97ff0ee02ba453f46209e49387d59ba2e9ff0f92a44196f88aaa",
+      "volume_mm3": 78.59155271931363
+    },
+    "half/variants/closure--123.5-1-r3": {
+      "file": "half/variants/closure--123.5-1-r3.step",
+      "sha256": "8c64ce03a91653447b45a7823f4cda9e11a3b7dc0270100c2d75d97d1029790f",
+      "volume_mm3": 78.59155271931358
+    },
+    "half/variants/closure-0--1-r3": {
+      "file": "half/variants/closure-0--1-r3.step",
+      "sha256": "7fd637a9b27eb5489f806c94565acc2bd5eece2de6f62de4a5404e53c3c72d3c",
+      "volume_mm3": 78.59155271931363
+    },
+    "half/variants/closure-0-1-r3": {
+      "file": "half/variants/closure-0-1-r3.step",
+      "sha256": "680d11b6f71bec50b7966f9885f955a2905de4bf41b9dfb163e73e985c00886d",
+      "volume_mm3": 78.59155271931358
+    },
+    "half/variants/closure-123.5--1-r3": {
+      "file": "half/variants/closure-123.5--1-r3.step",
+      "sha256": "f07276f65d9e519501b588dd04d72cbe21eefa164d0f31c0b8d38f8edcfbdca7",
+      "volume_mm3": 78.5915527193136
+    },
+    "half/variants/closure-123.5-1-r3": {
+      "file": "half/variants/closure-123.5-1-r3.step",
+      "sha256": "543f5322d7444afb62c0b1ced6cd732027536295e93827d15f56b37680441f35",
+      "volume_mm3": 78.59155271931358
+    },
+    "half/variants/closure--123.5--1-r4": {
+      "file": "half/variants/closure--123.5--1-r4.step",
+      "sha256": "a266227944b1f343d03484550245b113e6f31294b8bc72d632fe407a7faa51ed",
+      "volume_mm3": 78.58882576250359
+    },
+    "half/variants/closure--123.5-1-r4": {
+      "file": "half/variants/closure--123.5-1-r4.step",
+      "sha256": "d3fde7a7e07f3862d211f210602f182a7f314ea27dc07eb3e245999a566dcb97",
+      "volume_mm3": 78.58882576250356
+    },
+    "half/variants/closure-0--1-r4": {
+      "file": "half/variants/closure-0--1-r4.step",
+      "sha256": "acf6c82197381cb85870185b9f0292be1fd3d958c90b6d6467864d21a81a9130",
+      "volume_mm3": 78.58882576250359
+    },
+    "half/variants/closure-0-1-r4": {
+      "file": "half/variants/closure-0-1-r4.step",
+      "sha256": "63428ba4ccebf4281d460344615e1da65332dc963d71a44415eb5c0029ea3790",
+      "volume_mm3": 78.58882576250356
+    },
+    "half/variants/closure-123.5--1-r4": {
+      "file": "half/variants/closure-123.5--1-r4.step",
+      "sha256": "cf66ec491e40697e64cd5f902d7dc536d6528da80249fcda26902aa48eee6fc5",
+      "volume_mm3": 78.58882576250362
+    },
+    "half/variants/closure-123.5-1-r4": {
+      "file": "half/variants/closure-123.5-1-r4.step",
+      "sha256": "17be14a2e6fcfaaa7c4e06b4feba725d613ba7a6bb8c483085e7afd97583ae35",
+      "volume_mm3": 78.58882576250359
+    },
+    "aps/closure--99--1": {
+      "file": "aps/closure--99--1.step",
+      "sha256": "4a1fa20defc70915fd57e0a8818f31f31c86e27a59557f7f7075a1cebb6ead49",
+      "volume_mm3": 78.59600000000002,
+      "relaxed_native": {
+        "file": "print-native/aps/closure--99--1.step",
+        "sha256": "424cbccf033358f65917004246d0530f57f43b546cc8a951352d5d42cb310c19",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/aps/closure--99--1.stl",
+        "sha256": "5215164b0486bf7fd853b4c9ba84876ddc2bf887c6a78e444cfbf2f991d27680",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788993
+      }
+    },
+    "aps/closure--99-1": {
+      "file": "aps/closure--99-1.step",
+      "sha256": "c58afa318e63679e45160b3fed93ed0a0f7debddbc12fefe46b1e2dc0fd40c2e",
+      "volume_mm3": 78.59599999999999,
+      "relaxed_native": {
+        "file": "print-native/aps/closure--99-1.step",
+        "sha256": "0dbfd7172e9d0d2178fcba869683010946d6f5ccddc42ee45ed87f7b65964629",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/aps/closure--99-1.stl",
+        "sha256": "a92f329136d47a163fc3772a967c4aa390277febf09d83e50ad372b38f3fca3a",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788991
+      }
+    },
+    "aps/closure-0--1": {
+      "file": "aps/closure-0--1.step",
+      "sha256": "5e70987f06cb6423cffdf9c05de903484bbee8fc457479af85836505a2a58c91",
+      "volume_mm3": 78.59600000000003,
+      "relaxed_native": {
+        "file": "print-native/aps/closure-0--1.step",
+        "sha256": "a22a98fb8ca5c0d24cca60d108566cc71927531e7565a60b2d0b399927086208",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/aps/closure-0--1.stl",
+        "sha256": "fcf488aeeac3d042708f210d8ebf985717d51737b49bea76bf5c758e7f962624",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600732612617
+      }
+    },
+    "aps/closure-0-1": {
+      "file": "aps/closure-0-1.step",
+      "sha256": "fa6c19903b3e10256c366248dfa2172c9cea7141259804212efbafdc3884003b",
+      "volume_mm3": 78.59600000000003,
+      "relaxed_native": {
+        "file": "print-native/aps/closure-0-1.step",
+        "sha256": "52e8e27a3e2445cb664fa4f8da39108b621f71db8662a7c07e8efb81d6b548bc",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/aps/closure-0-1.stl",
+        "sha256": "fdf78b470055159adbe0e1058332d7561f4a6d7fc60b05f534ce5ad3e364b39f",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600732612617
+      }
+    },
+    "aps/closure-99--1": {
+      "file": "aps/closure-99--1.step",
+      "sha256": "fea199c74db59ba3c1fe03fa8cbe63d93fb56297535e668681fb6eeaf0ff8de3",
+      "volume_mm3": 78.59600000000002,
+      "relaxed_native": {
+        "file": "print-native/aps/closure-99--1.step",
+        "sha256": "c36e6f231624901657277df0f4fb366d3c73704f3f6266b6f9862ecfb8c862f1",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/aps/closure-99--1.stl",
+        "sha256": "6b4423cbe0e31613342479a8deb1d5493063cedc3dbb557a26e506f9de64258e",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788993
+      }
+    },
+    "aps/closure-99-1": {
+      "file": "aps/closure-99-1.step",
+      "sha256": "bab3b733a3b96a44a385681465d6d7adc49e016fb355caf6360c6a524437b1c7",
+      "volume_mm3": 78.59599999999999,
+      "relaxed_native": {
+        "file": "print-native/aps/closure-99-1.step",
+        "sha256": "542c822147a6ec3168cabde2c73e1a9a6d6ff54e9a4fa816e6369415f02d4b3d",
+        "volume_mm3": 76.39599999999999
+      },
+      "print": {
+        "file": "stl/aps/closure-99-1.stl",
+        "sha256": "9eb03f65b83f6ecb54d4dab6b8597aaaf3420dc4dbd4972d4f713ee325aea698",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.3960086278899
+      }
+    },
+    "aps/base": {
+      "file": "aps/base.step",
+      "sha256": "ac444cd75197b9b2487a3b03834839ff1f224937e6d692fd85787305df1c5077",
+      "volume_mm3": 8977.635999999995,
+      "print": {
+        "file": "stl/aps/base.stl",
+        "sha256": "25eea89430f4b620c841fadde31b5fb68ad5db8a81711f262c15a98d6fb7f978",
+        "watertight": true,
+        "extents_mm": [
+          214.0,
+          62.0,
+          2.4000000953674316
+        ],
+        "volume_mm3": 8977.636716487976
+      }
+    },
+    "aps/lid": {
+      "file": "aps/lid.step",
+      "sha256": "5e0e9444367fcb02e625c25c2155280efc307c14cc8b9a3dea7d1722ea08429a",
+      "volume_mm3": 7077.512166666656,
+      "print": {
+        "file": "stl/aps/lid.stl",
+        "sha256": "b5a8da6c1609bdafa403ef6f24f2fd7cab3eebfef218c04f94863f75baaacaab",
+        "watertight": true,
+        "extents_mm": [
+          209.60000610351562,
+          47.60000038146973,
+          1.149999976158142
+        ],
+        "volume_mm3": 7077.512286695096
+      }
+    },
+    "aps/collar-base": {
+      "file": "aps/collar-base.step",
+      "sha256": "1acca56b3d079965ca2054c44c31ceec5f9259fa417f4c357770167caf0e1d2d",
+      "volume_mm3": 4034.6708389574437,
+      "relaxed_native": {
+        "file": "print-native/aps/collar-base.step",
+        "sha256": "0e1bcb7ca66e7be31fb97f262ac81e0eedd35110baa0b6ba13f9aca41b161a4d",
+        "volume_mm3": 4034.671084371855
+      },
+      "print": {
+        "file": "stl/aps/collar-base.stl",
+        "sha256": "4cdcfcc5cdf7ad70f9ccbbda1859f970f870bd494d3f55e5ae1cd804f9d0f078",
+        "watertight": true,
+        "extents_mm": [
+          48.0,
+          83.0,
+          4.5
+        ],
+        "volume_mm3": 4034.6845736199302
+      }
+    },
+    "aps/collar-cap": {
+      "file": "aps/collar-cap.step",
+      "sha256": "ce6aba2e1b80102180a887e456360044944e1b85db7540ee61df1f8ab314692e",
+      "volume_mm3": 2309.287371147998,
+      "relaxed_native": {
+        "file": "print-native/aps/collar-cap.step",
+        "sha256": "c519c96fdc2c691c85b38f14ba37d88f36a798ad430acc56c87b24320ea9538c",
+        "volume_mm3": 2309.2882802389076
+      },
+      "print": {
+        "file": "stl/aps/collar-cap.stl",
+        "sha256": "d30068c435c8312e5fa7d95188b25e77bde5cc569d94ffd24d3ff7b668a2c836",
+        "watertight": true,
+        "extents_mm": [
+          48.0,
+          73.0,
+          1.5
+        ],
+        "volume_mm3": 2309.295820232228
+      }
+    },
+    "aps/film": {
+      "file": "aps/film.step",
+      "sha256": "3f8fe4ede6c0b2b671c357e444d51ffabe74a882f5b00438478e3931ca2c5051",
+      "volume_mm3": 1159.9199999999998
+    },
+    "aps/variants/closure--99--1-r0": {
+      "file": "aps/variants/closure--99--1-r0.step",
+      "sha256": "6ab3ffa4189d1d6621c721ed750a11ba26e6e1fc6f59dc109898b01bc592b647",
+      "volume_mm3": 78.59600000000002
+    },
+    "aps/variants/closure--99-1-r0": {
+      "file": "aps/variants/closure--99-1-r0.step",
+      "sha256": "4bcf3d329d444f27f9e15bca57f0aadb531119316d21513ed176f85641defc90",
+      "volume_mm3": 78.59599999999999
+    },
+    "aps/variants/closure-0--1-r0": {
+      "file": "aps/variants/closure-0--1-r0.step",
+      "sha256": "cf900691d1eac03e376fe47c76c69bee53e5ba1c3c543b7476dd1281e18fe1fa",
+      "volume_mm3": 78.59600000000003
+    },
+    "aps/variants/closure-0-1-r0": {
+      "file": "aps/variants/closure-0-1-r0.step",
+      "sha256": "52a6672a4634aa403dfe0303968c9b45cde3cd649fa86498104aff2fddc4eb49",
+      "volume_mm3": 78.59600000000003
+    },
+    "aps/variants/closure-99--1-r0": {
+      "file": "aps/variants/closure-99--1-r0.step",
+      "sha256": "9a6c097695b07d6d137af34837c95db2f950789596a6264a606552f88c0588ca",
+      "volume_mm3": 78.59600000000002
+    },
+    "aps/variants/closure-99-1-r0": {
+      "file": "aps/variants/closure-99-1-r0.step",
+      "sha256": "b11f8f8da63ed0b336d8aa08da6f88069af78fec9eccc238d4ec83a9608d6c29",
+      "volume_mm3": 78.59599999999999
+    },
+    "aps/variants/closure--99--1-r1": {
+      "file": "aps/variants/closure--99--1-r1.step",
+      "sha256": "53f9f95e765be16ce7ad2aa6d48ca2bbcf37d067922ef88fa07df293b0959bda",
+      "volume_mm3": 78.59609421570573
+    },
+    "aps/variants/closure--99-1-r1": {
+      "file": "aps/variants/closure--99-1-r1.step",
+      "sha256": "b7680b6490c912a82a96298c2fcb092d9552039cb0a570f05e3e932b3b96c0c2",
+      "volume_mm3": 78.5960942157057
+    },
+    "aps/variants/closure-0--1-r1": {
+      "file": "aps/variants/closure-0--1-r1.step",
+      "sha256": "d848db8cafaebf6d3ece7d4915e19200dbabc86e1b07a6c73cd49930bda34180",
+      "volume_mm3": 78.59609421570573
+    },
+    "aps/variants/closure-0-1-r1": {
+      "file": "aps/variants/closure-0-1-r1.step",
+      "sha256": "f0adcd537baeaa47380624f9d873e3170fd73ffb24fa63b35c33423761433c2b",
+      "volume_mm3": 78.59609421570572
+    },
+    "aps/variants/closure-99--1-r1": {
+      "file": "aps/variants/closure-99--1-r1.step",
+      "sha256": "7c5d86b515ce157d01f1d54e2a2c5211f9da1ff04a1732e68e1cd36eb63136b6",
+      "volume_mm3": 78.59609421570573
+    },
+    "aps/variants/closure-99-1-r1": {
+      "file": "aps/variants/closure-99-1-r1.step",
+      "sha256": "89680ea4e5ae213c415c37ec41b109803da834b648a32e62f5d1b0fafe4b8c0e",
+      "volume_mm3": 78.5960942157057
+    },
+    "aps/variants/closure--99--1-r2": {
+      "file": "aps/variants/closure--99--1-r2.step",
+      "sha256": "371601a1f36c51774e83ca6a8e8dbdbfbef1cc076b3d7a24ee5a14e2b5530364",
+      "volume_mm3": 78.5941256020495
+    },
+    "aps/variants/closure--99-1-r2": {
+      "file": "aps/variants/closure--99-1-r2.step",
+      "sha256": "fe9b74940bac68847296a233a7d23a3dfede01c002a5cb8d47516d0645f3f050",
+      "volume_mm3": 78.59412560204952
+    },
+    "aps/variants/closure-0--1-r2": {
+      "file": "aps/variants/closure-0--1-r2.step",
+      "sha256": "0eab13c1cf50a50753e1cfab92f126c34004b4dd1aed623b417ae78061e3be6b",
+      "volume_mm3": 78.59412560204956
+    },
+    "aps/variants/closure-0-1-r2": {
+      "file": "aps/variants/closure-0-1-r2.step",
+      "sha256": "b99428aeb66aee88f9d030086f746afa98b66218485e2e42f5f5e413b55599dc",
+      "volume_mm3": 78.59412560204953
+    },
+    "aps/variants/closure-99--1-r2": {
+      "file": "aps/variants/closure-99--1-r2.step",
+      "sha256": "eb54ce7b885fdc0649de7342e96173123e3d3f054a2d50cbae8e246010bc886c",
+      "volume_mm3": 78.5941256020495
+    },
+    "aps/variants/closure-99-1-r2": {
+      "file": "aps/variants/closure-99-1-r2.step",
+      "sha256": "641308bc023a8bc3553d03338714911acd83fd9001d71fcddc2a8ad19fc7bc52",
+      "volume_mm3": 78.59412560204952
+    },
+    "aps/variants/closure--99--1-r3": {
+      "file": "aps/variants/closure--99--1-r3.step",
+      "sha256": "2e78228aab4a63fc7cafcdf045a32c33a3431d02c85c42f251dfb12355973b60",
+      "volume_mm3": 78.5915527193136
+    },
+    "aps/variants/closure--99-1-r3": {
+      "file": "aps/variants/closure--99-1-r3.step",
+      "sha256": "55af90500cf36bfc645e2b3185a0602a244abdd7a67185d1bac8348594cae2fe",
+      "volume_mm3": 78.59155271931358
+    },
+    "aps/variants/closure-0--1-r3": {
+      "file": "aps/variants/closure-0--1-r3.step",
+      "sha256": "958098293e87965c8bc2a16f2bbc7830c37f8ecf81c3d2d8539db0c5b8f6ca34",
+      "volume_mm3": 78.59155271931363
+    },
+    "aps/variants/closure-0-1-r3": {
+      "file": "aps/variants/closure-0-1-r3.step",
+      "sha256": "ccadccf31ce0a3710caf6f47fbd0a03ba416453286953b9c644069a5ded9f7ed",
+      "volume_mm3": 78.59155271931358
+    },
+    "aps/variants/closure-99--1-r3": {
+      "file": "aps/variants/closure-99--1-r3.step",
+      "sha256": "2de3c5f7a20acc6169b4198c2d6a445436cc8a65a8a738ee14fb986a7e6eda3d",
+      "volume_mm3": 78.5915527193136
+    },
+    "aps/variants/closure-99-1-r3": {
+      "file": "aps/variants/closure-99-1-r3.step",
+      "sha256": "f5c0d50ac4d8fe48847c4de017f3bed0e4dbe14a1457d000a44864bc652d805a",
+      "volume_mm3": 78.59155271931358
+    },
+    "aps/variants/closure--99--1-r4": {
+      "file": "aps/variants/closure--99--1-r4.step",
+      "sha256": "f2b57b546bee721fda9140d91f61633fcaf867f9edee22102f408d798376d255",
+      "volume_mm3": 78.5888257625036
+    },
+    "aps/variants/closure--99-1-r4": {
+      "file": "aps/variants/closure--99-1-r4.step",
+      "sha256": "43bb7ec440185f8283a07ef40694796f5254ad882988b84b3d2b8589aa7aff79",
+      "volume_mm3": 78.58882576250359
+    },
+    "aps/variants/closure-0--1-r4": {
+      "file": "aps/variants/closure-0--1-r4.step",
+      "sha256": "66e94d22191782bf58e3c3e333a3099cf638d0a3180050766ad8cfa658bef9dd",
+      "volume_mm3": 78.58882576250359
+    },
+    "aps/variants/closure-0-1-r4": {
+      "file": "aps/variants/closure-0-1-r4.step",
+      "sha256": "76ab27297ee91dc26d20f7fa65b2a14a71fb43a80d7954d425fec522fc3cfe92",
+      "volume_mm3": 78.58882576250356
+    },
+    "aps/variants/closure-99--1-r4": {
+      "file": "aps/variants/closure-99--1-r4.step",
+      "sha256": "e33bfc27584acd7479495ebad550be59507aba41d31c042b95a6bff360f022aa",
+      "volume_mm3": 78.5888257625036
+    },
+    "aps/variants/closure-99-1-r4": {
+      "file": "aps/variants/closure-99-1-r4.step",
+      "sha256": "9446c0bcabbbbc7accfe55419cfe36ab23ed210bbdb4070b882a4ae1795a4bac",
+      "volume_mm3": 78.58882576250359
+    },
+    "110/closure--69--1": {
+      "file": "110/closure--69--1.step",
+      "sha256": "fde0100f9dd1015b3ba2c90a96f5a319bd2ff887f0f111dd6cef6e3722afba5d",
+      "volume_mm3": 78.59600000000002,
+      "relaxed_native": {
+        "file": "print-native/110/closure--69--1.step",
+        "sha256": "ed3cfb76bf1a8a7c3f91513eb45a4dfb09b91447605a63ca2e305bbb9e134759",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/110/closure--69--1.stl",
+        "sha256": "b6152037eb9047f159207a8d676cfe659edb77e2ffa78425706f5b17868bf264",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788996
+      }
+    },
+    "110/closure--69-1": {
+      "file": "110/closure--69-1.step",
+      "sha256": "9669858fa7711ec2b65f6589023039d425df1875e60365ce3c44489e5deaed7d",
+      "volume_mm3": 78.596,
+      "relaxed_native": {
+        "file": "print-native/110/closure--69-1.step",
+        "sha256": "83455d860ea0f57cef753436ceed03d07136b34c8319b62e0a1dcb8efc0ac0e2",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/110/closure--69-1.stl",
+        "sha256": "105b09c491d5be5f41826054d63e90150a3c6705d04585bc0477e80eb5ae11c5",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788996
+      }
+    },
+    "110/closure-0--1": {
+      "file": "110/closure-0--1.step",
+      "sha256": "d2a7da3dc658cc76dead610317a7f2f528c220e9f93e1a0288182bccfc616811",
+      "volume_mm3": 78.59600000000003,
+      "relaxed_native": {
+        "file": "print-native/110/closure-0--1.step",
+        "sha256": "c012f985a96fdbaa9986c143f2aeeb0feee01a219bd6ef3e5413f6c6042d5302",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/110/closure-0--1.stl",
+        "sha256": "fcf488aeeac3d042708f210d8ebf985717d51737b49bea76bf5c758e7f962624",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600732612617
+      }
+    },
+    "110/closure-0-1": {
+      "file": "110/closure-0-1.step",
+      "sha256": "e2bfb4c4acb4864c060dd65ef59c8e96adca5bb258a91a9739c6287381040b45",
+      "volume_mm3": 78.59600000000003,
+      "relaxed_native": {
+        "file": "print-native/110/closure-0-1.step",
+        "sha256": "2a2bbc182e14db4e3ef8633137ff016ded14e277f78cf7dca1d453623074a46c",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/110/closure-0-1.stl",
+        "sha256": "fdf78b470055159adbe0e1058332d7561f4a6d7fc60b05f534ce5ad3e364b39f",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600732612617
+      }
+    },
+    "110/closure-69--1": {
+      "file": "110/closure-69--1.step",
+      "sha256": "8a075ef7d5d7b589570c76fb60e9c2c80df29dba63987d2a84b9001ac646968f",
+      "volume_mm3": 78.59600000000002,
+      "relaxed_native": {
+        "file": "print-native/110/closure-69--1.step",
+        "sha256": "7e99919a9bf1108f593a37cf4539b8efa6f7ea1b7e3d0c964c986fc08516b09b",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/110/closure-69--1.stl",
+        "sha256": "4f1f03e9b5f07279dc7a2cfd83761d09bea5d1f5541177b66edf44a0315847e0",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788994
+      }
+    },
+    "110/closure-69-1": {
+      "file": "110/closure-69-1.step",
+      "sha256": "f0ed18f5c891dba65d00d59475f599fd06c3ec92bb34a66d219e8cc4dad11852",
+      "volume_mm3": 78.596,
+      "relaxed_native": {
+        "file": "print-native/110/closure-69-1.step",
+        "sha256": "61ee881ed41121ffe32aaa20a27ed3738714224d0d7a24e1ae4a33ffba21ff0e",
+        "volume_mm3": 76.396
+      },
+      "print": {
+        "file": "stl/110/closure-69-1.stl",
+        "sha256": "ff8e49f584fd538ed990c2235732bb76306d0fb2e4bbd198fad899f716d0a7a4",
+        "watertight": true,
+        "extents_mm": [
+          10.0,
+          4.600000381469727,
+          2.299999952316284
+        ],
+        "volume_mm3": 76.39600862788996
+      }
+    },
+    "110/base": {
+      "file": "110/base.step",
+      "sha256": "b4eac22484273ee9b0a6a1f14cf9cc3d3b41347a708bbdd74506aafc18c2b9b5",
+      "volume_mm3": 7114.295999999997,
+      "print": {
+        "file": "stl/110/base.stl",
+        "sha256": "3905f1d0534f12b80a5dd05822862fc74bb7e6e845d85f3c8335561e907851e7",
+        "watertight": true,
+        "extents_mm": [
+          154.0,
+          62.0,
+          2.4000000953674316
+        ],
+        "volume_mm3": 7114.2962335782095
+      }
+    },
+    "110/lid": {
+      "file": "110/lid.step",
+      "sha256": "77e422f76dfab10cdbc85a3205b1687b8452e158a44bee3a88878696339df2d7",
+      "volume_mm3": 5728.6330000000025,
+      "print": {
+        "file": "stl/110/lid.stl",
+        "sha256": "a25e57822fb74333183865002067d16017f22b179924ad1b2e9f70a8c00f64c5",
+        "watertight": true,
+        "extents_mm": [
+          149.60000610351562,
+          47.60000038146973,
+          1.149999976158142
+        ],
+        "volume_mm3": 5728.633029141637
+      }
+    },
+    "110/collar-base": {
+      "file": "110/collar-base.step",
+      "sha256": "30894be92fc18f4b81628711e35a87b426563b6e8d8e6c7a81e3f46838b9ca42",
+      "volume_mm3": 4255.934838957446,
+      "relaxed_native": {
+        "file": "print-native/110/collar-base.step",
+        "sha256": "342a1895dc14c1e31f9a54f321d5437d8a415bd888e63a749cf48b8ffa99f867",
+        "volume_mm3": 4255.935084371853
+      },
+      "print": {
+        "file": "stl/110/collar-base.stl",
+        "sha256": "6d0660515c1505cb576a209014b23c7a05af584934f3168f5719612a6892006a",
+        "watertight": true,
+        "extents_mm": [
+          48.0,
+          83.0,
+          4.5
+        ],
+        "volume_mm3": 4255.948548111406
+      }
+    },
+    "110/collar-cap": {
+      "file": "110/collar-cap.step",
+      "sha256": "f6d149ca3097ea9de9e09f5ac84c40c35298ef63b26f1533973ea2e9fabb3ab0",
+      "volume_mm3": 2530.551371147997,
+      "relaxed_native": {
+        "file": "print-native/110/collar-cap.step",
+        "sha256": "8317dbe59b16b33fef6502c7f6984f6a48464e84480b9024a1ed1e89bbcd4d4e",
+        "volume_mm3": 2530.5522802389073
+      },
+      "print": {
+        "file": "stl/110/collar-cap.stl",
+        "sha256": "22fee0f4a57a3d1b40662e503591e32570055c2f531e3bb5d8455e9b7cd759ab",
+        "watertight": true,
+        "extents_mm": [
+          48.0,
+          73.0,
+          1.5
+        ],
+        "volume_mm3": 2530.5597864809783
+      }
+    },
+    "110/film": {
+      "file": "110/film.step",
+      "sha256": "e32d7b5cd65ee0c424423359bee8b70574c91c36660253d686cca5153e22391f",
+      "volume_mm3": 482.4
+    },
+    "110/variants/closure--69--1-r0": {
+      "file": "110/variants/closure--69--1-r0.step",
+      "sha256": "1b9748d743412c35bf49d61c8b982bd09b6f6930a1bf0e55df05bab53ad24919",
+      "volume_mm3": 78.59600000000002
+    },
+    "110/variants/closure--69-1-r0": {
+      "file": "110/variants/closure--69-1-r0.step",
+      "sha256": "f5a0da7927688086f0e87e29b6f406f1e2517444567b966b55e514e3246e734d",
+      "volume_mm3": 78.596
+    },
+    "110/variants/closure-0--1-r0": {
+      "file": "110/variants/closure-0--1-r0.step",
+      "sha256": "3a0b0f0a1b193a9fc9e7f10af466d89918faa1fc92ee4b11f7c284785d06c307",
+      "volume_mm3": 78.59600000000003
+    },
+    "110/variants/closure-0-1-r0": {
+      "file": "110/variants/closure-0-1-r0.step",
+      "sha256": "3df8becf5d844dd822903d5c1af2aac1637bcc5542a22365f9b61b96f883efbf",
+      "volume_mm3": 78.59600000000003
+    },
+    "110/variants/closure-69--1-r0": {
+      "file": "110/variants/closure-69--1-r0.step",
+      "sha256": "83e1e67c86029586347a4e85c119022d6b26fadfc808e0df3249326f9e718593",
+      "volume_mm3": 78.59600000000002
+    },
+    "110/variants/closure-69-1-r0": {
+      "file": "110/variants/closure-69-1-r0.step",
+      "sha256": "c2c3ea980db30780438b8e93f16c3fe1bc8f31eda2eec55b01acdb95cb9f4ca5",
+      "volume_mm3": 78.596
+    },
+    "110/variants/closure--69--1-r1": {
+      "file": "110/variants/closure--69--1-r1.step",
+      "sha256": "3259df7ed7c954100fa8ae1a800b45aac5fa35d1241e00deb0dedc65166b313b",
+      "volume_mm3": 78.59609421570573
+    },
+    "110/variants/closure--69-1-r1": {
+      "file": "110/variants/closure--69-1-r1.step",
+      "sha256": "aa4366a3362c3829055eccc87d7c749f68b5b5a6702ad47e32fef7bb5008a991",
+      "volume_mm3": 78.59609421570572
+    },
+    "110/variants/closure-0--1-r1": {
+      "file": "110/variants/closure-0--1-r1.step",
+      "sha256": "4e69404ead13ff92cdbbe8b8b27e786acd6d96a3f03ef5abad85b45a914410f5",
+      "volume_mm3": 78.59609421570573
+    },
+    "110/variants/closure-0-1-r1": {
+      "file": "110/variants/closure-0-1-r1.step",
+      "sha256": "45652e1a4937c33e03a6667337acdd430f7766b5984f090e16b71a30b4d35b1d",
+      "volume_mm3": 78.59609421570572
+    },
+    "110/variants/closure-69--1-r1": {
+      "file": "110/variants/closure-69--1-r1.step",
+      "sha256": "1adc4258cc63e0f8e930ac27278371d7c3e7f03609546abe4d856ef2f56ea2e5",
+      "volume_mm3": 78.59609421570573
+    },
+    "110/variants/closure-69-1-r1": {
+      "file": "110/variants/closure-69-1-r1.step",
+      "sha256": "f1c81fc23757340d34d25be70db109d142d504a8a57d137465b976d106a04f61",
+      "volume_mm3": 78.5960942157057
+    },
+    "110/variants/closure--69--1-r2": {
+      "file": "110/variants/closure--69--1-r2.step",
+      "sha256": "ac72e1e6630f93c10633bc25b4177380057a81c81d29a57b4fe44437eae43bc9",
+      "volume_mm3": 78.5941256020495
+    },
+    "110/variants/closure--69-1-r2": {
+      "file": "110/variants/closure--69-1-r2.step",
+      "sha256": "6b08bd2fcb9417c306e494e192a06fd9e160ee8d456df36c4112a040cde26a87",
+      "volume_mm3": 78.59412560204949
+    },
+    "110/variants/closure-0--1-r2": {
+      "file": "110/variants/closure-0--1-r2.step",
+      "sha256": "27ff0822aa625ff5174a8d6d83de8e44b7d94dec81244f619cbab4c944c58b8b",
+      "volume_mm3": 78.59412560204956
+    },
+    "110/variants/closure-0-1-r2": {
+      "file": "110/variants/closure-0-1-r2.step",
+      "sha256": "a488607d09880f31ca0a683199693e6db51656c7ce5234de875975ee92e6fb45",
+      "volume_mm3": 78.59412560204953
+    },
+    "110/variants/closure-69--1-r2": {
+      "file": "110/variants/closure-69--1-r2.step",
+      "sha256": "0c7483e0b0258cb56b88acbd2f9666b69d6b05b8bdda1d51d366672b147576f5",
+      "volume_mm3": 78.59412560204952
+    },
+    "110/variants/closure-69-1-r2": {
+      "file": "110/variants/closure-69-1-r2.step",
+      "sha256": "5e422b93a856066a9712fe0f91a924c7be63bf0f36e0bf3a29979565368e6e3b",
+      "volume_mm3": 78.5941256020495
+    },
+    "110/variants/closure--69--1-r3": {
+      "file": "110/variants/closure--69--1-r3.step",
+      "sha256": "70713ca88a452804c8711d578974dcb80d74b8181c07dbefbf15cd93a5dcd3aa",
+      "volume_mm3": 78.59155271931358
+    },
+    "110/variants/closure--69-1-r3": {
+      "file": "110/variants/closure--69-1-r3.step",
+      "sha256": "8c2052e11258bdc6b01bb33e09dbd37978c1d5194914f62b7fa8eb772d95dffc",
+      "volume_mm3": 78.59155271931357
+    },
+    "110/variants/closure-0--1-r3": {
+      "file": "110/variants/closure-0--1-r3.step",
+      "sha256": "03d98bb336ff95008cbe996aba5d8065c62dbde1532f362244f476fc8a28c873",
+      "volume_mm3": 78.59155271931363
+    },
+    "110/variants/closure-0-1-r3": {
+      "file": "110/variants/closure-0-1-r3.step",
+      "sha256": "bdc1d06790ef628dec1cef84931143fa5eee765e4253ed0b38c6bc11331d01ce",
+      "volume_mm3": 78.59155271931358
+    },
+    "110/variants/closure-69--1-r3": {
+      "file": "110/variants/closure-69--1-r3.step",
+      "sha256": "c9fe7d2cb327d13051b098dd2262362d8ae0bb77c220bd640bd859d851f1ab52",
+      "volume_mm3": 78.59155271931361
+    },
+    "110/variants/closure-69-1-r3": {
+      "file": "110/variants/closure-69-1-r3.step",
+      "sha256": "f14f3ba089aa112daa1a659ff140f93a994e983c1d939f1adaf8bc029f62d3d4",
+      "volume_mm3": 78.59155271931357
+    },
+    "110/variants/closure--69--1-r4": {
+      "file": "110/variants/closure--69--1-r4.step",
+      "sha256": "5ba602d813ebaeb1853a139bd053a2e8177b90e2228f27639d04787f9a89d13c",
+      "volume_mm3": 78.58882576250363
+    },
+    "110/variants/closure--69-1-r4": {
+      "file": "110/variants/closure--69-1-r4.step",
+      "sha256": "8802bd62fadcb9c8da109794b0ec2dc818b12a68c2cf4dde8f4a10877ed5cb55",
+      "volume_mm3": 78.58882576250362
+    },
+    "110/variants/closure-0--1-r4": {
+      "file": "110/variants/closure-0--1-r4.step",
+      "sha256": "8ebb5c1d851f73aebef98c506e215137def445e1d7e500d53c9a6e7a0795fe08",
+      "volume_mm3": 78.58882576250359
+    },
+    "110/variants/closure-0-1-r4": {
+      "file": "110/variants/closure-0-1-r4.step",
+      "sha256": "608cac9c13dd6e085fc083ea0ca44b10bd50c6b4667f0ff12807c68eaa9b4fa1",
+      "volume_mm3": 78.58882576250356
+    },
+    "110/variants/closure-69--1-r4": {
+      "file": "110/variants/closure-69--1-r4.step",
+      "sha256": "47630f888a01054170109dd3e4d681f5c0cd68ed8a4a41e78c3f59b20596007c",
+      "volume_mm3": 78.58882576250362
+    },
+    "110/variants/closure-69-1-r4": {
+      "file": "110/variants/closure-69-1-r4.step",
+      "sha256": "51cfad41199dfb6514c0ad17417774c5b40a6ecf1bef4d6628a447218ea396b3",
+      "volume_mm3": 78.5888257625036
+    }
+  },
+  "source_hashes": {
+    "cad/negative_carrier_b/__init__.py": "920b4e4ab17a5745e8cc0fcbfa9c169d0f9cb27f157c0f00e812970a1c95e36e",
+    "cad/negative_carrier_b/export.py": "aa8babba2db1930802bde88a748a742de157f454a2666ed330a3341379bc27de",
+    "cad/negative_carrier_b/fixture.py": "7b74fa3d19951ad4ca6ae20c499395aa617b38ff8e8bfb457ea0043a6d2ce6c6",
+    "cad/negative_carrier_b/model.py": "61a232939a6d2beb1a06abf078483c0a36081c91b8753d4a87aaa522deb0eb77",
+    "cad/negative_carrier_b/motion.py": "d862521196ee1558129099dc3ef4d035f2defdca1feb01e28f11d77cbdc3a567",
+    "cad/negative_carrier_b/verify_freecad.py": "4565244ec7183fd3b9bb9e7cf86fb2db5e758cbb974102598bf553756c05583b"
+  },
+  "manifest_sha256": "8ae48947a494b3097175904eee1a74bfcbd779b31548912f3a04a0b63094e545",
+  "local_python_tests": {
+    "command": "python -m unittest discover -s tests",
+    "passed": 45
+  },
+  "models": [
+    {
+      "format": "135",
+      "config": {
+        "format": "135",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "format_data": {
+        "key": "135",
+        "label": "35 mm full frame",
+        "film_width": 35,
+        "image_width": 36,
+        "image_height": 24,
+        "demo_pitch": 38,
+        "frames": 6,
+        "pitch_status": "nominal template; verify actual strips",
+        "centers": [
+          -95.0,
+          -57.0,
+          -19.0,
+          19.0,
+          57.0,
+          95.0
+        ],
+        "length": 244,
+        "travel": 190.0,
+        "aperture": [
+          35.6,
+          23.6
+        ],
+        "enclosed_length": 450.0
+      },
+      "holder_length_mm": 244,
+      "film_path": {
+        "open_ends": "both",
+        "width_mm": 35.8,
+        "film_length_mm": 382.0,
+        "image_centers_mm": [
+          -171.0,
+          -133.0,
+          -95.0,
+          -57.0,
+          -19.0,
+          19.0,
+          57.0,
+          95.0,
+          133.0,
+          171.0
+        ],
+        "unclamped_reposition_mm": 38,
+        "continuous_roll_transport": false
+      },
+      "parts": {
+        "closure--114--1": {
+          "asset": "135/closure--114--1",
+          "role": "closure"
+        },
+        "closure--114-1": {
+          "asset": "135/closure--114-1",
+          "role": "closure"
+        },
+        "closure-0--1": {
+          "asset": "135/closure-0--1",
+          "role": "closure"
+        },
+        "closure-0-1": {
+          "asset": "135/closure-0-1",
+          "role": "closure"
+        },
+        "closure-114--1": {
+          "asset": "135/closure-114--1",
+          "role": "closure"
+        },
+        "closure-114-1": {
+          "asset": "135/closure-114-1",
+          "role": "closure"
+        },
+        "base": {
+          "asset": "135/base",
+          "role": "holder-base"
+        },
+        "lid": {
+          "asset": "135/lid",
+          "role": "holder-lid"
+        },
+        "collar-base": {
+          "asset": "135/collar-base",
+          "role": "collar"
+        },
+        "collar-cap": {
+          "asset": "135/collar-cap",
+          "role": "collar"
+        },
+        "cap-lock--18--31": {
+          "asset": "common/cap-lock--18--31",
+          "role": "collar"
+        },
+        "cap-lock--18-31": {
+          "asset": "common/cap-lock--18-31",
+          "role": "collar"
+        },
+        "cap-lock-18--31": {
+          "asset": "common/cap-lock-18--31",
+          "role": "collar"
+        },
+        "cap-lock-18-31": {
+          "asset": "common/cap-lock-18-31",
+          "role": "collar"
+        },
+        "dock-lock--18": {
+          "asset": "common/dock-lock--18",
+          "role": "collar"
+        },
+        "dock-lock-18": {
+          "asset": "common/dock-lock-18",
+          "role": "collar"
+        },
+        "index-latch": {
+          "asset": "common/index-latch",
+          "role": "collar"
+        },
+        "receiver": {
+          "asset": "common/receiver",
+          "role": "receiver"
+        },
+        "film": {
+          "asset": "135/film",
+          "role": "film"
+        }
+      },
+      "sampled_poses": 453,
+      "phase_names": [
+        "Place the strip against the frame lands",
+        "Lower the full-length lid",
+        "Flex the six clip catches",
+        "Slide the six closure clips home",
+        "Release the catches into their recesses",
+        "Seat the holder in its format collar",
+        "Lower the matching mask cap",
+        "Turn the four cap locks",
+        "Depress the enlarger's spring stage",
+        "Align the permanent receiver with the slot",
+        "Slide the receiver to the rear stop",
+        "Let the stage seat the receiver",
+        "Slide the prepared cartridge into the receiver",
+        "Lower the two front dock pins",
+        "Turn the pins to retain the collar",
+        "Collar seated; the strip can now advance",
+        "Frame 1 locked at the mask",
+        "Retract the index tooth before frame 2",
+        "Slide to frame 2",
+        "Frame 2: release to register",
+        "Retract the index tooth before frame 3",
+        "Slide to frame 3",
+        "Frame 3: release to register",
+        "Retract the index tooth before frame 4",
+        "Slide to frame 4",
+        "Frame 4: release to register",
+        "Retract the index tooth before frame 5",
+        "Slide to frame 5",
+        "Frame 5: release to register",
+        "Retract the index tooth before frame 6",
+        "Slide to frame 6",
+        "Frame 6: release to register",
+        "Release to return to frame 1",
+        "Slide back to the original frame",
+        "Frame 1 registered again",
+        "Unlock the collar from the receiver",
+        "Lift the two dock pins",
+        "Withdraw the complete cartridge",
+        "At the workbench: unlock the mask cap",
+        "Lift the mask cap clear",
+        "Separate the lower collar from the holder",
+        "Release the six clip catches",
+        "Withdraw the six closure clips",
+        "Lift the lid to release the film",
+        "Lift the film clear of all clamping lands",
+        "Move the strip one pitch; align the next image group",
+        "Lower the film onto the margin supports",
+        "Replace the lid",
+        "Slide the six closure clips home",
+        "Release the catches into their recesses",
+        "Reseat the lower collar",
+        "Lower the mask cap",
+        "Lock the collar; the new group is ready to dock"
+      ]
+    },
+    {
+      "format": "half",
+      "config": {
+        "format": "half",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "format_data": {
+        "key": "half",
+        "label": "35 mm half frame",
+        "film_width": 35,
+        "image_width": 18,
+        "image_height": 24,
+        "demo_pitch": 19,
+        "frames": 12,
+        "pitch_status": "nominal template; camera-specific image width",
+        "centers": [
+          -104.5,
+          -85.5,
+          -66.5,
+          -47.5,
+          -28.5,
+          -9.5,
+          9.5,
+          28.5,
+          47.5,
+          66.5,
+          85.5,
+          104.5
+        ],
+        "length": 244,
+        "travel": 209.0,
+        "aperture": [
+          17.6,
+          23.6
+        ],
+        "enclosed_length": 469.0
+      },
+      "holder_length_mm": 263.0,
+      "film_path": {
+        "open_ends": "both",
+        "width_mm": 35.8,
+        "film_length_mm": 307.0,
+        "image_centers_mm": [
+          -142.5,
+          -123.5,
+          -104.5,
+          -85.5,
+          -66.5,
+          -47.5,
+          -28.5,
+          -9.5,
+          9.5,
+          28.5,
+          47.5,
+          66.5,
+          85.5,
+          104.5,
+          123.5,
+          142.5
+        ],
+        "unclamped_reposition_mm": 19,
+        "continuous_roll_transport": false
+      },
+      "parts": {
+        "closure--123.5--1": {
+          "asset": "half/closure--123.5--1",
+          "role": "closure"
+        },
+        "closure--123.5-1": {
+          "asset": "half/closure--123.5-1",
+          "role": "closure"
+        },
+        "closure-0--1": {
+          "asset": "half/closure-0--1",
+          "role": "closure"
+        },
+        "closure-0-1": {
+          "asset": "half/closure-0-1",
+          "role": "closure"
+        },
+        "closure-123.5--1": {
+          "asset": "half/closure-123.5--1",
+          "role": "closure"
+        },
+        "closure-123.5-1": {
+          "asset": "half/closure-123.5-1",
+          "role": "closure"
+        },
+        "base": {
+          "asset": "half/base",
+          "role": "holder-base"
+        },
+        "lid": {
+          "asset": "half/lid",
+          "role": "holder-lid"
+        },
+        "collar-base": {
+          "asset": "half/collar-base",
+          "role": "collar"
+        },
+        "collar-cap": {
+          "asset": "half/collar-cap",
+          "role": "collar"
+        },
+        "cap-lock--18--31": {
+          "asset": "common/cap-lock--18--31",
+          "role": "collar"
+        },
+        "cap-lock--18-31": {
+          "asset": "common/cap-lock--18-31",
+          "role": "collar"
+        },
+        "cap-lock-18--31": {
+          "asset": "common/cap-lock-18--31",
+          "role": "collar"
+        },
+        "cap-lock-18-31": {
+          "asset": "common/cap-lock-18-31",
+          "role": "collar"
+        },
+        "dock-lock--18": {
+          "asset": "common/dock-lock--18",
+          "role": "collar"
+        },
+        "dock-lock-18": {
+          "asset": "common/dock-lock-18",
+          "role": "collar"
+        },
+        "index-latch": {
+          "asset": "common/index-latch",
+          "role": "collar"
+        },
+        "receiver": {
+          "asset": "common/receiver",
+          "role": "receiver"
+        },
+        "film": {
+          "asset": "half/film",
+          "role": "film"
+        }
+      },
+      "sampled_poses": 523,
+      "phase_names": [
+        "Place the strip against the frame lands",
+        "Lower the full-length lid",
+        "Flex the six clip catches",
+        "Slide the six closure clips home",
+        "Release the catches into their recesses",
+        "Seat the holder in its format collar",
+        "Lower the matching mask cap",
+        "Turn the four cap locks",
+        "Depress the enlarger's spring stage",
+        "Align the permanent receiver with the slot",
+        "Slide the receiver to the rear stop",
+        "Let the stage seat the receiver",
+        "Slide the prepared cartridge into the receiver",
+        "Lower the two front dock pins",
+        "Turn the pins to retain the collar",
+        "Collar seated; the strip can now advance",
+        "Frame 1 locked at the mask",
+        "Retract the index tooth before frame 2",
+        "Slide to frame 2",
+        "Frame 2: release to register",
+        "Retract the index tooth before frame 3",
+        "Slide to frame 3",
+        "Frame 3: release to register",
+        "Retract the index tooth before frame 4",
+        "Slide to frame 4",
+        "Frame 4: release to register",
+        "Retract the index tooth before frame 5",
+        "Slide to frame 5",
+        "Frame 5: release to register",
+        "Retract the index tooth before frame 6",
+        "Slide to frame 6",
+        "Frame 6: release to register",
+        "Retract the index tooth before frame 7",
+        "Slide to frame 7",
+        "Frame 7: release to register",
+        "Retract the index tooth before frame 8",
+        "Slide to frame 8",
+        "Frame 8: release to register",
+        "Retract the index tooth before frame 9",
+        "Slide to frame 9",
+        "Frame 9: release to register",
+        "Retract the index tooth before frame 10",
+        "Slide to frame 10",
+        "Frame 10: release to register",
+        "Retract the index tooth before frame 11",
+        "Slide to frame 11",
+        "Frame 11: release to register",
+        "Retract the index tooth before frame 12",
+        "Slide to frame 12",
+        "Frame 12: release to register",
+        "Release to return to frame 1",
+        "Slide back to the original frame",
+        "Frame 1 registered again",
+        "Unlock the collar from the receiver",
+        "Lift the two dock pins",
+        "Withdraw the complete cartridge",
+        "At the workbench: unlock the mask cap",
+        "Lift the mask cap clear",
+        "Separate the lower collar from the holder",
+        "Release the six clip catches",
+        "Withdraw the six closure clips",
+        "Lift the lid to release the film",
+        "Lift the film clear of all clamping lands",
+        "Move the strip one pitch; align the next image group",
+        "Lower the film onto the margin supports",
+        "Replace the lid",
+        "Slide the six closure clips home",
+        "Release the catches into their recesses",
+        "Reseat the lower collar",
+        "Lower the mask cap",
+        "Lock the collar; the new group is ready to dock"
+      ]
+    },
+    {
+      "format": "aps",
+      "config": {
+        "format": "aps",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "format_data": {
+        "key": "aps",
+        "label": "APS",
+        "film_width": 24,
+        "image_width": 30.2,
+        "image_height": 16.7,
+        "demo_pitch": 32,
+        "frames": 6,
+        "pitch_status": "illustrative spacing only; not a sourced standard",
+        "centers": [
+          -80.0,
+          -48.0,
+          -16.0,
+          16.0,
+          48.0,
+          80.0
+        ],
+        "length": 208,
+        "travel": 160.0,
+        "aperture": [
+          29.8,
+          16.3
+        ],
+        "enclosed_length": 384.0
+      },
+      "holder_length_mm": 214.0,
+      "film_path": {
+        "open_ends": "both",
+        "width_mm": 24.8,
+        "film_length_mm": 322.2,
+        "image_centers_mm": [
+          -144.0,
+          -112.0,
+          -80.0,
+          -48.0,
+          -16.0,
+          16.0,
+          48.0,
+          80.0,
+          112.0,
+          144.0
+        ],
+        "unclamped_reposition_mm": 32,
+        "continuous_roll_transport": false
+      },
+      "parts": {
+        "closure--99--1": {
+          "asset": "aps/closure--99--1",
+          "role": "closure"
+        },
+        "closure--99-1": {
+          "asset": "aps/closure--99-1",
+          "role": "closure"
+        },
+        "closure-0--1": {
+          "asset": "aps/closure-0--1",
+          "role": "closure"
+        },
+        "closure-0-1": {
+          "asset": "aps/closure-0-1",
+          "role": "closure"
+        },
+        "closure-99--1": {
+          "asset": "aps/closure-99--1",
+          "role": "closure"
+        },
+        "closure-99-1": {
+          "asset": "aps/closure-99-1",
+          "role": "closure"
+        },
+        "base": {
+          "asset": "aps/base",
+          "role": "holder-base"
+        },
+        "lid": {
+          "asset": "aps/lid",
+          "role": "holder-lid"
+        },
+        "collar-base": {
+          "asset": "aps/collar-base",
+          "role": "collar"
+        },
+        "collar-cap": {
+          "asset": "aps/collar-cap",
+          "role": "collar"
+        },
+        "cap-lock--18--31": {
+          "asset": "common/cap-lock--18--31",
+          "role": "collar"
+        },
+        "cap-lock--18-31": {
+          "asset": "common/cap-lock--18-31",
+          "role": "collar"
+        },
+        "cap-lock-18--31": {
+          "asset": "common/cap-lock-18--31",
+          "role": "collar"
+        },
+        "cap-lock-18-31": {
+          "asset": "common/cap-lock-18-31",
+          "role": "collar"
+        },
+        "dock-lock--18": {
+          "asset": "common/dock-lock--18",
+          "role": "collar"
+        },
+        "dock-lock-18": {
+          "asset": "common/dock-lock-18",
+          "role": "collar"
+        },
+        "index-latch": {
+          "asset": "common/index-latch",
+          "role": "collar"
+        },
+        "receiver": {
+          "asset": "common/receiver",
+          "role": "receiver"
+        },
+        "film": {
+          "asset": "aps/film",
+          "role": "film"
+        }
+      },
+      "sampled_poses": 441,
+      "phase_names": [
+        "Place the strip against the frame lands",
+        "Lower the full-length lid",
+        "Flex the six clip catches",
+        "Slide the six closure clips home",
+        "Release the catches into their recesses",
+        "Seat the holder in its format collar",
+        "Lower the matching mask cap",
+        "Turn the four cap locks",
+        "Depress the enlarger's spring stage",
+        "Align the permanent receiver with the slot",
+        "Slide the receiver to the rear stop",
+        "Let the stage seat the receiver",
+        "Slide the prepared cartridge into the receiver",
+        "Lower the two front dock pins",
+        "Turn the pins to retain the collar",
+        "Collar seated; the strip can now advance",
+        "Frame 1 locked at the mask",
+        "Retract the index tooth before frame 2",
+        "Slide to frame 2",
+        "Frame 2: release to register",
+        "Retract the index tooth before frame 3",
+        "Slide to frame 3",
+        "Frame 3: release to register",
+        "Retract the index tooth before frame 4",
+        "Slide to frame 4",
+        "Frame 4: release to register",
+        "Retract the index tooth before frame 5",
+        "Slide to frame 5",
+        "Frame 5: release to register",
+        "Retract the index tooth before frame 6",
+        "Slide to frame 6",
+        "Frame 6: release to register",
+        "Release to return to frame 1",
+        "Slide back to the original frame",
+        "Frame 1 registered again",
+        "Unlock the collar from the receiver",
+        "Lift the two dock pins",
+        "Withdraw the complete cartridge",
+        "At the workbench: unlock the mask cap",
+        "Lift the mask cap clear",
+        "Separate the lower collar from the holder",
+        "Release the six clip catches",
+        "Withdraw the six closure clips",
+        "Lift the lid to release the film",
+        "Lift the film clear of all clamping lands",
+        "Move the strip one pitch; align the next image group",
+        "Lower the film onto the margin supports",
+        "Replace the lid",
+        "Slide the six closure clips home",
+        "Release the catches into their recesses",
+        "Reseat the lower collar",
+        "Lower the mask cap",
+        "Lock the collar; the new group is ready to dock"
+      ]
+    },
+    {
+      "format": "110",
+      "config": {
+        "format": "110",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "format_data": {
+        "key": "110",
+        "label": "110",
+        "film_width": 16,
+        "image_width": 17,
+        "image_height": 13,
+        "demo_pitch": 20,
+        "frames": 6,
+        "pitch_status": "illustrative spacing only; not a sourced standard",
+        "centers": [
+          -50.0,
+          -30.0,
+          -10.0,
+          10.0,
+          30.0,
+          50.0
+        ],
+        "length": 136,
+        "travel": 100.0,
+        "aperture": [
+          16.6,
+          12.6
+        ],
+        "enclosed_length": 252.0
+      },
+      "holder_length_mm": 154.0,
+      "film_path": {
+        "open_ends": "both",
+        "width_mm": 16.8,
+        "film_length_mm": 201.0,
+        "image_centers_mm": [
+          -90.0,
+          -70.0,
+          -50.0,
+          -30.0,
+          -10.0,
+          10.0,
+          30.0,
+          50.0,
+          70.0,
+          90.0
+        ],
+        "unclamped_reposition_mm": 20,
+        "continuous_roll_transport": false
+      },
+      "parts": {
+        "closure--69--1": {
+          "asset": "110/closure--69--1",
+          "role": "closure"
+        },
+        "closure--69-1": {
+          "asset": "110/closure--69-1",
+          "role": "closure"
+        },
+        "closure-0--1": {
+          "asset": "110/closure-0--1",
+          "role": "closure"
+        },
+        "closure-0-1": {
+          "asset": "110/closure-0-1",
+          "role": "closure"
+        },
+        "closure-69--1": {
+          "asset": "110/closure-69--1",
+          "role": "closure"
+        },
+        "closure-69-1": {
+          "asset": "110/closure-69-1",
+          "role": "closure"
+        },
+        "base": {
+          "asset": "110/base",
+          "role": "holder-base"
+        },
+        "lid": {
+          "asset": "110/lid",
+          "role": "holder-lid"
+        },
+        "collar-base": {
+          "asset": "110/collar-base",
+          "role": "collar"
+        },
+        "collar-cap": {
+          "asset": "110/collar-cap",
+          "role": "collar"
+        },
+        "cap-lock--18--31": {
+          "asset": "common/cap-lock--18--31",
+          "role": "collar"
+        },
+        "cap-lock--18-31": {
+          "asset": "common/cap-lock--18-31",
+          "role": "collar"
+        },
+        "cap-lock-18--31": {
+          "asset": "common/cap-lock-18--31",
+          "role": "collar"
+        },
+        "cap-lock-18-31": {
+          "asset": "common/cap-lock-18-31",
+          "role": "collar"
+        },
+        "dock-lock--18": {
+          "asset": "common/dock-lock--18",
+          "role": "collar"
+        },
+        "dock-lock-18": {
+          "asset": "common/dock-lock-18",
+          "role": "collar"
+        },
+        "index-latch": {
+          "asset": "common/index-latch",
+          "role": "collar"
+        },
+        "receiver": {
+          "asset": "common/receiver",
+          "role": "receiver"
+        },
+        "film": {
+          "asset": "110/film",
+          "role": "film"
+        }
+      },
+      "sampled_poses": 411,
+      "phase_names": [
+        "Place the strip against the frame lands",
+        "Lower the full-length lid",
+        "Flex the six clip catches",
+        "Slide the six closure clips home",
+        "Release the catches into their recesses",
+        "Seat the holder in its format collar",
+        "Lower the matching mask cap",
+        "Turn the four cap locks",
+        "Depress the enlarger's spring stage",
+        "Align the permanent receiver with the slot",
+        "Slide the receiver to the rear stop",
+        "Let the stage seat the receiver",
+        "Slide the prepared cartridge into the receiver",
+        "Lower the two front dock pins",
+        "Turn the pins to retain the collar",
+        "Collar seated; the strip can now advance",
+        "Frame 1 locked at the mask",
+        "Retract the index tooth before frame 2",
+        "Slide to frame 2",
+        "Frame 2: release to register",
+        "Retract the index tooth before frame 3",
+        "Slide to frame 3",
+        "Frame 3: release to register",
+        "Retract the index tooth before frame 4",
+        "Slide to frame 4",
+        "Frame 4: release to register",
+        "Retract the index tooth before frame 5",
+        "Slide to frame 5",
+        "Frame 5: release to register",
+        "Retract the index tooth before frame 6",
+        "Slide to frame 6",
+        "Frame 6: release to register",
+        "Release to return to frame 1",
+        "Slide back to the original frame",
+        "Frame 1 registered again",
+        "Unlock the collar from the receiver",
+        "Lift the two dock pins",
+        "Withdraw the complete cartridge",
+        "At the workbench: unlock the mask cap",
+        "Lift the mask cap clear",
+        "Separate the lower collar from the holder",
+        "Release the six clip catches",
+        "Withdraw the six closure clips",
+        "Lift the lid to release the film",
+        "Lift the film clear of all clamping lands",
+        "Move the strip one pitch; align the next image group",
+        "Lower the film onto the margin supports",
+        "Replace the lid",
+        "Slide the six closure clips home",
+        "Release the catches into their recesses",
+        "Reseat the lower collar",
+        "Lower the mask cap",
+        "Lock the collar; the new group is ready to dock"
+      ]
+    }
+  ]
+}
