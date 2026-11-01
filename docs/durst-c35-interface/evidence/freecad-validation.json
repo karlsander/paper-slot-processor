@@ -1,0 +1,100 @@
+{
+  "geometry_passed": true,
+  "physical_fit_accepted": false,
+  "freecad_version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "manifest_sha256": "eb73c8ae0cdcd9b7d26d1c8f059b725e0325ed50914888d2a1a44e312d37b20d",
+  "native_document_sha256": "accbdaeecd8068c8f28a90b992bbb1c65b6a082123a833078e99452093064ebd",
+  "native_solids": 9,
+  "lower_opening_mm": {
+    "width": 55.3,
+    "depth": 56.10000000000001,
+    "left_margin": 14.900000000000002,
+    "right_margin": 16.5,
+    "front_margin": 15.299999999999997,
+    "rear_margin": 26.89999999999999,
+    "centre_x": 0.7999999999999989,
+    "centre_y": -43.35
+  },
+  "lower_bevel_sections_mm": [
+    {
+      "depth_below_top": 0.0,
+      "width": 58.3000002,
+      "depth": 59.1000002
+    },
+    {
+      "depth_below_top": 0.2,
+      "width": 57.5500002,
+      "depth": 58.35000020000002
+    },
+    {
+      "depth_below_top": 0.4,
+      "width": 56.8000002,
+      "depth": 57.60000020000002
+    },
+    {
+      "depth_below_top": 0.6000000000000001,
+      "width": 56.0500002,
+      "depth": 56.85000020000002
+    },
+    {
+      "depth_below_top": 0.8,
+      "width": 55.3,
+      "depth": 56.10000000000001
+    },
+    {
+      "depth_below_top": 1.0,
+      "width": 55.3,
+      "depth": 56.10000000000001
+    }
+  ],
+  "side_profile_mm": {
+    "raised_support_height": 11.0,
+    "overall_support_height": 13.5,
+    "neck_depth": 98.3,
+    "raised_support_depth": 98.3,
+    "rear_plane_difference": 0.0,
+    "flange_front_overhang": 4.5,
+    "flange_thickness": 2.5
+  },
+  "relative_import_volume_errors": {
+    "head-shell": 1.84297022087776e-14,
+    "underside-plate": 2.220446049250313e-16,
+    "lower-support": 1.5543122344752192e-15,
+    "screw-head-1": 0.0,
+    "screw-head-2": 4.440892098500626e-16,
+    "screw-head-3": 2.220446049250313e-16,
+    "screw-head-4": 4.440892098500626e-16,
+    "screw-head-5": 0.0,
+    "screw-head-6": 2.220446049250313e-16
+  },
+  "maximum_part_overlap_mm3": 0.0,
+  "optical_path_intersection_mm3": 0.0,
+  "negative_controls": {
+    "flat_plate_probe_overlap_mm3": {
+      "below": {
+        "thickness_mm": 5.9,
+        "overlap_mm3": 0.0
+      },
+      "at": {
+        "thickness_mm": 6.0,
+        "overlap_mm3": 0.0
+      },
+      "above": {
+        "thickness_mm": 6.1,
+        "overlap_mm3": 1.5999999999999943
+      }
+    },
+    "screw_probe_overlap_mm3": 1.9999999999999996
+  },
+  "saved_lower_drop_expression_reopened_and_checked": true,
+  "force_simulation_performed": false
+}

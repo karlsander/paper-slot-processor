@@ -135,3 +135,7 @@ npm --prefix viewer test
 The v2 checks cover both aspect presets, manifold solids, printer bounds and placement, liquid volume, whole-image immersion throughout agitation, guide/clip fit, paper clearance, vessel removal, heater-frame clearances and rejected invalid parameters. The optional toolpath check samples deposited paths and verifies that support centre lines do not enter the wet cavity beyond a 0.25 mm boundary tolerance. It is not a physical support-removal test. CI runs geometry and viewer tests; Bambu slicing runs locally.
 
 `v2/parameters.scad` is the shared parameter source. Geometry, volume calculation, vessels, guides, cradle and heater fittings are separated into small modules. Viewer jobs evaluate the same CAD defaults and metadata. The old monolithic design remains available at the repository root; its instructions are in [docs/v1.md](docs/v1.md).
+
+## Durst C35 insertion-area reference
+
+The [measured/provisional C35 fixture](docs/durst-c35-interface/README.md) models the narrow head, underside plate and screw envelopes, and the movable lower support/flange. It records the supplied 88.55 mm head width and approximate 6 mm rest gap separately from pending dimensions. Build123d export and independent FreeCAD checks provide reusable geometry; lower-support displacement is prescribed, with no claimed spring force or carrier-fit acceptance.
