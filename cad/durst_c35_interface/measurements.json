@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "units": "mm",
+  "recorded_on": "2026-11-01",
+  "datums": {
+    "origin": "Centre of the narrow head's front edge, at its flat underside plane; screw heads excluded.",
+    "x": "Left/right across the entry; positive right when facing the enlarger.",
+    "y": "Positive toward operator; insertion travels in negative Y.",
+    "z": "Positive upward; flat underside Z=0, unloaded lower contact surface Z=-slot_gap.",
+    "optical_axis": "Provisional offset from front; not yet measured. No automatic alignment to old carrier coordinates."
+  },
+  "observations": {
+    "original_closed_height_mm": {"value": 6.15, "status": "user_approximate", "source": "User: both original halves sandwiched together, 2026-11-01"},
+    "lower_support_moves_on_insertion": {"value": true, "status": "user_observed", "source": "User description; IMG_1075.HEIC and IMG_1078.HEIC identify the part, not its stiffness"},
+    "visible_screw_count": {"value": 6, "status": "photo_observed", "source": "IMG_1076.HEIC"},
+    "lower_support_stiffness_N_per_mm": {"value": null, "status": "unknown", "source": "No force/displacement measurement; spring attachments and material unknown"},
+    "rear_stop": {"value": null, "status": "unknown", "source": "Not established by the supplied front photos; no invented stop in this model"}
+  },
+  "parameters": {
+    "neck_width": {"value": 88.55, "status": "user_measured", "label": "B-head", "source": "IMG_1077.HEIC: external caliper jaws across narrow white head section; accuracy not established"},
+    "slot_gap": {"value": 6.0, "status": "user_approximate", "label": "A", "source": "User: total unloaded slot height, before local screw-head protrusions"},
+    "neck_height": {"value": 13.0, "status": "provisional", "label": "L", "source": "Front-photo visual approximation, not calibrated photogrammetry; awaiting calipers"},
+    "lower_width": {"value": 86.0, "status": "provisional", "label": "M", "source": "Front-photo visual approximation; awaiting calipers"},
+    "lower_height": {"value": 11.5, "status": "provisional", "label": "N", "source": "Front-photo visual approximation; top contact plane to flange top; awaiting calipers"},
+    "flange_width": {"value": 98.0, "status": "provisional", "label": "O", "source": "Front-photo visual approximation; awaiting calipers"},
+    "neck_depth": {"value": 86.0, "status": "provisional", "label": null, "source": "Legacy unmeasured head envelope; depth is not inferred from front width"},
+    "shell_wall": {"value": 1.2, "status": "provisional", "label": null, "source": "Geometry proxy; head wall thickness unmeasured"},
+    "body_width": {"value": 96.0, "status": "provisional", "label": null, "source": "Visual approximation of larger white housing around neck"},
+    "body_depth": {"value": 94.0, "status": "provisional", "label": null, "source": "Local envelope proxy, unmeasured"},
+    "body_front_overhang": {"value": 4.0, "status": "provisional", "label": null, "source": "Local envelope proxy, unmeasured"},
+    "body_height_shown": {"value": 32.0, "status": "display_extent", "label": null, "source": "Truncated head above shoulder; not the complete lamp housing"},
+    "corner_radius": {"value": 1.5, "status": "provisional", "label": null, "source": "Visual approximation; not a measured corner radius"},
+    "cover_thickness": {"value": 1.2, "status": "provisional", "label": null, "source": "Black underside plate thickness unmeasured"},
+    "optical_width": {"value": 40.0, "status": "provisional", "label": null, "source": "Legacy unmeasured light opening, not an OEM drawing"},
+    "optical_depth": {"value": 28.0, "status": "provisional", "label": null, "source": "Legacy unmeasured light opening, not an OEM drawing"},
+    "optical_centre_depth": {"value": 42.0, "status": "provisional", "label": null, "source": "Legacy unmeasured front-to-optical-axis offset"},
+    "front_tab_width": {"value": 10.0, "status": "provisional", "label": null, "source": "Small black tab visible at front of underside plate; function unconfirmed"},
+    "front_tab_projection": {"value": 0.8, "status": "provisional", "label": null, "source": "Visible tab extent unmeasured"},
+    "lower_depth": {"value": 82.0, "status": "provisional", "label": null, "source": "Legacy stage depth; now an open frame envelope, not two assumed ledges"},
+    "lower_front_offset": {"value": 0.0, "status": "provisional", "label": null, "source": "Front alignment to head unmeasured; positive toward operator"},
+    "lower_opening_width": {"value": 74.0, "status": "provisional", "label": null, "source": "Unseen interior of lower support: rectangular clearance proxy, NOT measured contact lands"},
+    "lower_opening_depth": {"value": 68.0, "status": "provisional", "label": null, "source": "Unseen interior of lower support: rectangular clearance proxy"},
+    "flange_depth": {"value": 94.0, "status": "provisional", "label": null, "source": "Flange front/back extent unmeasured"},
+    "flange_front_overhang": {"value": 3.0, "status": "provisional", "label": null, "source": "Projection ahead of raised lower support, unmeasured"},
+    "flange_thickness": {"value": 2.0, "status": "provisional", "label": null, "source": "Visible front flange thickness unmeasured"},
+    "screw_head_diameter": {"value": 4.6, "status": "provisional", "label": null, "source": "Collision proxy for heads visible in IMG_1076.HEIC; not measured"},
+    "screw_protrusion": {"value": 0.5, "status": "provisional", "label": null, "source": "Scenario only: positive below flat underside. Actual protrusion unknown"},
+    "screw_side_inset": {"value": 6.0, "status": "provisional", "label": null, "source": "Four corner screw centres measured inward from external neck sides: placeholder"},
+    "screw_end_inset": {"value": 8.0, "status": "provisional", "label": null, "source": "Four corner screw centres inward from front/rear: placeholder"},
+    "screw_middle_end_inset": {"value": 10.0, "status": "provisional", "label": null, "source": "Two middle screws near front/rear of plate: placeholder"}
+  }
+}

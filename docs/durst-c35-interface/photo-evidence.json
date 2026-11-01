@@ -1,0 +1,26 @@
+{
+  "source": "User-supplied photographs, 2026-11-01",
+  "originals_committed": false,
+  "photos": [
+    {
+      "filename": "IMG_1075.HEIC",
+      "sha256": "c1ce261e37ab9ec8805133fba3f02bfbd7dd47aaf00732ca5220d247fb3377fa",
+      "role": "Slot and lower support oblique view"
+    },
+    {
+      "filename": "IMG_1076.HEIC",
+      "sha256": "cf813175a0a44d66f8692511547ae95dfe81b8d45fcdb5245dc10a2d0e496e25",
+      "role": "Head underside: black plate, aperture, six visible screw heads"
+    },
+    {
+      "filename": "IMG_1077.HEIC",
+      "sha256": "2b60af4d1013d0f451ee7415688e371264f61cd70fb36511290b6da94ea2cfa2",
+      "role": "Caliper measurement: narrow head external width 88.55 mm"
+    },
+    {
+      "filename": "IMG_1078.HEIC",
+      "sha256": "a506c75a6413c62c24442ef5785e4bb14f7a3c640fc190323787fb82539091c4",
+      "role": "Front view used for L-O photo annotations"
+    }
+  ]
+}
