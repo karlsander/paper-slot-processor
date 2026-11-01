@@ -38,13 +38,30 @@ The cropped outer housing remains an envelope: its former unmeasured 4 mm front/
 
 The [original photo annotation](measurements-P-S.png) and [built-in imagegen prompts](side-annotation-prompts.txt) remain as historical records. Their uncertain Q endpoint does not override the corrected readings or datum relationship above. No new values were inferred from pixels.
 
+## Next lower-support measurements: T-W
+
+![Lower support opening and position measurements](measurements-T-W.png)
+
+IMG_1080 shows the lower support from above, with the front at the bottom of the photo. It reveals a broad top surface around a beveled rectangular opening and two small front features. Their height, purpose and actual carrier contact are not established by the photo. The following readings are pending; no new dimensions have been inferred from pixels.
+
+| Label | Measurement | Exact endpoints |
+| --- | --- | --- |
+| T | Clear opening width | Left inner straight wall to right inner straight wall, immediately below the bevel. Exclude the larger outer bevel outline and the lens underneath. |
+| U | Clear opening front-to-back depth | Front inner wall to rear inner wall, at the same level as T. |
+| V | Front offset of clear opening | Outside front plane of the raised black support to the inner front edge used for U. Include the bevel within this distance; exclude the wider projecting flange. Use the straight section between the small front features, not the beginning of the rounded top corner. |
+| W | Left offset of clear opening | Outside left plane of the raised black support to the inner left edge used for T. Include the bevel within this distance; exclude the wider flange. |
+
+Send `T=..., U=..., V=..., W=...`, in mm. The T/U caliper jaws should touch the inner walls just below the bevel, without reaching down towards the lens. The actual edges and readings take precedence over the imagegen annotation. Its [prompt set](lower-support-annotation-prompts.txt) records both the built-in edit and the V endpoint correction.
+
+Once measured, T and U replace the lower opening width/depth proxies. The opening centre will be located explicitly at `X = -M/2 + W + T/2`, `Y = lower_front_offset - V - U/2`; it must not be assumed centred. Sanity checks are `right margin = M - W - T` and `rear margin = Q - V - U`. Bevel size/height, front features and contact heights remain later measurements. This is the lower support opening, not the separate head's optical aperture.
+
 ## Evidence and editable parameters
 
 [`measurements.json`](../../cad/durst_c35_interface/measurements.json) is the single source for dimensions. Every value has a status, source and (where applicable) photo label. `user_measured` records the supplied reading without claiming caliper accuracy; `user_approximate` preserves the approximate gap. `derived_from_user` records a dimension calculated from explicit readings/observations. Unmeasured values remain `provisional`, and the truncated upper housing height is a `display_extent`.
 
 When a reading arrives, change its `value`, `status` and `source` together, then rebuild. Never turn a visually estimated number into a measured one merely because a CAD check passes. Local photo filenames and hashes are recorded in `photo-evidence.json` so geometry observations are traceable without committing the original high-resolution photos.
 
-The lower interior is an **open rectangular envelope**, not a claim that its unseen contact surfaces form four uniform lands. Screw heads are simple cylinders for collision checks: six are visible, but their diameter, projection and coordinates are unmeasured. The black plate's front tab is represented with its function left unassigned. No rear stop or hidden spring mounting has been invented.
+The lower interior remains a provisional **open rectangular envelope**. IMG_1080 now shows the surrounding top surface and beveled opening, but their dimensions, contact heights and front features are awaiting measurement. The simple envelope does not establish uniform carrier contact around all four sides. Screw heads are simple cylinders for collision checks: six are visible, but their diameter, projection and coordinates are unmeasured. The black plate's front tab is represented with its function left unassigned. No rear stop or hidden spring mounting has been invented.
 
 ## Datums and lower-support movement
 
