@@ -276,47 +276,47 @@
   "fixture": {
     "head-shell": {
       "file": "head-shell.step",
-      "sha256": "958dfe8185d28c3993b4ece01b3041cddc42ffe58e4e9ca638df331127cce260",
+      "sha256": "9bae38d94f0f2149b72905c69bb4db35dc385ff8335079b5d6409d1531ed64d4",
       "volume_mm3": 22056.55452262309
     },
     "underside-plate": {
       "file": "underside-plate.step",
-      "sha256": "3d99263ff5414009eb5aeedd471ac2da3f872839d4f2a06cbca28921f9550715",
+      "sha256": "2d56105c61c46d57f8cf8f4b0dc4fb72c714a435b72cb08f4e5b2b7404b79d24",
       "volume_mm3": 8594.141999999998
     },
     "lower-support": {
       "file": "lower-support.step",
-      "sha256": "83b11697362038b2fa347fc86ee35d75ba0acaf8c1f2dc683727346ceba9af68",
+      "sha256": "6624cdac492e02570e02b7f41f1fd728627810d6e7a78abf3a273b8c54e6c0e6",
       "volume_mm3": 78341.45087685279
     },
     "screw-head-1": {
       "file": "screw-head-1.step",
-      "sha256": "e4fc6987ee11d06e53ab2e1c99eed7b33ac5f5a97ad551a32f8e5d76c0aec205",
+      "sha256": "9c847a6a19a71374d631fd196c7696d84bc6d06a72ba9202d01b1f6863bb1d0a",
       "volume_mm3": 8.309512568745001
     },
     "screw-head-2": {
       "file": "screw-head-2.step",
-      "sha256": "f4ed4accfdc5891ec9fe29293d29a213d98274951f24db7669d325134ecac9ae",
+      "sha256": "f2e62210e32f96c9ee8145a9925e09fa0cbcd6ac4637f96d01d33e5cec8a5b72",
       "volume_mm3": 8.309512568745003
     },
     "screw-head-3": {
       "file": "screw-head-3.step",
-      "sha256": "d0c053feaeb2be813edb26d06bb748b143fd34f3b4499da2094feb564259edc8",
+      "sha256": "31ba0d16c93e47129302ba4085ee99f037ca9e364f321a26187a5d7ef4c38a97",
       "volume_mm3": 8.309512568745003
     },
     "screw-head-4": {
       "file": "screw-head-4.step",
-      "sha256": "d5736ed39392f8bd08a51b3c721f7a62ab3479488f59bbccb0c7828ff37ed085",
+      "sha256": "e1010618d7020c5f3eedf143996b17a38f76a0fb014af994fe87ee66d2e7f46a",
       "volume_mm3": 8.309512568745003
     },
     "screw-head-5": {
       "file": "screw-head-5.step",
-      "sha256": "fa982e797eb8de8556235cf0219824b584ffc6171fca0744555746b9b81bb1c2",
+      "sha256": "0d90afc9a6c4d8961402f30844f777b620eabd11f1cbfdaaac540f9b67e04ecf",
       "volume_mm3": 8.309512568745001
     },
     "screw-head-6": {
       "file": "screw-head-6.step",
-      "sha256": "4e832f294ac79e7e175c4db3ec6aa99a1b65291c0a4a121f700f83c1edb4549d",
+      "sha256": "0481c9fbf19603641f44ce85d9c89e5b9149c734a519c02ec2b3496259e2a0e9",
       "volume_mm3": 8.309512568745003
     }
   },
@@ -338,6 +338,8 @@
       ],
       "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
       "frame_travel_mm": 114.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
       "aperture_mm": [
         35.6,
         23.6
@@ -356,72 +358,72 @@
       "parts": {
         "base": {
           "file": "135-compact/base.step",
-          "sha256": "43f4b83f89fc04e05a77a58c31d0a5b5af37dc114b65be335cea57afc491978b",
+          "sha256": "d4128fdb344b944045fa7dcc8ccbd7d5c1a0c4eb30e8c120ec5e4087372cccd1",
           "volume_mm3": 38925.64801675685
         },
         "lid": {
           "file": "135-compact/lid.step",
-          "sha256": "0c1f20d36d8c25063cc0a31e887b56c8855acb353de16432a51210d50c1d7cfd",
+          "sha256": "d3d3b828b1a0edc0cf6e6e6be8a0af2434e85e9c51b43514eccbaf6fda38631b",
           "volume_mm3": 3948.0503999999996
         },
         "wedge-0--1": {
           "file": "135-compact/wedge-0--1.step",
-          "sha256": "4b6ae35d77b498e26aea21e439d91d3df8e95c0fcc94baa1ee57360909bb98b8",
+          "sha256": "7ed8b512793fa08c4d65cc011902429b1135d51de2945996c0cb16324f35621f",
           "volume_mm3": 196.56000000000006
         },
         "wedge-0-1": {
           "file": "135-compact/wedge-0-1.step",
-          "sha256": "88006d5c40b0c5a8c2726d874071bbf3c8720c2a9f4b85ccb7e0935bd126f1ef",
+          "sha256": "fdc0a426deacc2f73828169a72ccf60a83d9664010db8be7d8a9129eff96e9c0",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1--1": {
           "file": "135-compact/wedge-1--1.step",
-          "sha256": "fe907e9e4bd438ac7cc556bb187d749de4406e9beaabf7cae2bed42f60d864e0",
+          "sha256": "fb4796c2701f008fe2fd10fc6c4c50db78e2e32b7bc2a4a15b01f815c55d7105",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1-1": {
           "file": "135-compact/wedge-1-1.step",
-          "sha256": "6460296240652f778aa33f3373e88e442516c345373f040f16186f8d561f47bb",
+          "sha256": "1ca20e5dc989e34b60cc08026f12925d2635bed171cfb862c5058cae9eb4d7db",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2--1": {
           "file": "135-compact/wedge-2--1.step",
-          "sha256": "d5ea4447f0a7a364fac581db9caea72a78bdce97916c34d58615b038c7423c35",
+          "sha256": "ff8c03f32aefcd64b90557859e79c4871b466c83082ac3da6a559af17a6c4d8b",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2-1": {
           "file": "135-compact/wedge-2-1.step",
-          "sha256": "2a9726640708c1858e46fb7a979385627a201a766cd38b223b98693d92529c7f",
+          "sha256": "d711bae41b9a753887e6bc1a89edf8135d6dcf3a9b72168ec3fc987019ea8f55",
           "volume_mm3": 196.56000000000006
         },
         "sleeve": {
           "file": "135-compact/sleeve.step",
-          "sha256": "0fd8d33d9ec2d4dbd005157ff0c31a068f573956429958266c6f5ade351240a2",
+          "sha256": "622630c091eec1201831e775043257beaffcd3cc39f62e49472ad8a2eae86447",
           "volume_mm3": 16485.995255150337
         },
         "shoe": {
           "file": "135-compact/shoe.step",
-          "sha256": "c497c26022a3c63bf632b849934ec0a259df10836d6a414b1c6a87c8aacb3ab8",
+          "sha256": "4d785da30cc3af5088a87b9dcf470e3c16ec2097853c830d42b63678a432f28d",
           "volume_mm3": 479.16908494538006
         },
         "screw": {
           "file": "135-compact/screw.step",
-          "sha256": "f66547165ec01ea3640c17ed3f68aeacf1837e70b3e3e189d5f69f32c6c7d340",
-          "volume_mm3": 3250.4244630252397
+          "sha256": "61b9a97eeedc13db5afeb4a7fdf6648551aa2b2ecea1ec4307b115f27dafb788",
+          "volume_mm3": 2957.4537200055643
         },
         "receiver": {
           "file": "135-compact/receiver.step",
-          "sha256": "e76bbd7d28b6d51928adc7588db6f24bf66ded1f0679a3abc5eb628f36561809",
+          "sha256": "26873f0a832a705d4523d652844e76f6c014b4f2b4f4750f8fb1ada11b753d83",
           "volume_mm3": 10737.440000000002
         },
         "dock-wedge": {
           "file": "135-compact/dock-wedge.step",
-          "sha256": "4d8c3c482917d03c853347d6c5a250e48ad5e151dab8dd66f46daf1472f74b23",
+          "sha256": "4a620b3e31808c15436a0865c958e429cb59dc1ec686ebc49327e6b697c772ab",
           "volume_mm3": 1855.9999999999995
         },
         "film": {
           "file": "135-compact/film.step",
-          "sha256": "6d9f4d3507ca27a617aee02e5668c88554c3beefe2e395aa1547eda99498c9d9",
+          "sha256": "4d9500cbdc3abc234ddda8fcc7f54b8d1ce962d8b96450bdbe90f47e4e6dd1b8",
           "volume_mm3": 1606.4999999999998
         }
       },
@@ -444,6 +446,8 @@
       ],
       "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
       "frame_travel_mm": 114.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
       "aperture_mm": [
         17.6,
         23.6
@@ -462,72 +466,72 @@
       "parts": {
         "base": {
           "file": "half-compact/base.step",
-          "sha256": "b007b4a76f888f0a2b7d9742d038d298e35bc690cf849c8f1420ca4d87124bda",
+          "sha256": "a8f8aae5c28ea992ef4384d3c19a9d4f0cac2f794525f005f7fb1d2d4860f7be",
           "volume_mm3": 38046.18602727083
         },
         "lid": {
           "file": "half-compact/lid.step",
-          "sha256": "8ede90bfbc5a84c493f3fd11460ca940fb85181f948bee8b1a00c89c9ba58de3",
+          "sha256": "688cfb39540cf817c8ef671420bd62c1f8e06d8c4917ed8620b9a3c3c613ffd3",
           "volume_mm3": 3916.8024000000005
         },
         "wedge-0--1": {
           "file": "half-compact/wedge-0--1.step",
-          "sha256": "e844677488f34896f8e35e8280b7e37039de1ceb22450b0cf02cfe5f67a4112b",
+          "sha256": "65dce733f6021e2f21a786e5f97b72ae4fdd51732ec86ce2fdcf867ec7544f5f",
           "volume_mm3": 196.56000000000006
         },
         "wedge-0-1": {
           "file": "half-compact/wedge-0-1.step",
-          "sha256": "6d81a01bb75b12e9a01b5a73c3efaefcb0a17e563c8feb45912996e05d2e1b4c",
+          "sha256": "b5958f296cd30669df1b9c84d5e7e259fbc5e8dfe7c9af138da4e7c3502a3933",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1--1": {
           "file": "half-compact/wedge-1--1.step",
-          "sha256": "b11154ab2281a596b804a45c2097b6b9deb86e8f4efc46b85c9c858fd8f9de4c",
+          "sha256": "009765b9865a07a72a33f0c4b8662ef01b28448dfecd1b68a8cd7ad0e5232271",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1-1": {
           "file": "half-compact/wedge-1-1.step",
-          "sha256": "4176bf2f6f9ea1b8ac49e7ba81af80cfa1b84cdfe82c7533ea38e0b8a088cbb4",
+          "sha256": "18cf3b954782023141a2baf1d9a037c0e13181feef2f2cfdf2fef2c15b205003",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2--1": {
           "file": "half-compact/wedge-2--1.step",
-          "sha256": "c6942a1da42022e8d9bb974e4783497635bfc486847279bee62759b05ec7cea7",
+          "sha256": "8919c09cc3af2acd01fcb37ed08d5329b2be1b34d3abcfef6f636d0e4a1236bc",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2-1": {
           "file": "half-compact/wedge-2-1.step",
-          "sha256": "eb6d181d1c37c1b01e4b3b8a89b002b3cb2bffde91ef46a8f9197d3ffa5da9a2",
+          "sha256": "444030e0f852323603fe4e24c44363358ebb3882c8b9497096b16e94fb72f46e",
           "volume_mm3": 196.56000000000006
         },
         "sleeve": {
           "file": "half-compact/sleeve.step",
-          "sha256": "9935e59a5f9a10878ca4059fd69465349e0055a61544cb0a2da0be686575444b",
+          "sha256": "38f17398fcae54d93d72a39daabc9c907dfb0464a517f8be42c28b4e6397da3c",
           "volume_mm3": 17165.67525515033
         },
         "shoe": {
           "file": "half-compact/shoe.step",
-          "sha256": "b6e8173053ad887a4d03d5d3f9547833d311894c91b92d1f2ba8ce6e3f89f312",
+          "sha256": "d279d5551b56634836c4332f557f544748b9e6e5a5968f800c9bc455f81758b9",
           "volume_mm3": 479.16908494538006
         },
         "screw": {
           "file": "half-compact/screw.step",
-          "sha256": "f2dfb796247af7cb4cd2178f43101adb214a4cd8605f7c30ba7a748d40373323",
-          "volume_mm3": 3250.4244630252397
+          "sha256": "d08d4683dfce0884b4cf79c412dea4e4d7c339ef8513e12dd4b6d356ece58027",
+          "volume_mm3": 2957.4537200055643
         },
         "receiver": {
           "file": "half-compact/receiver.step",
-          "sha256": "ca7f582ba727d4bea7206017a00c1220fbcfac7851202d8664f8816280c2f15d",
+          "sha256": "1094ec1cfbd31681d91ba9bde6c6234c3eab6c04d47703cda357734e943e38db",
           "volume_mm3": 10737.440000000002
         },
         "dock-wedge": {
           "file": "half-compact/dock-wedge.step",
-          "sha256": "7f370e941bf0f42704cc042c28f8e98d16b849b01bc2ab2232d361d5d5d483ba",
+          "sha256": "f0d278b1c8a5bc45bf7b5e508d92383d27a96d6c2309d445041f969d5dc2ec61",
           "volume_mm3": 1855.9999999999995
         },
         "film": {
           "file": "half-compact/film.step",
-          "sha256": "976f6f45177d939e9aa25d2f0f806a8c05b9ab4861e08304838870189587b024",
+          "sha256": "21cc87ea0705fe58c281933b6e1e8387f6865059a2e4098e8aa6fa0d917adaae",
           "volume_mm3": 1112.9999999999998
         }
       },
@@ -550,6 +554,8 @@
       ],
       "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
       "frame_travel_mm": 96.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
       "aperture_mm": [
         29.8,
         16.3
@@ -568,72 +574,72 @@
       "parts": {
         "base": {
           "file": "aps-compact/base.step",
-          "sha256": "23465d1031a08a98187ffbdbb0370a07931471a97bb51e86fdbcd17cbf7dd521",
+          "sha256": "da1defb46f5a1616f5b5613abf709f87d01951b3495dd4d2ee8773377b31c545",
           "volume_mm3": 35001.00001777117
         },
         "lid": {
           "file": "aps-compact/lid.step",
-          "sha256": "b55c0a8fa98dfa64bd55e172c9e105b3ce3d9233884d8f8d156b837ed0a7463b",
+          "sha256": "5a8c7214c19f93bf0eea3fe32da61bb3390b1a2ff4c4373083efb1bfda0d19a8",
           "volume_mm3": 3867.5033999999982
         },
         "wedge-0--1": {
           "file": "aps-compact/wedge-0--1.step",
-          "sha256": "33f09902db365aa3216fdba15516a8a6d52234fee91bd7d37f026d467eab4290",
+          "sha256": "3daa682bdfb64866b10119ae63b25bb673aa6165b29da76e9abd698f95cd44cc",
           "volume_mm3": 196.56000000000012
         },
         "wedge-0-1": {
           "file": "aps-compact/wedge-0-1.step",
-          "sha256": "9e1ef33d5c695f96974ad187cf0a73ee430ef2e0b9352c340cccb7237aefea6b",
+          "sha256": "3913085f1473e6693484dd8449618708200453d3409ab3f9e29d2f01f90ef17c",
           "volume_mm3": 196.56000000000012
         },
         "wedge-1--1": {
           "file": "aps-compact/wedge-1--1.step",
-          "sha256": "fceaacfb07195b6e19f4017d2ffbb8550c025a47386f88583f0ec76c6d6e32b9",
+          "sha256": "bb0041ce58bdbdaf6fb671fbb1b7143cdc46737f19b1dbdc2e054a93373c7736",
           "volume_mm3": 196.56000000000012
         },
         "wedge-1-1": {
           "file": "aps-compact/wedge-1-1.step",
-          "sha256": "a7439ef2bcd9382e5ab15751781e3c331d5701942808fa549ed99f9816363e29",
+          "sha256": "46e2fc6c4f1200f86f89b145ac8a4ddc9f3d77b5a892217a78b8c7d72d9f578a",
           "volume_mm3": 196.56000000000012
         },
         "wedge-2--1": {
           "file": "aps-compact/wedge-2--1.step",
-          "sha256": "0535f55f1d4780e1be4a19ccf5e2095e13a3c08f74c379f2830c12391d94e856",
+          "sha256": "5ea29adb06f426d63a601df5659fdd925962b143570c959461cd32d375d6fcf4",
           "volume_mm3": 196.56000000000012
         },
         "wedge-2-1": {
           "file": "aps-compact/wedge-2-1.step",
-          "sha256": "bdd60a4c0cad9a74f220bd79e581c5be836875b40cc28434dae34f2fc9e2936a",
+          "sha256": "6d1990cc67f92d1ec51a886f7c695db4d15b742f1c6dcacbd9a35e508770bc43",
           "volume_mm3": 196.56000000000012
         },
         "sleeve": {
           "file": "aps-compact/sleeve.step",
-          "sha256": "c9c23afb720c553884e3f00a26c76da5a05aae4208172236e6e7d075b298c66e",
+          "sha256": "c181b078b32796e3c63779f75b70e8064c3d4453ec1dcd4aeaa34f160ac2a2a6",
           "volume_mm3": 17053.071579171992
         },
         "shoe": {
           "file": "aps-compact/shoe.step",
-          "sha256": "0b0943f96f64a7ad3c00f6473c9caeddb49f5a7f775c35f51c414bb6b9784a21",
+          "sha256": "cfda256e341c77d5395b14331c6ffc3e0f9c466646d836191f71d481ec88e493",
           "volume_mm3": 479.16908494538006
         },
         "screw": {
           "file": "aps-compact/screw.step",
-          "sha256": "9c98e3aa6600cca1de59fb96c34a5dbdd844dff7ee6a0e6d19ae369a12fbcead",
-          "volume_mm3": 3250.4244630252397
+          "sha256": "ab2687f080327fa4ada8d755bc666a7f46caffa9fe1585132374ae5389e04598",
+          "volume_mm3": 2957.4537200055643
         },
         "receiver": {
           "file": "aps-compact/receiver.step",
-          "sha256": "78a6129659852a58eb232139d78cbb63132ea58a8d315a0f9344272bacb0a4b7",
+          "sha256": "68f29712124cebaeeea7a89c39453fb303a0854214d3e6e13f11f65b13430257",
           "volume_mm3": 10737.440000000002
         },
         "dock-wedge": {
           "file": "aps-compact/dock-wedge.step",
-          "sha256": "f749ab94db96c8ccd09d5c80f52fd1f3074e5d14247ba90ee45728e3b4b92ebc",
+          "sha256": "e1c4fc1a1de9968b2410dca8706f69689e31db92f8620917814f4d9b0706de2a",
           "volume_mm3": 1855.9999999999995
         },
         "film": {
           "file": "aps-compact/film.step",
-          "sha256": "c8ae8531c606ef36a4bd353e7cbc8ee90ab50a771b45735f838a2d65fac006ab",
+          "sha256": "251389a99195da4078bd49f0ce5b3344279f382d7320132a21f8cb44d2fa3741",
           "volume_mm3": 929.5199999999995
         }
       },
@@ -656,6 +662,8 @@
       ],
       "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
       "frame_travel_mm": 120.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
       "aperture_mm": [
         16.6,
         12.6
@@ -674,72 +682,72 @@
       "parts": {
         "base": {
           "file": "110-compact/base.step",
-          "sha256": "3302aa3a6705bc8e9821879294b08955fa61417c17fa54d076e9a4ac2281dba1",
+          "sha256": "db612ea6e9be238417510fddea3e923892346a9c4e3056eac94efb3bac36781c",
           "volume_mm3": 40557.54602865463
         },
         "lid": {
           "file": "110-compact/lid.step",
-          "sha256": "a95b12005cb01bb2d85114de61b75505408d997e6ee89061bcb6cde39858fc58",
+          "sha256": "1d789849c67ed47b7942f9003037edd7a5e16bc94d28f5a24fa875910e88c384",
           "volume_mm3": 4872.962399999997
         },
         "wedge-0--1": {
           "file": "110-compact/wedge-0--1.step",
-          "sha256": "d05833d6f5d8271f843e0039716e22205426278ab8f5d389c8cfbcd854f4a995",
+          "sha256": "5cca5aeead3e43d9962ff23a6af13197bd8bde16c82eea0868d2616de5bc47f1",
           "volume_mm3": 196.56000000000012
         },
         "wedge-0-1": {
           "file": "110-compact/wedge-0-1.step",
-          "sha256": "737f7f18ac841f18e8cb51242619a242be320069e78ebad85b3979b208b90652",
+          "sha256": "cf4e5a710c9daf10a3aa5a114202e2060375f598c3d8944026d3e22361de168b",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1--1": {
           "file": "110-compact/wedge-1--1.step",
-          "sha256": "6be93b8b81f78e13febd4fe347549dbe209bac145157873f18a16b3d2e1d7a81",
+          "sha256": "daf3514238868ecb0fcfc43142e7af8f667cb91894bb3631f123e0255c5fbf30",
           "volume_mm3": 196.56000000000012
         },
         "wedge-1-1": {
           "file": "110-compact/wedge-1-1.step",
-          "sha256": "3129a736706c328342bfdc8e1a264e2ba2fd9f38218ca31b0f7d29c9a0198c07",
+          "sha256": "031cabde06a4850989646e6a4aae96a4efe45e8d63a57e4f0b30fd210f31d0f4",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2--1": {
           "file": "110-compact/wedge-2--1.step",
-          "sha256": "2b308a12bfadbedc9d0945ba4aeda8ec627c30c463aa968f9b31b0b25510de63",
+          "sha256": "fa25ad439ef34efd017dea919b036f96ea4931e086de953ede4a19f51dbf4e5d",
           "volume_mm3": 196.56000000000012
         },
         "wedge-2-1": {
           "file": "110-compact/wedge-2-1.step",
-          "sha256": "55f7704f9ed2b021382db92c8911b596a3adcb206544fed928584e86b91ae398",
+          "sha256": "cff5fbfece7b2ee6910afddf2dd26a96d62778f2363e818f205549dd253109a6",
           "volume_mm3": 196.56000000000006
         },
         "sleeve": {
           "file": "110-compact/sleeve.step",
-          "sha256": "5de4b4957a65d0383bebf603419a0f7a2b8e99ffb8b829943c7a84d0f6ac6bed",
+          "sha256": "b4defbbfcba401e7c2ed62b48bd3995b8358740e3a1415f16e377bacb39f2dc3",
           "volume_mm3": 17495.602723915017
         },
         "shoe": {
           "file": "110-compact/shoe.step",
-          "sha256": "28da014e7947f9a31455b32635fd3e4813b0463b3c51670859cab3f680ec450a",
+          "sha256": "87e876db6781488c9af3b1416f0bf4e853ea055d2db8e1a345857365f9ec162f",
           "volume_mm3": 479.16908494538006
         },
         "screw": {
           "file": "110-compact/screw.step",
-          "sha256": "41c2e11c610efb8aec967b6ec2bba48ad146acc920f98dbc0a9a663f465af58c",
-          "volume_mm3": 3250.4244630252397
+          "sha256": "f4579c7246c0d3be6e90cc36d6e55d21e83e1c60edb5c201a719add0477d7b32",
+          "volume_mm3": 2957.4537200055643
         },
         "receiver": {
           "file": "110-compact/receiver.step",
-          "sha256": "c2b08cffc753a555f2eacfaa070d71a647ca021b4e3b8b24f5af6e91e8f812f0",
+          "sha256": "951ca8810b0025b60f750153f12155e89bc8a00a0d61031add9d692b48e3e5e0",
           "volume_mm3": 10737.440000000002
         },
         "dock-wedge": {
           "file": "110-compact/dock-wedge.step",
-          "sha256": "35dcb73db15067276c4566b987f54c57103397332ed7df99052b9fe06ecbfc74",
+          "sha256": "6716b12838e9a4f7ae96c3eb0d60ce7614627e243dd75d9e0e87e524ccf4e678",
           "volume_mm3": 1855.9999999999995
         },
         "film": {
           "file": "110-compact/film.step",
-          "sha256": "ed14c21381331fd04ee7b74e350a5a2e0775d93c83918c47d7b7cb9f11fc0d9b",
+          "sha256": "b7cc2a6059f28ab6160a90ab0d48a6fb89b607a24f99820f88e186033e7032a9",
           "volume_mm3": 530.3999999999999
         }
       },
@@ -762,6 +770,8 @@
       ],
       "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
       "frame_travel_mm": 190.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
       "aperture_mm": [
         35.6,
         23.6
@@ -780,72 +790,72 @@
       "parts": {
         "base": {
           "file": "135-full/base.step",
-          "sha256": "944ec9be8bbd5a0f8b0cefca9276e9fa507e156c4e112e0cf950d158d247eca3",
+          "sha256": "8fb329a06dcedc5770d0d5e0f64fba241782c98b9070aca5c5f0f0497b1fb299",
           "volume_mm3": 56935.500023855144
         },
         "lid": {
           "file": "135-full/lid.step",
-          "sha256": "894f723d8027d8cec51c01488ea485cad1adfd1d4cc15f2d04cf88a0ffc7bfea",
+          "sha256": "ecd9ecff9a7a29296b2296ca3638becd2bb712f0312797ccf128590535bdf704",
           "volume_mm3": 5833.338399999999
         },
         "wedge-0--1": {
           "file": "135-full/wedge-0--1.step",
-          "sha256": "c8cea34e2fc207d63bb09551fffcf19e310e625a026e45a098a1fa63827fcfa4",
+          "sha256": "54fdc9744ae80e51400a2a3ec0e85fdbd339d6b8f409eec0c25e289fee14ca9e",
           "volume_mm3": 196.56000000000006
         },
         "wedge-0-1": {
           "file": "135-full/wedge-0-1.step",
-          "sha256": "ae3bf19a8048160752d281fea28654114279fc3253beb799c825a51091f374c8",
+          "sha256": "9a87df58f8ca1551fbacb508222567e1fe52247ce09400f5d70080afc568bff9",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1--1": {
           "file": "135-full/wedge-1--1.step",
-          "sha256": "08e0287d4a543296ef5bc49b38ee42f2387684b9c5b85bc0799fd9539e7b3145",
+          "sha256": "a904f87543fd78eccef27edb322670bfd11d02be16c97b3be6fde1cbdbf2d1a9",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1-1": {
           "file": "135-full/wedge-1-1.step",
-          "sha256": "bd63ca69d2aed744d57858b22f8e26652732444b4b462a99345a538ac954c264",
+          "sha256": "72d376abb193fa0e4ba260583cfebfbb5a12d49510f2a367c3e4bfe0e6610e3d",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2--1": {
           "file": "135-full/wedge-2--1.step",
-          "sha256": "6fb3ddc80e7e465554357593bc3f89339a84cdb8cc3983a3b4a35f4dafb67832",
+          "sha256": "fc9fa615b3294c34aff6004c164c751d9d44ba76b240a9a1afbb326c72adb56d",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2-1": {
           "file": "135-full/wedge-2-1.step",
-          "sha256": "4a415a8c42c994c7fca067eaf33a45cd75d3fa5b8831490183d244bc3de6515d",
+          "sha256": "f1e833b18a7712373171480a7cbe01669ffc234e6aa9d73a964658a5988a7e9f",
           "volume_mm3": 196.56000000000006
         },
         "sleeve": {
           "file": "135-full/sleeve.step",
-          "sha256": "3dc78fbf44e981f01bb447115b6778f54585a701553a5b764f176d88fa12f7f3",
+          "sha256": "a1442c1ab35186650d7638cfc25151f2de3a9bca92e9d56006b216ef07d20a50",
           "volume_mm3": 16485.995255150337
         },
         "shoe": {
           "file": "135-full/shoe.step",
-          "sha256": "8ae6da7984e3e1ac6245f9c383bd119d6b83f5bf733caadecf5fb1e7b77dcb50",
+          "sha256": "96a009b60006b80c21c0d15ac1e7ddf98a870b06f81828bb01aab36f5947cc1e",
           "volume_mm3": 479.16908494538006
         },
         "screw": {
           "file": "135-full/screw.step",
-          "sha256": "2f8b3775e0288c15a16d3709afc4bafaf27129dc4e1d37c73de87584fa28479e",
-          "volume_mm3": 3250.4244630252397
+          "sha256": "a28d419eb290a61d360b89bdef88498dd0d79e23b35feedfca327774ef969d12",
+          "volume_mm3": 2957.4537200055643
         },
         "receiver": {
           "file": "135-full/receiver.step",
-          "sha256": "037f5e04a30905644ebf48dcc200e2ad367ac9639b1e53e3ebf5682b59ed8d99",
+          "sha256": "e672129251d2426520160638934ccb581eea365c6c1f468a42fa76bdbfca4b52",
           "volume_mm3": 10737.440000000002
         },
         "dock-wedge": {
           "file": "135-full/dock-wedge.step",
-          "sha256": "5d9c6d1b17d0d294910e45a4804c8721e75a8c1bf2245522222dd94b2a794621",
+          "sha256": "eadeca302ebc717c0d629dfcc7c69e53ee760f8f0047c8d37d9aee620e8618f7",
           "volume_mm3": 1855.9999999999995
         },
         "film": {
           "file": "135-full/film.step",
-          "sha256": "93983ab5a4e18fab948d6b5697f63595e6b73c184c0169ce0bcf1f456d242ab9",
+          "sha256": "cda8eefd5bd02ace8b9b0583e6229a597d4a5aaddfb1728a3bcca69fe5ffa247",
           "volume_mm3": 2005.4999999999993
         }
       },
@@ -868,6 +878,8 @@
       ],
       "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
       "frame_travel_mm": 209.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
       "aperture_mm": [
         17.6,
         23.6
@@ -886,72 +898,72 @@
       "parts": {
         "base": {
           "file": "half-full/base.step",
-          "sha256": "e699dc70dcae2008c7641726bb7d49df34202a46e59fd4a01b69a9687aa949d9",
+          "sha256": "6a5ab12e266def6d5f5e6897dbd00f4569c0dbadab1955bb85c594c364f128e6",
           "volume_mm3": 59825.616043643764
         },
         "lid": {
           "file": "half-full/lid.step",
-          "sha256": "e61522a6d95f79d43b37ea98d2cbe8253361d0aa2203f9561dce9e78ccb42b52",
+          "sha256": "f8fb01ea2ba3d4e69816c6102ca53965187e8b5ffecdb77652405ec24433cc39",
           "volume_mm3": 6247.372400000005
         },
         "wedge-0--1": {
           "file": "half-full/wedge-0--1.step",
-          "sha256": "2eac677778b92beaf9947b5f239ff682ae7f793caecd1bf37544175e5bdd6625",
+          "sha256": "8894aa6f4ebd9b2738e65747a1c89d4051ef0a7fed3a11c3e147ed97a64cce1b",
           "volume_mm3": 196.56000000000006
         },
         "wedge-0-1": {
           "file": "half-full/wedge-0-1.step",
-          "sha256": "ed75857f258621683f38b4f222396b908edef942f04aee8cdcc73dd9f5cd0ba2",
+          "sha256": "39a70a5c595a7f6b71718b91e4be3804d072dcd1fe1e736b8f35d646e18f92b4",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1--1": {
           "file": "half-full/wedge-1--1.step",
-          "sha256": "7b3861cc4990efbe66ee7ed15e50cc8e7d93c27ac75e64f83880251cf57f3ce8",
+          "sha256": "3c252a04171c255cd083f52d634c603ded4ba66e090c7ac7bad3ccc533f6e43a",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1-1": {
           "file": "half-full/wedge-1-1.step",
-          "sha256": "7408ea911279ba62e695c8fb5b86372d03c74070f09d91430b7727749af2cb78",
+          "sha256": "d3d807ba776a93ff21d6d334c58f37d40bbdc3a71721e7af01fa7ae2b4b904b6",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2--1": {
           "file": "half-full/wedge-2--1.step",
-          "sha256": "06768bbd175a06b2b0d8c8f78723b66ba7bb7c8e1b118f24648f86d6b5408172",
+          "sha256": "cb5607b40668749bb3c1b61311c8cdd0f47c927bbc85e0797ece1405300cd1e7",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2-1": {
           "file": "half-full/wedge-2-1.step",
-          "sha256": "dc49bd8f0810897265525773f7eba2ef134e4c607773f18cd3557fbf6f862508",
+          "sha256": "f72afc42a8f2bd9972d00df1c7866133029629f8e278f7380d4f4938fe596956",
           "volume_mm3": 196.56000000000006
         },
         "sleeve": {
           "file": "half-full/sleeve.step",
-          "sha256": "fffb68113abc436579aa45f01bf9feb3f64b4e4b969f65365d17a3cc88a100de",
+          "sha256": "246208812a008015d07eb6c38be610ce328ae36b472b6ccef0d6392404b64456",
           "volume_mm3": 17165.67525515033
         },
         "shoe": {
           "file": "half-full/shoe.step",
-          "sha256": "9c3e38689668a0a75705a7ae0cf97141d01567ddd2493cb81d63293bd1d7e8b4",
+          "sha256": "bf919405c94834ed73aaf6f6b501c5dc5e083e3e32ac4f94f70c7755b45356a5",
           "volume_mm3": 479.16908494538006
         },
         "screw": {
           "file": "half-full/screw.step",
-          "sha256": "3a1026b9cd8f5a139b004c6e5729dedc7b48c8ac9c89bf6930bb07856a6dc453",
-          "volume_mm3": 3250.4244630252397
+          "sha256": "77aea61e4076cb9ac439c68e70084264321300af80ff5742b25da302704822fa",
+          "volume_mm3": 2957.4537200055643
         },
         "receiver": {
           "file": "half-full/receiver.step",
-          "sha256": "ed72b8e7a165f7754b8aa63f4f3c81615ea53f8a58aecbe52ae0bd38905bf38b",
+          "sha256": "de263d770141b792cf59eca20a61d13c0905c8a7f5318c0b5c8c08ac9a765414",
           "volume_mm3": 10737.440000000002
         },
         "dock-wedge": {
           "file": "half-full/dock-wedge.step",
-          "sha256": "f27e7f980f656e21abbf1b074fb8daf3bb0c4ee2b3b78197c80070b914275ddb",
+          "sha256": "66324934d93b37b0157edb1f95df625b6ad518169214ca512d185ed56d967475",
           "volume_mm3": 1855.9999999999995
         },
         "film": {
           "file": "half-full/film.step",
-          "sha256": "4e0d6cf909a5bce4e61c6475a91e39f22777d205ec6fc6bed3ddd1f0da7532a8",
+          "sha256": "41cb93820052dba341c3f065e9522b935a25ba34da8175063b6d593a3723684e",
           "volume_mm3": 1611.7499999999995
         }
       },
@@ -974,6 +986,8 @@
       ],
       "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
       "frame_travel_mm": 160.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
       "aperture_mm": [
         29.8,
         16.3
@@ -992,72 +1006,72 @@
       "parts": {
         "base": {
           "file": "aps-full/base.step",
-          "sha256": "a8efbd7656749c7a1165b56a4e60066331cc0a07941311eb8ac8c5cbd159b1b8",
+          "sha256": "abb4ec9646e05d622e976aaf0e6ac5deef8eae50d6477ee92b82ab522707f06e",
           "volume_mm3": 50617.620025199336
         },
         "lid": {
           "file": "aps-full/lid.step",
-          "sha256": "a93393dedd3bbb8b2e580c3707656b01d904ec1f8a558d98cb189966335fe49b",
+          "sha256": "025eca23b4863e0f7d6a92626e0cb17417164b22de9517476ed506453fed6b9e",
           "volume_mm3": 5891.753399999999
         },
         "wedge-0--1": {
           "file": "aps-full/wedge-0--1.step",
-          "sha256": "96e005868e535bbd3076b41cd9b21463949d8eb4efd68e49306c677dc14a7172",
+          "sha256": "45b0a60ec86a2e5eee3249463b3bd6ce757414a2b95a4a19e843b29d6049f2a0",
           "volume_mm3": 196.56000000000012
         },
         "wedge-0-1": {
           "file": "aps-full/wedge-0-1.step",
-          "sha256": "171db954748aed5606724d9d9cd2347dd13d41c8c1c925ef3c134b7d9b658fac",
+          "sha256": "38db3c30b304608227fe9fd299d02295eeb7bb2783db2876843dad448df56394",
           "volume_mm3": 196.56000000000012
         },
         "wedge-1--1": {
           "file": "aps-full/wedge-1--1.step",
-          "sha256": "af3043e960cb0b8b1f6ed860ac1ca56a2cca248d28b7302cb8b5fb3bce67e07c",
+          "sha256": "7d91f6b807a204940df5d185d7bfd997a8b3d4bbe13021a21fba24b48ed993a9",
           "volume_mm3": 196.56000000000012
         },
         "wedge-1-1": {
           "file": "aps-full/wedge-1-1.step",
-          "sha256": "95c7f6abd0ae1e07f26b8fac665be5c062474a2b19197309df65cf292762a308",
+          "sha256": "76830814ae90bc0766a093a27b4507ea01a072263b0afa5fc30c042732d7fed6",
           "volume_mm3": 196.56000000000012
         },
         "wedge-2--1": {
           "file": "aps-full/wedge-2--1.step",
-          "sha256": "6c8ea4a3271547d068c83e6b0db34d82101ee1e44029f3a55f6787e53236b0fa",
+          "sha256": "ac21a543ceb6546d719065ed9626e823d6a13a8e294e7840ee58b8d5e6fb74e6",
           "volume_mm3": 196.56000000000012
         },
         "wedge-2-1": {
           "file": "aps-full/wedge-2-1.step",
-          "sha256": "ae0de6bb67ec04a8deeeb976a0a2f09b3433fb0f7343569f2c3c7c2ee3069743",
+          "sha256": "44a2c6e6fc0e1d3470b12f47e2d145458a9bbc2ae57e44958599ce4b454500f0",
           "volume_mm3": 196.56000000000012
         },
         "sleeve": {
           "file": "aps-full/sleeve.step",
-          "sha256": "31ca3038013c7099bfc79eb120e2443e5a336f85209656d0cd7cd4dcddc6579f",
+          "sha256": "e0e211909753b8a4630c554c98c51c4d86c79bb70077a8a7a60b0519576df873",
           "volume_mm3": 17053.071579171992
         },
         "shoe": {
           "file": "aps-full/shoe.step",
-          "sha256": "0c1cd522bd4a60812cee4c19136b257da5679ba62bc279155031caf424d93e4c",
+          "sha256": "2b4e4a803047e825344858aece65e8049db214393b2dd3182cd8b93bd5eb9057",
           "volume_mm3": 479.16908494538006
         },
         "screw": {
           "file": "aps-full/screw.step",
-          "sha256": "40049c72a5c8a2822f6b3a2d0e26c686d2dcf7862359026ca0c18a50fd99b76a",
-          "volume_mm3": 3250.4244630252397
+          "sha256": "93f0e47a75de1cb79c9e91c18afbe37f085a112e3393931b745a6042e38e18c6",
+          "volume_mm3": 2957.4537200055643
         },
         "receiver": {
           "file": "aps-full/receiver.step",
-          "sha256": "128a1e99b1641067ef7593b0e0a6f7a120e0aa2b635c5ae062a7803460b5b092",
+          "sha256": "b8fd2cf662d47416115c41f74a2b9b1d5fe3a5984fdcd994b0710b8c72520546",
           "volume_mm3": 10737.440000000002
         },
         "dock-wedge": {
           "file": "aps-full/dock-wedge.step",
-          "sha256": "5932f58b93864b25f080f5ffdcadb59b8ad619ec266a43008b86dd73d306fb16",
+          "sha256": "e32cc0df9f6bc2a2285667718af6296a311c2c0a37ae53814c77a897ac3ebb77",
           "volume_mm3": 1855.9999999999995
         },
         "film": {
           "file": "aps-full/film.step",
-          "sha256": "ea6c978a06d81d597e6f4b3efa46615b8286398b070769906c864bef17d73527",
+          "sha256": "13d187828da942c91c8fa0ba487ca730edaf8f5e6329464ad2e36db2176e8aa9",
           "volume_mm3": 1159.9199999999996
         }
       },
@@ -1080,6 +1094,8 @@
       ],
       "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
       "frame_travel_mm": 100.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
       "aperture_mm": [
         16.6,
         12.6
@@ -1098,72 +1114,72 @@
       "parts": {
         "base": {
           "file": "110-full/base.step",
-          "sha256": "2f5fceb116316f52da3ed4f6becf0264d93b26caf2bc63984757e4b3af659cd9",
+          "sha256": "535ccfbc15d13dfa7ce67ae2977d4ed8940064ab5b5c5487426f3058dd1be6e5",
           "volume_mm3": 35669.340025111465
         },
         "lid": {
           "file": "110-full/lid.step",
-          "sha256": "aab1e68cd955fc3065df400f7f178030bb66734fe1767267363620aaf868e31a",
+          "sha256": "c8ed751782484586d050da9118af845df97b2ae8865928653fd98370c7bf3403",
           "volume_mm3": 4149.088400000001
         },
         "wedge-0--1": {
           "file": "110-full/wedge-0--1.step",
-          "sha256": "60d145eb9586fa8d2b38243e600a3e92b96d941a3cfadb55f589a1fe9236301c",
+          "sha256": "c38403e88ba874dc4ecb25cc7082e7b065cad86168b00c6dcf56c365161478b2",
           "volume_mm3": 196.56000000000012
         },
         "wedge-0-1": {
           "file": "110-full/wedge-0-1.step",
-          "sha256": "3990b855c722d18ff1f08c6108b60fc79dbb1f5da41018564acf8dc8db990e0a",
+          "sha256": "d59e9fe490f5626c46298f28e4ae06ce1339fc7c758d0b0dc3eeb1a85428f04e",
           "volume_mm3": 196.56000000000006
         },
         "wedge-1--1": {
           "file": "110-full/wedge-1--1.step",
-          "sha256": "e972ed591444a726a4cb8cf73e1b6bf21d4dd649b69f149a5ed58991cf2e00c5",
+          "sha256": "1bb5fa2efd9edf2599a47f118f9e86a9aa1eaaaa2e8c9f82e16e318beeb288cc",
           "volume_mm3": 196.56000000000012
         },
         "wedge-1-1": {
           "file": "110-full/wedge-1-1.step",
-          "sha256": "ed2de1de5581a9159c3f4d3ded979c43643782e1d0e7b098b25d364723f1a985",
+          "sha256": "75dfc0b4098f87c9180edb120b21e1125178c3adb63a99d0217a1d6fc129c890",
           "volume_mm3": 196.56000000000006
         },
         "wedge-2--1": {
           "file": "110-full/wedge-2--1.step",
-          "sha256": "40b9453c5af2509307b8e6976b5747844dd7d949fa6fe40f63c22a95c51282eb",
+          "sha256": "2890b0771f00c75f9691ce2940c2fcb74deb2e2691fe8119f02e2c2e5c83e112",
           "volume_mm3": 196.56000000000012
         },
         "wedge-2-1": {
           "file": "110-full/wedge-2-1.step",
-          "sha256": "42fa29c3d0309cb1d607f18df326533c27a4011defbba4ea8e99e8b355f4c916",
+          "sha256": "19436a2881c1ccb6dff40636dcc93d8f305047e0af719a7dbb2fcfa90539c462",
           "volume_mm3": 196.56000000000006
         },
         "sleeve": {
           "file": "110-full/sleeve.step",
-          "sha256": "3b5325f6d3523745b238233feeedce194b411b218d494c8c43a27a692c635e29",
+          "sha256": "60d5f88cc65f2a6010663c6d92f53b8ead21d30caf1f55d19b2e396ab9953fcd",
           "volume_mm3": 17495.602723915017
         },
         "shoe": {
           "file": "110-full/shoe.step",
-          "sha256": "66b04b84973a0268beb27e7f3b36c3537b2f301367674a84c956d5026fcced6f",
+          "sha256": "54337bb3d2cacdd231f25517d24dcff62aa5531882fafd4a3c959250c90ec39b",
           "volume_mm3": 479.16908494538006
         },
         "screw": {
           "file": "110-full/screw.step",
-          "sha256": "e33de974f5d22af5a9b27c4f848a4dbed5edf19b5565d889f6e3e5c7c651a292",
-          "volume_mm3": 3250.4244630252397
+          "sha256": "9b0daee61f4d641336285fcd9ca6a5a2c89421544baa5ad1c9c5ebf13ee3dd01",
+          "volume_mm3": 2957.4537200055643
         },
         "receiver": {
           "file": "110-full/receiver.step",
-          "sha256": "23f0ae391b3f537e9400327e8de1e272feba375a2b04a6f77db56a28e50335bf",
+          "sha256": "7c35cfd29904bcb033ff9a99c4be562edb191168c03082c3437daa4c33285fa2",
           "volume_mm3": 10737.440000000002
         },
         "dock-wedge": {
           "file": "110-full/dock-wedge.step",
-          "sha256": "77e3a8a1c308db697a8c6831056d5ca2c441afaae65ded3adbf057d458b6b9be",
+          "sha256": "044fe902e37966210c34759d28493dac8d0764988bb78a3ab826d452787ee268",
           "volume_mm3": 1855.9999999999995
         },
         "film": {
           "file": "110-full/film.step",
-          "sha256": "b6acb9670b892a8eaf30ecdb42bf7789b54566ae77781e4d730313374600e5aa",
+          "sha256": "11e7fbc7d536f03b60980988f60dbe0cbc989f8b6370ea857b5499c7b614a0c1",
           "volume_mm3": 482.39999999999986
         }
       },
@@ -1185,11 +1201,11 @@
     "cad/negative_carrier_b2/__init__.py": "22ebbdc17a88c3d8ae67b03980aa2315a1ec78ed9e63c90a6996b3b3a0bfa465",
     "cad/negative_carrier_b2/export.py": "346166f367811e595c63eaf962a77232eac377a941111d5e64cd6373706fd851",
     "cad/negative_carrier_b2/forces.py": "f2c8c6bb0b1063c253ba537cbba75609e7eb76c98ec61421bbd96e6ea470f163",
-    "cad/negative_carrier_b2/interface.py": "159e6f6da4effb71f6c3dc55c3ce148ddcdceb4aa0f5ccffa69d2899f8bf63fa",
-    "cad/negative_carrier_b2/model.py": "7547f462bb811572bba6a6138566b8d51d37f87737b2c2c332f4a9ea1dc3c74f",
+    "cad/negative_carrier_b2/interface.py": "077b0de1625119b2fbaad3f5999c5c252c0d66f61abff487caf385eb76cc5067",
+    "cad/negative_carrier_b2/model.py": "77d9cbb63b9c2ca5a9fed6a2c7bedbe8b7a8646632c654e11b59d132a8a5bcd6",
     "cad/negative_carrier_b2/suite.py": "d2b64c79c0ff0294e6c1985ce6e0f70ae75d0a7f6955276626727f8188e90617",
     "cad/negative_carrier_b2/verify_freecad.py": "09898315b94534e6248ee4f187de269337c0eb92bb096a8b81a68d0c86b106a4",
-    "cad/negative_carrier_b2/verify_interface.py": "e636ec1864743673790eaf70d23cac97071d123173011b0f716e25268ed603c7",
+    "cad/negative_carrier_b2/verify_interface.py": "09da3c25390f1c77597c53dcbc09a81d6c42b81044b7e0f2dafd3da75ee6ecb8",
     "cad/negative_carrier_b2/workflow.py": "e190d5c23f457e5de8835de49a02e703279a83da6b2cfb8e107173204b435bec"
   },
   "measurement_sha256": "4c1b9bf85eaafc12f1064d48c74d375fed26a259e9a7a0124a7d07aaef20cf54"

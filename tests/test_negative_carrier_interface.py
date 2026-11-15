@@ -15,7 +15,7 @@ from cad.durst_c35_interface.export import overlap
 from cad.durst_c35_interface.model import load_measurements
 from cad.durst_c35_interface.model import parts as fixture_parts
 from cad.negative_carrier_b2.interface import registration
-from cad.negative_carrier_b2.model import DEFAULT, box, parts
+from cad.negative_carrier_b2.model import DEFAULT, KNOB_RADIUS, box, parts
 from cad.negative_carrier_b2.workflow import phases, place
 
 
@@ -59,6 +59,24 @@ class MeasuredInterfaceTests(unittest.TestCase):
                     self.assertLess(
                         overlap(place(shape, name, pose), shapes["base"]), 1e-5
                     )
+
+    def test_grip_is_inside_rotation_envelope_and_preserves_bearing(self):
+        screw = parts(DEFAULT)["screw"]
+        envelope = bd.Pos(0, 57, 0) * bd.Cylinder(
+            KNOB_RADIUS, 40, align=(bd.Align.CENTER, bd.Align.CENTER, bd.Align.MIN)
+        )
+        self.assertLess((screw - envelope).volume, 1e-5)
+        data = load_measurements()
+        offset = registration(data, parts(DEFAULT))
+        lifted = bd.Pos(
+            offset[0], offset[1] + 57, screw.bounding_box().min.Z + offset[2]
+        ) * bd.Cylinder(
+            KNOB_RADIUS,
+            screw.bounding_box().size.Z + 4.8,
+            align=(bd.Align.CENTER, bd.Align.CENTER, bd.Align.MIN),
+        )
+        fixture = fixture_parts(data)
+        self.assertLess(sum(overlap(lifted, s) for s in fixture.values()), 1e-5)
 
     def test_receiver_cannot_drop_into_unreleased_support(self):
         data = load_measurements()

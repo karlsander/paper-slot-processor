@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "manifest_sha256": "53db6c7b7e6e449144c36a24b4c96f9e0efb44a6250b0262368beea5a6ca7d3d",
+  "manifest_sha256": "ef8eb4babe03df82c28580b672ea7cfdee4f4d751ca7f00249be202aa2a6a9e8",
   "freecad_version": [
     "1",
     "1",
@@ -30,15 +30,17 @@
         "insertion_and_withdrawal": 0.0,
         "release_and_seating": 0.0
       },
-      "exact_face_prisms": 332,
-      "conservative_curved_face_boxes": 74,
+      "exact_face_prisms": 328,
+      "conservative_curved_face_boxes": 102,
       "straight_optical_overlap_mm3": 0.0,
+      "full_screw_rotation_and_lift_overlap_mm3": 0.0,
       "negative_controls_mm3": {
         "unreleased_insertion": 3.323805027497996,
         "legacy_height": 1350.399999999999,
-        "below_support": 25.769999999603996
+        "below_support": 25.769999999603996,
+        "old_rotated_knob_wing": 37.800000000000026
       },
-      "native_document_sha256": "3ea2774a8c0e076270f930c113b90e591e8e03ae460d6bdee5d5a7ac04052417"
+      "native_document_sha256": "32afc320c5e159c78eba59118281445a347f4f40b25007e1eb6e3683dbc65d95"
     },
     {
       "name": "half-compact",
@@ -56,15 +58,17 @@
         "insertion_and_withdrawal": 0.0,
         "release_and_seating": 0.0
       },
-      "exact_face_prisms": 377,
-      "conservative_curved_face_boxes": 74,
+      "exact_face_prisms": 373,
+      "conservative_curved_face_boxes": 102,
       "straight_optical_overlap_mm3": 0.0,
+      "full_screw_rotation_and_lift_overlap_mm3": 0.0,
       "negative_controls_mm3": {
         "unreleased_insertion": 3.323805027497996,
         "legacy_height": 1350.399999999999,
-        "below_support": 25.769999999603996
+        "below_support": 25.769999999603996,
+        "old_rotated_knob_wing": 37.800000000000026
       },
-      "native_document_sha256": "12e7046ff2edcaa66892f5f51a352ef6d687b057559befca0565a4d0b4192bbd"
+      "native_document_sha256": "2997d760485c61e18aff3891f23822c1947e765e387c9787ca0f0b0ebb1f84bc"
     },
     {
       "name": "aps-compact",
@@ -82,15 +86,17 @@
         "insertion_and_withdrawal": 0.0,
         "release_and_seating": 0.0
       },
-      "exact_face_prisms": 350,
-      "conservative_curved_face_boxes": 74,
+      "exact_face_prisms": 346,
+      "conservative_curved_face_boxes": 102,
       "straight_optical_overlap_mm3": 0.0,
+      "full_screw_rotation_and_lift_overlap_mm3": 0.0,
       "negative_controls_mm3": {
         "unreleased_insertion": 3.323805027497996,
         "legacy_height": 1350.399999999999,
-        "below_support": 25.769999999603996
+        "below_support": 25.769999999603996,
+        "old_rotated_knob_wing": 37.800000000000026
       },
-      "native_document_sha256": "d75ff8d71864d6c549badb1c79e23b34fbe06a5fd6b9594e0382b9dfdfac5016"
+      "native_document_sha256": "4f4307a6386c48454bb0bcbb68157eb63d8a93f6f1c242aa7bcf8a9082b6199a"
     },
     {
       "name": "110-compact",
@@ -108,15 +114,17 @@
         "insertion_and_withdrawal": 0.0,
         "release_and_seating": 0.0
       },
-      "exact_face_prisms": 395,
-      "conservative_curved_face_boxes": 74,
+      "exact_face_prisms": 391,
+      "conservative_curved_face_boxes": 102,
       "straight_optical_overlap_mm3": 0.0,
+      "full_screw_rotation_and_lift_overlap_mm3": 0.0,
       "negative_controls_mm3": {
         "unreleased_insertion": 3.323805027497996,
         "legacy_height": 1350.399999999999,
-        "below_support": 25.769999999603996
+        "below_support": 25.769999999603996,
+        "old_rotated_knob_wing": 37.800000000000026
       },
-      "native_document_sha256": "b7c8f4847788e00575f2bfcb7b9ad41433903ef06d18de6ba51c93a61a42b5b9"
+      "native_document_sha256": "55f38ae9b3c3910842e67fa2e67083961b1ae98b63d1d6ae203efe3c5fce1bb8"
     },
     {
       "name": "135-full",
@@ -134,15 +142,17 @@
         "insertion_and_withdrawal": 0.0,
         "release_and_seating": 0.0
       },
-      "exact_face_prisms": 362,
-      "conservative_curved_face_boxes": 74,
+      "exact_face_prisms": 358,
+      "conservative_curved_face_boxes": 102,
       "straight_optical_overlap_mm3": 0.0,
+      "full_screw_rotation_and_lift_overlap_mm3": 0.0,
       "negative_controls_mm3": {
         "unreleased_insertion": 3.323805027497996,
         "legacy_height": 1350.399999999999,
-        "below_support": 25.769999999603996
+        "below_support": 25.769999999603996,
+        "old_rotated_knob_wing": 37.800000000000026
       },
-      "native_document_sha256": "e938034ba2a60e2a20778f29e26bedce9190e53b6291ee98091a70768d46039c"
+      "native_document_sha256": "f7f75e13b5c3cdff9bfca976adc054d3bfddf167855b3f8efd02835d80dcdeb8"
     },
     {
       "name": "half-full",
@@ -160,15 +170,17 @@
         "insertion_and_withdrawal": 0.0,
         "release_and_seating": 0.0
       },
-      "exact_face_prisms": 452,
-      "conservative_curved_face_boxes": 74,
+      "exact_face_prisms": 448,
+      "conservative_curved_face_boxes": 102,
       "straight_optical_overlap_mm3": 0.0,
+      "full_screw_rotation_and_lift_overlap_mm3": 0.0,
       "negative_controls_mm3": {
         "unreleased_insertion": 3.323805027497996,
         "legacy_height": 1350.399999999999,
-        "below_support": 25.769999999603996
+        "below_support": 25.769999999603996,
+        "old_rotated_knob_wing": 37.800000000000026
       },
-      "native_document_sha256": "a62da784a4ddfb0f8fa38ca4c2e8273f2bc614190411855fa301d3aad49ac06a"
+      "native_document_sha256": "ab48a0b65ec34c44b630e08592640db65ce5cd85c7f6536a5d88661195485ce0"
     },
     {
       "name": "aps-full",
@@ -186,15 +198,17 @@
         "insertion_and_withdrawal": 0.0,
         "release_and_seating": 0.0
       },
-      "exact_face_prisms": 380,
-      "conservative_curved_face_boxes": 74,
+      "exact_face_prisms": 376,
+      "conservative_curved_face_boxes": 102,
       "straight_optical_overlap_mm3": 0.0,
+      "full_screw_rotation_and_lift_overlap_mm3": 0.0,
       "negative_controls_mm3": {
         "unreleased_insertion": 3.323805027497996,
         "legacy_height": 1350.399999999999,
-        "below_support": 25.769999999603996
+        "below_support": 25.769999999603996,
+        "old_rotated_knob_wing": 37.800000000000026
       },
-      "native_document_sha256": "aac8094da2bc5c279f8a49a1433f23d290d45485a54e4b9db21ff3b78dbaff37"
+      "native_document_sha256": "88336d0d6caf4b454ae3827ec94edbdf52a37a78a2bc19aa79c1e644b576ccfb"
     },
     {
       "name": "110-full",
@@ -212,15 +226,17 @@
         "insertion_and_withdrawal": 0.0,
         "release_and_seating": 0.0
       },
-      "exact_face_prisms": 380,
-      "conservative_curved_face_boxes": 74,
+      "exact_face_prisms": 376,
+      "conservative_curved_face_boxes": 102,
       "straight_optical_overlap_mm3": 0.0,
+      "full_screw_rotation_and_lift_overlap_mm3": 0.0,
       "negative_controls_mm3": {
         "unreleased_insertion": 3.323805027497996,
         "legacy_height": 1350.399999999999,
-        "below_support": 25.769999999603996
+        "below_support": 25.769999999603996,
+        "old_rotated_knob_wing": 37.800000000000026
       },
-      "native_document_sha256": "5ef5ec2cb1c272403d22feb8845cd06fd23f997295df4f37ad0bedf45beebc0e"
+      "native_document_sha256": "35950dfc62a92e625572c6d1cba64453600b1d6fb917630b81e33189a6c115b6"
     }
   ]
 }

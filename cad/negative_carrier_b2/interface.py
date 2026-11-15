@@ -10,7 +10,7 @@ from cad.durst_c35_interface.export import sha
 from cad.durst_c35_interface.model import load_measurements, values
 from cad.durst_c35_interface.model import parts as fixture_parts
 
-from .model import Config, box, parts
+from .model import KNOB_RADIUS, Config, box, parts
 from .workflow import phases, place
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -91,6 +91,8 @@ def export(output, formats=("135", "half", "aps", "110"), release_drop=0.4):
                 "translation_mm": offset,
                 "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
                 "frame_travel_mm": p.fmt.travel,
+                "screw_rotation_radius_mm": KNOB_RADIUS,
+                "screw_lift_mm": 4.8,
                 "aperture_mm": p.fmt.aperture,
                 "moving": [
                     n

@@ -5,6 +5,7 @@ independent, unmeasured enlarger envelope. No prescribed flexure shapes.
 """
 
 from functools import lru_cache
+from math import cos, sin, tau
 
 import build123d as bd
 
@@ -12,6 +13,7 @@ from cad.negative_carrier_b.model import Config
 from cad.negative_carrier_concepts.model import box
 
 PITCH = 3.0
+KNOB_RADIUS = 10.5
 WEDGE_SLOPE = 0.05
 DEFAULT = Config("135", frame_count=4)
 
@@ -195,9 +197,15 @@ def screw():
     s = bd.Pos(0, 57, 13) * thread()
     s += bearing_head()
     s += cylinder(0, 57, 28.8, 4.6, 0.6)
-    s += cylinder(0, 57, 29.2, 11, 4.2)
-    for x in (-1, 1):
-        s += box(x * 10, 57, 29.2, 4, 9, 4.2)
+    # Keep every rotation inside a 21 mm grip envelope: the old side wings
+    # reached into the provisional outer head housing during screw operation.
+    grip = cylinder(0, 57, 29.2, KNOB_RADIUS, 4.2)
+    for i in range(8):
+        angle = i * tau / 8
+        grip -= cylinder(
+            KNOB_RADIUS * cos(angle), 57 + KNOB_RADIUS * sin(angle), 29.1, 1, 4.4
+        )
+    s += grip
     return s
 
 

@@ -160,6 +160,32 @@ for model in data["models"]:
     beam_overlap = sum(overlap(beam, s) for s in fixture.values())
     beam_overlap += sum(overlap(beam, s) for n, s in shapes.items() if n != "film")
     assert beam_overlap < TOL, (model["name"], "straight optical passage", beam_overlap)
+    # Prove containment in a cylinder, then sweep that cylinder through the
+    # entire axial lift. This bounds every screw angle, not sampled rotations.
+    screw = shapes["screw"]
+    radius = model["screw_rotation_radius_mm"]
+    bounds = screw.BoundBox
+    rotation_envelope = Part.makeCylinder(
+        radius, bounds.ZLength, App.Vector(x, y + 57, bounds.ZMin)
+    )
+    assert abs(screw.cut(rotation_envelope).Volume) < TOL
+    lifted_envelope = Part.makeCylinder(
+        radius,
+        bounds.ZLength + model["screw_lift_mm"],
+        App.Vector(x, y + 57, bounds.ZMin),
+    )
+    rotation_overlap = sum(overlap(lifted_envelope, s) for s in fixture.values())
+    assert rotation_overlap < TOL, (
+        model["name"],
+        "full screw rotation/lift",
+        rotation_overlap,
+    )
+    # One of the old grip wings rotated 90 degrees crosses the housing front.
+    old_wing = Part.makeBox(4, 9, 4.2, App.Vector(-12, 52.5, 29.2))
+    old_wing.rotate(App.Vector(0, 57, 0), App.Vector(0, 0, 1), 90)
+    old_wing.translate(App.Vector(x, y, z))
+    wing_collision = overlap(old_wing, fixture["head-shell"])
+    assert wing_collision > 1, (model["name"], "old grip control", wing_collision)
     doc = App.newDocument("B2_Measured_Interface")
     for group in (fixture, shapes):
         for n, s in group.items():
@@ -187,10 +213,12 @@ for model in data["models"]:
             "exact_face_prisms": exact,
             "conservative_curved_face_boxes": conservative,
             "straight_optical_overlap_mm3": beam_overlap,
+            "full_screw_rotation_and_lift_overlap_mm3": rotation_overlap,
             "negative_controls_mm3": {
                 "unreleased_insertion": blocked,
                 "legacy_height": old,
                 "below_support": too_low,
+                "old_rotated_knob_wing": wing_collision,
             },
             "native_document_sha256": sha(path),
         }

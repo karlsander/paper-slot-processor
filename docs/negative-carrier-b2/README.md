@@ -21,9 +21,9 @@ The active B2 export and the new native machine-clearance checker now use the
 [measured reference from PR #16](../durst-c35-interface/README.md), unchanged.
 The old B1 fixture remains historical development evidence and is no longer
 B2's active machine-clearance test. No machine dimension was enlarged or
-reclassified as measured to obtain a pass. Carrier solids and the existing
-force studies are unchanged; the corrected seating and installation sequence
-are defined separately in [interface.py](../../cad/negative_carrier_b2/interface.py).
+reclassified as measured to obtain a pass. The receiver, sleeve, wedges, frame, thread and bearing/capture geometry are
+unchanged. The screw now has a 21 mm scalloped grip; corrected seating and
+installation are defined separately in [interface.py](../../cad/negative_carrier_b2/interface.py).
 
 | Item | Source / status |
 | --- | --- |
@@ -53,6 +53,18 @@ The actual gap tolerance, screw positions/protrusion and available release
 travel must be checked on the machine. The checker never treats 0.4 mm as a
 spring measurement or solves an insertion force.
 
+**The screw grip also needed clearance through rotation.** Its old projecting
+wings collided with the provisional outer housing when turned: the 90-degree
+wing control intersects by 37.8 mm³. The replacement 21 mm scalloped grip stays
+inside a 10.5 mm radius, giving 0.5 mm nominal clearance to that housing. The
+native checker proves the entire screw is contained by the rotation cylinder,
+then checks that cylinder over the full 4.8 mm axial lift. This covers every
+angle, not sampled turns. An old/new geometry comparison below Z=29.19 mm found
+zero difference: the thread, bearing and capture geometry are unchanged. Grip
+comfort, hand torque and the provisional housing extent still need physical
+confirmation. The earlier screw force study predates this grip revision and
+is not validation of its hand loading; no new force or creep claim is made.
+
 The checked installation sequence docks the format sleeve and receiver on the
 workbench, then inserts the complete assembly. In-machine docking at the seated
 height is not an accepted operation: its leading sleeve roof crosses the same
@@ -64,11 +76,13 @@ size and 35 mm, half-frame, APS and 110. It checks:
 
 - Seated interference, receiver/support contact distance and straight optical
   passage through the selected frame and both machine openings.
-- Continuous frame travel, complete insertion/withdrawal and release/seating.
+- Continuous frame travel, complete insertion/withdrawal and release/seating,
+  plus the full screw rotation/lift envelope.
   Planar faces generate exact translation prisms; curved faces use conservative
   swept bounding boxes. These machine checks do not rely on sampled poses.
 - Negative controls: unreleased insertion, the obsolete Z=-1.4 mm placement,
-  and a receiver pushed 0.2 mm into the support must all show interference.
+  a receiver pushed 0.2 mm into the support, and an old rotated grip wing must
+  all show interference.
 - Hashed STEP imports and saved/reopened native assemblies with the reference.
 
 A collision-screening bug was also fixed: build123d's `BoundBox.overlaps()`
@@ -117,7 +131,8 @@ thread bearing rather than solved mating-thread contact.
 
 These archived views use the original STEP solids and rigid-body paths.
 They predate the containment correction: their 7 mm wedge withdrawal is
-superseded by the currently checked 6.5 mm motion. They also predate the
+superseded by the currently checked 6.5 mm motion, and their projecting knob
+wings are superseded by the 21 mm scalloped grip. They also predate the
 measured-reference installation scenario above and are not current path
 validation evidence.
 Transparency reveals otherwise hidden contacts. Numbered film rectangles are
@@ -232,7 +247,7 @@ FreeCAD STEP imports, exact
 translational frame sweeps and deliberately blocked motions. A forced return
 to the same CAD coordinates is not measured photographic repeatability.
 
-The 2026-11-15 integration passed 85 local Python tests, all four compact
+The 2026-11-15 integration passed 86 local Python tests, all four compact
 internal-motion/native-assembly checks, all eight measured-interface scenarios,
 and the nine-solid reference fixture verification. The native interface reports
 separate geometric clearance from physical acceptance.
