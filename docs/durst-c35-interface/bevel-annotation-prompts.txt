@@ -1,0 +1,36 @@
+Mode: built-in image_gen; IMG_1081.HEIC decoded to PNG for input.
+Final deliverable: measurements-X-Z.png (leader-only correction).
+Initial result rejected: Z incorrectly spanned the whole exterior wall and was not used as the saved guide.
+
+Initial prompt:
+Use case: precise-object-edit.
+Asset: measurement callouts on the supplied actual front-left oblique photo of the user's Durst C35 lower support.
+IMG_1081.png is the edit target. Keep all photographed geometry, perspective, textures, holes, notches, labels, lens opening and surroundings unchanged. Add annotation only, with a white footer and ample white side margin if needed. Do not reconstruct or invent obscured surfaces. This photo is viewed from the front-left; the low front edge runs diagonally from lower left toward middle right.
+
+Only THREE new labels X Y Z. Use clean cyan leaders and white-backed dark letter badges. The measurements concern the TOP WALL and BEVEL along the left edge of the large rectangular opening, near the visible front-left inner corner (source normalized coordinates around x=33%, y=47%). Show three separated leader callouts aimed at that region rather than pretending a hidden height can be read from pixels. Preserve the actual photo beneath. Do not put dimension arrows across the full large opening; its overall size is already measured. Do not use the two small front notches as datum points.
+
+X — BEVEL DROP (vertical). Identify the broad flat top surface on the left of the opening and the lower/inner edge of the narrow bevel, where the straight inner opening wall begins. A small paired leader or fine reference tick can indicate those two levels, with an X badge in a white side margin. This is the vertical distance DOWN from the broad flat top surface to the inner edge of the bevel, not its sloping length. Do not invent a vertical step, new ledge or bottom surface. Do not visually assert a nonzero height. The accompanying text must clearly allow "0 if flush; say raised if above".
+Y — BEVEL WIDTH (horizontal in the top plane). Identify the narrow beveled strip at the left opening edge: from the outer line where the flat top starts sloping to the inner line at the start of the straight opening wall. Use a very short double-ended cyan arrow ACROSS this strip, perpendicular to the opening edge, around source x=30%, y=42%; short fine extension leaders to a Y badge can improve clarity. It is the horizontal/in-plane run, not the diagonal distance down the sloping surface.
+Z — TOP WALL THICKNESS. Leader to the material immediately beside the opening at the front-left edge. Clearly label it as a caliper measurement from the flat TOP to its matching UNDERSIDE. The underside is not clearly visible in the photo: use a leader ONLY, NO made-up dimension endpoint or invented underside outline. This excludes the tall outer sidewall and wider bottom flange. Allow the user to reply "hidden" if the matching underside cannot be reached.
+
+Keep the three badges and leaders distinct and easy to trace. Do not cover the visible bevel with a large label. No extra letters, numbers, rulers, calipers, fictitious cross sections, enlarged invented details or guessed geometry. The point is to identify real edges for physical caliper readings.
+
+Add this exact readable footer:
+"OPENING EDGE — NEXT MEASUREMENTS (mm)"
+"X  Bevel drop: flat top down to inner bevel edge"
+"     0 if flush; say 'raised' if the edge is above the flat top."
+"Y  Bevel width: horizontal run, not sloping length"
+"Z  Top wall thickness: flat top to matching underside"
+"     Reply 'hidden' if the underside is inaccessible."
+"Measure real surfaces; this photo is not to scale."
+
+Avoid implying the front notches are protruding clips. Keep all originals intact, including the two front openings.
+
+Correction prompt:
+Correct this annotated photo. The measurement arrows are misleading. Preserve the photograph and footer text, but REMOVE ALL existing cyan dimension arrows, witness lines and brackets for X, Y and Z. Replace them with SIMPLE LEADER CALLOUTS ONLY ending in small dots on the actual opening edge. No double-ended arrows anywhere. No vertical height dimension on the exterior sidewall, which is NOT what Z means. No invented underside.
+Keep three white-backed letter badges X Y Z in the left-side margin, with thin bent cyan leader lines to distinct points:
+X: a leader dot on the INNER EDGE of the narrow bevel along the LEFT side of the large opening, halfway between its rear-left and front-left corners. This identifies the inner-edge level to compare to the surrounding flat top.
+Y: a leader dot on the narrow beveled strip itself along that same left opening edge, a little farther back than X. This identifies the strip whose in-plane width is needed.
+Z: a leader dot on the TOP MATERIAL immediately beside the FRONT-LEFT INNER CORNER of the opening, not the outside front-left corner of the whole platform. In the input this opening corner is near x=36%, y=49% of the full image. Put the dot just to the left of that opening corner on the top material, around x=34%, y=48%. The Z leader must point UP AND RIGHT from a badge on the left, towards the opening. It must not touch the outside vertical sidewall or bottom flange.
+The three leader dots identify features only; actual measurement directions are explained by the existing footer. Keep the footer unchanged and readable. Remove the incorrect cyan full-sidewall-height Z arrow completely, revealing the unchanged original sidewall. Preserve the photograph, front notches and physical edges; no new geometry, no calipers, no conceptual cross section.
+
