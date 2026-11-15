@@ -4,7 +4,14 @@ import tempfile
 import unittest
 from pathlib import Path
 
-import build123d as bd
+try:
+    import build123d as bd
+except ModuleNotFoundError as error:
+    if error.name == "build123d":
+        raise unittest.SkipTest(
+            "B2 tests run in the CAD workflow with cad/requirements.txt"
+        ) from error
+    raise
 import numpy as np
 
 from cad.negative_carrier_b2.export import print_shape, volume

@@ -14,6 +14,62 @@ The force study is elastic finite-element screening of explicitly defined
 fixtures. It does not establish real-machine fit, photographic repeatability,
 film friction, light tightness, wear or force retention at 35 °C.
 
+## Review against the measured interface (2026-11-15)
+
+The [measured insertion-area reference](../durst-c35-interface/README.md) from
+PR #16 is now on main. **Keep PR #15 open pending measured carrier registration
+and a new machine-interface study.** The internal mechanism checks and elastic
+force studies remain useful, but their old machine-clearance result does not
+transfer to the new reference.
+
+The B2 fixture is a translated copy of the earlier carrier hypothesis: a
+90 × 86 mm head, an 84 × 82 mm U-shaped support, 2.6 mm contact separation,
+and an invented rear-stop envelope. The measured neck is 88.55 × 98.3 mm and
+the raised support is 86.7 × 98.3 mm, with an approximately 6 mm unloaded gap.
+The lower opening is 55.3 × 56.1 mm with its centre 0.8 mm operator-left and
+43.35 mm behind the front. Its top bevel widens the mouth to 58.3 × 59.1 mm.
+This broad support frame cannot be substituted for narrow rails by changing
+only the gap. The separate head optical opening and film-seat height remain
+unmeasured; the lower opening centre is not an established optical axis.
+
+A diagnostic placement aligns the old head front (Y=42) to the measured front
+(Y=0), and the old upper contact (Z=1.4) to the measured underside (Z=0), keeping
+X unchanged. At B2's final workflow pose, translation `(0, -42, -1.4)` produces
+**1350.4 mm³ overlap between the format sleeve and reference underside plate**
+for the default compact 35 mm assembly in build123d 0.13.0. No other pair exceeds
+1e-6 mm³ at this pose. The head plate and aperture still include provisional
+details. This is a diagnostic rejection of automatic historical-pose reuse,
+not a measured placement, full motion sweep or proof that no valid fit exists.
+
+Reproduce from the repository root with the CAD dependencies:
+
+```sh
+python - <<'PYTHON'
+import build123d as bd
+from cad.negative_carrier_b.fixture import PARAMETERS
+from cad.negative_carrier_b2.model import DEFAULT, parts
+from cad.negative_carrier_b2.workflow import phases, place
+from cad.durst_c35_interface.model import parts as fixture_parts
+from cad.durst_c35_interface.export import overlap
+fixture = fixture_parts()
+pose = phases(DEFAULT)[-1]["end"]
+shift = bd.Pos(0, -PARAMETERS["mixing_front_y"], -PARAMETERS["upper_contact_z"])
+for name, shape in parts(DEFAULT).items():
+    for obstacle, solid in fixture.items():
+        volume = overlap(shift * place(shape, name, pose), solid)
+        if volume > 1e-6:
+            print(name, obstacle, round(volume, 6))
+PYTHON
+```
+
+Next establish the film seat, separate head aperture/optical position, screw
+centres/protrusions and actual carrier bearing/stop geometry. Define an explicit
+transform into the measured datums, then rerun insertion, docking and every
+format's frame travel against that reference. The existing fixture stays as
+historical evidence; no measured dimension is adjusted to make B2 pass. Printed
+thread operation, film retention and warm preload retention remain separate
+physical tests.
+
 ## Slow mechanism videos
 
 [Watch the complete paired-angle walkthrough](videos/B2-mechanisms-slow-multiple-angles.mp4).
