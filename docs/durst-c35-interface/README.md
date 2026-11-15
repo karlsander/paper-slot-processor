@@ -129,6 +129,6 @@ python -m cad.durst_c35_interface.render
 
 ## Integration with the carrier studies
 
-This fixture is an independent module on current `main`; the B2 carrier work remains in open PR #15. The old fixture's optical-origin coordinates and 2.6 mm gap must not be silently reused. `legacy_carrier_alignment` is deliberately unset. Once the film-seat height and optical position are measured, place the carrier explicitly in these datums and rerun insertion/contact checks against these solids. The new reference does not inherit the old fixture's passing fit results.
+This fixture remains an independent module. The [B2 measured-interface assessment](../negative-carrier-b2/README.md#measured-interface-assessment-2026-11-15) now uses these solids with an explicit provisional receiver-seating transform and release scenario. It checks continuous machine-clearance paths for all eight carrier configurations and retains physical-fit and registration flags as false. The old fixture's 2.6 mm gap and passing fit results are not reused. `legacy_carrier_alignment` remains deliberately unset in this generic reference: the B2 scenario does not establish the original film plane, optical position, retention or available spring travel. Replace provisional registration inputs after measurement and rerun the native assessment.
 
 No material, support stiffness, friction or force result is attached to this model. All reports keep `physical_fit_accepted: false` until physical fit is established independently.

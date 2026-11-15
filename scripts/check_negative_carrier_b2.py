@@ -41,6 +41,24 @@ def main():
             (ROOT / "cad/negative_carrier_b2/model.py").read_bytes()
         ).hexdigest()
     )
+    assert (
+        m["measurement_sha256"]
+        == hashlib.sha256(
+            (ROOT / "cad/durst_c35_interface/measurements.json").read_bytes()
+        ).hexdigest()
+    )
+    assert (
+        m["interface_source_sha256"]
+        == hashlib.sha256(
+            (ROOT / "cad/negative_carrier_b2/interface.py").read_bytes()
+        ).hexdigest()
+    )
+    assert (
+        m["workflow_sha256"]
+        == hashlib.sha256(
+            (ROOT / "cad/negative_carrier_b2/workflow.py").read_bytes()
+        ).hexdigest()
+    )
     report = out / "freecad-validation.json"
     report.unlink(missing_ok=True)
     script = ROOT / "cad/negative_carrier_b2/verify_freecad.py"

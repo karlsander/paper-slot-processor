@@ -58,7 +58,7 @@ def phases(p):
         if n.startswith("wedge-"):
             pose[n] = [
                 0,
-                7 * int(n.rsplit("-", 1)[-1]) if not n.endswith("--1") else -7,
+                6.5 * int(n.rsplit("-", 1)[-1]) if not n.endswith("--1") else -6.5,
                 0,
                 0,
             ]

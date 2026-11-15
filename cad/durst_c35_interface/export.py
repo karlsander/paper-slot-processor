@@ -25,8 +25,17 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def bounds_intersect(a, b):
+    """Include containment: build123d BoundBox.overlaps deliberately excludes it."""
+    left, right = a.bounding_box(), b.bounding_box()
+    return all(
+        lo_a <= hi_b and lo_b <= hi_a
+        for lo_a, hi_a, lo_b, hi_b in zip(left.min, left.max, right.min, right.max)
+    )
+
+
 def overlap(a, b):
-    if not a.bounding_box().overlaps(b.bounding_box()):
+    if not bounds_intersect(a, b):
         return 0.0
     result = a.intersect(b)
     return sum(s.volume for s in result) if result else 0.0

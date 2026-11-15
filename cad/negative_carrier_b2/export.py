@@ -9,9 +9,12 @@ from pathlib import Path
 import build123d as bd
 import numpy as np
 
-from cad.negative_carrier_b.fixture import fixtures
+from cad.durst_c35_interface.export import bounds_intersect
+from cad.durst_c35_interface.model import load_measurements
+from cad.durst_c35_interface.model import parts as fixture_parts
 from cad.negative_carrier_fem.solver import sha
 
+from .interface import registration
 from .model import Config, parts
 from .workflow import blend, phases, place, transform
 
@@ -66,7 +69,18 @@ def refresh_prints(root):
 
 def export(formats=("135", "half", "aps", "110"), check=True, full_size=False):
     OUT.mkdir(parents=True, exist_ok=True)
-    report = {"source_sha256": sha(Path(__file__).with_name("model.py")), "formats": []}
+    data = load_measurements()
+    fixture = fixture_parts(data)
+    report = {
+        "source_sha256": sha(Path(__file__).with_name("model.py")),
+        "workflow_sha256": sha(Path(__file__).with_name("workflow.py")),
+        "formats": [],
+        "physical_fit_accepted": False,
+        "registration_measured": False,
+        "machine_fixture": "cad/durst_c35_interface; measured exterior with provisional hidden details",
+        "measurement_sha256": sha(ROOT / "cad/durst_c35_interface/measurements.json"),
+        "interface_source_sha256": sha(Path(__file__).with_name("interface.py")),
+    }
     for fmt in formats:
         p = (
             Config(fmt)
@@ -100,7 +114,7 @@ def export(formats=("135", "half", "aps", "110"), check=True, full_size=False):
                     active = {n: place(shapes[n], n, pose) for n in phase["show"]}
                     for (a, s), (b, q) in combinations(active.items(), 2):
                         # Broad phase bounding boxes first, then exact solid common.
-                        if not s.bounding_box().overlaps(q.bounding_box()):
+                        if not bounds_intersect(s, q):
                             continue
                         relative = np.linalg.inv(transform(a, pose)) @ transform(
                             b, pose
@@ -121,13 +135,20 @@ def export(formats=("135", "half", "aps", "110"), check=True, full_size=False):
                                 }
                             )
             final = seq[-1]["end"]
+            shift = bd.Pos(*registration(data, shapes))
             for n, s in shapes.items():
-                for f, q in fixtures().items():
-                    v = volume(place(s, n, final), q)
+                for f, q in fixture.items():
+                    posed = shift * place(s, n, final)
+                    v = volume(posed, q) if bounds_intersect(posed, q) else 0
                     checks += 1
                     if v > 1e-5:
                         errors.append(
-                            {"phase": "enlarger fixture", "a": n, "b": f, "volume": v}
+                            {
+                                "phase": "measured reference / provisional seating",
+                                "a": n,
+                                "b": f,
+                                "volume": v,
+                            }
                         )
         item = {
             "config": asdict(p),

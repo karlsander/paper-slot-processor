@@ -9,66 +9,98 @@ Each additional prepared strip holder needs eight pieces: base, lid and six
 wedges. For quick format swaps, fit each format sleeve with its own identical
 shoe and screw. The receiver and docking wedge are shared between formats.
 
-This is a digitally checked **prototype**, with an unmeasured C35 interface.
+This is a digitally checked **prototype**, assessed against the measured C35
+reference with explicitly provisional registration and release travel.
 The force study is elastic finite-element screening of explicitly defined
 fixtures. It does not establish real-machine fit, photographic repeatability,
 film friction, light tightness, wear or force retention at 35 °C.
 
-## Review against the measured interface (2026-11-15)
+## Measured-interface assessment (2026-11-15)
 
-The [measured insertion-area reference](../durst-c35-interface/README.md) from
-PR #16 is now on main. **Keep PR #15 open pending measured carrier registration
-and a new machine-interface study.** The internal mechanism checks and elastic
-force studies remain useful, but their old machine-clearance result does not
-transfer to the new reference.
+The active B2 export and the new native machine-clearance checker now use the
+[measured reference from PR #16](../durst-c35-interface/README.md), unchanged.
+The old B1 fixture remains historical development evidence and is no longer
+B2's active machine-clearance test. No machine dimension was enlarged or
+reclassified as measured to obtain a pass. Carrier solids and the existing
+force studies are unchanged; the corrected seating and installation sequence
+are defined separately in [interface.py](../../cad/negative_carrier_b2/interface.py).
 
-The B2 fixture is a translated copy of the earlier carrier hypothesis: a
-90 × 86 mm head, an 84 × 82 mm U-shaped support, 2.6 mm contact separation,
-and an invented rear-stop envelope. The measured neck is 88.55 × 98.3 mm and
-the raised support is 86.7 × 98.3 mm, with an approximately 6 mm unloaded gap.
-The lower opening is 55.3 × 56.1 mm with its centre 0.8 mm operator-left and
-43.35 mm behind the front. Its top bevel widens the mouth to 58.3 × 59.1 mm.
-This broad support frame cannot be substituted for narrow rails by changing
-only the gap. The separate head optical opening and film-seat height remain
-unmeasured; the lower opening centre is not an established optical axis.
+| Item | Source / status |
+| --- | --- |
+| Head neck 88.55 × 98.3 mm; lower support 86.7 × 98.3 mm | User measurements from #16 |
+| Lower opening 55.3 × 56.1 mm, centre X=+0.8 / Y=-43.35; bevel 0.8 mm drop / 1.5 mm run | User measurements and derived coordinates |
+| Unloaded gap 6 mm | Approximate user reading |
+| Carrier translation `(0, -42, -2.6)` mm | Proposed registration, **not measured original film position** |
+| Film-plane Z=-2.6 mm | Derived by seating the actual receiver rail underside on the lower support at Z=-6 mm; contact/retention still unverified physically |
+| X=0, Y=-42 mm and straight optical clearance | Uses the **provisional head optical opening**, not the measured lower opening centre |
+| Lower-support/carrier release 0.4 mm | Prescribed installation scenario, **not measured available travel or force** |
+| Screw diameters, positions and 0.5 mm protrusion; wider housing and hidden surfaces | Provisional envelopes retained from #16 |
 
-A diagnostic placement aligns the old head front (Y=42) to the measured front
-(Y=0), and the old upper contact (Z=1.4) to the measured underside (Z=0), keeping
-X unchanged. At B2's final workflow pose, translation `(0, -42, -1.4)` produces
-**1350.4 mm³ overlap between the format sleeve and reference underside plate**
-for the default compact 35 mm assembly in build123d 0.13.0. No other pair exceeds
-1e-6 mm³ at this pose. The head plate and aperture still include provisional
-details. This is a diagnostic rejection of automatic historical-pose reuse,
-not a measured placement, full motion sweep or proof that no valid fit exists.
+**The previous placement was wrong for this reference.** Aligning its old upper
+contact plane gave Z=-1.4 mm and 1350.4 mm³ of sleeve/underside-plate overlap.
+The corrected seating removes that collision while leaving 0.3 mm nominal
+clearance below the flat underside. The receiver has zero modeled distance to
+the support; a deliberate 0.01 mm downward displacement detects support
+penetration. This establishes a geometric seating scenario, not preload,
+friction, lateral retention or photographic registration.
 
-Reproduce from the repository root with the CAD dependencies:
+**Insertion needs a separate release scenario.** At the seated height, the
+sleeve hits the provisional front screw during insertion/withdrawal (about
+3.3238 mm³ in the continuous sweep). Lowering both carrier and lower support
+by 0.4 mm clears that path, leaving 0.2 mm nominal clearance beneath the
+0.5 mm screw envelope. After insertion, they rise together to the seated pose.
+The actual gap tolerance, screw positions/protrusion and available release
+travel must be checked on the machine. The checker never treats 0.4 mm as a
+spring measurement or solves an insertion force.
+
+The checked installation sequence docks the format sleeve and receiver on the
+workbench, then inserts the complete assembly. In-machine docking at the seated
+height is not an accepted operation: its leading sleeve roof crosses the same
+screw envelope. The original mechanism videos remain bench demonstrations;
+they do not depict this measured-reference installation scenario.
+
+The native FreeCAD assessment covers all eight combinations of compact/full
+size and 35 mm, half-frame, APS and 110. It checks:
+
+- Seated interference, receiver/support contact distance and straight optical
+  passage through the selected frame and both machine openings.
+- Continuous frame travel, complete insertion/withdrawal and release/seating.
+  Planar faces generate exact translation prisms; curved faces use conservative
+  swept bounding boxes. These machine checks do not rely on sampled poses.
+- Negative controls: unreleased insertion, the obsolete Z=-1.4 mm placement,
+  and a receiver pushed 0.2 mm into the support must all show interference.
+- Hashed STEP imports and saved/reopened native assemblies with the reference.
+
+A collision-screening bug was also fixed: build123d's `BoundBox.overlaps()`
+excludes containment, so a small obstacle fully inside a large part's bounds
+could be skipped. Both the #16 overlap helper and B2's internal broad-phase
+check now include containment. Regression tests cover nested/equal bounds and
+the front-screw collision. FreeCAD independently checks actual intersections.
+The corrected broad phase also exposed 0.2 mm of front-wedge/spine interference
+in the withdrawn loading pose. Reducing withdrawal from 7 to 6.5 mm keeps the
+wedges inside the open loading pockets, with 0.3 mm nominal clearance to the
+front spine. A regression test checks every withdrawn wedge against the base.
+
+Run with the pinned CAD dependencies and FreeCAD:
 
 ```sh
-python - <<'PYTHON'
-import build123d as bd
-from cad.negative_carrier_b.fixture import PARAMETERS
-from cad.negative_carrier_b2.model import DEFAULT, parts
-from cad.negative_carrier_b2.workflow import phases, place
-from cad.durst_c35_interface.model import parts as fixture_parts
-from cad.durst_c35_interface.export import overlap
-fixture = fixture_parts()
-pose = phases(DEFAULT)[-1]["end"]
-shift = bd.Pos(0, -PARAMETERS["mixing_front_y"], -PARAMETERS["upper_contact_z"])
-for name, shape in parts(DEFAULT).items():
-    for obstacle, solid in fixture.items():
-        volume = overlap(shift * place(shape, name, pose), solid)
-        if volume > 1e-6:
-            print(name, obstacle, round(volume, 6))
-PYTHON
+python scripts/check_negative_carrier_interface.py --freecad /path/to/freecadcmd
 ```
 
-Next establish the film seat, separate head aperture/optical position, screw
-centres/protrusions and actual carrier bearing/stop geometry. Define an explicit
-transform into the measured datums, then rerun insertion, docking and every
-format's frame travel against that reference. The existing fixture stays as
-historical evidence; no measured dimension is adjusted to make B2 pass. Printed
-thread operation, film retention and warm preload retention remain separate
-physical tests.
+Outputs are under `build/negative-carrier-interface/`: hash-linked manifests,
+all carrier/reference STEP solids, eight `measured-assembly.FCStd` documents,
+and `interface-validation.json`. `--release-drop` changes only the explicit
+release scenario; insufficient release is expected to fail validation.
+[Recorded validation](evidence/measured-interface-validation.json) accompanies
+[the source/measurement manifest](evidence/measured-interface-manifest.json).
+
+Reports keep `physical_fit_accepted: false` and `registration_measured: false`.
+Before relying on a print, confirm the head aperture and optical position,
+original film-seat height, screw envelopes, real support/stop/retention geometry,
+and release travel. Printed threads, film retention, light leaks, repeatability
+and warm PETG preload/creep remain physical tests. The FEM results continue to
+be elastic screening, with mesh-sensitive indexing compliance and prescribed
+thread bearing rather than solved mating-thread contact.
 
 ## Slow mechanism videos
 
@@ -83,7 +115,11 @@ physical tests.
 | [Seat and release the index shoe](videos/05-index.mp4) | Coarse thread, captured flange and three locating faces |
 | [Advance and return](videos/06-advance.mp4) | Whole carrier and close-up of the locating tooth |
 
-Both views use the actual STEP solids and the checked rigid-body paths.
+These archived views use the original STEP solids and rigid-body paths.
+They predate the containment correction: their 7 mm wedge withdrawal is
+superseded by the currently checked 6.5 mm motion. They also predate the
+measured-reference installation scenario above and are not current path
+validation evidence.
 Transparency reveals otherwise hidden contacts. Numbered film rectangles are
 illustrative markings. The motion is prescribed; elastic preload deformation
 and forces come from the separate [force study](forces/README.md).
@@ -96,7 +132,7 @@ and forces come from the separate [force study](forces/README.md).
    rails and snug them evenly. Pull straight off to open; there is no release
    tongue to find. The tapered faces accommodate a limited amount of fit
    variation. Their friction and useful seating range still need a print test.
-3. With the indexing shoe raised, slide the loaded holder through its matching
+3. On the workbench, with the indexing shoe raised, slide the loaded holder through its matching
    format sleeve. Slide the sleeve into the shared receiver and fit its broad
    docking wedge. Push fully against the rear stop before snugging the wedge.
    The rear tongue passes under the retaining lip; broad bevelled rails locate
@@ -184,15 +220,22 @@ python -m pip install -r cad/requirements-fem.txt
 python -m cad.negative_carrier_b2.export
 python -m cad.negative_carrier_b2.export --full-size
 python scripts/check_negative_carrier_b2.py
+python scripts/check_negative_carrier_interface.py
 python -m cad.negative_carrier_b2.suite
 python scripts/render_negative_carrier_b2.py
 python -m unittest discover -s tests -p 'test_*.py'
 ```
 
 The checks cover single-solid validity, source hashes, sampled loading/docking
-paths, the independent enlarger envelope, native FreeCAD STEP imports, exact
+paths, the measured reference under explicit provisional registration, native
+FreeCAD STEP imports, exact
 translational frame sweeps and deliberately blocked motions. A forced return
 to the same CAD coordinates is not measured photographic repeatability.
+
+The 2026-11-15 integration passed 85 local Python tests, all four compact
+internal-motion/native-assembly checks, all eight measured-interface scenarios,
+and the nine-solid reference fixture verification. The native interface reports
+separate geometric clearance from physical acceptance.
 
 The [previous B1 design](../negative-carrier-b/README.md) and its failed force
 screen remain available as a comparison rather than being overwritten.

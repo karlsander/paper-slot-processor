@@ -1,0 +1,226 @@
+{
+  "passed": true,
+  "manifest_sha256": "53db6c7b7e6e449144c36a24b4c96f9e0efb44a6250b0262368beea5a6ca7d3d",
+  "freecad_version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "physical_fit_accepted": false,
+  "registration_measured": false,
+  "models": [
+    {
+      "name": "135-compact",
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "passed": true,
+      "seated_overlap_mm3": 0.0,
+      "receiver_support_distance_mm": 0.0,
+      "support_penetration_0_01_mm_control_mm3": 1.2671249998849385,
+      "continuous_path_max_overlap_mm3": {
+        "frame_travel": 0.0,
+        "insertion_and_withdrawal": 0.0,
+        "release_and_seating": 0.0
+      },
+      "exact_face_prisms": 332,
+      "conservative_curved_face_boxes": 74,
+      "straight_optical_overlap_mm3": 0.0,
+      "negative_controls_mm3": {
+        "unreleased_insertion": 3.323805027497996,
+        "legacy_height": 1350.399999999999,
+        "below_support": 25.769999999603996
+      },
+      "native_document_sha256": "3ea2774a8c0e076270f930c113b90e591e8e03ae460d6bdee5d5a7ac04052417"
+    },
+    {
+      "name": "half-compact",
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "passed": true,
+      "seated_overlap_mm3": 0.0,
+      "receiver_support_distance_mm": 0.0,
+      "support_penetration_0_01_mm_control_mm3": 1.2671249998849385,
+      "continuous_path_max_overlap_mm3": {
+        "frame_travel": 0.0,
+        "insertion_and_withdrawal": 0.0,
+        "release_and_seating": 0.0
+      },
+      "exact_face_prisms": 377,
+      "conservative_curved_face_boxes": 74,
+      "straight_optical_overlap_mm3": 0.0,
+      "negative_controls_mm3": {
+        "unreleased_insertion": 3.323805027497996,
+        "legacy_height": 1350.399999999999,
+        "below_support": 25.769999999603996
+      },
+      "native_document_sha256": "12e7046ff2edcaa66892f5f51a352ef6d687b057559befca0565a4d0b4192bbd"
+    },
+    {
+      "name": "aps-compact",
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "passed": true,
+      "seated_overlap_mm3": 0.0,
+      "receiver_support_distance_mm": 0.0,
+      "support_penetration_0_01_mm_control_mm3": 1.2671249998849385,
+      "continuous_path_max_overlap_mm3": {
+        "frame_travel": 0.0,
+        "insertion_and_withdrawal": 0.0,
+        "release_and_seating": 0.0
+      },
+      "exact_face_prisms": 350,
+      "conservative_curved_face_boxes": 74,
+      "straight_optical_overlap_mm3": 0.0,
+      "negative_controls_mm3": {
+        "unreleased_insertion": 3.323805027497996,
+        "legacy_height": 1350.399999999999,
+        "below_support": 25.769999999603996
+      },
+      "native_document_sha256": "d75ff8d71864d6c549badb1c79e23b34fbe06a5fd6b9594e0382b9dfdfac5016"
+    },
+    {
+      "name": "110-compact",
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "passed": true,
+      "seated_overlap_mm3": 0.0,
+      "receiver_support_distance_mm": 0.0,
+      "support_penetration_0_01_mm_control_mm3": 1.2671249998849385,
+      "continuous_path_max_overlap_mm3": {
+        "frame_travel": 0.0,
+        "insertion_and_withdrawal": 0.0,
+        "release_and_seating": 0.0
+      },
+      "exact_face_prisms": 395,
+      "conservative_curved_face_boxes": 74,
+      "straight_optical_overlap_mm3": 0.0,
+      "negative_controls_mm3": {
+        "unreleased_insertion": 3.323805027497996,
+        "legacy_height": 1350.399999999999,
+        "below_support": 25.769999999603996
+      },
+      "native_document_sha256": "b7c8f4847788e00575f2bfcb7b9ad41433903ef06d18de6ba51c93a61a42b5b9"
+    },
+    {
+      "name": "135-full",
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "passed": true,
+      "seated_overlap_mm3": 0.0,
+      "receiver_support_distance_mm": 0.0,
+      "support_penetration_0_01_mm_control_mm3": 1.2671249998849385,
+      "continuous_path_max_overlap_mm3": {
+        "frame_travel": 0.0,
+        "insertion_and_withdrawal": 0.0,
+        "release_and_seating": 0.0
+      },
+      "exact_face_prisms": 362,
+      "conservative_curved_face_boxes": 74,
+      "straight_optical_overlap_mm3": 0.0,
+      "negative_controls_mm3": {
+        "unreleased_insertion": 3.323805027497996,
+        "legacy_height": 1350.399999999999,
+        "below_support": 25.769999999603996
+      },
+      "native_document_sha256": "e938034ba2a60e2a20778f29e26bedce9190e53b6291ee98091a70768d46039c"
+    },
+    {
+      "name": "half-full",
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "passed": true,
+      "seated_overlap_mm3": 0.0,
+      "receiver_support_distance_mm": 0.0,
+      "support_penetration_0_01_mm_control_mm3": 1.2671249998849385,
+      "continuous_path_max_overlap_mm3": {
+        "frame_travel": 0.0,
+        "insertion_and_withdrawal": 0.0,
+        "release_and_seating": 0.0
+      },
+      "exact_face_prisms": 452,
+      "conservative_curved_face_boxes": 74,
+      "straight_optical_overlap_mm3": 0.0,
+      "negative_controls_mm3": {
+        "unreleased_insertion": 3.323805027497996,
+        "legacy_height": 1350.399999999999,
+        "below_support": 25.769999999603996
+      },
+      "native_document_sha256": "a62da784a4ddfb0f8fa38ca4c2e8273f2bc614190411855fa301d3aad49ac06a"
+    },
+    {
+      "name": "aps-full",
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "passed": true,
+      "seated_overlap_mm3": 0.0,
+      "receiver_support_distance_mm": 0.0,
+      "support_penetration_0_01_mm_control_mm3": 1.2671249998849385,
+      "continuous_path_max_overlap_mm3": {
+        "frame_travel": 0.0,
+        "insertion_and_withdrawal": 0.0,
+        "release_and_seating": 0.0
+      },
+      "exact_face_prisms": 380,
+      "conservative_curved_face_boxes": 74,
+      "straight_optical_overlap_mm3": 0.0,
+      "negative_controls_mm3": {
+        "unreleased_insertion": 3.323805027497996,
+        "legacy_height": 1350.399999999999,
+        "below_support": 25.769999999603996
+      },
+      "native_document_sha256": "aac8094da2bc5c279f8a49a1433f23d290d45485a54e4b9db21ff3b78dbaff37"
+    },
+    {
+      "name": "110-full",
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "passed": true,
+      "seated_overlap_mm3": 0.0,
+      "receiver_support_distance_mm": 0.0,
+      "support_penetration_0_01_mm_control_mm3": 1.2671249998849385,
+      "continuous_path_max_overlap_mm3": {
+        "frame_travel": 0.0,
+        "insertion_and_withdrawal": 0.0,
+        "release_and_seating": 0.0
+      },
+      "exact_face_prisms": 380,
+      "conservative_curved_face_boxes": 74,
+      "straight_optical_overlap_mm3": 0.0,
+      "negative_controls_mm3": {
+        "unreleased_insertion": 3.323805027497996,
+        "legacy_height": 1350.399999999999,
+        "below_support": 25.769999999603996
+      },
+      "native_document_sha256": "5ef5ec2cb1c272403d22feb8845cd06fd23f997295df4f37ad0bedf45beebc0e"
+    }
+  ]
+}
