@@ -33,27 +33,28 @@ Both formats use the same base and cover set. A format insert consists of **two 
 
 Print each production plate once: **ten pieces on eight plates**. Every plate fits within a 174 × 174 mm area, leaving 3 mm around the A1 mini's 180 mm bed. The two halves interlock in the plane of the base. The transverse covers print flat, without diagonal placement.
 
-| Plate source in `plates/` | Pieces | Approximate plate footprint |
+| Native plate name | Pieces | Approximate plate footprint |
 | --- | --- | --- |
-| `base_left.scad` | Left base with dovetail tongues | 118.7 × 130.6 mm |
-| `base_right.scad` | Right base with matching sockets | 110.5 × 130.6 mm |
-| `masks_16x9.scad` | Both 16:9 end masks | 46 × 121.8 mm |
-| `masks_4x3.scad` | Both 4:3 end masks | 91.3 × 121.8 mm |
-| `cover_1.scad` | Cover 1 | 30.8 × 146.6 mm |
-| `cover_2.scad` | Cover 2 | 30.8 × 146.6 mm |
-| `cover_3.scad` | Cover 3 | 30.8 × 146.6 mm |
-| `cover_4.scad` | Cover 4 | 30 × 146.6 mm |
-| `fit_coupon.scad` — optional, print first | Base corner, matching mask corner and cover end | 104 × 28.3 mm |
+| `base_left` | Left base with dovetail tongues | 118.7 × 130.6 mm |
+| `base_right` | Right base with matching sockets | 110.5 × 130.6 mm |
+| `masks_16x9` | Both 16:9 end masks | 46 × 121.8 mm |
+| `masks_4x3` | Both 4:3 end masks | 91.3 × 121.8 mm |
+| `cover_1` | Cover 1 | 30.8 × 146.6 mm |
+| `cover_2` | Cover 2 | 30.8 × 146.6 mm |
+| `cover_3` | Cover 3 | 30.8 × 146.6 mm |
+| `cover_4` | Cover 4 | 30 × 146.6 mm |
+| `fit_coupon` — optional, print first | Base corner, matching mask corner and cover end | 104 × 28.3 mm |
 
 The build uses the repository's **Processor 0.20mm @BBL A1M** profile: 0.4 mm nozzle, 0.20 mm layers, four walls, six top and bottom layers, 15% infill, no supports and no brim. The filament preset is Generic PETG. Select the actual opaque black filament in Bambu Studio and reslice before printing. Keep the supplied flat orientations. The magnet-pocket roofs use short bridges; cover overlaps have 45° undersides.
 
-Slicer estimates for the default dimensions and that profile:
+Slicer estimates from the native plates, saved/reopened and sliced in Bambu
+Studio on 2026-11-15 with that profile:
 
 | Part / plate | PETG | Print time |
 | --- | --- | --- |
 | Left base | 51.7 g | 1 h 39 min |
 | Right base | 49.8 g | 1 h 36 min |
-| 16:9 mask pair | 19.0 g | 44 min |
+| 16:9 mask pair | 18.9 g | 44 min |
 | 4:3 mask pair | 38.3 g | 1 h 19 min |
 | Cover 1 | 14.2 g | 31 min |
 | Cover 2 | 14.0 g | 31 min |
@@ -106,26 +107,48 @@ The 0.8 mm overlapping tongues reduce direct gaps between covers. Covers 1–3 e
 
 Before relying on the test result, expose a covered scrap for the longest intended test time and process it alongside an unexposed scrap. Check for transmission through the plastic or seams. Material colour and mesh checks alone do not establish opacity.
 
-## Sources and exports
+## Native sources and exports
 
-Open [model.scad](model.scad) to inspect the assembly. `format` selects `16:9` or `4:3`, `cover_count` selects 0–4 covers, and `exploded` lifts the removable pieces for inspection. Export the individual files in `plates/` for printing; the assembly includes reference paper and is not a print plate.
+The holder is authored entirely in [build123d](../cad/enlarger/model.py).
+Edit [parameters.py](../cad/enlarger/parameters.py), or pass a JSON file of
+parameter overrides with `--config`. Rebuild every mating part together.
+The default paper thickness remains an explicit 0.30 mm assumption to check
+against an offcut. The native assemblies contain reference paper; print the
+separate oriented plates, not an assembly.
 
-Edit [parameters.scad](parameters.scad) for measured paper width/thickness and fit clearances. The default 102 mm width follows the requested measurement. If the roll measures differently, update it and rebuild every part; aperture lengths follow the measured width. `band_width` independently sets the four fixed bands, default 30 mm. Assertions require at least 8 mm left for the fifth band in 4:3 and reject unsupported combinations. Plate wrappers must all use the same settings.
-
-From the repository root, after installing the dependencies described in the main README:
+Install the pinned CAD and preview dependencies in a Python 3.13 environment:
 
 ```sh
-# Check actual meshes and fit/exposure probes; no slicer required.
-.venv/bin/python scripts/check_enlarger.py
+python -m pip install -r cad/enlarger/requirements-render.txt
 
-# Check geometry, render assemblies, slice every plate with the existing
-# A1 mini profile, export Bambu projects, and package the complete set.
-.venv/bin/python scripts/build_enlarger.py
+# Native solids, print meshes, fits and exposure areas; no slicer required.
+python scripts/check_enlarger.py
 
-# Geometry and assembly renders only.
-.venv/bin/python scripts/build_enlarger.py --geometry-only
+# Also import into FreeCAD and save/reopen both native assemblies.
+python scripts/check_enlarger.py --freecad /path/to/freecadcmd
+
+# Native geometry, FreeCAD documents and assembly previews.
+python scripts/build_enlarger.py --geometry-only --freecad /path/to/freecadcmd
+
+# Build, save/reopen and slice all nine Bambu projects, then package.
+python scripts/build_enlarger.py --freecad /path/to/freecadcmd
 ```
 
-The full build writes `build/enlarger/fuji-102-enlarger-holder.zip`, containing STLs, Bambu A1 mini `.3mf` projects, plate previews, editable OpenSCAD sources, these instructions and validation summaries. Individual projects are under `build/enlarger/plates/<name>/`. The projects contain models and settings for reslicing; the build does not send anything to a printer. Use the same tool and preset environment overrides as `scripts/build_openscad.py`.
+Outputs are under `build/enlarger-native/`: individual STEP/STL plates, both
+STEP and FreeCAD assemblies, native assembly previews, geometry and FreeCAD
+reports, and saved/reopened A1 mini PETG projects under `bambu/<name>/`.
+The full build writes `fuji-102-enlarger-holder.zip`, including native Python
+sources, the bundled font and license, dimensions, documentation and validation
+reports. No OpenSCAD executable, source model or generated mesh is required.
+Bambu projects retain their geometry and print settings after save/reopen;
+the build does not send a job to a printer.
 
-The geometry checks cover nine print plates and 79 fit, exposure and invalid-setting cases. They check connected closed meshes, printer bounds, the base joint, paper feed clearance, magnets, mask/cover collisions, both image lengths, all five exposed areas and rays tilted 30° toward either long edge. Thicker paper and a 100 mm roll are included. Bambu slicing checks printability separately. Actual paper retention, opacity, print tolerances and print quality remain physical checks.
+The native checks cover all nine plates and 79 fit, exposure and invalid-setting
+cases: valid solids, closed meshes, printer bounds, the base joint, paper feed,
+magnets, mask/cover collisions, both image lengths, all five exposure areas and
+30-degree rays toward either long paper edge. Tests include 0.5 mm paper and a
+100 mm roll. Separate negative controls deliberately misplace the joint, masks
+and covers and oversize a magnet to ensure interference is detected. FreeCAD
+independently imports the STEP geometry and verifies both saved native documents.
+Printed tolerances, paper flatness/retention, opacity and print quality still
+require physical trials.
