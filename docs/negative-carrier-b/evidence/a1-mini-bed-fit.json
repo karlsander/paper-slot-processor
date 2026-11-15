@@ -1,0 +1,349 @@
+{
+  "manifest_sha256": "00cf48a4f45fa4538fb08c46fda0f088ed17f8ceb00c1785c2bc577a95862dee",
+  "bed_xy_mm": [
+    180,
+    180
+  ],
+  "brim_mm": 5,
+  "one_part_per_plate": true,
+  "sliced": false,
+  "parts": [
+    {
+      "asset": "135/closure--76--1",
+      "stl_sha256": "22a7e9b8ad2641f2fa22ec37c2aa47723af39f1ab96d3c4734d558be7fe12f3e",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "135/closure--76-1",
+      "stl_sha256": "54d3d8560854aa304a63c2f99628c3ce69a2fdf223d25a353344a19ae7206cf9",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "135/closure-0--1",
+      "stl_sha256": "fcf488aeeac3d042708f210d8ebf985717d51737b49bea76bf5c758e7f962624",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "135/closure-0-1",
+      "stl_sha256": "fdf78b470055159adbe0e1058332d7561f4a6d7fc60b05f534ce5ad3e364b39f",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "135/closure-76--1",
+      "stl_sha256": "c1e1129c4c7f5a49448665c4bbc263bae17694bd628fa60f2798f526f5836776",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "135/closure-76-1",
+      "stl_sha256": "a83a1c6ec017bd08a969469d4bf8b38e6121f1ac6a03449fc2fb0b80ad9c950a",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "135/base",
+      "stl_sha256": "7c366b1d4df672bedecb3bbfed6f9616923da7e584de347590405446191870dc",
+      "z_rotation_degrees": 45,
+      "square_footprint_with_brim_mm": 172.6345596729059,
+      "passed": true
+    },
+    {
+      "asset": "135/lid",
+      "stl_sha256": "872954cd69502f4108dd8bda745ddff176697b089a93ba50a4311ece664b7371",
+      "z_rotation_degrees": 45,
+      "square_footprint_with_brim_mm": 159.34095677217596,
+      "passed": true
+    },
+    {
+      "asset": "135/collar-base",
+      "stl_sha256": "2d6c4251ca9b6e3409f9fab3e4945a179b686527bbf5a0b46c13e6e856200a4b",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 93.0,
+      "passed": true
+    },
+    {
+      "asset": "135/collar-cap",
+      "stl_sha256": "49137bd4fab87c2b0eb7e56cb6a11654fc8f942e7366e3bec173c1c256b56d4f",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 83.0,
+      "passed": true
+    },
+    {
+      "asset": "common/cap-lock--18--31",
+      "stl_sha256": "6fbf4aa0c03d98b479cfd84c571187a1c02e78e49e1dd92dbffa2974d8dce3c3",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 15.59999942779541,
+      "passed": true
+    },
+    {
+      "asset": "common/cap-lock--18-31",
+      "stl_sha256": "b1e921bbeda9bad6a6aaeb2402571492651b7d2c26c87a3e91ea48d7634feb9d",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 15.59999942779541,
+      "passed": true
+    },
+    {
+      "asset": "common/cap-lock-18--31",
+      "stl_sha256": "1a2b1820db4fa099003a6edf654cde4b72a96c4cf85c2d0384e32c3c0905f3ce",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 15.59999942779541,
+      "passed": true
+    },
+    {
+      "asset": "common/cap-lock-18-31",
+      "stl_sha256": "f3d881063426e0174b9ce1d5614fc95ebc413aefd94d7c6475a740ad9e7c77cd",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 15.59999942779541,
+      "passed": true
+    },
+    {
+      "asset": "common/dock-lock--18",
+      "stl_sha256": "06cb3f3a82e0746465d2fe77933e1931509a7ff998294e981010728a025f9dfa",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 15.59999942779541,
+      "passed": true
+    },
+    {
+      "asset": "common/dock-lock-18",
+      "stl_sha256": "b2b556ad6aab1d7b0a496e1dd0e335a8b632df23c8d7255b326aaf6d59c6b4e6",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 15.59999942779541,
+      "passed": true
+    },
+    {
+      "asset": "common/index-latch",
+      "stl_sha256": "a20baabe5fb297bdc84f1dcbc30d6f98e575dc0acbd36059c972b2b17594ef0b",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 55.0,
+      "passed": true
+    },
+    {
+      "asset": "common/receiver",
+      "stl_sha256": "ba51f797404d79fd4c25aba9d685064c04ee425b11754e01e939ae384367a704",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 122.0,
+      "passed": true
+    },
+    {
+      "asset": "half/closure--76--1",
+      "stl_sha256": "22a7e9b8ad2641f2fa22ec37c2aa47723af39f1ab96d3c4734d558be7fe12f3e",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "half/closure--76-1",
+      "stl_sha256": "54d3d8560854aa304a63c2f99628c3ce69a2fdf223d25a353344a19ae7206cf9",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "half/closure-9.5--1",
+      "stl_sha256": "6c48f5c1b0e8cbe48868a875d969cb775b9dc1b573d9b260309f4deb1abc4543",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "half/closure-9.5-1",
+      "stl_sha256": "b5b64e3b47fc8f6ddb7a385e9192971848e1dc91f215352e895f40fbaf4c6820",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "half/closure-76--1",
+      "stl_sha256": "c1e1129c4c7f5a49448665c4bbc263bae17694bd628fa60f2798f526f5836776",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "half/closure-76-1",
+      "stl_sha256": "a83a1c6ec017bd08a969469d4bf8b38e6121f1ac6a03449fc2fb0b80ad9c950a",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "half/base",
+      "stl_sha256": "76aa740b015cfe07855eb30a28074a2669a817c1dc9e642623845d860e159a75",
+      "z_rotation_degrees": 45,
+      "square_footprint_with_brim_mm": 172.6345596729059,
+      "passed": true
+    },
+    {
+      "asset": "half/lid",
+      "stl_sha256": "f028ad2c6457e2f6e6996b4fc6ecc47ef469d2274ea9d196391b6048a38e69ff",
+      "z_rotation_degrees": 45,
+      "square_footprint_with_brim_mm": 159.34095677217596,
+      "passed": true
+    },
+    {
+      "asset": "half/collar-base",
+      "stl_sha256": "871d0c10b4cba1b8f5aa72eba851ec9f87fb7a76398f1474589646cf86794bcf",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 93.0,
+      "passed": true
+    },
+    {
+      "asset": "half/collar-cap",
+      "stl_sha256": "428f01cb88b201cc33141652c79ebbae2b4dc5cb664d5efd8b5821483db600b5",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 83.0,
+      "passed": true
+    },
+    {
+      "asset": "aps/closure--67--1",
+      "stl_sha256": "bcf902d0479ccbda7ebf0742dcb041c8522c086e6780538bfa063a9219bb6e24",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "aps/closure--67-1",
+      "stl_sha256": "3b30ceff7f6f0a2d6d4c6d157cfb17ab69924e5e21dbc6235f882129a350dea8",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "aps/closure-0--1",
+      "stl_sha256": "fcf488aeeac3d042708f210d8ebf985717d51737b49bea76bf5c758e7f962624",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "aps/closure-0-1",
+      "stl_sha256": "fdf78b470055159adbe0e1058332d7561f4a6d7fc60b05f534ce5ad3e364b39f",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "aps/closure-67--1",
+      "stl_sha256": "11e0ab416ba6b4609a7ba1e1d16d4506e29687fcdd05be48f6f6e889ee3ce808",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "aps/closure-67-1",
+      "stl_sha256": "cd9fa20f8cdc0b5bdc72a2d15d53a16b209e364e76684d6dbd86a0fda90cc5cb",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "aps/base",
+      "stl_sha256": "8d945547a3bcfe7f76763c22bc68f622cbe870a2694132ba13bab20fb5012dab",
+      "z_rotation_degrees": 45,
+      "square_footprint_with_brim_mm": 159.90663761154806,
+      "passed": true
+    },
+    {
+      "asset": "aps/lid",
+      "stl_sha256": "9a3ac67cb6024a2c9bcd82d637a1244327decceae4d3c946d4997a09b0f38bc9",
+      "z_rotation_degrees": 45,
+      "square_footprint_with_brim_mm": 146.61303471081808,
+      "passed": true
+    },
+    {
+      "asset": "aps/collar-base",
+      "stl_sha256": "4cdcfcc5cdf7ad70f9ccbbda1859f970f870bd494d3f55e5ae1cd804f9d0f078",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 93.0,
+      "passed": true
+    },
+    {
+      "asset": "aps/collar-cap",
+      "stl_sha256": "d30068c435c8312e5fa7d95188b25e77bde5cc569d94ffd24d3ff7b668a2c836",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 83.0,
+      "passed": true
+    },
+    {
+      "asset": "110/closure--79--1",
+      "stl_sha256": "447202a1c6830aff99d0b94cdcaf895c7a48d12ec564fdd093ebee60fe0a739b",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "110/closure--79-1",
+      "stl_sha256": "42e525d7b635213c46588f438b6d03d57395c986f661fe036931e5499c1024cd",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "110/closure-10--1",
+      "stl_sha256": "99f48b9a2722e1b29aa512e23a1e992506ae1c956e979150a95823707b4ba061",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "110/closure-10-1",
+      "stl_sha256": "8577cea3430c80ad4b76a2458f087faf6344948f391ae5ed12f255ed71d16ad7",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "110/closure-79--1",
+      "stl_sha256": "d4fa161c234274f6dd1e2d5af86e3ba42046c0e682fe8d6b0cadd5562ee1f00f",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "110/closure-79-1",
+      "stl_sha256": "5e994f7c03e742b17d42e418ab1afc39b3eae8e28b902a2065ba55889f27f44b",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 20.0,
+      "passed": true
+    },
+    {
+      "asset": "110/base",
+      "stl_sha256": "5fee5a931b4d57e7cb62e8fd791616ee56a18ee07ebb4c5f45f0af97fd8e6753",
+      "z_rotation_degrees": 45,
+      "square_footprint_with_brim_mm": 176.8772003600252,
+      "passed": true
+    },
+    {
+      "asset": "110/lid",
+      "stl_sha256": "42bdf0af8c761c309039a8cd6aa2204669a1a44e4a1ee1834303cefb48f5dc62",
+      "z_rotation_degrees": 45,
+      "square_footprint_with_brim_mm": 163.58359745929522,
+      "passed": true
+    },
+    {
+      "asset": "110/collar-base",
+      "stl_sha256": "6d0660515c1505cb576a209014b23c7a05af584934f3168f5719612a6892006a",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 93.0,
+      "passed": true
+    },
+    {
+      "asset": "110/collar-cap",
+      "stl_sha256": "22fee0f4a57a3d1b40662e503591e32570055c2f531e3bb5d8455e9b7cd759ab",
+      "z_rotation_degrees": 0,
+      "square_footprint_with_brim_mm": 83.0,
+      "passed": true
+    }
+  ],
+  "passed": true
+}

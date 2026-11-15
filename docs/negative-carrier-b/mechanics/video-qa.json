@@ -1,0 +1,221 @@
+{
+  "passed": true,
+  "render_report_sha256": "f7346b31cd44c5a3c8313bb63a261925a34d304cc0d922ff556b7265faa388e6",
+  "method": "Full-stream decode plus per-operation start/end pixel differences in geometry regions; text and progress bar excluded.",
+  "decoded_geometry_checks": [
+    {
+      "file": "01-film-clamp.mp4",
+      "source_phase": 0,
+      "first_frame": 0,
+      "last_frame": 59,
+      "changed_geometry_fraction": 0.23189307563959954,
+      "mean_absolute_pixel_change": 15.793096496106786
+    },
+    {
+      "file": "01-film-clamp.mp4",
+      "source_phase": 1,
+      "first_frame": 78,
+      "last_frame": 149,
+      "changed_geometry_fraction": 0.31051515572858734,
+      "mean_absolute_pixel_change": 15.484080691509083
+    },
+    {
+      "file": "02-closure-clip.mp4",
+      "source_phase": 2,
+      "first_frame": 0,
+      "last_frame": 47,
+      "changed_geometry_fraction": 0.006246523915461624,
+      "mean_absolute_pixel_change": 0.5636436318131258
+    },
+    {
+      "file": "02-closure-clip.mp4",
+      "source_phase": 3,
+      "first_frame": 66,
+      "last_frame": 137,
+      "changed_geometry_fraction": 0.24913793103448276,
+      "mean_absolute_pixel_change": 23.13300542269188
+    },
+    {
+      "file": "02-closure-clip.mp4",
+      "source_phase": 4,
+      "first_frame": 156,
+      "last_frame": 203,
+      "changed_geometry_fraction": 0.010414349276974415,
+      "mean_absolute_pixel_change": 0.4108813032999629
+    },
+    {
+      "file": "03-cap-lock.mp4",
+      "source_phase": 6,
+      "first_frame": 0,
+      "last_frame": 59,
+      "changed_geometry_fraction": 0.17136053948832036,
+      "mean_absolute_pixel_change": 4.689702678902485
+    },
+    {
+      "file": "03-cap-lock.mp4",
+      "source_phase": 7,
+      "first_frame": 78,
+      "last_frame": 149,
+      "changed_geometry_fraction": 0.07576821468298109,
+      "mean_absolute_pixel_change": 2.6812036522061553
+    },
+    {
+      "file": "04-docking-lock.mp4",
+      "source_phase": 12,
+      "first_frame": 0,
+      "last_frame": 71,
+      "changed_geometry_fraction": 0.3471774193548387,
+      "mean_absolute_pixel_change": 31.324716119762694
+    },
+    {
+      "file": "04-docking-lock.mp4",
+      "source_phase": 13,
+      "first_frame": 90,
+      "last_frame": 149,
+      "changed_geometry_fraction": 0.027506256952169076,
+      "mean_absolute_pixel_change": 1.4622937523173898
+    },
+    {
+      "file": "04-docking-lock.mp4",
+      "source_phase": 14,
+      "first_frame": 168,
+      "last_frame": 239,
+      "changed_geometry_fraction": 0.012124582869855394,
+      "mean_absolute_pixel_change": 0.5727324341861328
+    },
+    {
+      "file": "05-index-latch.mp4",
+      "source_phase": 17,
+      "first_frame": 0,
+      "last_frame": 35,
+      "changed_geometry_fraction": 0.11483940489432704,
+      "mean_absolute_pixel_change": 10.296459028550242
+    },
+    {
+      "file": "05-index-latch.mp4",
+      "source_phase": 18,
+      "first_frame": 54,
+      "last_frame": 125,
+      "changed_geometry_fraction": 0.045248192436040044,
+      "mean_absolute_pixel_change": 3.693872821653689
+    },
+    {
+      "file": "05-index-latch.mp4",
+      "source_phase": 19,
+      "first_frame": 144,
+      "last_frame": 179,
+      "changed_geometry_fraction": 0.11456131813125696,
+      "mean_absolute_pixel_change": 10.281180478309233
+    },
+    {
+      "file": "05-index-latch.mp4",
+      "source_phase": 19,
+      "first_frame": 198,
+      "last_frame": 233,
+      "changed_geometry_fraction": 0.11457174638487208,
+      "mean_absolute_pixel_change": 10.286316972562107
+    },
+    {
+      "file": "05-index-latch.mp4",
+      "source_phase": 18,
+      "first_frame": 252,
+      "last_frame": 323,
+      "changed_geometry_fraction": 0.04525166852057842,
+      "mean_absolute_pixel_change": 3.6963616981831664
+    },
+    {
+      "file": "05-index-latch.mp4",
+      "source_phase": 17,
+      "first_frame": 342,
+      "last_frame": 377,
+      "changed_geometry_fraction": 0.1145682703003337,
+      "mean_absolute_pixel_change": 10.288913607712274
+    },
+    {
+      "file": "06-guides.mp4",
+      "source_phase": 18,
+      "first_frame": 0,
+      "last_frame": 71,
+      "changed_geometry_fraction": 0.030652113459399333,
+      "mean_absolute_pixel_change": 2.004902437893956
+    },
+    {
+      "file": "06-guides.mp4",
+      "source_phase": 18,
+      "first_frame": 90,
+      "last_frame": 161,
+      "changed_geometry_fraction": 0.02972052280311457,
+      "mean_absolute_pixel_change": 1.9659633388950688
+    },
+    {
+      "file": "07-end-retention.mp4",
+      "source_phase": 27,
+      "first_frame": 0,
+      "last_frame": 95,
+      "changed_geometry_fraction": 0.09114641268075639,
+      "mean_absolute_pixel_change": 7.650091536892845
+    },
+    {
+      "file": "07-end-retention.mp4",
+      "source_phase": 28,
+      "first_frame": 114,
+      "last_frame": 149,
+      "changed_geometry_fraction": 0.0003788932146829811,
+      "mean_absolute_pixel_change": 0.017952817945865777
+    },
+    {
+      "file": "08-fixed-mask.mp4",
+      "source_phase": 17,
+      "first_frame": 0,
+      "last_frame": 35,
+      "changed_geometry_fraction": 0.000521412680756396,
+      "mean_absolute_pixel_change": 0.022671023359288098
+    },
+    {
+      "file": "08-fixed-mask.mp4",
+      "source_phase": 18,
+      "first_frame": 54,
+      "last_frame": 125,
+      "changed_geometry_fraction": 0.08079115684093437,
+      "mean_absolute_pixel_change": 7.431924360400447
+    },
+    {
+      "file": "08-fixed-mask.mp4",
+      "source_phase": 19,
+      "first_frame": 144,
+      "last_frame": 179,
+      "changed_geometry_fraction": 0.0003545606229143493,
+      "mean_absolute_pixel_change": 0.01486489618094179
+    },
+    {
+      "file": "09-strip-reposition.mp4",
+      "source_phase": 38,
+      "first_frame": 0,
+      "last_frame": 47,
+      "changed_geometry_fraction": 0.1377294215795328,
+      "mean_absolute_pixel_change": 8.087462921764924
+    },
+    {
+      "file": "09-strip-reposition.mp4",
+      "source_phase": 39,
+      "first_frame": 66,
+      "last_frame": 149,
+      "changed_geometry_fraction": 0.001310483870967742,
+      "mean_absolute_pixel_change": 0.17898243418613274
+    },
+    {
+      "file": "09-strip-reposition.mp4",
+      "source_phase": 40,
+      "first_frame": 168,
+      "last_frame": 215,
+      "changed_geometry_fraction": 0.13888000556173527,
+      "mean_absolute_pixel_change": 8.16393562291435
+    }
+  ],
+  "review_contact_sheet": "build/mechanics-qa/decoded-contact.jpg",
+  "visual_review": "Passed: decoded representatives of all nine chapters inspected, including the clip catch, both crossbar locks, index tooth, guide section, end exits and mask opening.",
+  "browser_playback_verified": false,
+  "physical_test": false,
+  "full_stream_decode_count": 10,
+  "atlas_printed_occurrences": 18
+}

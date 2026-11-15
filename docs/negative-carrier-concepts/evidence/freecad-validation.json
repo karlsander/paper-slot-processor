@@ -1,0 +1,851 @@
+{
+  "manifest_sha256": "efbd4b0fa8e87a552c8f278c2906298a7fb4f97e46c522d2f070516bd152742b",
+  "freecad_version": [
+    "1",
+    "1",
+    "4",
+    "20260928 (Git shallow)",
+    "Unknown",
+    "2026/09/28 13:46:34",
+    "(HEAD detached at 4fd3bf320)",
+    "4fd3bf320d9566a27e60069fc8387448aaa3a094"
+  ],
+  "evidence_level": "sampled rigid translation and normal-ray masking only",
+  "physical_fit_verified": false,
+  "latches_hinges_springs_and_drive_verified": false,
+  "models": [
+    {
+      "name": "drawer-135",
+      "passed": true,
+      "translation_samples": [
+        {
+          "translation_mm": -95.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -85.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -76.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -66.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -57.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -47.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -38.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -28.500000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -19.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -18.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -9.499999999999998,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 9.500000000000009,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 18.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 19.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 28.500000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 37.99999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 47.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 57.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 57.00000000000001,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 66.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 76.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 85.49999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 95.0,
+          "max_overlap_mm3": 0
+        }
+      ],
+      "optical_samples": [
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "lowered_gate_negative_control_overlap_mm3": 1428.0,
+      "freecad_document_reopened": true
+    },
+    {
+      "name": "collar-135",
+      "passed": true,
+      "translation_samples": [
+        {
+          "translation_mm": -95.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -85.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -76.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -66.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -57.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -47.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -38.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -28.500000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -19.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -18.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -9.499999999999998,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 9.500000000000009,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 18.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 19.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 28.500000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 37.99999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 47.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 57.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 57.00000000000001,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 66.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 76.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 85.49999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 95.0,
+          "max_overlap_mm3": 0
+        }
+      ],
+      "optical_samples": [
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "lowered_gate_negative_control_overlap_mm3": 1428.0,
+      "freecad_document_reopened": true
+    },
+    {
+      "name": "cassette-135",
+      "passed": true,
+      "translation_samples": [
+        {
+          "translation_mm": -95.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -85.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -76.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -66.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -57.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -47.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -38.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -28.500000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -19.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -18.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -9.499999999999998,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 9.500000000000009,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 18.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 19.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 28.500000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 37.99999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 47.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 57.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 57.00000000000001,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 66.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 76.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 85.49999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 95.0,
+          "max_overlap_mm3": 0
+        }
+      ],
+      "optical_samples": [
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 840.16,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "lowered_gate_negative_control_overlap_mm3": 5275.199999999997,
+      "freecad_document_reopened": true
+    },
+    {
+      "name": "collar-half",
+      "passed": true,
+      "translation_samples": [
+        {
+          "translation_mm": -104.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -94.05,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -85.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -83.60000000000001,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -73.14999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -66.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -62.699999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -52.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -47.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -41.800000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -31.350000000000005,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -28.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -20.899999999999995,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -10.449999999999998,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -9.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 9.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 10.45000000000001,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 20.899999999999995,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 28.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 31.350000000000005,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 41.79999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 47.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 52.25,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 62.70000000000001,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 66.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 73.14999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 83.60000000000001,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 85.5,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 94.05,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 104.5,
+          "max_overlap_mm3": 0
+        }
+      ],
+      "optical_samples": [
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 415.36000000000007,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "lowered_gate_negative_control_overlap_mm3": 1428.0,
+      "freecad_document_reopened": true
+    },
+    {
+      "name": "collar-aps",
+      "passed": true,
+      "translation_samples": [
+        {
+          "translation_mm": -80.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -72.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -64.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -56.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -48.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -40.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -32.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -24.000000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -16.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -15.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -7.999999999999998,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 8.000000000000007,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 15.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 16.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 24.000000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 31.999999999999993,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 40.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 48.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 48.00000000000001,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 56.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 64.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 72.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 80.0,
+          "max_overlap_mm3": 0
+        }
+      ],
+      "optical_samples": [
+        {
+          "selected_area_mm2": 485.7400000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 485.7400000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 485.7400000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 485.7400000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 485.7400000000001,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 485.7400000000001,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "lowered_gate_negative_control_overlap_mm3": 1811.25,
+      "freecad_document_reopened": true
+    },
+    {
+      "name": "collar-110",
+      "passed": true,
+      "translation_samples": [
+        {
+          "translation_mm": -50.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -45.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -40.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -35.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -30.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -25.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -20.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -15.000000000000002,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -10.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -9.999999999999998,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": -4.999999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 0.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 5.000000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 9.999999999999998,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 10.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 15.000000000000002,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 19.999999999999996,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 25.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 30.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 30.000000000000004,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 35.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 40.0,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 44.99999999999999,
+          "max_overlap_mm3": 0
+        },
+        {
+          "translation_mm": 50.0,
+          "max_overlap_mm3": 0
+        }
+      ],
+      "optical_samples": [
+        {
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        },
+        {
+          "selected_area_mm2": 209.16000000000003,
+          "neighbour_area_mm2": 0.0
+        }
+      ],
+      "lowered_gate_negative_control_overlap_mm3": 2005.5,
+      "freecad_document_reopened": true
+    }
+  ],
+  "passed": true
+}

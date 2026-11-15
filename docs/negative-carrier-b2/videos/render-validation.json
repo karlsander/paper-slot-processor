@@ -1,0 +1,69 @@
+{
+  "source_sha256": "7547f462bb811572bba6a6138566b8d51d37f87737b2c2c332f4a9ea1dc3c74f",
+  "manifest_sha256": "e64bf432b1592185e8492d3dd11984a72fb5198d5a688971b94dcfaad7801285",
+  "chapters": [
+    {
+      "file": "01-load.mp4",
+      "frames": 240,
+      "fps": 20,
+      "sha256": "ed22651b992581b3703a34ece2d2a65b8e44b4c4b9b21c19012e786fb83a60a1",
+      "unique_geometry_frames_per_view": [
+        239,
+        239
+      ]
+    },
+    {
+      "file": "02-wedges.mp4",
+      "frames": 480,
+      "fps": 20,
+      "sha256": "4aacf9d85dafe0b5beb2875df25f624201531849903cc2dc314ec0aabf57449f",
+      "unique_geometry_frames_per_view": [
+        160,
+        160
+      ]
+    },
+    {
+      "file": "03-mask.mp4",
+      "frames": 200,
+      "fps": 20,
+      "sha256": "9fd445cf464975df3f45858c84ab119c87f762ee9aceabe67fb40527fa4b32bd",
+      "unique_geometry_frames_per_view": [
+        200,
+        200
+      ]
+    },
+    {
+      "file": "04-dock.mp4",
+      "frames": 380,
+      "fps": 20,
+      "sha256": "bbb0a3c0e097d30b37e217073a3beb47c4166cdc2808343ce1418d2e5200da11",
+      "unique_geometry_frames_per_view": [
+        378,
+        340
+      ]
+    },
+    {
+      "file": "05-index.mp4",
+      "frames": 420,
+      "fps": 20,
+      "sha256": "68a790d5601117d2f73eb008decc33de8098e3fa190729d44c135707cede8041",
+      "unique_geometry_frames_per_view": [
+        417,
+        417
+      ]
+    },
+    {
+      "file": "06-advance.mp4",
+      "frames": 1020,
+      "fps": 20,
+      "sha256": "638c235da28de9e891c3dcc433aaf6d7c06a51d3a5c0e101ca121548ead50c27",
+      "unique_geometry_frames_per_view": [
+        815,
+        815
+      ]
+    }
+  ],
+  "combined_sha256": "ff4ed6719c096d23e00e0c09bbdea2e6d66ec255cae2876869f4aa683983ea1f",
+  "decoded_all_frames": true,
+  "motion_is_prescribed": true
+}

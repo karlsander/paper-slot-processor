@@ -1,0 +1,1212 @@
+{
+  "schema_version": 1,
+  "physical_fit_accepted": false,
+  "registration_measured": false,
+  "release_drop_mm": 0.4,
+  "release_travel_status": "prescribed scenario; available travel and force unmeasured",
+  "measurements": {
+    "schema_version": 1,
+    "units": "mm",
+    "recorded_on": "2026-11-01",
+    "datums": {
+      "origin": "Centre of the narrow head's front edge, at its flat underside plane; screw heads excluded.",
+      "x": "Positive left when facing the entry: right-handed with Y toward operator and Z upward.",
+      "y": "Positive toward operator; insertion travels in negative Y.",
+      "z": "Positive upward; flat underside Z=0, unloaded lower contact surface Z=-slot_gap.",
+      "optical_axis": "Provisional offset from front; not yet measured. No automatic alignment to old carrier coordinates."
+    },
+    "observations": {
+      "local_top_thickness_mm": {
+        "value": null,
+        "status": "unknown",
+        "source": "User clarified Z was measured outside, from outer rim top to wider plate top; local material thickness beside opening was not measured",
+        "applied_to_geometry": false
+      },
+      "superseded_lower_height_N_mm": {
+        "value": 10.5,
+        "status": "superseded_user_measurement",
+        "label": "N",
+        "source": "Earlier user reading, superseded by clarified external height Z=11 mm on 2026-11-01",
+        "applied_to_geometry": false
+      },
+      "neck_and_lower_rear_faces_coincide": {
+        "value": true,
+        "status": "user_observed",
+        "source": "User correction, 2026-11-01: P and Q are both 98.3 mm and end at exactly the same rear plane"
+      },
+      "original_closed_height_mm": {
+        "value": 6.15,
+        "status": "user_approximate",
+        "source": "User: both original halves sandwiched together, 2026-11-01"
+      },
+      "lower_support_moves_on_insertion": {
+        "value": true,
+        "status": "user_observed",
+        "source": "User description; IMG_1075.HEIC and IMG_1078.HEIC identify the part, not its stiffness"
+      },
+      "visible_screw_count": {
+        "value": 6,
+        "status": "photo_observed",
+        "source": "IMG_1076.HEIC"
+      },
+      "lower_support_stiffness_N_per_mm": {
+        "value": null,
+        "status": "unknown",
+        "source": "No force/displacement measurement; spring attachments and material unknown"
+      },
+      "rear_stop": {
+        "value": null,
+        "status": "unknown",
+        "source": "Not established by the supplied front photos; no invented stop in this model"
+      }
+    },
+    "parameters": {
+      "neck_width": {
+        "value": 88.55,
+        "status": "user_measured",
+        "label": "B-head",
+        "source": "IMG_1077.HEIC: external caliper jaws across narrow white head section; accuracy not established"
+      },
+      "slot_gap": {
+        "value": 6.0,
+        "status": "user_approximate",
+        "label": "A",
+        "source": "User: total unloaded slot height, before local screw-head protrusions"
+      },
+      "neck_height": {
+        "value": 11.4,
+        "status": "user_measured",
+        "label": "L",
+        "source": "User caliper reading L, 2026-11-01; narrow white band height"
+      },
+      "lower_width": {
+        "value": 86.7,
+        "status": "user_measured",
+        "label": "M",
+        "source": "User caliper reading M, 2026-11-01; raised black support outside width"
+      },
+      "lower_height": {
+        "value": 11.0,
+        "status": "user_measured",
+        "label": "N/Z",
+        "source": "User clarification of Z, 2026-11-01: measured outside from top surface of outer rim to top of the whole plate (wider flange); supersedes earlier N=10.5 mm, excludes flange thickness R"
+      },
+      "flange_width": {
+        "value": 95.3,
+        "status": "user_measured",
+        "label": "O",
+        "source": "User caliper reading O, 2026-11-01; black flange outside width"
+      },
+      "neck_depth": {
+        "value": 98.3,
+        "status": "user_measured",
+        "label": "P",
+        "source": "User caliper reading P, 2026-11-01; narrow white head front-to-back depth"
+      },
+      "shell_wall": {
+        "value": 1.2,
+        "status": "provisional",
+        "label": null,
+        "source": "Geometry proxy; head wall thickness unmeasured"
+      },
+      "body_width": {
+        "value": 96.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Visual approximation of larger white housing around neck"
+      },
+      "body_depth": {
+        "value": 106.3,
+        "status": "provisional",
+        "label": null,
+        "source": "Envelope updated for measured P; retains the former unmeasured 4 mm front and rear overhangs"
+      },
+      "body_front_overhang": {
+        "value": 4.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Local envelope proxy, unmeasured"
+      },
+      "body_height_shown": {
+        "value": 32.0,
+        "status": "display_extent",
+        "label": null,
+        "source": "Truncated head above shoulder; not the complete lamp housing"
+      },
+      "corner_radius": {
+        "value": 1.5,
+        "status": "provisional",
+        "label": null,
+        "source": "Visual approximation; not a measured corner radius"
+      },
+      "cover_thickness": {
+        "value": 1.2,
+        "status": "provisional",
+        "label": null,
+        "source": "Black underside plate thickness unmeasured"
+      },
+      "optical_width": {
+        "value": 40.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Legacy unmeasured light opening, not an OEM drawing"
+      },
+      "optical_depth": {
+        "value": 28.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Legacy unmeasured light opening, not an OEM drawing"
+      },
+      "optical_centre_depth": {
+        "value": 42.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Legacy unmeasured front-to-optical-axis offset"
+      },
+      "front_tab_width": {
+        "value": 10.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Small black tab visible at front of underside plate; function unconfirmed"
+      },
+      "front_tab_projection": {
+        "value": 0.8,
+        "status": "provisional",
+        "label": null,
+        "source": "Visible tab extent unmeasured"
+      },
+      "lower_depth": {
+        "value": 98.3,
+        "status": "user_measured",
+        "label": "Q",
+        "source": "User caliper reading Q, 2026-11-01; explicitly equal to P with the same rear plane"
+      },
+      "lower_front_offset": {
+        "value": 0.0,
+        "status": "derived_from_user",
+        "label": null,
+        "source": "Q - P = 0 because the user confirms the two rear faces coincide; not inferred from photo pixels"
+      },
+      "lower_opening_width": {
+        "value": 55.3,
+        "status": "user_measured",
+        "label": "T",
+        "source": "User caliper reading T, 2026-11-01; clear opening width between inner walls below bevel"
+      },
+      "lower_opening_depth": {
+        "value": 56.1,
+        "status": "user_measured",
+        "label": "U",
+        "source": "User caliper reading U, 2026-11-01; clear opening front-to-back depth below bevel"
+      },
+      "lower_opening_front_offset": {
+        "value": 15.3,
+        "status": "user_measured",
+        "label": "V",
+        "source": "User caliper reading V, 2026-11-01; raised support front outside plane to inner front opening edge, excludes flange"
+      },
+      "lower_opening_left_offset": {
+        "value": 14.9,
+        "status": "user_measured",
+        "label": "W",
+        "source": "User caliper reading W, 2026-11-01; raised support left outside plane to inner left opening edge, excludes flange"
+      },
+      "lower_bevel_drop": {
+        "value": 0.8,
+        "status": "user_measured",
+        "label": "X",
+        "source": "User caliper reading X, 2026-11-01; flat top down to inner edge of opening bevel"
+      },
+      "lower_bevel_run": {
+        "value": 1.5,
+        "status": "user_measured",
+        "label": "Y",
+        "source": "User reading, 2026-11-01; uniform horizontal bevel width on all four sides, outer dimensions explicitly T+3 and U+3"
+      },
+      "flange_depth": {
+        "value": 111.8,
+        "status": "provisional",
+        "label": null,
+        "source": "Q + S + 9 mm rear extension; retains the former UNMEASURED 9 mm rear flange envelope. Actual flange rear extent unknown"
+      },
+      "flange_front_overhang": {
+        "value": 4.5,
+        "status": "user_measured",
+        "label": "S",
+        "source": "User caliper reading S, 2026-11-01; flange projects ahead of the raised support front face"
+      },
+      "flange_thickness": {
+        "value": 2.5,
+        "status": "user_measured",
+        "label": "R",
+        "source": "User caliper reading R, 2026-11-01; thin flange thickness excluding raised support"
+      },
+      "screw_head_diameter": {
+        "value": 4.6,
+        "status": "provisional",
+        "label": null,
+        "source": "Collision proxy for heads visible in IMG_1076.HEIC; not measured"
+      },
+      "screw_protrusion": {
+        "value": 0.5,
+        "status": "provisional",
+        "label": null,
+        "source": "Scenario only: positive below flat underside. Actual protrusion unknown"
+      },
+      "screw_side_inset": {
+        "value": 6.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Four corner screw centres measured inward from external neck sides: placeholder"
+      },
+      "screw_end_inset": {
+        "value": 8.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Four corner screw centres inward from front/rear: placeholder"
+      },
+      "screw_middle_end_inset": {
+        "value": 10.0,
+        "status": "provisional",
+        "label": null,
+        "source": "Two middle screws near front/rear of plate: placeholder"
+      }
+    }
+  },
+  "fixture": {
+    "head-shell": {
+      "file": "head-shell.step",
+      "sha256": "9bae38d94f0f2149b72905c69bb4db35dc385ff8335079b5d6409d1531ed64d4",
+      "volume_mm3": 22056.55452262309
+    },
+    "underside-plate": {
+      "file": "underside-plate.step",
+      "sha256": "2d56105c61c46d57f8cf8f4b0dc4fb72c714a435b72cb08f4e5b2b7404b79d24",
+      "volume_mm3": 8594.141999999998
+    },
+    "lower-support": {
+      "file": "lower-support.step",
+      "sha256": "6624cdac492e02570e02b7f41f1fd728627810d6e7a78abf3a273b8c54e6c0e6",
+      "volume_mm3": 78341.45087685279
+    },
+    "screw-head-1": {
+      "file": "screw-head-1.step",
+      "sha256": "9c847a6a19a71374d631fd196c7696d84bc6d06a72ba9202d01b1f6863bb1d0a",
+      "volume_mm3": 8.309512568745001
+    },
+    "screw-head-2": {
+      "file": "screw-head-2.step",
+      "sha256": "f2e62210e32f96c9ee8145a9925e09fa0cbcd6ac4637f96d01d33e5cec8a5b72",
+      "volume_mm3": 8.309512568745003
+    },
+    "screw-head-3": {
+      "file": "screw-head-3.step",
+      "sha256": "31ba0d16c93e47129302ba4085ee99f037ca9e364f321a26187a5d7ef4c38a97",
+      "volume_mm3": 8.309512568745003
+    },
+    "screw-head-4": {
+      "file": "screw-head-4.step",
+      "sha256": "e1010618d7020c5f3eedf143996b17a38f76a0fb014af994fe87ee66d2e7f46a",
+      "volume_mm3": 8.309512568745003
+    },
+    "screw-head-5": {
+      "file": "screw-head-5.step",
+      "sha256": "0d90afc9a6c4d8961402f30844f777b620eabd11f1cbfdaaac540f9b67e04ecf",
+      "volume_mm3": 8.309512568745001
+    },
+    "screw-head-6": {
+      "file": "screw-head-6.step",
+      "sha256": "0481c9fbf19603641f44ce85d9c89e5b9149c734a519c02ec2b3496259e2a0e9",
+      "volume_mm3": 8.309512568745003
+    }
+  },
+  "models": [
+    {
+      "name": "135-compact",
+      "config": {
+        "format": "135",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": 4,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
+      "frame_travel_mm": 114.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
+      "aperture_mm": [
+        35.6,
+        23.6
+      ],
+      "moving": [
+        "base",
+        "lid",
+        "wedge-0--1",
+        "wedge-0-1",
+        "wedge-1--1",
+        "wedge-1-1",
+        "wedge-2--1",
+        "wedge-2-1",
+        "film"
+      ],
+      "parts": {
+        "base": {
+          "file": "135-compact/base.step",
+          "sha256": "d4128fdb344b944045fa7dcc8ccbd7d5c1a0c4eb30e8c120ec5e4087372cccd1",
+          "volume_mm3": 38925.64801675685
+        },
+        "lid": {
+          "file": "135-compact/lid.step",
+          "sha256": "d3d3b828b1a0edc0cf6e6e6be8a0af2434e85e9c51b43514eccbaf6fda38631b",
+          "volume_mm3": 3948.0503999999996
+        },
+        "wedge-0--1": {
+          "file": "135-compact/wedge-0--1.step",
+          "sha256": "7ed8b512793fa08c4d65cc011902429b1135d51de2945996c0cb16324f35621f",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-0-1": {
+          "file": "135-compact/wedge-0-1.step",
+          "sha256": "fdc0a426deacc2f73828169a72ccf60a83d9664010db8be7d8a9129eff96e9c0",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1--1": {
+          "file": "135-compact/wedge-1--1.step",
+          "sha256": "fb4796c2701f008fe2fd10fc6c4c50db78e2e32b7bc2a4a15b01f815c55d7105",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1-1": {
+          "file": "135-compact/wedge-1-1.step",
+          "sha256": "1ca20e5dc989e34b60cc08026f12925d2635bed171cfb862c5058cae9eb4d7db",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2--1": {
+          "file": "135-compact/wedge-2--1.step",
+          "sha256": "ff8c03f32aefcd64b90557859e79c4871b466c83082ac3da6a559af17a6c4d8b",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2-1": {
+          "file": "135-compact/wedge-2-1.step",
+          "sha256": "d711bae41b9a753887e6bc1a89edf8135d6dcf3a9b72168ec3fc987019ea8f55",
+          "volume_mm3": 196.56000000000006
+        },
+        "sleeve": {
+          "file": "135-compact/sleeve.step",
+          "sha256": "622630c091eec1201831e775043257beaffcd3cc39f62e49472ad8a2eae86447",
+          "volume_mm3": 16485.995255150337
+        },
+        "shoe": {
+          "file": "135-compact/shoe.step",
+          "sha256": "4d785da30cc3af5088a87b9dcf470e3c16ec2097853c830d42b63678a432f28d",
+          "volume_mm3": 479.16908494538006
+        },
+        "screw": {
+          "file": "135-compact/screw.step",
+          "sha256": "61b9a97eeedc13db5afeb4a7fdf6648551aa2b2ecea1ec4307b115f27dafb788",
+          "volume_mm3": 2957.4537200055643
+        },
+        "receiver": {
+          "file": "135-compact/receiver.step",
+          "sha256": "26873f0a832a705d4523d652844e76f6c014b4f2b4f4750f8fb1ada11b753d83",
+          "volume_mm3": 10737.440000000002
+        },
+        "dock-wedge": {
+          "file": "135-compact/dock-wedge.step",
+          "sha256": "4a620b3e31808c15436a0865c958e429cb59dc1ec686ebc49327e6b697c772ab",
+          "volume_mm3": 1855.9999999999995
+        },
+        "film": {
+          "file": "135-compact/film.step",
+          "sha256": "4d9500cbdc3abc234ddda8fcc7f54b8d1ce962d8b96450bdbe90f47e4e6dd1b8",
+          "volume_mm3": 1606.4999999999998
+        }
+      },
+      "withdrawal_mm": 160
+    },
+    {
+      "name": "half-compact",
+      "config": {
+        "format": "half",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": 7,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
+      "frame_travel_mm": 114.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
+      "aperture_mm": [
+        17.6,
+        23.6
+      ],
+      "moving": [
+        "base",
+        "lid",
+        "wedge-0--1",
+        "wedge-0-1",
+        "wedge-1--1",
+        "wedge-1-1",
+        "wedge-2--1",
+        "wedge-2-1",
+        "film"
+      ],
+      "parts": {
+        "base": {
+          "file": "half-compact/base.step",
+          "sha256": "a8f8aae5c28ea992ef4384d3c19a9d4f0cac2f794525f005f7fb1d2d4860f7be",
+          "volume_mm3": 38046.18602727083
+        },
+        "lid": {
+          "file": "half-compact/lid.step",
+          "sha256": "688cfb39540cf817c8ef671420bd62c1f8e06d8c4917ed8620b9a3c3c613ffd3",
+          "volume_mm3": 3916.8024000000005
+        },
+        "wedge-0--1": {
+          "file": "half-compact/wedge-0--1.step",
+          "sha256": "65dce733f6021e2f21a786e5f97b72ae4fdd51732ec86ce2fdcf867ec7544f5f",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-0-1": {
+          "file": "half-compact/wedge-0-1.step",
+          "sha256": "b5958f296cd30669df1b9c84d5e7e259fbc5e8dfe7c9af138da4e7c3502a3933",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1--1": {
+          "file": "half-compact/wedge-1--1.step",
+          "sha256": "009765b9865a07a72a33f0c4b8662ef01b28448dfecd1b68a8cd7ad0e5232271",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1-1": {
+          "file": "half-compact/wedge-1-1.step",
+          "sha256": "18cf3b954782023141a2baf1d9a037c0e13181feef2f2cfdf2fef2c15b205003",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2--1": {
+          "file": "half-compact/wedge-2--1.step",
+          "sha256": "8919c09cc3af2acd01fcb37ed08d5329b2be1b34d3abcfef6f636d0e4a1236bc",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2-1": {
+          "file": "half-compact/wedge-2-1.step",
+          "sha256": "444030e0f852323603fe4e24c44363358ebb3882c8b9497096b16e94fb72f46e",
+          "volume_mm3": 196.56000000000006
+        },
+        "sleeve": {
+          "file": "half-compact/sleeve.step",
+          "sha256": "38f17398fcae54d93d72a39daabc9c907dfb0464a517f8be42c28b4e6397da3c",
+          "volume_mm3": 17165.67525515033
+        },
+        "shoe": {
+          "file": "half-compact/shoe.step",
+          "sha256": "d279d5551b56634836c4332f557f544748b9e6e5a5968f800c9bc455f81758b9",
+          "volume_mm3": 479.16908494538006
+        },
+        "screw": {
+          "file": "half-compact/screw.step",
+          "sha256": "d08d4683dfce0884b4cf79c412dea4e4d7c339ef8513e12dd4b6d356ece58027",
+          "volume_mm3": 2957.4537200055643
+        },
+        "receiver": {
+          "file": "half-compact/receiver.step",
+          "sha256": "1094ec1cfbd31681d91ba9bde6c6234c3eab6c04d47703cda357734e943e38db",
+          "volume_mm3": 10737.440000000002
+        },
+        "dock-wedge": {
+          "file": "half-compact/dock-wedge.step",
+          "sha256": "f0d278b1c8a5bc45bf7b5e508d92383d27a96d6c2309d445041f969d5dc2ec61",
+          "volume_mm3": 1855.9999999999995
+        },
+        "film": {
+          "file": "half-compact/film.step",
+          "sha256": "21cc87ea0705fe58c281933b6e1e8387f6865059a2e4098e8aa6fa0d917adaae",
+          "volume_mm3": 1112.9999999999998
+        }
+      },
+      "withdrawal_mm": 160
+    },
+    {
+      "name": "aps-compact",
+      "config": {
+        "format": "aps",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": 4,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
+      "frame_travel_mm": 96.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
+      "aperture_mm": [
+        29.8,
+        16.3
+      ],
+      "moving": [
+        "base",
+        "lid",
+        "wedge-0--1",
+        "wedge-0-1",
+        "wedge-1--1",
+        "wedge-1-1",
+        "wedge-2--1",
+        "wedge-2-1",
+        "film"
+      ],
+      "parts": {
+        "base": {
+          "file": "aps-compact/base.step",
+          "sha256": "da1defb46f5a1616f5b5613abf709f87d01951b3495dd4d2ee8773377b31c545",
+          "volume_mm3": 35001.00001777117
+        },
+        "lid": {
+          "file": "aps-compact/lid.step",
+          "sha256": "5a8c7214c19f93bf0eea3fe32da61bb3390b1a2ff4c4373083efb1bfda0d19a8",
+          "volume_mm3": 3867.5033999999982
+        },
+        "wedge-0--1": {
+          "file": "aps-compact/wedge-0--1.step",
+          "sha256": "3daa682bdfb64866b10119ae63b25bb673aa6165b29da76e9abd698f95cd44cc",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-0-1": {
+          "file": "aps-compact/wedge-0-1.step",
+          "sha256": "3913085f1473e6693484dd8449618708200453d3409ab3f9e29d2f01f90ef17c",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-1--1": {
+          "file": "aps-compact/wedge-1--1.step",
+          "sha256": "bb0041ce58bdbdaf6fb671fbb1b7143cdc46737f19b1dbdc2e054a93373c7736",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-1-1": {
+          "file": "aps-compact/wedge-1-1.step",
+          "sha256": "46e2fc6c4f1200f86f89b145ac8a4ddc9f3d77b5a892217a78b8c7d72d9f578a",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-2--1": {
+          "file": "aps-compact/wedge-2--1.step",
+          "sha256": "5ea29adb06f426d63a601df5659fdd925962b143570c959461cd32d375d6fcf4",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-2-1": {
+          "file": "aps-compact/wedge-2-1.step",
+          "sha256": "6d1990cc67f92d1ec51a886f7c695db4d15b742f1c6dcacbd9a35e508770bc43",
+          "volume_mm3": 196.56000000000012
+        },
+        "sleeve": {
+          "file": "aps-compact/sleeve.step",
+          "sha256": "c181b078b32796e3c63779f75b70e8064c3d4453ec1dcd4aeaa34f160ac2a2a6",
+          "volume_mm3": 17053.071579171992
+        },
+        "shoe": {
+          "file": "aps-compact/shoe.step",
+          "sha256": "cfda256e341c77d5395b14331c6ffc3e0f9c466646d836191f71d481ec88e493",
+          "volume_mm3": 479.16908494538006
+        },
+        "screw": {
+          "file": "aps-compact/screw.step",
+          "sha256": "ab2687f080327fa4ada8d755bc666a7f46caffa9fe1585132374ae5389e04598",
+          "volume_mm3": 2957.4537200055643
+        },
+        "receiver": {
+          "file": "aps-compact/receiver.step",
+          "sha256": "68f29712124cebaeeea7a89c39453fb303a0854214d3e6e13f11f65b13430257",
+          "volume_mm3": 10737.440000000002
+        },
+        "dock-wedge": {
+          "file": "aps-compact/dock-wedge.step",
+          "sha256": "e1c4fc1a1de9968b2410dca8706f69689e31db92f8620917814f4d9b0706de2a",
+          "volume_mm3": 1855.9999999999995
+        },
+        "film": {
+          "file": "aps-compact/film.step",
+          "sha256": "251389a99195da4078bd49f0ce5b3344279f382d7320132a21f8cb44d2fa3741",
+          "volume_mm3": 929.5199999999995
+        }
+      },
+      "withdrawal_mm": 160
+    },
+    {
+      "name": "110-compact",
+      "config": {
+        "format": "110",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": 7,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
+      "frame_travel_mm": 120.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
+      "aperture_mm": [
+        16.6,
+        12.6
+      ],
+      "moving": [
+        "base",
+        "lid",
+        "wedge-0--1",
+        "wedge-0-1",
+        "wedge-1--1",
+        "wedge-1-1",
+        "wedge-2--1",
+        "wedge-2-1",
+        "film"
+      ],
+      "parts": {
+        "base": {
+          "file": "110-compact/base.step",
+          "sha256": "db612ea6e9be238417510fddea3e923892346a9c4e3056eac94efb3bac36781c",
+          "volume_mm3": 40557.54602865463
+        },
+        "lid": {
+          "file": "110-compact/lid.step",
+          "sha256": "1d789849c67ed47b7942f9003037edd7a5e16bc94d28f5a24fa875910e88c384",
+          "volume_mm3": 4872.962399999997
+        },
+        "wedge-0--1": {
+          "file": "110-compact/wedge-0--1.step",
+          "sha256": "5cca5aeead3e43d9962ff23a6af13197bd8bde16c82eea0868d2616de5bc47f1",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-0-1": {
+          "file": "110-compact/wedge-0-1.step",
+          "sha256": "cf4e5a710c9daf10a3aa5a114202e2060375f598c3d8944026d3e22361de168b",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1--1": {
+          "file": "110-compact/wedge-1--1.step",
+          "sha256": "daf3514238868ecb0fcfc43142e7af8f667cb91894bb3631f123e0255c5fbf30",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-1-1": {
+          "file": "110-compact/wedge-1-1.step",
+          "sha256": "031cabde06a4850989646e6a4aae96a4efe45e8d63a57e4f0b30fd210f31d0f4",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2--1": {
+          "file": "110-compact/wedge-2--1.step",
+          "sha256": "fa25ad439ef34efd017dea919b036f96ea4931e086de953ede4a19f51dbf4e5d",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-2-1": {
+          "file": "110-compact/wedge-2-1.step",
+          "sha256": "cff5fbfece7b2ee6910afddf2dd26a96d62778f2363e818f205549dd253109a6",
+          "volume_mm3": 196.56000000000006
+        },
+        "sleeve": {
+          "file": "110-compact/sleeve.step",
+          "sha256": "b4defbbfcba401e7c2ed62b48bd3995b8358740e3a1415f16e377bacb39f2dc3",
+          "volume_mm3": 17495.602723915017
+        },
+        "shoe": {
+          "file": "110-compact/shoe.step",
+          "sha256": "87e876db6781488c9af3b1416f0bf4e853ea055d2db8e1a345857365f9ec162f",
+          "volume_mm3": 479.16908494538006
+        },
+        "screw": {
+          "file": "110-compact/screw.step",
+          "sha256": "f4579c7246c0d3be6e90cc36d6e55d21e83e1c60edb5c201a719add0477d7b32",
+          "volume_mm3": 2957.4537200055643
+        },
+        "receiver": {
+          "file": "110-compact/receiver.step",
+          "sha256": "951ca8810b0025b60f750153f12155e89bc8a00a0d61031add9d692b48e3e5e0",
+          "volume_mm3": 10737.440000000002
+        },
+        "dock-wedge": {
+          "file": "110-compact/dock-wedge.step",
+          "sha256": "6716b12838e9a4f7ae96c3eb0d60ce7614627e243dd75d9e0e87e524ccf4e678",
+          "volume_mm3": 1855.9999999999995
+        },
+        "film": {
+          "file": "110-compact/film.step",
+          "sha256": "b7cc2a6059f28ab6160a90ab0d48a6fb89b607a24f99820f88e186033e7032a9",
+          "volume_mm3": 530.3999999999999
+        }
+      },
+      "withdrawal_mm": 160
+    },
+    {
+      "name": "135-full",
+      "config": {
+        "format": "135",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
+      "frame_travel_mm": 190.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
+      "aperture_mm": [
+        35.6,
+        23.6
+      ],
+      "moving": [
+        "base",
+        "lid",
+        "wedge-0--1",
+        "wedge-0-1",
+        "wedge-1--1",
+        "wedge-1-1",
+        "wedge-2--1",
+        "wedge-2-1",
+        "film"
+      ],
+      "parts": {
+        "base": {
+          "file": "135-full/base.step",
+          "sha256": "8fb329a06dcedc5770d0d5e0f64fba241782c98b9070aca5c5f0f0497b1fb299",
+          "volume_mm3": 56935.500023855144
+        },
+        "lid": {
+          "file": "135-full/lid.step",
+          "sha256": "ecd9ecff9a7a29296b2296ca3638becd2bb712f0312797ccf128590535bdf704",
+          "volume_mm3": 5833.338399999999
+        },
+        "wedge-0--1": {
+          "file": "135-full/wedge-0--1.step",
+          "sha256": "54fdc9744ae80e51400a2a3ec0e85fdbd339d6b8f409eec0c25e289fee14ca9e",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-0-1": {
+          "file": "135-full/wedge-0-1.step",
+          "sha256": "9a87df58f8ca1551fbacb508222567e1fe52247ce09400f5d70080afc568bff9",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1--1": {
+          "file": "135-full/wedge-1--1.step",
+          "sha256": "a904f87543fd78eccef27edb322670bfd11d02be16c97b3be6fde1cbdbf2d1a9",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1-1": {
+          "file": "135-full/wedge-1-1.step",
+          "sha256": "72d376abb193fa0e4ba260583cfebfbb5a12d49510f2a367c3e4bfe0e6610e3d",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2--1": {
+          "file": "135-full/wedge-2--1.step",
+          "sha256": "fc9fa615b3294c34aff6004c164c751d9d44ba76b240a9a1afbb326c72adb56d",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2-1": {
+          "file": "135-full/wedge-2-1.step",
+          "sha256": "f1e833b18a7712373171480a7cbe01669ffc234e6aa9d73a964658a5988a7e9f",
+          "volume_mm3": 196.56000000000006
+        },
+        "sleeve": {
+          "file": "135-full/sleeve.step",
+          "sha256": "a1442c1ab35186650d7638cfc25151f2de3a9bca92e9d56006b216ef07d20a50",
+          "volume_mm3": 16485.995255150337
+        },
+        "shoe": {
+          "file": "135-full/shoe.step",
+          "sha256": "96a009b60006b80c21c0d15ac1e7ddf98a870b06f81828bb01aab36f5947cc1e",
+          "volume_mm3": 479.16908494538006
+        },
+        "screw": {
+          "file": "135-full/screw.step",
+          "sha256": "a28d419eb290a61d360b89bdef88498dd0d79e23b35feedfca327774ef969d12",
+          "volume_mm3": 2957.4537200055643
+        },
+        "receiver": {
+          "file": "135-full/receiver.step",
+          "sha256": "e672129251d2426520160638934ccb581eea365c6c1f468a42fa76bdbfca4b52",
+          "volume_mm3": 10737.440000000002
+        },
+        "dock-wedge": {
+          "file": "135-full/dock-wedge.step",
+          "sha256": "eadeca302ebc717c0d629dfcc7c69e53ee760f8f0047c8d37d9aee620e8618f7",
+          "volume_mm3": 1855.9999999999995
+        },
+        "film": {
+          "file": "135-full/film.step",
+          "sha256": "cda8eefd5bd02ace8b9b0583e6229a597d4a5aaddfb1728a3bcca69fe5ffa247",
+          "volume_mm3": 2005.4999999999993
+        }
+      },
+      "withdrawal_mm": 160
+    },
+    {
+      "name": "half-full",
+      "config": {
+        "format": "half",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
+      "frame_travel_mm": 209.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
+      "aperture_mm": [
+        17.6,
+        23.6
+      ],
+      "moving": [
+        "base",
+        "lid",
+        "wedge-0--1",
+        "wedge-0-1",
+        "wedge-1--1",
+        "wedge-1-1",
+        "wedge-2--1",
+        "wedge-2-1",
+        "film"
+      ],
+      "parts": {
+        "base": {
+          "file": "half-full/base.step",
+          "sha256": "6a5ab12e266def6d5f5e6897dbd00f4569c0dbadab1955bb85c594c364f128e6",
+          "volume_mm3": 59825.616043643764
+        },
+        "lid": {
+          "file": "half-full/lid.step",
+          "sha256": "f8fb01ea2ba3d4e69816c6102ca53965187e8b5ffecdb77652405ec24433cc39",
+          "volume_mm3": 6247.372400000005
+        },
+        "wedge-0--1": {
+          "file": "half-full/wedge-0--1.step",
+          "sha256": "8894aa6f4ebd9b2738e65747a1c89d4051ef0a7fed3a11c3e147ed97a64cce1b",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-0-1": {
+          "file": "half-full/wedge-0-1.step",
+          "sha256": "39a70a5c595a7f6b71718b91e4be3804d072dcd1fe1e736b8f35d646e18f92b4",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1--1": {
+          "file": "half-full/wedge-1--1.step",
+          "sha256": "3c252a04171c255cd083f52d634c603ded4ba66e090c7ac7bad3ccc533f6e43a",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1-1": {
+          "file": "half-full/wedge-1-1.step",
+          "sha256": "d3d807ba776a93ff21d6d334c58f37d40bbdc3a71721e7af01fa7ae2b4b904b6",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2--1": {
+          "file": "half-full/wedge-2--1.step",
+          "sha256": "cb5607b40668749bb3c1b61311c8cdd0f47c927bbc85e0797ece1405300cd1e7",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2-1": {
+          "file": "half-full/wedge-2-1.step",
+          "sha256": "f72afc42a8f2bd9972d00df1c7866133029629f8e278f7380d4f4938fe596956",
+          "volume_mm3": 196.56000000000006
+        },
+        "sleeve": {
+          "file": "half-full/sleeve.step",
+          "sha256": "246208812a008015d07eb6c38be610ce328ae36b472b6ccef0d6392404b64456",
+          "volume_mm3": 17165.67525515033
+        },
+        "shoe": {
+          "file": "half-full/shoe.step",
+          "sha256": "bf919405c94834ed73aaf6f6b501c5dc5e083e3e32ac4f94f70c7755b45356a5",
+          "volume_mm3": 479.16908494538006
+        },
+        "screw": {
+          "file": "half-full/screw.step",
+          "sha256": "77aea61e4076cb9ac439c68e70084264321300af80ff5742b25da302704822fa",
+          "volume_mm3": 2957.4537200055643
+        },
+        "receiver": {
+          "file": "half-full/receiver.step",
+          "sha256": "de263d770141b792cf59eca20a61d13c0905c8a7f5318c0b5c8c08ac9a765414",
+          "volume_mm3": 10737.440000000002
+        },
+        "dock-wedge": {
+          "file": "half-full/dock-wedge.step",
+          "sha256": "66324934d93b37b0157edb1f95df625b6ad518169214ca512d185ed56d967475",
+          "volume_mm3": 1855.9999999999995
+        },
+        "film": {
+          "file": "half-full/film.step",
+          "sha256": "41cb93820052dba341c3f065e9522b935a25ba34da8175063b6d593a3723684e",
+          "volume_mm3": 1611.7499999999995
+        }
+      },
+      "withdrawal_mm": 160
+    },
+    {
+      "name": "aps-full",
+      "config": {
+        "format": "aps",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
+      "frame_travel_mm": 160.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
+      "aperture_mm": [
+        29.8,
+        16.3
+      ],
+      "moving": [
+        "base",
+        "lid",
+        "wedge-0--1",
+        "wedge-0-1",
+        "wedge-1--1",
+        "wedge-1-1",
+        "wedge-2--1",
+        "wedge-2-1",
+        "film"
+      ],
+      "parts": {
+        "base": {
+          "file": "aps-full/base.step",
+          "sha256": "abb4ec9646e05d622e976aaf0e6ac5deef8eae50d6477ee92b82ab522707f06e",
+          "volume_mm3": 50617.620025199336
+        },
+        "lid": {
+          "file": "aps-full/lid.step",
+          "sha256": "025eca23b4863e0f7d6a92626e0cb17417164b22de9517476ed506453fed6b9e",
+          "volume_mm3": 5891.753399999999
+        },
+        "wedge-0--1": {
+          "file": "aps-full/wedge-0--1.step",
+          "sha256": "45b0a60ec86a2e5eee3249463b3bd6ce757414a2b95a4a19e843b29d6049f2a0",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-0-1": {
+          "file": "aps-full/wedge-0-1.step",
+          "sha256": "38db3c30b304608227fe9fd299d02295eeb7bb2783db2876843dad448df56394",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-1--1": {
+          "file": "aps-full/wedge-1--1.step",
+          "sha256": "7d91f6b807a204940df5d185d7bfd997a8b3d4bbe13021a21fba24b48ed993a9",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-1-1": {
+          "file": "aps-full/wedge-1-1.step",
+          "sha256": "76830814ae90bc0766a093a27b4507ea01a072263b0afa5fc30c042732d7fed6",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-2--1": {
+          "file": "aps-full/wedge-2--1.step",
+          "sha256": "ac21a543ceb6546d719065ed9626e823d6a13a8e294e7840ee58b8d5e6fb74e6",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-2-1": {
+          "file": "aps-full/wedge-2-1.step",
+          "sha256": "44a2c6e6fc0e1d3470b12f47e2d145458a9bbc2ae57e44958599ce4b454500f0",
+          "volume_mm3": 196.56000000000012
+        },
+        "sleeve": {
+          "file": "aps-full/sleeve.step",
+          "sha256": "e0e211909753b8a4630c554c98c51c4d86c79bb70077a8a7a60b0519576df873",
+          "volume_mm3": 17053.071579171992
+        },
+        "shoe": {
+          "file": "aps-full/shoe.step",
+          "sha256": "2b4e4a803047e825344858aece65e8049db214393b2dd3182cd8b93bd5eb9057",
+          "volume_mm3": 479.16908494538006
+        },
+        "screw": {
+          "file": "aps-full/screw.step",
+          "sha256": "93f0e47a75de1cb79c9e91c18afbe37f085a112e3393931b745a6042e38e18c6",
+          "volume_mm3": 2957.4537200055643
+        },
+        "receiver": {
+          "file": "aps-full/receiver.step",
+          "sha256": "b8fd2cf662d47416115c41f74a2b9b1d5fe3a5984fdcd994b0710b8c72520546",
+          "volume_mm3": 10737.440000000002
+        },
+        "dock-wedge": {
+          "file": "aps-full/dock-wedge.step",
+          "sha256": "e32cc0df9f6bc2a2285667718af6296a311c2c0a37ae53814c77a897ac3ebb77",
+          "volume_mm3": 1855.9999999999995
+        },
+        "film": {
+          "file": "aps-full/film.step",
+          "sha256": "13d187828da942c91c8fa0ba487ca730edaf8f5e6329464ad2e36db2176e8aa9",
+          "volume_mm3": 1159.9199999999996
+        }
+      },
+      "withdrawal_mm": 160
+    },
+    {
+      "name": "110-full",
+      "config": {
+        "format": "110",
+        "film_thickness": 0.15,
+        "frame_pitch": null,
+        "frame_count": null,
+        "image_width": null,
+        "film_tail_frames": 2
+      },
+      "translation_mm": [
+        0.0,
+        -42.0,
+        -2.6000000000000005
+      ],
+      "placement_status": "receiver rail seated on lower support; optical centre from provisional head aperture",
+      "frame_travel_mm": 100.0,
+      "screw_rotation_radius_mm": 10.5,
+      "screw_lift_mm": 4.8,
+      "aperture_mm": [
+        16.6,
+        12.6
+      ],
+      "moving": [
+        "base",
+        "lid",
+        "wedge-0--1",
+        "wedge-0-1",
+        "wedge-1--1",
+        "wedge-1-1",
+        "wedge-2--1",
+        "wedge-2-1",
+        "film"
+      ],
+      "parts": {
+        "base": {
+          "file": "110-full/base.step",
+          "sha256": "535ccfbc15d13dfa7ce67ae2977d4ed8940064ab5b5c5487426f3058dd1be6e5",
+          "volume_mm3": 35669.340025111465
+        },
+        "lid": {
+          "file": "110-full/lid.step",
+          "sha256": "c8ed751782484586d050da9118af845df97b2ae8865928653fd98370c7bf3403",
+          "volume_mm3": 4149.088400000001
+        },
+        "wedge-0--1": {
+          "file": "110-full/wedge-0--1.step",
+          "sha256": "c38403e88ba874dc4ecb25cc7082e7b065cad86168b00c6dcf56c365161478b2",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-0-1": {
+          "file": "110-full/wedge-0-1.step",
+          "sha256": "d59e9fe490f5626c46298f28e4ae06ce1339fc7c758d0b0dc3eeb1a85428f04e",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-1--1": {
+          "file": "110-full/wedge-1--1.step",
+          "sha256": "1bb5fa2efd9edf2599a47f118f9e86a9aa1eaaaa2e8c9f82e16e318beeb288cc",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-1-1": {
+          "file": "110-full/wedge-1-1.step",
+          "sha256": "75dfc0b4098f87c9180edb120b21e1125178c3adb63a99d0217a1d6fc129c890",
+          "volume_mm3": 196.56000000000006
+        },
+        "wedge-2--1": {
+          "file": "110-full/wedge-2--1.step",
+          "sha256": "2890b0771f00c75f9691ce2940c2fcb74deb2e2691fe8119f02e2c2e5c83e112",
+          "volume_mm3": 196.56000000000012
+        },
+        "wedge-2-1": {
+          "file": "110-full/wedge-2-1.step",
+          "sha256": "19436a2881c1ccb6dff40636dcc93d8f305047e0af719a7dbb2fcfa90539c462",
+          "volume_mm3": 196.56000000000006
+        },
+        "sleeve": {
+          "file": "110-full/sleeve.step",
+          "sha256": "60d5f88cc65f2a6010663c6d92f53b8ead21d30caf1f55d19b2e396ab9953fcd",
+          "volume_mm3": 17495.602723915017
+        },
+        "shoe": {
+          "file": "110-full/shoe.step",
+          "sha256": "54337bb3d2cacdd231f25517d24dcff62aa5531882fafd4a3c959250c90ec39b",
+          "volume_mm3": 479.16908494538006
+        },
+        "screw": {
+          "file": "110-full/screw.step",
+          "sha256": "9b0daee61f4d641336285fcd9ca6a5a2c89421544baa5ad1c9c5ebf13ee3dd01",
+          "volume_mm3": 2957.4537200055643
+        },
+        "receiver": {
+          "file": "110-full/receiver.step",
+          "sha256": "7c35cfd29904bcb033ff9a99c4be562edb191168c03082c3437daa4c33285fa2",
+          "volume_mm3": 10737.440000000002
+        },
+        "dock-wedge": {
+          "file": "110-full/dock-wedge.step",
+          "sha256": "044fe902e37966210c34759d28493dac8d0764988bb78a3ab826d452787ee268",
+          "volume_mm3": 1855.9999999999995
+        },
+        "film": {
+          "file": "110-full/film.step",
+          "sha256": "11e7fbc7d536f03b60980988f60dbe0cbc989f8b6370ea857b5499c7b614a0c1",
+          "volume_mm3": 482.39999999999986
+        }
+      },
+      "withdrawal_mm": 160
+    }
+  ],
+  "limitations": [
+    "Head optical aperture/position, screw envelopes and outer housing are provisional.",
+    "Film plane, receiver seating/retention, physical insertion stop and spring travel/force are unmeasured.",
+    "Straight optical clearance is not an illumination, light-leak or photographic registration test.",
+    "Printed fit, thread function, film retention, friction, warm creep and repeatability require physical trials."
+  ],
+  "sources": {
+    "cad/durst_c35_interface/__init__.py": "bf77f8ccaa75b5e4f9271b2d698899178d1ab52d672232db3f398994c14a8530",
+    "cad/durst_c35_interface/export.py": "a907498ac359e2fca677ce9a3132b2499578abbf47d0378dd680ce252e8e57d7",
+    "cad/durst_c35_interface/model.py": "9e4d696fef0b367285efdd15491b11e4044699e89e40071006a6f2a19c19c134",
+    "cad/durst_c35_interface/render.py": "51b6af2dd387cbaa4b144808d0f127dfa46853d40b2571198e8c920bdd3abcb6",
+    "cad/durst_c35_interface/verify_freecad.py": "734ebc34c5231847d985d241d3ce7c2ea3afd7b02364d7dc568617a55850f8f2",
+    "cad/negative_carrier_b2/__init__.py": "22ebbdc17a88c3d8ae67b03980aa2315a1ec78ed9e63c90a6996b3b3a0bfa465",
+    "cad/negative_carrier_b2/export.py": "346166f367811e595c63eaf962a77232eac377a941111d5e64cd6373706fd851",
+    "cad/negative_carrier_b2/forces.py": "f2c8c6bb0b1063c253ba537cbba75609e7eb76c98ec61421bbd96e6ea470f163",
+    "cad/negative_carrier_b2/interface.py": "077b0de1625119b2fbaad3f5999c5c252c0d66f61abff487caf385eb76cc5067",
+    "cad/negative_carrier_b2/model.py": "77d9cbb63b9c2ca5a9fed6a2c7bedbe8b7a8646632c654e11b59d132a8a5bcd6",
+    "cad/negative_carrier_b2/suite.py": "d2b64c79c0ff0294e6c1985ce6e0f70ae75d0a7f6955276626727f8188e90617",
+    "cad/negative_carrier_b2/verify_freecad.py": "09898315b94534e6248ee4f187de269337c0eb92bb096a8b81a68d0c86b106a4",
+    "cad/negative_carrier_b2/verify_interface.py": "09da3c25390f1c77597c53dcbc09a81d6c42b81044b7e0f2dafd3da75ee6ecb8",
+    "cad/negative_carrier_b2/workflow.py": "e190d5c23f457e5de8835de49a02e703279a83da6b2cfb8e107173204b435bec"
+  },
+  "measurement_sha256": "4c1b9bf85eaafc12f1064d48c74d375fed26a259e9a7a0124a7d07aaef20cf54"
+}

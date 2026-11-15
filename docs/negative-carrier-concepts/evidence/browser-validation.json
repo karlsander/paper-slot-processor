@@ -1,0 +1,12 @@
+{
+  "passed": true,
+  "concept_format_combinations": 12,
+  "viewports": [
+    850,
+    360,
+    320
+  ],
+  "negative_control_110_mm2": 169,
+  "geometry_motion_checked": true,
+  "console_errors": []
+}
