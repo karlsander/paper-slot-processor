@@ -2,6 +2,8 @@
 
 **For the first unheated prototype, use [v1.8: two reusable baths in one shared base](docs/v1.8.md).**
 
+For the **102 mm Fuji roll-paper enlarger holder**, with borderless 16:9 / 4:3 end masks and four covers for five exposure bands, see [enlarger/README.md](enlarger/README.md). Its parts fit the A1 mini and use this repository's print profile.
+
 The [fluid/thermal study and PETG print audit](docs/processor-physics.md) cover actual OpenFOAM simulations and A1 mini slicing with both 0.2 and 0.4 mm nozzles.
 The complete unheated set now has a [native build123d workflow](docs/native-processor.md),
 with STEP parts, oriented STL plates, FreeCAD checks and video generation.
