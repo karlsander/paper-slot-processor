@@ -1,0 +1,131 @@
+{
+  "checked": "2026-10-20",
+  "geometry_checks": 83,
+  "python_tests": 15,
+  "frontend_tests": 2,
+  "toolchain": {
+    "openscad": "2026.06.12, Manifold",
+    "bambu_studio": "2.7.1"
+  },
+  "presets": {
+    "16:9": {
+      "plates": 22,
+      "all_slicer_warnings": [],
+      "complete_set": {
+        "total_estimated_time": "32h 9m",
+        "estimated_filament_g": 808.44,
+        "estimated_filament_cm3": 636.57731
+      },
+      "vessel_extents_mm": [
+        147.20000000149014,
+        158.08272059672987,
+        160.43203622033994
+      ]
+    },
+    "2:1": {
+      "plates": 22,
+      "all_slicer_warnings": [],
+      "complete_set": {
+        "total_estimated_time": "34h 7m",
+        "estimated_filament_g": 858.07,
+        "estimated_filament_cm3": 675.66445
+      },
+      "vessel_extents_mm": [
+        147.20000000149014,
+        173.88512959476668,
+        176.68200999375088
+      ]
+    }
+  },
+  "support_checks": [
+    {
+      "path": "build/v2-final/vessel_a/vessel_a.gcode",
+      "aspect": 1.7777777777777777,
+      "chamber": 0,
+      "samples": 9900522,
+      "support_samples": 792204,
+      "deposited_bounds_mm": [
+        [
+          16.61,
+          4.7500443906659555,
+          0.2
+        ],
+        [
+          163.77,
+          168.787,
+          160.2
+        ]
+      ],
+      "wet_cavity_support_samples": 0,
+      "sampling_mm": 0.25,
+      "interior_margin_mm": 0.25
+    },
+    {
+      "path": "build/v2-final/vessel_b/vessel_b.gcode",
+      "aspect": 1.7777777777777777,
+      "chamber": 1,
+      "samples": 9934792,
+      "support_samples": 822725,
+      "deposited_bounds_mm": [
+        [
+          16.219231568090006,
+          3.9467090863667824,
+          0.2
+        ],
+        [
+          163.39,
+          168.787,
+          160.2
+        ]
+      ],
+      "wet_cavity_support_samples": 0,
+      "sampling_mm": 0.25,
+      "interior_margin_mm": 0.25
+    },
+    {
+      "path": "build/v2-wide-final/vessel_a/vessel_a.gcode",
+      "aspect": 2,
+      "chamber": 0,
+      "samples": 10964389,
+      "support_samples": 891969,
+      "deposited_bounds_mm": [
+        [
+          16.609793669387898,
+          1.46064423845365,
+          0.2
+        ],
+        [
+          163.77,
+          176.688,
+          176.4
+        ]
+      ],
+      "wet_cavity_support_samples": 0,
+      "sampling_mm": 0.25,
+      "interior_margin_mm": 0.25
+    },
+    {
+      "path": "build/v2-wide-final/vessel_b/vessel_b.gcode",
+      "aspect": 2,
+      "chamber": 1,
+      "samples": 10983690,
+      "support_samples": 909001,
+      "deposited_bounds_mm": [
+        [
+          16.232,
+          1.9612198365783398,
+          0.2
+        ],
+        [
+          163.39,
+          176.688,
+          176.4
+        ]
+      ],
+      "wet_cavity_support_samples": 0,
+      "sampling_mm": 0.25,
+      "interior_margin_mm": 0.25
+    }
+  ],
+  "physical_validation": "Not performed; see requirements.json and README.md."
+}

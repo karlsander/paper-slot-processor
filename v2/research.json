@@ -1,0 +1,42 @@
+{
+  "checked": "2026-10-20",
+  "roll": {
+    "width_mm": 102,
+    "source": "https://www.fujifilm.gr/src/Fujifilm/Downloads/Crystal_Archive_Paper_Data_Sheet_2015.pdf",
+    "evidence": "Fujifilm lists 10.2 cm / 4 inch rolls among several widths; user confirmed 10.2 cm, not 12.7 cm. It is not the only standard width."
+  },
+  "heater_candidates": [
+    {
+      "name": "INVITAL 5 W",
+      "watts": 5,
+      "size_mm": [
+        140,
+        150
+      ],
+      "url": "https://www.invital.de/invital-heizmatte-14-x-15-cm-5-w",
+      "verification": "Manufacturer-brand listing read in browser. Manual power dial; support limits use to glass terrariums. Printed-vessel compatibility not established.",
+      "proposed_use": "Dimensional reference for a replaceable per-chamber cassette; not an approved heater selection."
+    }
+  ],
+  "rejected_options": [],
+  "remaining": [
+    "Verify heater suitability for this mounting and printed vessel, including its supplied instructions.",
+    "Measure mat thickness and cable connection before printing fittings.",
+    "Physical water tightness, wet-paper movement, contact pressure, filling and temperature tests remain outstanding."
+  ],
+  "thermostat": "Omitted at user request. Separate manual power dials and measured equilibrium temperatures; no permanent probe.",
+  "chemistry": {
+    "name": "ADOX RA-4 2.5 litre kit",
+    "source": "https://www.fotoimpex.de/shop/fotochemie/adox-ra-4-kit-entwickler-und-bleichfixierbad-monokonzentrate-zum-ansatz-von-2500-ml.html",
+    "manufacturer": "https://www.adox.de/colour-paper-developing-kit-ra-4/",
+    "capacity_m2_per_litre": 2,
+    "total_kit_capacity_m2": 5,
+    "dilution_concentrate_water": [
+      1,
+      4
+    ],
+    "nominal_process": "35 C, 45 seconds developer and bleachfix; manufacturer specifies developer 35 +/- 0.3 C. User explicitly chooses their previously tested temperature/time experiment instead.",
+    "planning": "325 ml per bath / 102 x 208 mm whole cut = 30 whole prints rounded down. Do not add A and B capacities; every print passes both baths. Test strips count.",
+    "storage": "Manufacturer: opened concentrate within two months; working solution up to one month in completely filled tightly closed bottles. Open processor storage is not covered by this statement."
+  }
+}

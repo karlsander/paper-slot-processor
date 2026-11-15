@@ -3,6 +3,8 @@
 
 # Python
 .venv/
+.venv-cad/
+.venv-cq/
 __pycache__/
 *.pyc
 *.pyo

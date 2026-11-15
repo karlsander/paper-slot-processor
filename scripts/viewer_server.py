@@ -23,42 +23,10 @@ import webbrowser
 import build_openscad as build
 
 ROOT = Path(__file__).resolve().parents[1]
-MODELS = {
-    "tank": ("Tank", "paper_slot_processor.scad", []),
-    "inlet_caps": ("Inlet caps", "paper_slot_processor_inlet_caps.scad", []),
-    "slit_caps": ("Slot covers", "paper_slot_processor_slit_caps.scad", []),
-    "fit": ("Fit section", "paper_slot_processor.scad", ['view="fit"']),
-}
-# Defaults are evaluated from parameters.scad, rather than copied into the UI.
-FIELDS = [
-    ("paper_width", "Paper width", "Paper", "number", 40, 170, 0.1, "mm"),
-    ("paper_height", "Paper height", "Paper", "number", 40, 180, 0.1, "mm"),
-    ("paper_thickness", "Paper thickness", "Paper", "number", 0.1, 1, 0.05, "mm"),
-    ("paper_face_clearance", "Slit clearance per face", "Paper", "number", 0.05, 1, 0.05, "mm"),
-    ("paper_grip_height", "Grip above rim", "Paper", "number", 6, 25, 1, "mm"),
-    ("chamber_count", "Chambers", "Tank", "integer", 1, 2, 1, ""),
-    ("slot_gap", "Chamber depth", "Tank", "number", 6, 24, 0.5, "mm"),
-    ("side_clearance", "Paper side clearance", "Tank", "number", 0, 15, 0.5, "mm"),
-    ("bottom_clearance", "Space below paper", "Tank", "number", 3, 20, 0.5, "mm"),
-    ("inlets_enabled", "Fill inlets", "Tank", "boolean", 0, 1, 1, ""),
-    ("inlet_opening_diameter", "Inlet diameter", "Tank", "number", 24, 60, 1, "mm"),
-    ("inlet_bore_diameter", "Inlet bore", "Tank", "number", 10, 20, 0.5, "mm"),
-    ("inlet_sight_depth", "Target visible pool", "Tank", "number", 0.5, 2.5, 0.1, "mm"),
-    ("inlet_funnel_height", "Funnel flare height", "Advanced", "number", 12, 40, 0.5, "mm"),
-    ("wall_thickness", "Wall thickness", "Advanced", "number", 2, 8, 0.2, "mm"),
-    ("floor_thickness", "Floor thickness", "Advanced", "number", 2, 10, 0.2, "mm"),
-    ("entry_depth", "Drip taper depth", "Advanced", "number", 0.8, 3, 0.1, "mm"),
-    ("fill_headroom", "Fill headroom", "Advanced", "number", 1.5, 6, 0.5, "mm"),
-    ("cap_clearance", "Cap clearance", "Advanced", "number", 0.15, 0.7, 0.05, "mm"),
-    ("base_extension", "Base extension", "Advanced", "number", 20, 70, 1, "mm"),
-    ("base_enabled", "Base", "Advanced", "boolean", 0, 1, 1, ""),
-    ("rib_enabled", "Reinforcement ribs", "Advanced", "boolean", 0, 1, 1, ""),
-]
-SCHEMA = [dict(zip(("id", "label", "group", "type", "min", "max", "step", "unit"), f)) for f in FIELDS]
-META = ["working_volume_ml", "mix_first_ml", "mix_second_ml", "paper_slit_width",
-        "paper_top_z - loaded_fill_z", "max_paper_width", "max_paper_height", "indicator_depth", "indicator_volume_ml"]
-META_KEYS = ["bath_ml", "mix_first_ml", "mix_second_ml", "slit_mm", "dry_border_mm", "max_width_mm", "max_height_mm", "indicator_depth_mm", "indicator_ml"]
-ARTIFACTS = {"model.stl", "liquid.stl", "plate.3mf", "settings.json"}
+from viewer_v2 import (MODELS, FIELDS, SCHEMA, META, ARTIFACTS, VIEWS,
+                       PARTS, STANDARD_PARTS, QUANTITIES, preset_overrides)
+import zipfile
+
 
 
 class Cancelled(Exception):
@@ -83,7 +51,7 @@ def validate_parameters(values, defaults):
 
 
 def source_snapshot():
-    paths = [*ROOT.glob("*.scad"), *ROOT.glob("lib/*.scad")]
+    paths = [*ROOT.glob("v2/*.scad")]
     return {str(p.relative_to(ROOT)): p.read_bytes() for p in paths}
 
 
@@ -136,9 +104,9 @@ def write_sources(folder, sources):
 
 def metadata(folder, parameters, runner):
     path = folder / "viewer_metadata.scad"
-    path.write_text("include <lib/parameters.scad>\nvalidate_parameters() {\n" +
+    path.write_text("include <v2/parameters.scad>\nvalid() {\n" +
                     "echo(viewer_values=[" + ",".join(f["id"] for f in SCHEMA) + "]);\n" +
-                    "echo(viewer_meta=[" + ",".join(META) + "]); cube(0.1); }\n")
+                    "echo(viewer_meta=[" + ",".join(META.values()) + "]); cube(0.1); }\n")
     defines = [arg for name, value in parameters.items() for arg in ("-D", f"{name}={json.dumps(value)}")]
     result = runner([build.OPENSCAD, "--hardwarnings", *defines, "-o", str(folder / "metadata.csg"), str(path)], cwd=folder)
     def read(name):
@@ -146,7 +114,19 @@ def metadata(folder, parameters, runner):
         if not match:
             raise RuntimeError("OpenSCAD did not return the model parameters.")
         return json.loads(match[1])
-    return dict(zip((f["id"] for f in SCHEMA), read("viewer_values"))), dict(zip(META_KEYS, read("viewer_meta")))
+    return dict(zip((f["id"] for f in SCHEMA), read("viewer_values"))), dict(zip(META, read("viewer_meta")))
+
+
+def aggregate_stats(reports):
+    seconds = 0
+    for report in reports:
+        text = report["stats"]["total_estimated_time"]
+        seconds += report["quantity"] * sum(float(n)*{'d':86400,'h':3600,'m':60,'s':1}[unit]
+                                           for n,unit in re.findall(r"([\d.]+)\s*([dhms])", text))
+    hours, minutes = divmod(round(seconds / 60),60)
+    return {"total_estimated_time":f"{hours}h {minutes}m",
+            **{key:sum(r["quantity"]*r["stats"][key] for r in reports)
+               for key in ["estimated_filament_g","estimated_filament_cm3"]}}
 
 
 class Manager:
@@ -177,7 +157,7 @@ class Manager:
     def submit(self, payload):
         if not isinstance(payload, dict) or set(payload) - {"model", "parameters"}:
             raise ValueError("Expected a model and parameters.")
-        model = payload.get("model", "tank")
+        model = payload.get("model", "assembly")
         if not isinstance(model, str) or model not in MODELS:
             raise ValueError("Choose a supported print plate.")
         parameters = validate_parameters(payload.get("parameters", {}), self.defaults)
@@ -242,51 +222,122 @@ class Manager:
                         self.jobs.pop(ident)
                         shutil.rmtree(self.output / ident, ignore_errors=True)
 
+    def render(self, source, parameters, target, runner):
+        defines = [arg for k,v in parameters.items() for arg in ("-D", f"{k}={json.dumps(v)}")]
+        runner([build.OPENSCAD, "--backend", "Manifold", "--hardwarnings", "--export-format", "asciistl",
+                *defines, "-o", str(target), str(source)])
+        mesh = build.validate_mesh(target)
+        if not mesh["is_watertight"] or not mesh["is_winding_consistent"] or mesh["degenerate_faces"] or mesh["duplicate_faces"]:
+            raise RuntimeError("The generated mesh did not pass validation. Adjust the parameters.")
+        return mesh
+
+    def slice_plate(self, job, name, source, runner):
+        # Shared immutable plate results avoid reslicing all parts when switching views.
+        overrides = preset_overrides(name)
+        key = source_key(job["sources"], job["parameters"], name, self.presets | {"overrides": overrides})[:24]
+        folder = self.output / "plates" / key
+        report_path = folder / "report.json"
+        if report_path.is_file():
+            report = json.loads(report_path.read_text())
+            if all((folder / f"plate.{ext}").is_file() for ext in ("stl", "3mf")):
+                return folder, report
+        folder.mkdir(parents=True, exist_ok=True)
+        label, part, values, count = PARTS[name]
+        stl = folder / "plate.stl"
+        mesh = self.render(source, job["parameters"] | values | {"part": part}, stl, runner)
+        if mesh["body_count"] != count or any(a>b+0.001 for a,b in zip(mesh["extents_mm"], [174,174,178])):
+            raise RuntimeError(f"{label} does not fit its reserved print volume.")
+        presets = {}
+        for kind, data in self.presets.items():
+            presets[kind] = folder / f"{kind}.json"
+            presets[kind].write_text(json.dumps(data | overrides if kind == "process" else data))
+        arrange = not name.startswith("vessel_")
+        sliced = build.bambu_slice(stl, folder, "plate", presets, run_command=runner, arrange=arrange)
+        result = build.read_json(sliced["bambu_result"])
+        warnings = [p["warning_message"] for p in result.get("sliced_plates", []) if p.get("warning_message")]
+        if result.get("return_code") != 0 or warnings:
+            raise RuntimeError(result.get("error_string") or "\n".join(warnings) or "Slicing failed.")
+        build.bambu_project(stl, folder, folder, "plate", presets, run_command=runner, arrange=arrange)
+        report = dict(name=name, label=label, quantity=QUANTITIES.get(name,1), mesh=mesh,
+                      stats=build.parse_gcode(sliced["gcode"])["stats"])
+        report_path.write_text(json.dumps(report, indent=2))
+        # A single worker owns this cache. Completed jobs keep their own downloads.
+        entries = sorted(folder.parent.iterdir(), key=lambda p: p.stat().st_mtime)
+        for old in entries[:-96]:
+            if old != folder: shutil.rmtree(old, ignore_errors=True)
+        return folder, report
+
     def build(self, job):
         folder = self.output / job["id"]
         sources = folder / "sources"
         write_sources(sources, job["sources"])
         runner = lambda cmd, cwd=folder: command(cmd, cwd, job["cancel"], folder / "build.log")
         self.update(job, state="rendering")
-        _, meta = metadata(sources, job["parameters"], runner)
-        defines = [f"{k}={json.dumps(v)}" for k, v in job["parameters"].items()] + MODELS[job["model"]][2]
-        source = sources / MODELS[job["model"]][1]
-        stl = folder / "model.stl"
-        # Match the build pipeline's ASCII STL precision around fine engraved edges.
-        runner([build.OPENSCAD, "--backend", "Manifold", "--hardwarnings", "--export-format", "asciistl",
-                *[arg for value in defines for arg in ("-D", value)], "-o", str(stl), str(source)])
-        mesh = build.validate_mesh(stl)
-        if not mesh["is_watertight"] or not mesh["is_winding_consistent"] or mesh["degenerate_faces"] or mesh["duplicate_faces"]:
-            raise RuntimeError("The generated mesh did not pass validation. Adjust the parameters.")
-        liquid = job["model"] in {"tank", "fit"}
+        _, meta = metadata(sources, job["parameters"] | MODELS[job["model"]][2], runner)
+        meta["adox_prints_per_fill"] = math.floor(meta["bath_ml"] / 1000 * 2 / (math.prod(meta["cut_mm"]) / 1e6))
+        meta["adox_recipe"] = all(job["parameters"][f"recipe_{bath}_water"] == 4*job["parameters"][f"recipe_{bath}_concentrate"] for bath in ("a","b"))
+        name = job["model"]
+        source = sources / MODELS[name][1]
+        params = job["parameters"] | MODELS[name][2]
+        assembly = name in {"assembly", "exploded"}
+        inspection = name in {"inspect_a", "inspect_b"}
+        layers = []
+        primary = params | ({"view_layer": "body"} if assembly or inspection else {})
+        mesh = self.render(source, primary, folder / "model.stl", runner)
+        solid_volume = mesh["volume_mm3"]
+        boxes = [mesh["bounds_mm"]]
+        if assembly or inspection:
+            details = self.render(source, params | {"view_layer":"details"}, folder / "details.stl", runner)
+            boxes.append(details["bounds_mm"])
+            layers.append({"file":"details.stl", "color":"#cfac63"})
+            solid_volume += details["volume_mm3"]
+            if name == "assembly":
+                hardware = self.render(source, params | {"view_layer":"hardware"}, folder / "hardware.stl", runner)
+                boxes.append(hardware["bounds_mm"])
+                layers.append({"file":"hardware.stl", "color":"#929b9d"})
+        liquid = name == "assembly" or inspection
         if liquid:
-            water_source = sources / "viewer_liquid.scad"
-            cut = "inlet_exit_z - 3" if job["model"] == "fit" else "0"
-            water_source.write_text("include <lib/parameters.scad>\ninclude <lib/geometry.scad>\ninclude <lib/tank.scad>\n" +
-                f"cut_z = {cut};\n" +
-                "translate([0,0,-cut_z]) intersection() {\n" +
-                "union() for (i=[0:chamber_count-1]) { chamber_void(i); inlet_void(i); }\n" +
-                "translate([0,-tank_front,cut_z]) cube([outer_width,outer_depth+tank_front+tank_back,working_fill_z-cut_z]); }\n")
-            runner([build.OPENSCAD, "--backend", "Manifold", "--hardwarnings", "--export-format", "asciistl",
-                *[arg for value in defines for arg in ("-D", value)], "-o", str(folder / "liquid.stl"), str(water_source)])
-        manifest = dict(model=job["model"], parameters=job["parameters"], model_info=meta, source_hash=job["key"], presets=self.presets)
+            for part, file in [("assembly_liquid" if assembly else "liquid", "liquid"),
+                               ("assembly_paper" if assembly else "paper", "paper"),
+                               ("assembly_loaded_liquid" if assembly else "loaded_liquid", "loaded")]:
+                self.render(source, params | {"part":part}, folder / f"{file}.stl", runner)
+        manifest = dict(model=name, parameters=job["parameters"], model_info=meta,
+                        source_hash=job["key"], presets=self.presets,
+                        quantity=QUANTITIES.get(name,1), prototype="Physical water, paper and thermal tests pending.")
         (folder / "settings.json").write_text(json.dumps(manifest, indent=2) + "\n")
-        self.update(job, mesh=mesh, liquid=liquid, model_info=meta, state="slicing")
+        preview_bounds = [max(b[1][i] for b in boxes)-min(b[0][i] for b in boxes) for i in range(3)]
+        self.update(job, mesh=mesh, preview_bounds_mm=preview_bounds, solid_volume_mm3=solid_volume, liquid=liquid, paper=liquid,
+                    layers=layers, model_info=meta, view_only=name in VIEWS,
+                    quantity=QUANTITIES.get(name,1), state="slicing")
         if self.slice_error:
             self.update(job, state="preview_only", error=self.slice_error)
             return
-        presets = {}
-        for key, data in self.presets.items():
-            presets[key] = folder / f"{key}.json"
-            presets[key].write_text(json.dumps(data))
-        sliced = build.bambu_slice(stl, folder, "plate", presets, run_command=runner)
-        stats = build.parse_gcode(sliced["gcode"])["stats"]
-        result = build.read_json(sliced["bambu_result"])
-        warnings = [p["warning_message"] for p in result.get("sliced_plates", []) if p.get("warning_message")]
-        if result.get("return_code") not in (0, None):
-            raise RuntimeError(result.get("error_string") or "Bambu Studio could not slice this plate.")
-        build.bambu_project(stl, folder, folder, "plate", presets, run_command=runner)
-        self.update(job, state="ready", stats=stats, warnings=warnings)
+        names = STANDARD_PARTS if assembly else (["vessel_b"] if name == "inspect_b" else ["vessel_a"] if inspection else [name])
+        reports = []
+        paths = []
+        for i, part in enumerate(names):
+            self.update(job, stage_detail=f"Slicing {PARTS[part][0]} · {i+1}/{len(names)}")
+            path, report = self.slice_plate(job, part, source, runner)
+            reports.append(report); paths.append(path)
+        if assembly:
+            stats = aggregate_stats(reports)
+            with zipfile.ZipFile(folder / "print-files.zip", "w", zipfile.ZIP_DEFLATED) as archive:
+                for path, report in zip(paths, reports):
+                    for ext in ("stl", "3mf"):
+                        archive.write(path / f"plate.{ext}", f"{report['name']}.{ext}")
+                archive.writestr("plates.json", json.dumps(reports, indent=2))
+                archive.write(folder / "settings.json", "settings.json")
+                archive.write(ROOT / "README.md", "README.md")
+                archive.write(ROOT / "docs/heating.md", "docs/heating.md")
+                archive.write(ROOT / "docs/v1.md", "docs/v1.md")
+        else:
+            stats = reports[0]["stats"]
+            shutil.copy2(paths[0] / "plate.3mf", folder / "plate.3mf")
+            # Inspection STL is upright; expose only the correctly oriented project.
+        manifest["plates"] = reports
+        (folder / "settings.json").write_text(json.dumps(manifest, indent=2) + "\n")
+        self.update(job, state="ready", stats=stats, stage_detail=None,
+                    plates=reports, bundle=assembly, project=not assembly)
 
     def close(self):
         with self.lock:
@@ -331,7 +382,9 @@ def handler_for(manager):
                 process = manager.presets.get("process", {})
                 filament = manager.presets.get("filament", {})
                 return self.send(200, dict(token=manager.token, fields=SCHEMA, defaults=manager.defaults,
-                    limits=manager.meta, models=[{"id": k, "label": v[0]} for k, v in MODELS.items()],
+                    limits=manager.meta, models=[{"id": k, "label": v[0],
+                        "fixed_parameters": {f["id"]: v[2][f["id"]] for f in SCHEMA if f["id"] in v[2]}}
+                        for k, v in MODELS.items()],
                     profile=dict(machine=manager.presets.get("machine", {}).get("name", "A1 mini"),
                                  filament=filament.get("name", "PETG"), layer_height=process.get("layer_height"),
                                  walls=process.get("wall_loops"), infill=process.get("sparse_infill_density")),
@@ -339,7 +392,7 @@ def handler_for(manager):
             if path.startswith("/api/jobs/"):
                 job = manager.get(path.rsplit("/", 1)[-1])
                 return self.send(200, job) if job else self.send(404, {"error": "Build not found; update the preview again."})
-            match = re.fullmatch(r"/artifacts/([a-f0-9]{24})/([a-z0-9.]+)", path)
+            match = re.fullmatch(r"/artifacts/([a-f0-9]{24})/([a-z0-9.-]+)", path)
             if match and match[2] in ARTIFACTS and manager.get(match[1]):
                 target = manager.output / match[1] / match[2]
             else:

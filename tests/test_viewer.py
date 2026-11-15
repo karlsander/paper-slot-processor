@@ -30,34 +30,47 @@ def manager(folder):
 
 class ParameterTests(unittest.TestCase):
     def test_rejects_code_unknown_nonfinite_and_wrong_types(self):
-        for values in [[], {'path': '/etc/passwd'}, {'paper_width': 'cube(3)'},
-                       {'paper_width': float('nan')}, {'paper_width': float('inf')},
-                       {'paper_width': True}, {'paper_width': 999},
-                       {'chamber_count': 1.5}, {'base_enabled': 1}]:
+        for values in [[], {'path': '/etc/passwd'}, {'roll_width': 'cube(3)'},
+                       {'roll_width': float('nan')}, {'roll_width': float('inf')},
+                       {'roll_width': True}, {'roll_width': 999},
+                       {'recipe_a_concentrate': 1.5}, {'base_enabled': 1}]:
             with self.subTest(values=values), self.assertRaises(ValueError):
                 viewer.validate_parameters(values, defaults())
 
     def test_partial_override_preserves_other_defaults(self):
-        result = viewer.validate_parameters({'paper_width': 120}, defaults())
-        self.assertEqual(result['paper_width'], 120)
-        self.assertEqual(result['paper_height'], defaults()['paper_height'])
+        result = viewer.validate_parameters({'roll_width': 120}, defaults())
+        self.assertEqual(result['roll_width'], 120)
+        self.assertEqual(result['image_aspect'], defaults()['image_aspect'])
 
     def test_cache_key_tracks_source_parameter_plate_and_profile(self):
-        args = [{'lib/a.scad': b'cube(1);'}, {'paper_width': 120}, 'tank', {'infill': '15%'}]
+        args = [{'lib/a.scad': b'cube(1);'}, {'roll_width': 120}, 'tank', {'infill': '15%'}]
         key = viewer.source_key(*args)
-        variants = [{ 'lib/a.scad': b'cube(2);'}, {'paper_width': 125}, 'fit', {'infill': '20%'}]
+        variants = [{ 'lib/a.scad': b'cube(2);'}, {'roll_width': 105}, 'fit', {'infill': '20%'}]
         for index, value in enumerate(variants):
             changed = args.copy()
             changed[index] = value
             self.assertNotEqual(key, viewer.source_key(*changed))
+
+    def test_complete_set_totals_include_repeated_tiles(self):
+        reports = [dict(quantity=6,stats=dict(total_estimated_time='1h 2m 3s', estimated_filament_g=10,estimated_filament_cm3=8)),
+                   dict(quantity=1,stats=dict(total_estimated_time='2m', estimated_filament_g=2,estimated_filament_cm3=1.5))]
+        total = viewer.aggregate_stats(reports)
+        self.assertEqual(total['total_estimated_time'], '6h 14m')
+        self.assertEqual(total['estimated_filament_g'], 62)
+        self.assertEqual(total['estimated_filament_cm3'], 49.5)
+
+    def test_snapshot_includes_modular_source_only(self):
+        sources = viewer.source_snapshot()
+        self.assertIn('v2/heater.scad', sources)
+        self.assertNotIn('lib/parameters.scad', sources)
 
 
 class JobTests(unittest.TestCase):
     def test_new_edit_cancels_old_job_and_blocks_stale_result(self):
         with tempfile.TemporaryDirectory() as folder:
             m = manager(folder)
-            first = m.submit({'parameters': {'paper_width': 120}})
-            second = m.submit({'parameters': {'paper_width': 125}})
+            first = m.submit({'parameters': {'roll_width': 120}})
+            second = m.submit({'parameters': {'roll_width': 105}})
             old = m.jobs[first['id']]
             self.assertTrue(old['cancel'].is_set())
             self.assertEqual(m.get(first['id'])['state'], 'superseded')
@@ -130,7 +143,7 @@ class HTTPTests(unittest.TestCase):
         self.assertEqual(code, 202)
         self.assertEqual(json.loads(data)['model'], 'fit')
         self.assertEqual(self.request('POST', '/api/jobs', '{bad', headers)[0], 400)
-        self.assertEqual(self.request('POST', '/api/jobs', '{"parameters":{"paper_width":"evil"}}', headers)[0], 400)
+        self.assertEqual(self.request('POST', '/api/jobs', '{"parameters":{"roll_width":"evil"}}', headers)[0], 400)
 
     def test_artifacts_cannot_escape_job_or_serve_private_files(self):
         job = self.manager.submit({})
@@ -145,6 +158,51 @@ class HTTPTests(unittest.TestCase):
 
 @unittest.skipUnless(Path(viewer.build.OPENSCAD).is_file(), 'OpenSCAD not installed')
 class PreviewIntegrationTests(unittest.TestCase):
+    def test_mirrored_bath_and_trial_guide_use_selected_geometry(self):
+        output = viewer.ROOT / 'build'
+        output.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=output) as folder, patch.object(viewer.build, 'BAMBU', '/missing/bambu'):
+            m = viewer.Manager(Path(folder))
+            try:
+                for model in ('inspect_b', 'trial_a_6'):
+                    ident = m.submit({'model': model})['id']
+                    deadline = time.monotonic() + 60
+                    while m.get(ident)['state'] in {'queued', 'rendering', 'slicing'} and time.monotonic() < deadline:
+                        time.sleep(0.1)
+                    job = m.get(ident)
+                    self.assertEqual(job['state'], 'preview_only', job.get('error'))
+                    if model == 'inspect_b':
+                        water = viewer.build.validate_mesh(Path(folder)/ident/'liquid.stl')
+                        self.assertGreater(water['bounds_mm'][1][0], job['model_info']['vessel_mm'][0])
+                        self.assertGreater(water['bounds_mm'][0][0], 0)
+                        self.assertEqual(job['model_info']['adox_prints_per_fill'], 30)
+                    else:
+                        self.assertEqual(job['model_info']['slit_mm'], 0.6)
+            finally:
+                m.close()
+
+    def test_rotated_small_mat_preserves_slot_spacing_and_valid_preview(self):
+        output = viewer.ROOT / 'build'
+        output.mkdir(exist_ok=True)
+        with tempfile.TemporaryDirectory(dir=output) as folder, patch.object(viewer.build, 'BAMBU', '/missing/bambu'):
+            m = viewer.Manager(Path(folder))
+            try:
+                ident = m.submit({'parameters': {'heater_width': 150, 'heater_height': 140}})['id']
+                deadline = time.monotonic() + 60
+                while m.get(ident)['state'] in {'queued', 'rendering', 'slicing'} and time.monotonic() < deadline:
+                    time.sleep(0.1)
+                job = m.get(ident)
+                self.assertEqual(job['state'], 'preview_only', job.get('error'))
+                self.assertEqual(job['model_info']['slot_pitch_mm'], 70)
+                self.assertEqual(job['model_info']['mat_mm'][:2], [150,140])
+                self.assertEqual(job['model_info']['plate_mm'][:2], [166,172])
+                self.assertGreaterEqual(job['preview_bounds_mm'][0], 166)
+                self.assertEqual(job['model_info']['bath_ml'], 325)
+                self.assertEqual(viewer.QUANTITIES['guard_tile'], 4)
+                self.assertEqual(viewer.QUANTITIES['heater_clamps'], 2)
+            finally:
+                m.close()
+
     def test_source_defaults_build_watertight_preview_without_slicer(self):
         # Keep output inside the repository so CI's OpenSCAD container can see it.
         output = viewer.ROOT / 'build'
@@ -159,14 +217,17 @@ class PreviewIntegrationTests(unittest.TestCase):
                 job = m.get(ident)
                 self.assertEqual(job['state'], 'preview_only', job.get('error'))
                 self.assertTrue(job['mesh']['is_watertight'])
-                self.assertEqual(job['mesh']['body_count'], 1)
+                self.assertEqual(job['mesh']['body_count'], 2)
                 self.assertIsNone(job['stats'])
                 self.assertTrue(job['liquid'])
+                self.assertTrue(job['paper'])
+                self.assertEqual(len(job['layers']), 2)
+                self.assertFalse((Path(folder)/ident/'plate.3mf').exists())
                 liquid = viewer.build.validate_mesh(Path(folder)/ident/'liquid.stl')
                 self.assertTrue(liquid['is_watertight'])
                 self.assertAlmostEqual(liquid['volume_mm3'] / 1000,
-                    job['model_info']['bath_ml'] * m.defaults['chamber_count'], delta=0.3)
-                self.assertEqual(job['model_info']['mix_first_ml'] + job['model_info']['mix_second_ml'], job['model_info']['bath_ml'])
+                    job['model_info']['bath_ml'] * 2, delta=0.3)
+                self.assertEqual(sum(job['model_info']['recipe_a_ml']), job['model_info']['bath_ml'])
                 manifest = json.loads((Path(folder)/ident/'settings.json').read_text())
                 self.assertEqual(manifest['parameters'], m.defaults)
             finally:

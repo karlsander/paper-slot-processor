@@ -1,0 +1,408 @@
+{
+  "model": "3-D finite-volume solid conduction; one well-mixed liquid node",
+  "assumptions": {
+    "liquid_film_W_m2K": 300,
+    "perfect_solid_contacts": true,
+    "radiation": true,
+    "evaporation_resolved": false,
+    "base_neighbor_top_mass_omitted": true
+  },
+  "cases": {
+    "RS-10W-h3": {
+      "power_W": 10,
+      "room_C": 20,
+      "air_h": 3,
+      "surface_h": 3,
+      "liquid_C": 37.18864881348179,
+      "region_max_C": {
+        "petg": 40.8880395263248,
+        "pad": 41.90351883875786,
+        "aluminium": 41.96800107453055,
+        "heater": 43.59903514406466
+      },
+      "energy_residual_W": -7.753264696930273e-11,
+      "iterations": 8,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "RS-15W-h3": {
+      "power_W": 15,
+      "room_C": 20,
+      "air_h": 3,
+      "surface_h": 3,
+      "liquid_C": 45.169433069036074,
+      "region_max_C": {
+        "petg": 50.68438895521092,
+        "pad": 52.198237602837196,
+        "aluminium": 52.29436577116087,
+        "heater": 54.724344716648545
+      },
+      "energy_residual_W": -7.594103124120011e-11,
+      "iterations": 10,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-30C-h3": {
+      "power_W": 5.6947429092910635,
+      "room_C": 20,
+      "air_h": 3,
+      "surface_h": 3,
+      "liquid_C": 30.000000002794366,
+      "region_max_C": {
+        "petg": 32.11780781605364,
+        "pad": 32.69914471528688,
+        "aluminium": 32.73605927523795,
+        "heater": 33.670371880062646
+      },
+      "energy_residual_W": -6.991474066353476e-11,
+      "iterations": 7,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-35C-h3": {
+      "power_W": 8.669797061673375,
+      "room_C": 20,
+      "air_h": 3,
+      "surface_h": 3,
+      "liquid_C": 35.00000002396888,
+      "region_max_C": {
+        "petg": 38.21252931896993,
+        "pad": 39.09436590277471,
+        "aluminium": 39.150361947800775,
+        "heater": 40.56700442441985
+      },
+      "energy_residual_W": -7.194778106622834e-11,
+      "iterations": 8,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-38C-h3": {
+      "power_W": 10.49752383841215,
+      "room_C": 20,
+      "air_h": 3,
+      "surface_h": 3,
+      "liquid_C": 37.99999997860505,
+      "region_max_C": {
+        "petg": 41.88107194383332,
+        "pad": 42.946422469237916,
+        "aluminium": 43.01407147932963,
+        "heater": 44.72509255713874
+      },
+      "energy_residual_W": -6.927258766609157e-11,
+      "iterations": 9,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "RS-10W-h5": {
+      "power_W": 10,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 33.63141958993219,
+      "region_max_C": {
+        "petg": 37.11265116647826,
+        "pad": 38.06834028652747,
+        "aluminium": 38.12903614962795,
+        "heater": 39.7525482447781
+      },
+      "energy_residual_W": -7.295497539416829e-11,
+      "iterations": 7,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "RS-15W-h5": {
+      "power_W": 15,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 40.13041586580516,
+      "region_max_C": {
+        "petg": 45.32911760731048,
+        "pad": 46.75629538073383,
+        "aluminium": 46.846935312213645,
+        "heater": 49.26968763982552
+      },
+      "energy_residual_W": -7.548806024715304e-11,
+      "iterations": 8,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-30C-h5": {
+      "power_W": 7.27314342098226,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 30.000000000311047,
+      "region_max_C": {
+        "petg": 32.53799901970598,
+        "pad": 33.23474664921406,
+        "aluminium": 33.27899718182306,
+        "heater": 34.46310877317404
+      },
+      "energy_residual_W": -7.753087061246333e-11,
+      "iterations": 7,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-35C-h5": {
+      "power_W": 11.039974142567173,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 35.00000000275912,
+      "region_max_C": {
+        "petg": 38.8397474820888,
+        "pad": 39.893858304918865,
+        "aluminium": 39.960804903647215,
+        "heater": 41.751242223218924
+      },
+      "energy_residual_W": -7.041833782750473e-11,
+      "iterations": 7,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-38C-h5": {
+      "power_W": 13.343681620931708,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 38.0000000068689,
+      "region_max_C": {
+        "petg": 42.631506928173394,
+        "pad": 43.902975612980356,
+        "aluminium": 43.98372653156065,
+        "heater": 46.142643666760705
+      },
+      "energy_residual_W": -7.280220870597987e-11,
+      "iterations": 8,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "RS-10W-h8": {
+      "power_W": 10,
+      "room_C": 20,
+      "air_h": 8,
+      "surface_h": 3,
+      "liquid_C": 30.33991185559546,
+      "region_max_C": {
+        "petg": 33.574498203820326,
+        "pad": 34.46257799129921,
+        "aluminium": 34.51899100022217,
+        "heater": 36.122667580937446
+      },
+      "energy_residual_W": -7.129585810616845e-11,
+      "iterations": 6,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "RS-15W-h8": {
+      "power_W": 15,
+      "room_C": 20,
+      "air_h": 8,
+      "surface_h": 3,
+      "liquid_C": 35.36667522350996,
+      "region_max_C": {
+        "petg": 40.20356395262968,
+        "pad": 41.53156642139339,
+        "aluminium": 41.61592424907485,
+        "heater": 44.01270823479791
+      },
+      "energy_residual_W": -7.817746450200502e-11,
+      "iterations": 7,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-30C-h8": {
+      "power_W": 9.66525466779814,
+      "room_C": 20,
+      "air_h": 8,
+      "surface_h": 3,
+      "liquid_C": 30.000000000026034,
+      "region_max_C": {
+        "petg": 33.12695058512651,
+        "pad": 33.98547823254313,
+        "aluminium": 34.04001402359194,
+        "heater": 35.59038315961254
+      },
+      "energy_residual_W": -7.315570371702051e-11,
+      "iterations": 6,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-35C-h8": {
+      "power_W": 14.63209148849807,
+      "room_C": 20,
+      "air_h": 8,
+      "surface_h": 3,
+      "liquid_C": 35.0000000002002,
+      "region_max_C": {
+        "petg": 39.719337861104464,
+        "pad": 41.0150659937147,
+        "aluminium": 41.097373690562165,
+        "heater": 43.436000279901236
+      },
+      "energy_residual_W": -6.822276077400602e-11,
+      "iterations": 7,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-38C-h8": {
+      "power_W": 17.65720430295195,
+      "room_C": 20,
+      "air_h": 8,
+      "surface_h": 3,
+      "liquid_C": 38.00000000047828,
+      "region_max_C": {
+        "petg": 43.68422880551992,
+        "pad": 45.24487372899728,
+        "aluminium": 45.34400945919231,
+        "heater": 48.159880943412475
+      },
+      "energy_residual_W": -7.218758923954738e-11,
+      "iterations": 7,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "RS-15W-room18": {
+      "power_W": 15,
+      "room_C": 18,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 38.30457255388325,
+      "region_max_C": {
+        "petg": 43.50732018258236,
+        "pad": 44.935610609516345,
+        "aluminium": 45.02632141816338,
+        "heater": 47.452796497682414
+      },
+      "energy_residual_W": -7.069012042393297e-11,
+      "iterations": 8,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "RS-15W-high-surface-loss": {
+      "power_W": 15,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 30,
+      "liquid_C": 38.68387227839003,
+      "region_max_C": {
+        "petg": 44.10837114836795,
+        "pad": 45.59747084756839,
+        "aluminium": 45.69203633690262,
+        "heater": 48.158691749952766
+      },
+      "energy_residual_W": -7.193179385467374e-11,
+      "iterations": 8,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "required-35C-high-surface-loss": {
+      "power_W": 11.94014311676056,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 30,
+      "liquid_C": 35.00000000170991,
+      "region_max_C": {
+        "petg": 39.330474363057306,
+        "pad": 40.51924964911382,
+        "aluminium": 40.594743036463626,
+        "heater": 42.56428819036603
+      },
+      "energy_residual_W": -7.534062262948282e-11,
+      "iterations": 7,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "original-5W": {
+      "power_W": 5,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 26.468716591732232,
+      "region_max_C": {
+        "petg": 27.99756062813077,
+        "pad": 28.417054605931185,
+        "aluminium": 28.4436734291408,
+        "heater": 29.19574668874435
+      },
+      "energy_residual_W": 1.7404744312443654e-11,
+      "iterations": 6,
+      "cells": 14316,
+      "solid_nodes": 8604
+    },
+    "mesh-3mm-15W": {
+      "power_W": 15,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 40.038825775974544,
+      "region_max_C": {
+        "petg": 45.232687263745106,
+        "pad": 46.65854262062828,
+        "aluminium": 46.74909925759829,
+        "heater": 49.17557496091257
+      },
+      "energy_residual_W": -2.6777158268487256e-10,
+      "iterations": 8,
+      "cells": 45760,
+      "solid_nodes": 23920
+    },
+    "film-100-15W": {
+      "power_W": 15,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 40.101950348735954,
+      "region_max_C": {
+        "petg": 46.91523967882347,
+        "pad": 48.19937575770251,
+        "aluminium": 48.28095342901793,
+        "heater": 50.64881930045874
+      },
+      "energy_residual_W": 1.3486101124726702e-11,
+      "iterations": 8,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "film-500-15W": {
+      "power_W": 15,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 40.13201343764479,
+      "region_max_C": {
+        "petg": 44.96955287685938,
+        "pad": 46.431097758317776,
+        "aluminium": 46.523914866051314,
+        "heater": 48.9589826406376
+      },
+      "energy_residual_W": 4.490274818635953e-11,
+      "iterations": 8,
+      "cells": 13225,
+      "solid_nodes": 7513
+    },
+    "zero-power": {
+      "power_W": 0,
+      "room_C": 20,
+      "air_h": 5,
+      "surface_h": 3,
+      "liquid_C": 19.99999999985812,
+      "region_max_C": {
+        "petg": 19.999999999979366,
+        "pad": 19.999999999884892,
+        "aluminium": 19.99999999988512,
+        "heater": 19.999999999889383
+      },
+      "energy_residual_W": -7.973590546896891e-11,
+      "iterations": 1,
+      "cells": 13225,
+      "solid_nodes": 7513
+    }
+  },
+  "heater_size_mm": [
+    100,
+    150,
+    1.4
+  ]
+}
