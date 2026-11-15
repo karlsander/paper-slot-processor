@@ -1,0 +1,33 @@
+Mode: built-in image_gen; user photo IMG_1080.HEIC decoded to PNG for editing.
+Final output: measurements-T-W.png
+
+Initial prompt:
+Use case: precise-object-edit.
+Asset type: technical measurement guide over the user's actual overhead photo of the Durst C35 lower support.
+Input IMG_1080.png is the EDIT TARGET. Preserve the entire photograph, perspective, every physical edge, lens, bevel, front notches, upper black housing and surrounding objects. Add annotation only. Do not redraw, reshape, invent, remove, or symmetrize mechanical parts. Keep the full view, optionally extending a white footer below for the legend. The front of the enlarger is at the BOTTOM of the photo, rear at TOP.
+Only FOUR new dimension labels T U V W, in bold dark letters on white-backed cyan-bordered badges. Use precise thin cyan double-ended dimension arrows, short extension lines and tiny endpoint dots. No numerical measurements.
+
+Important physical distinction: the rectangular opening has a visible bright bevel around its perimeter. T and U measure the CLEAR OPENING between its INNER straight walls, immediately below that bevel, NOT the larger outer boundary of the bright bevel and NOT the circular lens below. V and W terminate at those SAME inner edges. The outside datum is the RAISED BLACK SUPPORT itself; EXCLUDE the wider thin flange visible around the outside. This is critical.
+
+T = clear opening WIDTH left to right. Place a horizontal double-ended dimension across the black rectangular opening at about source y=64%. Use the inner LEFT straight opening edge near x=24.5% and the inner RIGHT straight opening edge near x=73.8% at that height. Badge T near the middle of that dimension, keep it off the U line. Match the slight perspective of the real opening.
+U = clear opening DEPTH front to back. Place a vertical double-ended dimension inside the opening near x=60%, spanning the inner REAR edge at about source y=53.1% down to the inner FRONT edge about y=83.4%. Use endpoints on the actual INNER clear opening edge, not outer bevel. Badge U in the lower half near the dimension. Do not measure the lens.
+V = FRONT EDGE OFFSET. A short front-to-back dimension on the broad black front land, around source x=45%, from the INNER FRONT edge of the rectangular opening near y=83.4% to the OUTSIDE FRONT edge/plane of the RAISED BLACK SUPPORT near y=92.2%. This is the raised top platform's front edge before its lower thin wider flange. Do not extend to the flange front edge near y=94.5%. Keep V away from the two small front notches. Use fine extension lines to make both datums unambiguous.
+W = LEFT EDGE OFFSET. A short left-to-right dimension across the broad LEFT land around source y=75%, from the OUTSIDE LEFT edge of the RAISED BLACK SUPPORT near x=11.3% to the INNER LEFT edge of the opening near x=23.8%. Do not start at the wider flange's outermost edge near x=9%. Use short extensions and avoid rounded corners. Badge W beside this short arrow, readable on a white background.
+
+Keep all four arrows legible and spatially separated. The reference pixel locations above are approximate guidance: attach the dots to the visible corresponding real edges. Do not create new edges or fictitious support rails.
+White footer with these exact texts:
+"LOWER SUPPORT — NEXT MEASUREMENTS (mm)"
+"T  Clear opening: left-to-right width"
+"U  Clear opening: front-to-back depth"
+"V  Raised support front edge to opening's inner front edge"
+"W  Raised support left edge to opening's inner left edge"
+"T/U: measure inside the bevel. V/W: exclude the wider flange."
+"Front = bottom. Photo is not to scale."
+Do not label any new height measurement or assume the bright rim is raised or recessed. No numerical dimensions, fake calipers, generic CAD drawing, or added geometry.
+
+V endpoint correction prompt:
+Precision correction to this annotated photo. Change ONLY the V dimension arrow and its two short endpoint witness lines; keep all photo pixels/geometry, T/U/W dimensions, labels and footer text unchanged.
+The current V arrow is too short at BOTH ends. V must reach from the same INNER FRONT opening edge used by U, to the OUTSIDE FRONT EDGE of the RAISED BLACK PLATFORM. At x about 46% of image width: move V's upper endpoint/witness line UP from the outer bright bevel border to the inner black opening edge at y about 63.8% of the full annotated image height (same physical line as U's lower endpoint, but at V's x position). It should span across the bright bevel instead of excluding it.
+Move V's lower endpoint/witness line DOWN to the frontmost outer edge of the raised black support at y about 72.5% of the full annotated image height, at the lower edge of the rounded black front face. Do NOT stop where the flat textured top begins to curve. Do NOT extend to the wider thin flange which is still further forward/down near y=74.8%. The exterior datum is the front outside plane of the raised support, excluding the flange.
+Keep the V badge clear of the arrow. Only correct these V endpoints and arrow length; no new lines or measurements anywhere else.
+

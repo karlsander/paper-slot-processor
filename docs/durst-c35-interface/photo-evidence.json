@@ -1,0 +1,41 @@
+{
+  "source": "User-supplied photographs, 2026-11-01",
+  "originals_committed": false,
+  "photos": [
+    {
+      "filename": "IMG_1075.HEIC",
+      "sha256": "c1ce261e37ab9ec8805133fba3f02bfbd7dd47aaf00732ca5220d247fb3377fa",
+      "role": "Slot and lower support oblique view"
+    },
+    {
+      "filename": "IMG_1076.HEIC",
+      "sha256": "cf813175a0a44d66f8692511547ae95dfe81b8d45fcdb5245dc10a2d0e496e25",
+      "role": "Head underside: black plate, aperture, six visible screw heads"
+    },
+    {
+      "filename": "IMG_1077.HEIC",
+      "sha256": "2b60af4d1013d0f451ee7415688e371264f61cd70fb36511290b6da94ea2cfa2",
+      "role": "Caliper measurement: narrow head external width 88.55 mm"
+    },
+    {
+      "filename": "IMG_1078.HEIC",
+      "sha256": "a506c75a6413c62c24442ef5785e4bb14f7a3c640fc190323787fb82539091c4",
+      "role": "Front view used for L-O photo annotations"
+    },
+    {
+      "filename": "IMG_1079.HEIC",
+      "sha256": "9a6a95ca3baab94660816579be16d0eaac5058a9969c552c861f74085ee39ef1",
+      "role": "Side view used for P-S photo annotations; rear lower-support endpoint partly obscured"
+    },
+    {
+      "filename": "IMG_1080.HEIC",
+      "sha256": "480647a4b1843d553862d9c057fe223c4b8e478f840d77bf572643efff08eec0",
+      "role": "Lower support viewed from above: broad top surface, beveled rectangular opening, two front features; T-W measurement guide, no numerical readings yet"
+    },
+    {
+      "filename": "IMG_1081.HEIC",
+      "sha256": "be91fbc69fd73ca809c84921e783012449216fb6863ff7198d37b9dac9e7b28d",
+      "role": "Front-left oblique view of lower support opening edge and two front apertures; X-Z guide requests bevel profile and top-wall thickness without inferring unseen underside"
+    }
+  ]
+}
