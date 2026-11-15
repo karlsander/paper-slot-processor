@@ -1,5 +1,67 @@
 # Provisional C35 enlarger insertion study
 
+
+## Review against the measured interface (2026-11-15)
+
+The [measured insertion-area reference](../durst-c35-interface/README.md) from
+PR #16 is now on main. It supersedes this study's machine assumptions; the
+historical fixture, videos and passing results below remain reproducible but
+must not be used to accept carrier fit. **Keep PR #2 open pending measured
+carrier registration and a new insertion study.**
+
+| Interface feature | Historical fixture | Measured reference |
+| --- | --- | --- |
+| Head neck width / depth | 90 / 86 mm | 88.55 / 98.3 mm |
+| Lower support width / depth | 84 / 82 mm, U-shaped rails | 86.7 / 98.3 mm, frame around a rectangular opening |
+| Unloaded contact gap | 2.6 mm, chosen from carrier stack | Approximately 6 mm |
+| Lower clear opening | Open U-shaped centre | 55.3 × 56.1 mm; centre X=+0.8, Y=-43.35 mm |
+| Rear stop / release travel | Assumed stop and 3 mm travel | Neither established |
+
+The 92.2 mm space between the carrier's side walls exceeds the measured neck
+width by 3.65 mm in total. This isolated width comparison does not establish
+clearance for hinge ears, front/rear features, the wider housing or insertion.
+The 2.6 mm ordinary sheet stack is 3.4 mm below the approximate unloaded gap;
+it does not establish that the machine will clamp the film. The 5.2 mm local
+window stack, contact locations and actual film-seat height need separate review.
+
+A diagnostic placement aligns the old head front (Y=96) to the measured front
+(Y=0), and the old upper contact (Z=1.4) to the measured underside (Z=0), keeping
+X unchanged. This is translation `(0, -96, -1.4)`, **not measured carrier
+registration**. With B in its closed pose, build123d 0.13.0 reports **308.651805
+mm³ overlap between B and the reference head shell**; no other pair exceeds
+1e-6 mm³ at this single pose. The reference still contains provisional housing
+and hidden details. This result rejects automatic reuse of the historical pose;
+it neither proves that the printed carrier cannot fit nor establishes another
+valid pose. No new motion, contact-force or optical acceptance is claimed.
+
+Reproduce the diagnostic from the repository root with the CAD dependencies:
+
+```sh
+python - <<'PYTHON'
+import build123d as bd
+from cad.durst_c35.parameters import parameters
+from cad.durst_c35.parts import lower, upper, opened
+from cad.durst_c35_insertion.model import parameters as fixture_parameters
+from cad.durst_c35_interface.model import parts
+from cad.durst_c35_interface.export import overlap
+p, q = parameters(), fixture_parameters()
+fixture = parts()
+shift = bd.Pos(0, -q["mixing_front_y"], -q["upper_contact_z"])
+for name, shape in {"A": lower(p), "B": opened(p, upper(p), 0)}.items():
+    for obstacle, solid in fixture.items():
+        volume = overlap(shift * shape, solid)
+        if volume > 1e-6:
+            print(name, obstacle, round(volume, 6))
+PYTHON
+```
+
+Before integrating the carrier, establish the original film seat relative to
+the measured head underside/front, the separate head optical opening and its
+position, screw centres/protrusions, actual bearing surfaces and insertion stop.
+Then define the carrier transform explicitly, check the complete insertion and
+withdrawal path against the measured reference, and validate printed fit and
+film retention. Do not enlarge the fixture or infer these datums to obtain a pass.
+
 This study is authorized without exact measurements. It establishes an editable
 interface and checks a prescribed motion against **estimated contact envelopes**.
 It does not establish that the printed carrier fits the real enlarger.

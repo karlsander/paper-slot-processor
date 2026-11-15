@@ -1,5 +1,11 @@
 # Durst C35 carrier — V0.2 thin-sheet correction
 
+
+**Integration status:** the measured reference from PR #16 supersedes the older
+machine fixture. The [interface review](insertion-study.md#review-against-the-measured-interface-2026-11-15)
+finds interference when reusing its historical placement. Carrier registration,
+contact and optical alignment remain unresolved; PR #2 stays open.
+
 The failed V0.1 print did not slide into the enlarger. The renewed photo review
 establishes **a thin plastic panel with upturned side edges**, with raised details
 confined to the perimeter, window and pin seats. V0.2 uses a **1.2 mm sheet** and
