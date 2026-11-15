@@ -1,0 +1,15 @@
+Use case: precise-object-edit. Annotate this exact upright front photo of the user's Durst C35 enlarger as a measurement aid. Preserve the entire original machine, photo geometry, gaps, perspective, screws, bellows, text, background and colors faithfully. Do not invent, remove, reshape or reconstruct any parts. Add clean thin cyan-blue dimension arrows and extension lines, bold blue letter badges L M N O. You may expand the canvas with white margins for legible labels, preserving the central photograph.
+Only FOUR new dimensions with no numerical values:
+L = HEIGHT OF NARROW WHITE BAND: a vertical double-ended arrow placed immediately to the left of the narrow white section, from the shoulder where the large white upper case steps inward down to the bottom front edge of that narrow white section. In source normalized coordinates the shoulder is near (10%,16%), bottom near (10%,26%). Use fine extension lines from those actual edges to an arrow outside the object. L covers the narrowed WHITE band only, excludes the slot.
+M = WIDTH OF RAISED BLACK LOWER SUPPORT: a horizontal double-ended arrow from the left outside side at about x=10.5% to right outside side x=79%, at about y=36%. This is the raised black rectangular portion immediately BELOW the thin carrier slot and ABOVE the wide thin flange. It is not the lower lens housing or bellows.
+N = HEIGHT OF THAT RAISED BLACK SUPPORT: vertical dimension just to the right of this raised rectangular black portion, from its TOP surface at source y=31% to the TOP of its wider flange at y=40%. Use short horizontal extension lines from the actual surfaces. Do not include flange thickness or bellows.
+O = OVERALL WIDTH OF THE WIDE THIN BLACK FLANGE: horizontal double-ended arrow across the flange at source y=43%, anchored by short extension lines to its LEFT outermost edge x=5.8% and RIGHT outermost edge x=82.8%. This flange lies immediately BELOW the raised black support and immediately ABOVE the bellows. Do not measure the black Durst C35 label panel.
+Keep arrows visually separate. Prefer label badges on white backgrounds so the black part is still recognizable. Do not draw orange A arrows or B dimension arrows on this version. Place a white footer with these exact readable texts on separate rows:
+"NEXT MEASUREMENTS - ALL IN mm"
+"L  Narrow white band: height"
+"M  Raised black lower support: outside width"
+"N  Raised black lower support: height above flange"
+"O  Wide black flange: overall outside width"
+"Already supplied: slot about 6 mm; narrow head outside width 88.55 mm."
+"Measure the real edges; the photo is not to scale."
+No extra measurements, invented values, calipers or diagram overlays. This is the user's actual front view with a precise measurement annotation, not new CAD or a generic schematic.
