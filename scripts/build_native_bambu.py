@@ -11,7 +11,7 @@ import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
 
-import build_openscad as build
+import bambu_common as build
 import numpy as np
 import trimesh
 from scipy.spatial import cKDTree
